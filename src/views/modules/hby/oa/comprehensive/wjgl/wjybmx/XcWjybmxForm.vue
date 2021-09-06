@@ -1,0 +1,125 @@
+<template>
+<div>
+  <el-dialog
+    :title="title"
+    :close-on-click-modal="false"
+     v-dialogDrag
+    :visible.sync="visible">
+    <el-form :model="inputForm" size="small" ref="inputForm" v-loading="loading" :class="method==='view'?'readonly':''"  :disabled="method==='view'"
+             label-width="120px">
+      <el-row  :gutter="15">
+        <el-col :span="12">
+            <el-form-item label="样本id" prop="ybid"
+                :rules="[
+                 ]">
+              <el-input v-model="inputForm.ybid" placeholder="请填写样本id"     ></el-input>
+           </el-form-item>
+        </el-col>
+        <el-col :span="12">
+            <el-form-item label="问题id" prop="wtid"
+                :rules="[
+                 ]">
+              <el-input v-model="inputForm.wtid" placeholder="请填写问题id"     ></el-input>
+           </el-form-item>
+        </el-col>
+        <el-col :span="12">
+            <el-form-item label="实际得分" prop="sjdf"
+                :rules="[
+                 ]">
+              <el-input v-model="inputForm.sjdf" placeholder="请填写实际得分"     ></el-input>
+           </el-form-item>
+        </el-col>
+        <el-col :span="12">
+            <el-form-item label="选项" prop="xx"
+                :rules="[
+                 ]">
+              <el-input v-model="inputForm.xx" placeholder="请填写选项"     ></el-input>
+           </el-form-item>
+        </el-col>
+        <el-col :span="12">
+            <el-form-item label="备注信息" prop="remarks"
+                :rules="[
+                 ]">
+          <el-input type="textarea" v-model="inputForm.remarks" placeholder="请填写备注信息"     ></el-input>
+           </el-form-item>
+        </el-col>
+        </el-row>
+    </el-form>
+    <span slot="footer" class="dialog-footer">
+      <el-button size="small" @click="visible = false">关闭</el-button>
+      <el-button size="small" type="primary" v-if="method != 'view'" @click="doSubmit()" v-noMoreClick>确定</el-button>
+    </span>
+  </el-dialog>
+</div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        title: '',
+        method: '',
+        visible: false,
+        loading: false,
+        inputForm: {
+          id: '',
+          ybid: '',
+          wtid: '',
+          sjdf: '',
+          xx: '',
+          remarks: ''
+        }
+      }
+    },
+    components: {
+    },
+    methods: {
+      init (method, id) {
+        this.method = method
+        this.inputForm.id = id
+        if (method === 'add') {
+          this.title = `新建问卷样本明细`
+        } else if (method === 'edit') {
+          this.title = '修改问卷样本明细'
+        } else if (method === 'view') {
+          this.title = '查看问卷样本明细'
+        }
+        this.visible = true
+        this.loading = false
+        this.$nextTick(() => {
+          this.$refs.inputForm.resetFields()
+          if (method === 'edit' || method === 'view') { // 修改或者查看
+            this.loading = true
+            this.$http({
+              url: `/wjybmx/xcWjybmx/queryById?id=${this.inputForm.id}`,
+              method: 'get'
+            }).then(({data}) => {
+              this.inputForm = this.recover(this.inputForm, data.xcWjybmx)
+              this.loading = false
+            })
+          }
+        })
+      },
+      // 表单提交
+      doSubmit () {
+        this.$refs['inputForm'].validate((valid) => {
+          if (valid) {
+            this.loading = true
+            this.$http({
+              url: `/wjybmx/xcWjybmx/save`,
+              method: 'post',
+              data: this.inputForm
+            }).then(({data}) => {
+              this.loading = false
+              if (data && data.success) {
+                this.visible = false
+                this.$message.success(data.msg)
+                this.$emit('refreshDataList')
+              }
+            })
+          }
+        })
+      }
+    }
+  }
+</script>
