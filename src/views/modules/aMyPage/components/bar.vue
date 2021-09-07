@@ -45,7 +45,7 @@ export default {
     BaseOptions() {
       let that = this;
       let options = {
-        backgroundColor: "#323a5e",
+        backgroundColor: "#fff",
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -76,7 +76,7 @@ export default {
           data:this.data.map((v)=>v.title),
           axisLine: {
             lineStyle: {
-              color: "white",
+              color: "#000",
             },
           },
           axisLabel: {
@@ -93,13 +93,13 @@ export default {
           axisLine: {
             show: false,
             lineStyle: {
-              color: "white",
+              color: "#000",
             },
           },
           splitLine: {
             show: true,
             lineStyle: {
-              color: "rgba(255,255,255,0.3)",
+              color: "rgba(0,0,0,0.3)",
             },
           },
           axisLabel: {},

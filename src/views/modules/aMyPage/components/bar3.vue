@@ -55,7 +55,7 @@ export default {
     BaseOptions() {
       let that = this;
       let options = {
-        backgroundColor: "#323a5e",
+        backgroundColor: "#fff",
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -75,7 +75,7 @@ export default {
           right: 10,
           top: 12,
           textStyle: {
-            color: "#fff",
+            color: "#000",
           },
           itemWidth: 12,
           itemHeight: 10,
@@ -117,7 +117,7 @@ export default {
                 : this.select == 2
                 ? "属"
                 : "种",
-            barWidth: "15%",
+            barWidth: "35%",
             label: {
               show: true,
               position: "right", // 位置

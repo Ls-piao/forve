@@ -120,30 +120,40 @@ export default {
   data() {
     return {
       config: {
-          header:["",'蕨类','裸子植物','被子植物','高等植物'],
+        header: ["", "蕨类", "裸子植物", "被子植物", "高等植物"],
         data: [
           ["科", "150", "34", "85", "150"],
           ["属", "120", "71", "37", "206"],
           ["种", "110", "123", "335", "333"],
         ],
+        headerBGC: "#fff",
+        oddRowBGC: "#fff",
+        evenRowBGC: "#f6f8fa",
       },
       ProtectConfig1: {
-        data: [["<i class='el-icon-grape' />","东北红豆杉"], ["<i class='el-icon-grape' />","长白松"]],
-        columnWidth:['40','180']
+        data: [
+          ["<i class='el-icon-grape' />", "东北红豆杉"],
+          ["<i class='el-icon-grape' />", "长白松"],
+        ],
+        columnWidth: ["40", "140"],
+        oddRowBGC: "#fff",
+        evenRowBGC: "#f6f8fa",
       },
       ProtectConfig2: {
         data: [
-          ["<i class='el-icon-grape' />","红松"],
-          ["<i class='el-icon-grape' />","钻天柳"],
-          ["<i class='el-icon-grape' />","水曲柳"],
-          ["<i class='el-icon-grape' />","水曲柳"],
-          ["<i class='el-icon-grape' />","水曲柳"],
-          ["<i class='el-icon-grape' />","水曲柳"],
-          ["<i class='el-icon-grape' />","水曲柳"],
-          ["<i class='el-icon-grape' />","水曲柳"],
-          ["<i class='el-icon-grape' />","水曲柳"],
+          ["<i class='el-icon-grape' />", "红松"],
+          ["<i class='el-icon-grape' />", "钻天柳"],
+          ["<i class='el-icon-grape' />", "水曲柳"],
+          ["<i class='el-icon-grape' />", "水曲柳"],
+          ["<i class='el-icon-grape' />", "水曲柳"],
+          ["<i class='el-icon-grape' />", "水曲柳"],
+          ["<i class='el-icon-grape' />", "水曲柳"],
+          ["<i class='el-icon-grape' />", "水曲柳"],
+          ["<i class='el-icon-grape' />", "水曲柳"],
         ],
-        columnWidth:['40','180']
+        oddRowBGC: "#fff",
+        evenRowBGC: "#f6f8fa",
+        columnWidth: ["40", "140"],
       },
       select: 0,
       ProtectColor: [
@@ -174,7 +184,9 @@ export default {
       PlantsType: ["门", "科", "属", "种"],
     };
   },
-  computed: {},
+  computed: {
+  
+  },
   watch: {},
   created() {},
   mounted() {},
@@ -182,7 +194,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
 .container {
   height: 100%;
   width: 100%;
@@ -243,7 +255,7 @@ export default {
             flex: 1;
           }
           :first-child {
-            border-right: 1px solid rgba($color: #000000, $alpha: 0.09);
+            border-right: 1px solid rgba(0,0,0,.09);
           }
         }
       }
@@ -261,17 +273,15 @@ export default {
           flex: 1;
         }
 
-        background: #0a2732;
+        background: #fff;
       }
       .top-right-top {
-          
         border-right: 5px;
         overflow: hidden;
         height: 49%;
         margin-bottom: 8px;
       }
       .top-right-bottom {
-          
         border-right: 5px;
         overflow: hidden;
         flex: 1;
@@ -302,7 +312,7 @@ export default {
       }
     }
     .bottom-left {
-      background: #0a2732;
+      background: #fff;
     }
   }
 }
@@ -325,6 +335,18 @@ export default {
   //       border-right: 1px solid rgba($color: #000000, $alpha: 0.07);
   //     }
   //   }
+}
+
+.dv-scroll-board{
+    color:#333;
+    /deep/ .header-item{
+        font-size: 1em;
+        text-align: center;
+    }
+    /deep/ .ceil{
+        font-size: 1em;
+        text-align: center;
+    }
 }
 </style>
 
