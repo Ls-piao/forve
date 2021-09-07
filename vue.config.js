@@ -18,7 +18,7 @@ module.exports = {
         modifyVars: {
         },
         javascriptEnabled: true,
-      }
+      },
     }
   },
 
