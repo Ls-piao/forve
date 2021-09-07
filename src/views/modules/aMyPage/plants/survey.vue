@@ -28,10 +28,10 @@
           </div>
         </div>
         <div class="top-center-bottom">
-          <div class="header">
+          <!-- <div class="header">
             <div class="title">濒危程度</div>
             <div class="title">保护等级</div>
-          </div>
+          </div> -->
           <div class="content">
             <div class="top-center-bottom-content-left">
               <Pie id="pie1" title="濒危程度" :data="DangerData" />
@@ -50,13 +50,19 @@
       </div>
       <div class="top-right">
         <div class="top-right-top">
-          <div class="header">国家Ⅰ级保护野生植物</div>
+          <div class="header red">
+            <div class="line"></div>
+            <div class="text">国家Ⅰ级保护野生植物</div>
+          </div>
           <div class="content">
             <DvScrollBoard :config="ProtectConfig1" ref="scrollBoard" />
           </div>
         </div>
         <div class="top-right-bottom">
-          <div class="header">国家Ⅱ级保护野生植物</div>
+          <div class="header yellow">
+            <div class="line"></div>
+            <div class="text">国家Ⅱ级保护野生植物</div>
+          </div>
           <div class="content">
             <DvScrollBoard :config="ProtectConfig2" ref="scrollBoard" />
           </div>
@@ -65,30 +71,45 @@
     </div>
     <div class="bottom">
       <div class="bottom-left">
-        <div class="header">濒危植物信息表</div>
+        <div class="header green">
+          <div class="line"></div>
+          <div class="text">濒危植物信息表</div>
+        </div>
         <div class="content">
           <!-- <Bar id="bar1" :data="PlantsData" /> -->
           <DvScrollBoard :config="config" ref="scrollBoard" />
         </div>
       </div>
       <div class="bottom-center">
-        <div class="header">濒危植物统计图</div>
+        <div class="header blue">
+          <div class="line"></div>
+          <div class="text">濒危植物统计图</div>
+        </div>
         <div class="content">
           <Bar id="bar" :data="PlantsData" />
         </div>
       </div>
       <div class="bottom-right">
-        <div class="header">
-          <div class="title" style="text-align: left">门类统计图</div>
-          <div class="options">
-            <el-select v-model="select" size="mini">
-              <el-option
-                v-for="(v, k) in PlantsType"
-                :key="k"
-                :value="k"
-                :label="v"
-              ></el-option>
-            </el-select>
+        <div class="header gray">
+          <div class="title" style="text-align: left">
+            <div class="line"></div>
+            <div class="div">
+              <div class="text">门类统计图</div>
+              <div class="options">
+                <el-select
+                  v-model="select"
+                  size="mini"
+                  style="margin-top: -3px"
+                >
+                  <el-option
+                    v-for="(v, k) in PlantsType"
+                    :key="k"
+                    :value="k"
+                    :label="v"
+                  ></el-option>
+                </el-select>
+              </div>
+            </div>
           </div>
         </div>
         <div class="content">
@@ -184,9 +205,7 @@ export default {
       PlantsType: ["门", "科", "属", "种"],
     };
   },
-  computed: {
-  
-  },
+  computed: {},
   watch: {},
   created() {},
   mounted() {},
@@ -255,7 +274,7 @@ export default {
             flex: 1;
           }
           :first-child {
-            border-right: 1px solid rgba(0,0,0,.09);
+            border-right: 1px solid rgba(0, 0, 0, 0.09);
           }
         }
       }
@@ -319,34 +338,124 @@ export default {
 .header {
   width: 100%;
   background: #3f8ef7;
-  height: 30px;
+  height: 40px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  overflow: hidden;
   display: flex;
-  padding: 0 24px;
-  line-height: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
   color: #fff;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 40px;
+  .line {
+    display: none;
+    height: 10px;
+    width: 100%;
+    background: rgb(74, 184, 129);
+  }
+  .text {
+    line-height: 34px;
+    padding: 0 24px;
+  }
   > div {
     flex: 1;
   }
-  //   .title {
-  //     height: 100%;
-  //     :nth-child(1) {
-  //       border-right: 1px solid rgba($color: #000000, $alpha: 0.07);
-  //     }
-  //   }
+  &.green {
+    flex-direction: column;
+    .text {
+      color: rgb(74, 184, 129);
+      flex: 1;
+
+      font-weight: 550;
+      text-align: left;
+    }
+    .line {
+      display: block;
+      height: 6px;
+      background: rgb(74, 184, 129);
+    }
+    background: #fff;
+  }
+  &.blue {
+    flex-direction: column;
+    .text {
+      color: #3f8ef7;
+      flex: 1;
+
+      font-weight: 550;
+      text-align: left;
+    }
+    .line {
+      display: block;
+      height: 6px;
+      background: #3f8ef7;
+    }
+    background: #fff;
+  }
+  &.gray {
+    flex-direction: column;
+    .div {
+      display: flex;
+      justify-content: space-between;
+      .text {
+        color: #3f3e3e;
+        flex: 1;
+        font-weight: 550;
+        text-align: left;
+      }
+    }
+    .line {
+      display: block;
+      height: 6px;
+      background: #3f3e3e;
+    }
+    background: #fff;
+  }
+  &.red {
+    flex-direction: column;
+
+    .text {
+      color: #e65858;
+      flex: 1;
+      font-weight: 550;
+      text-align: left;
+    }
+    .line {
+      display: block;
+      height: 6px;
+      background: #e65858;
+    }
+    background: #fff;
+  }
+  &.yellow {
+    flex-direction: column;
+
+    .text {
+      color: #e2c649;
+      flex: 1;
+      font-weight: 550;
+      text-align: left;
+    }
+    .line {
+      display: block;
+      height: 6px;
+      background: #e2c649;
+    }
+    background: #fff;
+  }
 }
 
-.dv-scroll-board{
-    color:#333;
-    /deep/ .header-item{
-        font-size: 1em;
-        text-align: center;
-    }
-    /deep/ .ceil{
-        font-size: 1em;
-        text-align: center;
-    }
+.dv-scroll-board {
+  color: #333;
+  /deep/ .header-item {
+    font-size: 1em;
+    text-align: center;
+  }
+  /deep/ .ceil {
+    font-size: 1em;
+    text-align: center;
+  }
 }
 </style>
 

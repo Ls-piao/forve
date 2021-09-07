@@ -86,11 +86,11 @@ export default {
           text: this.title,
           top: "46%",
           textAlign: "center",
-          left: "49%",
+          left: "48.5%",
           textStyle: {
             color: "#000",
-            fontSize: 12,
-            fontWeight: "400",
+            fontSize: 14,
+            fontWeight: "550",
           },
         },
         legend: {
@@ -108,7 +108,7 @@ export default {
         series: [
           {
             type: "pie",
-            radius: ["30%", "45%"],
+            radius: ["35%", "45%"],
             center: ["50%", "50%"],
             hoverAnimation: true,
             z: 10,
@@ -130,14 +130,7 @@ export default {
                     }
                     percent = ((params.value / total) * 100).toFixed(0);
                     if (params.name !== "") {
-                      return (
-                        `${that.tip.tip1}：` +
-                        params.name +
-                        "\n" +
-                        `${that.tip.tip2}：` +
-                        percent +
-                        "%"
-                      );
+                      return percent +'\r'+ params.name;
                     } else {
                       return "";
                     }

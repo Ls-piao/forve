@@ -54,8 +54,10 @@ export default {
   computed: {
     BaseOptions() {
       let that = this;
+      let color = ['#0E7CE2', '#FF8352', '#E271DE', '#F8456B']
       let options = {
         backgroundColor: "#fff",
+        color,
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -127,16 +129,9 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  {
-                    offset: 0,
-                    color: "#fccb05",
-                  },
-                  {
-                    offset: 1,
-                    color: "#f5804d",
-                  },
-                ]),
+                color: (v)=>{
+                    return color[v.dataIndex]
+                },
                 barBorderRadius: 12,
               },
             },
