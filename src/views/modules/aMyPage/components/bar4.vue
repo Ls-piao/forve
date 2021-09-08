@@ -133,7 +133,7 @@ export default {
         ],
         series: [
           {
-            name: "科类",
+            name: "森林火灾",
             type: "bar",
             barWidth: "15%",
             itemStyle: {
@@ -154,7 +154,7 @@ export default {
             data: this.data.map((v) => v.value1),
           },
           {
-            name: "属类",
+            name: "有害植物入侵",
             type: "bar",
             barWidth: "15%",
             itemStyle: {
