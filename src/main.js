@@ -81,6 +81,8 @@ VXETable.setup({
   i18n: (key, args) => XEUtils.toFormatString(XEUtils.get(zhCN, key), args)
 })
 
+import MyTable from "@/views/modules/aMyPage/components/myTable";
+Vue.component(MyTable.name, MyTable);
       // 表格功能
 Vue.use(Header)
       .use(Footer)

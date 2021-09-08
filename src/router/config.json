@@ -27638,7 +27638,209 @@
                     "type": "1",
                     "permission": "",
                     "affix": "1",
-                    "parentId": "5636ab3e1fe7448f909dac3bd256ea47"
+                    "parentId": "5636ab3e1fe7448f909dac3bd256ea47",
+                    "children":[
+                        {
+                            "id": "2-111111111111111111111111",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "22222222222222222222222",
+                                "name": "生态因子监测",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,5636ab3e1fe7448f909dac3bd256ea47,22222222222222222222222,",
+                            "name": "生态因子监测",
+                            "sort": 90,
+                            "href": "/aMyPage/ecology/index",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "22222222222222222222222"
+                        },
+                        {
+                            "id": "2-22222222222222",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "22222222222222222222222",
+                                "name": "生态因子监测",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,5636ab3e1fe7448f909dac3bd256ea47,22222222222222222222222,",
+                            "name": "生态概况",
+                            "sort": 90,
+                            "href": "/aMyPage/ecology/survey",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "22222222222222222222222"
+                        },
+                        {
+                            "id": "2-33333333333333333",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "22222222222222222222222",
+                                "name": "生态因子监测",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,5636ab3e1fe7448f909dac3bd256ea47,22222222222222222222222,",
+                            "name": "数据分析",
+                            "sort": 90,
+                            "href": "/aMyPage/ecology/analysis",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "22222222222222222222222"
+                        },
+                        {
+                            "id": "2-444444444444444",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "22222222222222222222222",
+                                "name": "生态因子监测",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,5636ab3e1fe7448f909dac3bd256ea47,22222222222222222222222,",
+                            "name": "数据查询",
+                            "sort": 90,
+                            "href": "/aMyPage/ecology/search",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "22222222222222222222222"
+                        },
+                        {
+                            "id": "2-555555555555555555",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "22222222222222222222222",
+                                "name": "生态因子监测",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,5636ab3e1fe7448f909dac3bd256ea47,22222222222222222222222,",
+                            "name": "系统管理",
+                            "sort": 90,
+                            "href": "/aMyPage/ecology/search",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "22222222222222222222222"
+                        }
+                    ]
                 },
                 {
                     "id": "3333333333333333333333",
@@ -27953,7 +28155,48 @@
                         "permission": "",
                         "affix": "1",
                         "parentId": "44444444444444444444"
-                    }]
+                    },
+                    {
+                        "id": "4-777777777777",
+                        "remarks": "",
+                        "createBy": {
+                            "id": "1",
+                            "roleIds": "",
+                            "roleIdList": [],
+                            "admin": true,
+                            "roleNames": ""
+                        },
+                        "createDate": "2020-01-07 00:00:00",
+                        "updateBy": {
+                            "id": "1",
+                            "roleIds": "",
+                            "roleIdList": [],
+                            "admin": true,
+                            "roleNames": ""
+                        },
+                        "updateDate": "2021-08-30 17:11:42",
+                        "parent": {
+                            "id": "44444444444444444444",
+                            "name": "林业有害生物监测",
+                            "sort": 9,
+                            "children": [],
+                            "isShow": "1",
+                            "type": "1",
+                            "parentId": "0"
+                        },
+                        "parentIds": "0,1,5636ab3e1fe7448f909dac3bd256ea47,44444444444444444444,",
+                        "name": "数据列表",
+                        "sort": 90,
+                        "href": "/aMyPage/ForestryPests/list",
+                        "target": "",
+                        "icon": "fa fa-file-text-o",
+                        "isShow": "1",
+                        "type": "1",
+                        "permission": "",
+                        "affix": "1",
+                        "parentId": "44444444444444444444"
+                    }
+                ]
                 }
             ]
         },

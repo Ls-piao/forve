@@ -1,147 +1,82 @@
 // 保护名录
 <template>
   <div class="container">
-    <div class="left">
-      <div class="map">
-        <img
-          src="../images/test.png"
-          style="width: 100%; height: 100%; object-fit: cover"
-          alt=""
-        />
-      </div>
-      <div class="tableBox" :style="{ height: show ? '40%' : 0 }">
-        <div class="listbar" v-if="show">
-          <el-button
-            class="checkbtn"
-            type="primary"
-            icon="el-icon-plus"
-            size="mini"
-            @click="add"
-            >新增</el-button
-          >
-          <el-radio-group v-model="showType" size="mini" class="fl mr10">
+    <div class="page-header">
+      <el-select
+        size="mini"
+        v-model="outParams.dangerType"
+        placeholder="选择受灾类型"
+      >
+        <el-option
+          v-for="v in dangerConfig"
+          :key="v.value"
+          :label="v.label"
+          :value="v.value"
+        ></el-option>
+      </el-select>
+        <el-date-picker
+          v-model="outParams.year"
+           placeholder="选择年度"
+          type="year"
+          size="mini"
+          format="yyyy"
+          value-format="yyyy"
+        >
+        </el-date-picker>
+      <el-date-picker
+       placeholder="选择月份"
+        size="mini"
+        v-model="outParams.month"
+        type="month"
+      >
+      </el-date-picker>
+      <el-input
+        size="mini"
+        type="number"
+        placeholder="输入受灾面积"
+        v-model="outParams.DisasterArea"
+      ></el-input>
+      <el-button
+        @click="doSearch"
+        icon="el-icon-search"
+        type="primary"
+        size="mini"
+        >查询</el-button
+      >
+      <el-button @click="reset" icon="el-icon-refresh" size="mini"
+        >重置</el-button
+      >
+    </div>
+    <div class="tableBox">
+      <div class="listbar">
+        <el-button
+          class="checkbtn"
+          type="primary"
+          icon="el-icon-plus"
+          size="mini"
+          @click="add"
+          >新增</el-button
+        >
+        <!-- <el-radio-group v-model="showType" size="mini" class="fl mr10">
             <el-radio-button size="mini" label="all">全部</el-radio-button>
             <el-radio-button size="mini" label="selected"
               >选中({{ selectedData.length }})</el-radio-button
             >
-          </el-radio-group>
-          <el-button
-            @click="show = false"
-            size="mini"
-            style="float: right"
-            icon="el-icon-circle-close"
-          >
-          </el-button>
-        </div>
-        <MyTable
-          v-if="show"
-          class="tables"
-          ref="table"
-          :outerData="tableData"
-          :fetchFun="tableFetchFun"
-          :columnNames="tableColumnNames"
-          :outParams="outParams"
-          :selections="true"
-          :showType="showType"
-          :limit="4"
-          @selectedDataChange="selectedDataChange"
-          rowKey="id"
-        ></MyTable>
+          </el-radio-group> -->
       </div>
-      <el-button
-        v-if="!show"
-        icon="el-icon-caret-top"
-        class="toShow"
-        @click="show = true"
-      ></el-button>
-    </div>
-    <div class="right">
-      <div class="page-header">
-        <el-form label-width="80px">
-          <el-form-item label="受灾类型">
-            <el-select
-              size="mini"
-              v-model="outParams.dangerType"
-              placeholder="选择受灾类型"
-            >
-              <el-option
-                v-for="v in dangerConfig"
-                :key="v.value"
-                :label="v.label"
-                :value="v.value"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="年度">
-            <div style="display: flex">
-              <el-date-picker
-                v-model="outParams.startYear"
-                type="year"
-                size="mini"
-                format="yyyy"
-                value-format="yyyy"
-              >
-              </el-date-picker>
-              <span> ～ </span>
-              <el-date-picker
-                size="mini"
-                v-model="outParams.endYear"
-                type="year"
-                format="yyyy"
-                value-format="yyyy"
-              >
-              </el-date-picker>
-            </div>
-          </el-form-item>
-          <el-form-item label="月份">
-            <el-date-picker
-              size="mini"
-              v-model="outParams.month"
-              type="monthrange"
-              range-separator="至"
-              start-placeholder="开始"
-              end-placeholder="结束"
-            >
-            </el-date-picker>
-          </el-form-item>
-          <el-form-item label="受灾程度">
-            <el-checkbox
-              :indeterminate="isIndeterminate"
-              v-model="checkAll"
-              @change="choseAll"
-              >全选</el-checkbox
-            >
-            <div style="margin: 15px 0"></div>
-            <el-checkbox-group v-model="checkValues" @change="check">
-              <el-checkbox
-                v-for="v in degreeConfig"
-                :label="v.value"
-                :key="v.value"
-                >{{ v.label }}</el-checkbox
-              >
-            </el-checkbox-group>
-          </el-form-item>
-          <el-form-item label="受灾面积">
-            <el-input
-              size="mini"
-              type="number"
-              v-model="outParams.DisasterArea"
-            ></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button
-              @click="doSearch"
-              icon="el-icon-search"
-              type="primary"
-              size="mini"
-              >查询</el-button
-            >
-            <el-button @click="reset" icon="el-icon-refresh" size="mini"
-              >重置</el-button
-            >
-          </el-form-item>
-        </el-form>
-      </div>
+      <MyTable
+        class="tables"
+        ref="table"
+        :outerData="tableData"
+        :fetchFun="tableFetchFun"
+        :columnNames="tableColumnNames"
+        :outParams="outParams"
+        :selections="false"
+        :showType="showType"
+        :limit="5"
+        @selectedDataChange="selectedDataChange"
+        rowKey="id"
+      ></MyTable>
     </div>
   </div>
 </template>
@@ -290,50 +225,21 @@ export default {
 .tableBox {
   margin-top: 10px;
   background-color: #fff;
-  overflow: scroll;
   padding: 10px;
   box-sizing: border-box;
   width: 100%;
-  height: 50%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transition: all 1s;
+  flex:1
 }
-.tables{
-    height:75%;
-}
-.toShow {
-  height: 30px;
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-}
-
 .tableBox tbody tr {
   height: 40px;
   line-height: 40px;
 }
 .container {
   height: 100%;
-
   width: 100%;
   display: flex;
-  .left {
-    position: relative;
-    width: 79%;
-    margin-right: 10px;
-    .map {
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .right {
-    flex: 1;
-    height: 100%;
-    background-color: #fff;
-  }
+  flex-direction: column;
+ 
 }
 .page-header {
   position: relative;
@@ -341,7 +247,9 @@ export default {
   background-color: #fff;
   min-height: 30px;
   box-sizing: border-box;
+  border-left: #127efc 4px solid;
   padding: 8px;
+  display: flex;
   .el-input,
   .el-cascader,
   .el-date-editor,
@@ -355,7 +263,7 @@ export default {
   background-color: rgba(0, 212, 192, 1);
   border: 0;
   margin-bottom: 8px;
-  margin-right:8px;
+  margin-right: 8px;
   cursor: pointer;
 }
 

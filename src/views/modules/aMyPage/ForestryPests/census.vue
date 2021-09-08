@@ -19,7 +19,7 @@
       <div class="top-item">
         <div class="data">
           <div class="left">
-            <img src="./images/data1.png" alt />
+            <img src="../images/data1.png" alt />
           </div>
           <div class="right">
             <div class="num"><animateInteger value="95" /></div>
@@ -35,7 +35,7 @@
       <div class="top-item">
         <div class="data">
           <div class="left">
-            <img src="./images/data2.png" alt />
+            <img src="../images/data2.png" alt />
           </div>
           <div class="right">
             <div class="num"><animateInteger value="10" /></div>
@@ -51,7 +51,7 @@
       <div class="top-item">
         <div class="data">
           <div class="left">
-            <img src="./images/data3.png" alt />
+            <img src="../images/data3.png" alt />
           </div>
           <div class="right">
             <div class="num"><animateInteger value="5" /></div>
@@ -67,7 +67,7 @@
       <div class="top-item">
         <div class="data">
           <div class="left">
-            <img src="./images/data4.png" alt />
+            <img src="../images/data4.png" alt />
           </div>
           <div class="right">
             <div class="num"><animateInteger value="10" /></div>
@@ -133,8 +133,8 @@ export default {
   },
   data() {
     return {
-      up: require("./images/up.png"),
-      upgreen: require("./images/up-green.png"),
+      up: require("../images/up.png"),
+      upgreen: require("../images/up-green.png"),
       searchParams: "",
       searchDates: "",
       pickerOptions: {
@@ -188,12 +188,12 @@ export default {
         { title: "2021", value1: "99", value2: "193", value3: "224" },
       ],
       banners: [
-        require("./images/banner1.jpg"),
-        require("./images/banner2.jpg"),
-        require("./images/banner3.jpg"),
-        require("./images/banner4.jpg"),
-        require("./images/banner5.jpg"),
-        require("./images/banner6.jpg"),
+        require("../images/banner1.jpg"),
+        require("../images/banner2.jpg"),
+        require("../images/banner3.jpg"),
+        require("../images/banner4.jpg"),
+        require("../images/banner5.jpg"),
+        require("../images/banner6.jpg"),
       ],
     };
   },
@@ -281,21 +281,21 @@ export default {
       left: 0;
       bottom: 0;
       right: 0;
-      background-image: url("./images/data1.png");
+      background-image: url("../images/data1.png");
       background-repeat: no-repeat;
       // background-position;
       background-size: 120px 120px;
       background-position: right 40px;
     }
-    &:nth-child(1) {
+  &:nth-child(1) {
       color: #fff;
-      background: rgb(0, 124, 255);
+      background-image: linear-gradient(45deg, #39b54a, #8dc63f);
       &::after {
-        background-image: url("./images/data1.png");
+        background-image: url("../images/data1.png");
       }
       .data {
         .left {
-          background: url("./images/circle-blue.svg") no-repeat;
+          background: url("../images/circle-blue.svg") no-repeat;
         }
       }
       .tip {
@@ -306,32 +306,40 @@ export default {
       }
     }
     &:nth-child(2) {
+      color: #fff;background-image: linear-gradient(45deg, #0081ff, #1cbbb4);
+
+
       &::after {
-        background-image: url("./images/data2.png");
+        background-image: url("../images/data2.png");
       }
       .data {
         .left {
-          background: url("./images/circle-sky.svg") no-repeat;
+          background: url("../images/circle-blue.svg") no-repeat;
         }
       }
     }
     &:nth-child(3) {
+      color: #fff;
+      background-image: linear-gradient(45deg, #0081ff, #1cbbb4);
+
       &::after {
-        background-image: url("./images/data3.png");
+        background-image: url("../images/data4.png");
       }
       .data {
         .left {
-          background: url("./images/circle-yellow.svg") no-repeat;
+          background: url("../images/circle-blue.svg") no-repeat;
         }
       }
     }
     &:nth-child(4) {
+        color: #fff;background-image: linear-gradient(45deg, #ff9700, #ed1c24);
+
       &::after {
-        background-image: url("./images/data4.png");
+        background-image: url("../images/data4.png");
       }
       .data {
         .left {
-          background: url("./images/circle-red.svg") no-repeat;
+          background: url("../images/circle-blue.svg") no-repeat;
         }
       }
     }
