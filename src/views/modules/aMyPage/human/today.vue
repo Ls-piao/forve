@@ -112,6 +112,9 @@ export default {
   created() {},
   mounted() {},
   methods: {
+     selectedDataChange(val) {
+      this.selectedData = val;
+    },
     doSearch() {},
     reset() {},
     dels(items) {},

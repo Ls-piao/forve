@@ -65,17 +65,17 @@
         rowKey="id"
       ></MyTable>
     </div>
-    <playVideo  class="videoBox" ref="video"/>
+    <playVideo class="videoBox" ref="video" />
   </div>
 </template>
 
 <script>
 import tableData from "./data.json";
-import playVideo from './video'
+import playVideo from "./video";
 export default {
   name: "",
   components: {
-    playVideo
+    playVideo,
   },
   props: {},
   data() {
@@ -85,7 +85,7 @@ export default {
         videoId: "",
         result: "",
       },
-      tableData:tableData.filter((v)=>v.isCollect == 1),
+      tableData: tableData.filter((v) => v.isCollect == 1),
       tableColumnNames: [
         "human_cameraId",
         "human_videoId",
@@ -112,6 +112,9 @@ export default {
   created() {},
   mounted() {},
   methods: {
+    selectedDataChange(val) {
+      this.selectedData = val;
+    },
     doSearch() {},
     reset() {},
     dels(items) {},
@@ -135,7 +138,7 @@ export default {
         .catch(() => {});
     },
     play(v) {
-      this.$refs.video.init(v)
+      this.$refs.video.init(v);
     },
     collect(v) {
       if (
@@ -150,8 +153,8 @@ export default {
           this.tableData.findIndex((s) => v.videoId == s.videoId)
         ].isCollect = true;
       }
-      
-      this.$refs.table.initData()
+
+      this.$refs.table.initData();
     },
   },
 };
@@ -164,12 +167,12 @@ export default {
     margin-bottom: 0;
   }
 }
-.videoBox{
-  .el-dialog__header{
+.videoBox {
+  .el-dialog__header {
     border-bottom: 0;
     background: #f5f5f7;
   }
-  .el-dialog__body{
+  .el-dialog__body {
     padding: 0 !important;
   }
 }
