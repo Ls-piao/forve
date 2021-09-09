@@ -295,8 +295,9 @@ export default {
     // 重设页面大小
     resize() {
       this.tofix();
+      let that = this
       window.addEventListener("resize", function () {
-        this.tofix();
+        that.tofix();
       });
     },
     // 定义html字体 运行在所有js之前减少闪屏

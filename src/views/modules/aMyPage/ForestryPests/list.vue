@@ -73,11 +73,12 @@
         :outParams="outParams"
         :selections="false"
         :showType="showType"
-        :limit="5"
+        :limit="15"
         @selectedDataChange="selectedDataChange"
         rowKey="id"
       ></MyTable>
     </div>
+    <preview ref="preview" />
   </div>
 </template>
 
@@ -85,10 +86,12 @@
 import animateInteger from "../components/animate-integer/index.vue";
 import tableData from "./data.json";
 import { cloneDeep } from "lodash";
+import preview from '../components/preview'
 export default {
   name: "",
   components: {
     animateInteger,
+    preview
   },
   props: {},
   data() {
@@ -217,6 +220,9 @@ export default {
       this.show = true;
       this.$refs.table.table();
     },
+    preview(v,prop){
+      this.$refs.preview.init(v,prop)
+    }
   },
 };
 </script>
@@ -295,5 +301,10 @@ export default {
 
 /deep/.opt-del:hover {
   background: #f3cfd2;
+}
+/deep/ .img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 </style>

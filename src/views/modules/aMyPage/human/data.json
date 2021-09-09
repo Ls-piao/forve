@@ -1,0 +1,57 @@
+[
+    {
+        "cameraId":1,
+        "videoId":"1001-1",
+        "result":"猫",
+        "time":3,
+        "creatTime":"2020-02-01 18:33:21",
+        "type":"动物",
+        "place":"upload/video/1.map4",
+        "des":"",
+        "isCollect":true
+    },
+    {
+        "cameraId":2,
+        "videoId":"1001-2",
+        "result":"虎",
+        "time":3,
+        "creatTime":"2020-02-01 18:33:21",
+        "type":"动物",
+        "place":"upload/video/2.map4",
+        "des":"",
+        "isCollect":false
+    },
+    {
+        "cameraId":3,
+        "videoId":"1001-3",
+        "result":"虎",
+        "time":3,
+        "creatTime":"2020-02-01 18:33:21",
+        "type":"动物",
+        "place":"upload/video/3.map4",
+        "des":"",
+        "isCollect":true
+    },
+    {
+        "cameraId":4,
+        "videoId":"1001-4",
+        "result":"虎",
+        "time":3,
+        "creatTime":"2020-02-01 18:33:21",
+        "type":"动物",
+        "place":"upload/video/4.map4",
+        "des":"",
+        "isCollect":false
+    },
+    {
+        "cameraId":5,
+        "videoId":"1001-5",
+        "result":"虎",
+        "time":3,
+        "creatTime":"2020-02-01 18:33:21",
+        "type":"动物",
+        "place":"upload/video/5.map4",
+        "des":"",
+        "isCollect":true
+    }
+]

@@ -10,7 +10,7 @@
         class="w tc"
         :row-key="getRowKeys"
         @selection-change="selectionChange"
-        :header-cell-style="{ 'text-align': 'center' }"
+        :header-cell-style="{ 'text-align': 'center','background-color':headerColor }"
         :size="size"
         :max-height="maxHeight"
         v-loading="loading"
@@ -108,6 +108,10 @@ export default {
     TableColumn
   },
   props: {
+    headerColor:{
+      type:String,
+      default:'#F5F7FA'
+    },
     // 静态数据
     outerData: { type: Array, default: () => [] },
     // 当由外部传入数据时是否展示所有数据
@@ -318,6 +322,7 @@ export default {
       return row[this.rowKey];
     },
     rowClick(row){
+      if(!this.selections)
        this.$refs.table.toggleRowSelection(row);
     }
   }
