@@ -27318,7 +27318,8 @@
             "permission": "",
             "affix": "2",
             "parentId": "1",
-            "children": [{
+            "children": [
+                {
                     "id": "123asdasdasd123asdasd",
                     "remarks": "",
                     "createBy": {
@@ -28353,14 +28354,463 @@
             "parentIds": "0,1,",
             "name": "资源资产管理",
             "sort": 10,
-            "href": "/sys/dashboard/analysis/index",
+            "href": "/aResource/apply/list",
             "target": "",
             "icon": "",
             "isShow": "1",
             "type": "1",
             "permission": "",
             "affix": "2",
-            "parentId": "1"
+            "parentId": "1",
+            "children":[
+                {
+                    "id": "R-1",
+                    "remarks": "",
+                    "createBy": {
+                        "id": "1",
+                        "roleIds": "",
+                        "roleIdList": [],
+                        "admin": true,
+                        "roleNames": ""
+                    },
+                    "createDate": "2020-01-07 00:00:00",
+                    "updateBy": {
+                        "id": "1",
+                        "roleIds": "",
+                        "roleIdList": [],
+                        "admin": true,
+                        "roleNames": ""
+                    },
+                    "updateDate": "2021-08-30 17:11:42",
+                    "parent": {
+                        "id": "4dadcacfcb264832b4cf06f63fafb18d",
+                        "name": "资源资产管理",
+                        "sort": 9,
+                        "children": [],
+                        "isShow": "1",
+                        "type": "1",
+                        "parentId": "0"
+                    },
+                    "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,",
+                    "name": "申请表管理",
+                    "sort": 90,
+                    "href": "/aResource/apply/list",
+                    "target": "",
+                    "icon": "fa fa-file-text-o",
+                    "isShow": "1",
+                    "type": "1",
+                    "permission": "",
+                    "affix": "1",
+                    "parentId": "4dadcacfcb264832b4cf06f63fafb18d",
+                    "children":[
+                        {
+                            "id": "R-1-1",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "123asdasdasd123asdasd",
+                                "name": "申请表管理",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,R-1,",
+                            "name": "申请表填报",
+                            "sort": 90,
+                            "href": "/aResource/apply/list",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "R-1"
+                        },
+                        {
+                            "id": "R-1-2",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "R-1",
+                                "name": "申请表管理",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,R-1,",
+                            "name": "申请表审批",
+                            "sort": 90,
+                            "href": "/aResource/apply/batch",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "R-1"
+                        }
+                    ]
+                },
+                {
+                    "id": "R-2",
+                    "remarks": "",
+                    "createBy": {
+                        "id": "1",
+                        "roleIds": "",
+                        "roleIdList": [],
+                        "admin": true,
+                        "roleNames": ""
+                    },
+                    "createDate": "2020-01-07 00:00:00",
+                    "updateBy": {
+                        "id": "1",
+                        "roleIds": "",
+                        "roleIdList": [],
+                        "admin": true,
+                        "roleNames": ""
+                    },
+                    "updateDate": "2021-08-30 17:11:42",
+                    "parent": {
+                        "id": "4dadcacfcb264832b4cf06f63fafb18d",
+                        "name": "资源资产管理",
+                        "sort": 9,
+                        "children": [],
+                        "isShow": "1",
+                        "type": "1",
+                        "parentId": "0"
+                    },
+                    "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,",
+                    "name": "证书管理",
+                    "sort": 90,
+                    "href": "/aResource/certificate/list",
+                    "target": "",
+                    "icon": "fa fa-file-text-o",
+                    "isShow": "1",
+                    "type": "1",
+                    "permission": "",
+                    "affix": "1",
+                    "parentId": "4dadcacfcb264832b4cf06f63fafb18d",
+                    "children":[
+                        {
+                            "id": "R-2-1",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "123asdasdasd123asdasd",
+                                "name": "证书管理",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,R-2,",
+                            "name": "证书查询",
+                            "sort": 90,
+                            "href": "/aResource/certificate/list",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "R-2"
+                        },
+                        {
+                            "id": "R-2-2",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "123asdasdasd123asdasd",
+                                "name": "证书管理",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,R-2,",
+                            "name": "证书打印",
+                            "sort": 90,
+                            "href": "/aResource/certificate/census",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "R-2"
+                        }
+                        
+                    ]
+                },
+                {
+                    "id": "R-3",
+                    "remarks": "",
+                    "createBy": {
+                        "id": "1",
+                        "roleIds": "",
+                        "roleIdList": [],
+                        "admin": true,
+                        "roleNames": ""
+                    },
+                    "createDate": "2020-01-07 00:00:00",
+                    "updateBy": {
+                        "id": "1",
+                        "roleIds": "",
+                        "roleIdList": [],
+                        "admin": true,
+                        "roleNames": ""
+                    },
+                    "updateDate": "2021-08-30 17:11:42",
+                    "parent": {
+                        "id": "4dadcacfcb264832b4cf06f63fafb18d",
+                        "name": "资源资产管理",
+                        "sort": 9,
+                        "children": [],
+                        "isShow": "1",
+                        "type": "1",
+                        "parentId": "0"
+                    },
+                    "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,",
+                    "name": "注销管理",
+                    "sort": 90,
+                    "href": "/aResource/cancellation/list",
+                    "target": "",
+                    "icon": "fa fa-file-text-o",
+                    "isShow": "1",
+                    "type": "1",
+                    "permission": "",
+                    "affix": "1",
+                    "parentId": "4dadcacfcb264832b4cf06f63fafb18d",
+                    "children":[
+                        {
+                            "id": "R-3-1",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "123asdasdasd123asdasd",
+                                "name": "证书管理",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,R-3,",
+                            "name": "注销证查询",
+                            "sort": 90,
+                            "href": "/aResource/cancellation/list",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "R-3"
+                        },
+                        {
+                            "id": "R-3-2",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2020-01-07 00:00:00",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-30 17:11:42",
+                            "parent": {
+                                "id": "123asdasdasd123asdasd",
+                                "name": "证书管理",
+                                "sort": 9,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,R-3,",
+                            "name": "注销公告",
+                            "sort": 90,
+                            "href": "/aResource/cancellation/census",
+                            "target": "",
+                            "icon": "fa fa-file-text-o",
+                            "isShow": "1",
+                            "type": "1",
+                            "permission": "",
+                            "affix": "1",
+                            "parentId": "R-3"
+                        }
+                    ]
+                },
+                {
+                    "id": "R-4",
+                    "remarks": "",
+                    "createBy": {
+                        "id": "1",
+                        "roleIds": "",
+                        "roleIdList": [],
+                        "admin": true,
+                        "roleNames": ""
+                    },
+                    "createDate": "2020-01-07 00:00:00",
+                    "updateBy": {
+                        "id": "1",
+                        "roleIds": "",
+                        "roleIdList": [],
+                        "admin": true,
+                        "roleNames": ""
+                    },
+                    "updateDate": "2021-08-30 17:11:42",
+                    "parent": {
+                        "id": "4dadcacfcb264832b4cf06f63fafb18d",
+                        "name": "资源资产管理",
+                        "sort": 9,
+                        "children": [],
+                        "isShow": "1",
+                        "type": "1",
+                        "parentId": "0"
+                    },
+                    "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,",
+                    "name": "台账管理",
+                    "sort": 90,
+                    "href": "/aResource/parameter/list",
+                    "target": "",
+                    "icon": "fa fa-file-text-o",
+                    "isShow": "1",
+                    "type": "1",
+                    "permission": "",
+                    "affix": "1",
+                    "parentId": "4dadcacfcb264832b4cf06f63fafb18d",
+                    "children":[  {
+                        "id": "R-4-1",
+                        "remarks": "",
+                        "createBy": {
+                            "id": "1",
+                            "roleIds": "",
+                            "roleIdList": [],
+                            "admin": true,
+                            "roleNames": ""
+                        },
+                        "createDate": "2020-01-07 00:00:00",
+                        "updateBy": {
+                            "id": "1",
+                            "roleIds": "",
+                            "roleIdList": [],
+                            "admin": true,
+                            "roleNames": ""
+                        },
+                        "updateDate": "2021-08-30 17:11:42",
+                        "parent": {
+                            "id": "123asdasdasd123asdasd",
+                            "name": "证书管理",
+                            "sort": 9,
+                            "children": [],
+                            "isShow": "1",
+                            "type": "1",
+                            "parentId": "0"
+                        },
+                        "parentIds": "0,1,4dadcacfcb264832b4cf06f63fafb18d,R-4,",
+                        "name": "台账列表",
+                        "sort": 90,
+                        "href": "/aResource/parameter/list",
+                        "target": "",
+                        "icon": "fa fa-file-text-o",
+                        "isShow": "1",
+                        "type": "1",
+                        "permission": "",
+                        "affix": "1",
+                        "parentId": "R-4"
+                    }]
+                }
+            ]
         },
         {
             "id": "5812c5eea01241c69c93d2e535bc33ba",

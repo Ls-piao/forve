@@ -2,23 +2,8 @@
   <div class="container">
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
-        <el-form-item>
-          <template #label>
-            <i class="el-icon-camera-solid icon"></i> 拍摄相机编号：
-          </template>
+        <el-form-item label="申请单编号">
           <el-input v-model="outParams.cameraId" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <template #label>
-            <i class="el-icon-camera-solid icon"></i> 视频编号：
-          </template>
-          <el-input v-model="outParams.videoId" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <template #label>
-            <i class="el-icon-camera-solid icon"></i> 判读结果：
-          </template>
-          <el-input v-model="outParams.result" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">
@@ -44,6 +29,21 @@
         </el-radio-group>
         <el-button
           class="checkbtn"
+          type="primary"
+          size="mini"
+          icon="el-icon-plus"
+          @click="add()"
+          >新增</el-button
+        >
+        <el-button
+          class="checkbtn-submit"
+          size="mini"
+          icon="el-icon-upload2"
+          @click="handleSubmit(selectedData)"
+          >批量提交</el-button
+        >
+        <el-button
+          class="checkbtn"
           type="danger"
           size="mini"
           icon="el-icon-delete"
@@ -65,43 +65,42 @@
         rowKey="id"
       ></MyTable>
     </div>
-    <playVideo  class="videoBox" ref="video"/>
+    <addDialog ref="addDialog" />
   </div>
 </template>
 
 <script>
 import tableData from "./data.json";
-import playVideo from './video'
+import addDialog from "./addDialog";
 export default {
   name: "",
   components: {
-    playVideo
+    addDialog,
   },
   props: {},
   data() {
     return {
       searchParams: {
-        cameraId: "",
-        videoId: "",
-        result: "",
+        ID: "",
       },
-      tableData:tableData.slice(0,3),
+      tableData: tableData,
       tableColumnNames: [
-        "human_cameraId",
-        "human_videoId",
-        "human_result",
-        "human_time",
-        "human_creatTime",
-        "human_type",
-        "human_place",
-        "human_des",
-        "human_del",
-        "human_control",
+          "apply_ID",
+        "apply_qs",
+        "apply_createTime",
+        "apply_dwgr",
+        "apply_djql",
+        "apply_frdb",
+        "apply_txdz",
+        "apply_sfzh",
+        "apply_ldsyqqlr",
+        "apply_ldsyqqlr2",
+        "apply_slhlmsyqqlr",
+        "apply_slhlmsyqqlr2",
+        "apply_control",
       ],
       outParams: {
-        cameraId: "",
-        videoId: "",
-        result: "",
+        ID: "",
       },
       showType: "all", // 表格显示数据类型
       selectedData: [], // 选中表格数据
@@ -112,7 +111,7 @@ export default {
   created() {},
   mounted() {},
   methods: {
-     selectedDataChange(val) {
+    selectedDataChange(val) {
       this.selectedData = val;
     },
     doSearch() {},
@@ -137,25 +136,30 @@ export default {
         })
         .catch(() => {});
     },
-    play(v) {
-      this.$refs.video.init(v)
+    add() {
+      this.$refs.addDialog.init("add");
     },
-    collect(v) {
-      if (
-        this.tableData[this.tableData.findIndex((s) => v.videoId == s.videoId)]
-          .isCollect === true
-      ) {
-        this.tableData[
-          this.tableData.findIndex((s) => v.videoId == s.videoId)
-        ].isCollect = false;
+    edit(v) {
+      this.$refs.addDialog.init("edit", v);
+    },
+    handleSubmit(v) {
+      if (scope instanceof Array) {
       } else {
-        this.tableData[
-          this.tableData.findIndex((s) => v.videoId == s.videoId)
-        ].isCollect = true;
+        scope = [scope];
       }
-      
-      this.$refs.table.initData()
+      this.$confirm("确认提交吗?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(() => {
+          this.submit(scope);
+        })
+        .catch(() => {});
     },
+    submit(){
+
+    }
   },
 };
 </script>
@@ -167,12 +171,12 @@ export default {
     margin-bottom: 0;
   }
 }
-.videoBox{
-  .el-dialog__header{
+.videoBox {
+  .el-dialog__header {
     border-bottom: 0;
     background: #f5f5f7;
   }
-  .el-dialog__body{
+  .el-dialog__body {
     padding: 0 !important;
   }
 }
@@ -192,6 +196,13 @@ export default {
 }
 .checkbtn {
   border: 0;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.checkbtn-submit{
+   border: 0;
+   color: #fff;
+  background: rgba(0, 212, 192, 1);
   margin-bottom: 8px;
   cursor: pointer;
 }
@@ -249,4 +260,44 @@ export default {
   }
 }
 
+/deep/.opt-edit {
+  display: inline-block;
+  padding: 0 6px;
+  background: #e6f2ff;
+  color: #007cff;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/deep/.opt-edit:hover {
+  background: #cce5ff;
+}
+
+/deep/.opt-del {
+  display: inline-block;
+  padding: 0 6px;
+  background: #fce9e9;
+  color: #f04864;
+  border-radius: 2px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/deep/.opt-del:hover {
+  background: #f3cfd2;
+}
+
+/deep/.opt-submit {
+  display: inline-block;
+  padding: 0 6px;
+  background: rgba(0, 212, 192, 0.5);
+  color: #fff;
+  border-radius: 2px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/deep/.opt-submit:hover {
+  background: rgba(0, 212, 192, 0.3);
+}
 </style>
