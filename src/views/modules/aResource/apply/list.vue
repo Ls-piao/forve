@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import tableData from "./data.json";
+import tableData from "../data.json";
 import addDialog from "./addDialog";
 export default {
   name: "",
@@ -298,6 +298,6 @@ export default {
 }
 
 /deep/.opt-submit:hover {
-  background: rgba(0, 212, 192, 0.3);
+  background: rgba(0, 212, 192, 0.8);
 }
 </style>

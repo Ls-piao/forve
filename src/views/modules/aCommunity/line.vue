@@ -1,11 +1,10 @@
 <template>
-  <div class="container" :id="id" :ref="id"></div>
+  <div class="barBox" :id="id"></div>
 </template>
 
 <script>
 import echarts from "echarts";
 
-import {EleResize} from './ele.resize.js'
 export default {
   name: "",
   components: {},
@@ -86,18 +85,29 @@ export default {
             type: "shadow", // 默认为直线，可选为：'line' | 'shadow'
           },
         },
+        title: {
+          text: "社区商户数",
+          top: "3%",
+          textAlign: "center",
+          left:'7%',
+          textStyle: {
+            color: "#000",
+            fontSize: 24,
+            fontWeight: "550",
+          },
+        },
         grid: {
-          top: "8%",
-          left: "1%",
-          right: "1%",
-          bottom: "8%",
+         left: "2%",
+          right: "4%",
+          bottom: "14%",
+          top: "16%",
           containLabel: true,
         },
         legend: {
+          show:false,
           itemGap: 50,
-          data: ["人员出入总数"],
           textStyle: {
-            color: "#f9f9f9",
+            color: "#000",
             borderColor: "#fff",
           },
         },
@@ -135,7 +145,7 @@ export default {
             min: 0,
             splitNumber: 7,
             splitLine: {
-              show: true,
+              show: false,
               lineStyle: {
                 color: "#rgba(0,0,0,.09)",
               },
@@ -156,7 +166,7 @@ export default {
         ],
         series: [
           {
-            name: "占比",
+            name: "数量",
             type: "line",
             smooth: false, //是否平滑曲线显示
             // 			symbol:'circle',  // 默认是空心圆（中间是白色的），改成实心圆
@@ -262,20 +272,15 @@ export default {
   },
   methods: {
     drawChart(options) {
-      // 装载数据  
-       const dom = this.$refs.id;
+      // 装载数据
       this.theEcharts.setOption(options, true); //设置为true可以使图表切换数据时重新渲染
-      const cb = () => {
-        this.theEcharts.resize();
-      };
-      EleResize.on(dom, cb);
     },
   },
 };
 </script>
 
 <style scoped lang="scss">
-.container {
+.barBox {
   height: 100%;
   width: 100%;
 }

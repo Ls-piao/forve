@@ -766,7 +766,7 @@ export default {
 <style lang="less">
 .adddia {
   .el-dialog {
-    width: auto !important;
+    max-width: 90% !important;
   }
 }
 .itemview {

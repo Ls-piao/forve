@@ -27258,6 +27258,530 @@
                             "permission": "",
                             "affix": "1",
                             "parentId": "376ea52d64964346a0c68f1754b25af6"
+                        },
+                        {
+                            "id": "C-0",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2021-08-25 23:27:29",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-25 23:27:29",
+                            "parent": {
+                                "id": "114a8a2901434da1813603177106d817",
+                                "name": "自然资源监测",
+                                "sort": 30,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,114a8a2901434da1813603177106d817,",
+                            "name": "社区管理首页",
+                            "sort": 180,
+                            "href": "/aCommunity/index",
+                            "target": "",
+                            "icon": "",
+                            "isShow": "1",
+                            "type": "0",
+                            "permission": "",
+                            "affix": "2",
+                            "parentId": "114a8a2901434da1813603177106d817"
+                        },
+                        {
+                            "id": "C-1",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2021-08-25 23:27:29",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-25 23:27:29",
+                            "parent": {
+                                "id": "114a8a2901434da1813603177106d817",
+                                "name": "自然资源监测",
+                                "sort": 30,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,114a8a2901434da1813603177106d817,",
+                            "name": "社区档案管理",
+                            "sort": 180,
+                            "children": [{
+                                    "id": "C-1-1",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:39:53",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:39:53",
+                                    "parent": {
+                                        "id": "C-1",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-1,",
+                                    "name": "房屋档案",
+                                    "sort": 30,
+                                    "href": "/aCommunity/archives/house",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-1"
+                                },
+                                {
+                                    "id": "C-1-2",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:40:39",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:40:39",
+                                    "parent": {
+                                        "id": "C-1",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-1,",
+                                    "name": "居民档案",
+                                    "sort": 60,
+                                    "href": "/aCommunity/archives/residents",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-1"
+                                },
+                                {
+                                    "id": "C-1-3",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:40:39",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:40:39",
+                                    "parent": {
+                                        "id": "C-1",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-1,",
+                                    "name": "商户档案",
+                                    "sort": 60,
+                                    "href": "/aCommunity/archives/merchants",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-1"
+                                }
+                            ],
+                            "href": "",
+                            "target": "",
+                            "icon": "",
+                            "isShow": "1",
+                            "type": "0",
+                            "permission": "",
+                            "affix": "2",
+                            "parentId": "114a8a2901434da1813603177106d817"
+                        },
+                        {
+                            "id": "C-2",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2021-08-25 23:27:29",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-25 23:27:29",
+                            "parent": {
+                                "id": "114a8a2901434da1813603177106d817",
+                                "name": "自然资源监测",
+                                "sort": 30,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,114a8a2901434da1813603177106d817,",
+                            "name": "社区服务",
+                            "sort": 180,
+                            "children": [{
+                                    "id": "C-2-1",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:39:53",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:39:53",
+                                    "parent": {
+                                        "id": "C-1",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-2,",
+                                    "name": "社区活动",
+                                    "sort": 30,
+                                    "href": "/aCommunity/service/activity",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-2"
+                                },
+                                {
+                                    "id": "C-2-2",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:40:39",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:40:39",
+                                    "parent": {
+                                        "id": "C-1",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-2,",
+                                    "name": "残疾人管理",
+                                    "sort": 60,
+                                    "href": "/aCommunity/service/disabilities",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-2"
+                                },
+                                {
+                                    "id": "C-2-3",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:40:39",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:40:39",
+                                    "parent": {
+                                        "id": "C-1",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-2,",
+                                    "name": "交流服务",
+                                    "sort": 60,
+                                    "href": "/aCommunity/service/communication",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-2"
+                                }
+                            ],
+                            "href": "",
+                            "target": "",
+                            "icon": "",
+                            "isShow": "1",
+                            "type": "0",
+                            "permission": "",
+                            "affix": "2",
+                            "parentId": "114a8a2901434da1813603177106d817"
+                        },
+                        {
+                            "id": "C-3",
+                            "remarks": "",
+                            "createBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "createDate": "2021-08-25 23:27:29",
+                            "updateBy": {
+                                "id": "1",
+                                "roleIds": "",
+                                "roleIdList": [],
+                                "admin": true,
+                                "roleNames": ""
+                            },
+                            "updateDate": "2021-08-25 23:27:29",
+                            "parent": {
+                                "id": "114a8a2901434da1813603177106d817",
+                                "name": "自然资源监测",
+                                "sort": 30,
+                                "children": [],
+                                "isShow": "1",
+                                "type": "1",
+                                "parentId": "0"
+                            },
+                            "parentIds": "0,1,114a8a2901434da1813603177106d817,",
+                            "name": "消息咨讯",
+                            "sort": 180,
+                            "href": "/aCommunity/message/list",
+                            "target": "",
+                            "icon": "",
+                            "isShow": "1",
+                            "type": "0",
+                            "permission": "",
+                            "affix": "2",
+                            "parentId": "114a8a2901434da1813603177106d817",
+                            "children":[
+                                {
+                                    "id": "C-3-1",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:39:53",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:39:53",
+                                    "parent": {
+                                        "id": "C-3",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-3,",
+                                    "name": "消息录入",
+                                    "sort": 30,
+                                    "href": "/aCommunity/message/list",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-3"
+                                },
+                                {
+                                    "id": "C-3-1",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:39:53",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:39:53",
+                                    "parent": {
+                                        "id": "C-3",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-3,",
+                                    "name": "消息审核",
+                                    "sort": 30,
+                                    "href": "/aCommunity/message/batch",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-3"
+                                },
+                                {
+                                    "id": "C-3-1",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:39:53",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:39:53",
+                                    "parent": {
+                                        "id": "C-3",
+                                        "name": "社区档案管理",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,C-3,",
+                                    "name": "消息发布",
+                                    "sort": 30,
+                                    "href": "/aCommunity/message/commit",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "C-3"
+                                }
+                            ]
                         }
                     ],
                     "href": "",
@@ -27270,7 +27794,7 @@
                     "parentId": "114a8a2901434da1813603177106d817"
                 }
             ],
-            "href": "/sys/dashboard/analysis/index",
+            "href": "/aCommunity/index",
             "target": "",
             "icon": "",
             "isShow": "1",

@@ -2,8 +2,13 @@
   <div class="container">
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
-        <el-form-item label="申请单编号">
-          <el-input v-model="outParams.cameraId" size="mini"></el-input>
+        <el-form-item>
+          <template #label> 残疾人编号： </template>
+          <el-input v-model="outParams.id" size="mini"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <template #label> 姓名： </template>
+          <el-input v-model="outParams.name" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">
@@ -28,13 +33,44 @@
           >
         </el-radio-group>
         <el-button
+          class="checkbtn-add"
+          type="default"
+          size="mini"
+          icon="el-icon-plus"
+          @click="add(selectedData)"
+          >新增</el-button
+        >
+           <el-button
+          class="checkbtn"
+          type="danger"
+          size="mini"
+          icon="el-icon-delete"
+          @click="handleDelete(selectedData)"
+          >批量删除</el-button
+        >
+          <el-button
+          class="checkbtn"
+          type="info"
+          size="mini"
+          icon="el-icon-download"
+          @click="downTemplate(selectedData)"
+          >下载模板</el-button
+        >
+        <el-button
+          class="checkbtn"
+          type="warning"
+          size="mini"
+          icon="el-icon-upload2"
+          @click="importData(selectedData)"
+          >导入</el-button
+        >
+        <el-button
           class="checkbtn"
           type="primary"
           size="mini"
           icon="el-icon-download"
-          :disabled="selectedData.length == 0"
-          @click="handleBatch(selectedData)"
-          >导出已选</el-button
+          @click="exportData(selectedData)"
+          >导出</el-button
         >
       </div>
 
@@ -46,47 +82,50 @@
         :outParams="outParams"
         :selections="true"
         :showType="showType"
+        :isSort="false"
         :limit="15"
         @selectedDataChange="selectedDataChange"
         rowKey="id"
       ></MyTable>
     </div>
     <viewDialog ref="viewDialog" />
+    <addDialog ref="addDialog" />
   </div>
 </template>
 
 <script>
-import tableData from "../data.json";
-import viewDialog from "./viewDialog";
+import tableData from "./disable.json";
+import addDialog from "./addDisable.vue";
+import viewDialog from "./viewDisable.vue";
 export default {
   name: "",
   components: {
+    addDialog,
     viewDialog,
   },
   props: {},
   data() {
     return {
       searchParams: {
-        ID: "",
+        id: "",
+        name: "",
       },
       tableData: tableData.slice(0, 3),
       tableColumnNames: [
-        "apply_ID",
-        "apply_qs",
-        "apply_createTime",
-        "apply_dwgr",
-        "apply_djql",
-        "apply_frdb",
-        "apply_txdz",
-        "apply_sfzh",
-        "apply_ldsyqqlr",
-        "apply_ldsyqqlr2",
-        "apply_slhlmsyqqlr",
-        "apply_slhlmsyqqlr2",
-        "cert_control",
+        "disable_id",
+        "disable_name",
+        "disable_age",
+        "disable_community",
+        "disable_building",
+        "disable_unit",
+        "disable_number",
+        "disable_status",
+        "disable_desc",
+        "shop_control",
       ],
       outParams: {
-        ID: "",
+        id: "",
+        name: "",
       },
       showType: "all", // 表格显示数据类型
       selectedData: [], // 选中表格数据
@@ -103,19 +142,36 @@ export default {
     doSearch() {},
     reset() {},
     dels(items) {},
-    handleBatch(scope) {
+    handleDelete(scope) {
       if (scope instanceof Array) {
       } else {
         scope = [scope];
       }
       if (scope.length == 0) {
-        this.$alert("请选择需要打印的数据", "错误提示", { type: "error" });
+        this.$alert("请选择需要删除的数据", "错误提示", { type: "error" });
         return;
       }
-      this.print();
+      this.$confirm("确认删除?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(() => {
+          this.dels(scope);
+        })
+        .catch(() => {});
+    },
+    add() {
+      this.$refs.addDialog.init("add");
+    },
+    edit(v) {
+      this.$refs.addDialog.init("edit", v);
     },
     view(v) {
       this.$refs.viewDialog.init(v);
+    },
+    preview(v, prop) {
+      this.$refs.previewDialog.init(v, prop);
     },
   },
 };
@@ -126,10 +182,8 @@ export default {
     display: flex;
     margin-right: 8px;
     margin-bottom: 0;
-    transform:perspective
   }
 }
-
 .videoBox {
   .el-dialog__header {
     border-bottom: 0;
@@ -147,9 +201,6 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.listbar{
-  margin-bottom: 10px;;
-}
 .icon {
   font-size: 14px;
 }
@@ -157,10 +208,20 @@ export default {
   margin-right: 8px;
 }
 .checkbtn {
-  background-color: rgba(0, 212, 192, 1);
   border: 0;
   margin-bottom: 8px;
   cursor: pointer;
+}
+.checkbtn-add {
+  color: #fff;
+  background: rgba(0, 212, 192, 1);
+  border: 0;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.checkbtn-add:hover {
+  color: #fff;
+  background: rgba(0, 212, 192, 0.8);
 }
 .searchbox {
   display: flex;
@@ -196,25 +257,6 @@ export default {
   height: 40px;
   line-height: 40px;
 }
-/deep/ .operation {
-  &:hover {
-    cursor: pointer;
-  }
-  font-size: 18px;
-  margin-right: 8px;
-  &:last-child {
-    margin-right: 0;
-  }
-  &.delete {
-    color: red;
-  }
-  &.play {
-    color: #3f8ef7;
-  }
-  &.collected {
-    color: #f5ca0b;
-  }
-}
 
 /deep/.opt-edit {
   display: inline-block;
@@ -242,7 +284,8 @@ export default {
 /deep/.opt-del:hover {
   background: #f3cfd2;
 }
-/deep/.opt-batch {
+/deep/.opt-view {
+  margin-right: 10px;
   display: inline-block;
   padding: 0 6px;
   background: rgba(0, 212, 192, 0.5);
@@ -252,7 +295,12 @@ export default {
   cursor: pointer;
 }
 
-/deep/.opt-batch:hover {
+/deep/.opt-view:hover {
   background: rgba(0, 212, 192, 0.8);
+}
+/deep/ .img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 </style>

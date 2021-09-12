@@ -1,11 +1,10 @@
 <template>
-  <div class="container" :id="id" :ref="id"></div>
+  <div class="container" :id="id"></div>
 </template>
 
 <script>
 import echarts from "echarts";
 
-import {EleResize} from './ele.resize.js'
 export default {
   name: "",
   components: {},
@@ -69,6 +68,17 @@ export default {
       let that = this;
       let options = {
         backgroundColor: "#fff",
+         title: {
+          text: "行业统计",
+          top: "0%",
+          textAlign: "center",
+          left:'13%',
+          textStyle: {
+            color: "#000",
+            fontSize: 24,
+            fontWeight: "550",
+          },
+        },
         legend: {
           // orient: 'vertical',
           top: "bottom",
@@ -106,14 +116,21 @@ export default {
         },
         tooltip: {
           trigger: "item",
-          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          formatter: "{b} : {c} ({d}%)",
         },
         color: this.color,
+         grid: {
+         left: "2%",
+          right: "4%",
+          bottom: "14%",
+          top: "16%",
+          containLabel: true,
+        },
         series: [
           {
             name: "访问来源",
             type: "pie",
-            radius: "70%",
+            radius: "50%",
             center: ["50%", "50%"],
             label: {
               fontSize: 18,
@@ -140,13 +157,8 @@ export default {
   },
   methods: {
     drawChart(options) {
-      // 装载数据   
-      const dom = this.$refs.id;
+      // 装载数据
       this.theEcharts.setOption(options, true); //设置为true可以使图表切换数据时重新渲染
-      const cb = () => {
-        this.theEcharts.resize();
-      };
-      EleResize.on(dom, cb);
     },
   },
 };

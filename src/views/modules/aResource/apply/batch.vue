@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import tableData from "./data.json";
+import tableData from "../data.json";
 import batchDialog from './batchDialog'
 import viewDialog from './viewDialog'
 export default {

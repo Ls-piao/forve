@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import tableData from "./data.json";
+import tableData from "../data.json";
 import viewDialog from "./viewDialog";
 export default {
   name: "",
@@ -252,6 +252,6 @@ export default {
 }
 
 /deep/.opt-batch:hover {
-  background: rgba(0, 212, 192, 0.3);
+  background: rgba(0, 212, 192, 0.8);
 }
 </style>

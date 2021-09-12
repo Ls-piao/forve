@@ -4,7 +4,6 @@
 
 <script>
 import echarts from "echarts";
-
 import {EleResize} from './ele.resize.js'
 export default {
   name: "",
@@ -60,6 +59,17 @@ export default {
       let options = {
         backgroundColor: "#fff",
         color,
+         title: {
+          text: "年龄分布",
+          top: "0%",
+          textAlign: "center",
+          left:'5%',
+          textStyle: {
+            color: "#000",
+            fontSize: 24,
+            fontWeight: "550",
+          },
+        },
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -75,15 +85,15 @@ export default {
           containLabel: true,
         },
         legend: {
-          data: ["1", "2", "3"],
-          right: 10,
-          top: 12,
+          show:false,
+          data:this.data.map((v)=>v.title),
+          right: 'center',
+          y:'bottom',
           textStyle: {
             color: "#000",
           },
           itemWidth: 12,
           itemHeight: 10,
-          // itemGap: 35
         },
         xAxis: {
           show: false,
@@ -113,15 +123,8 @@ export default {
         series: [
           {
             type: "bar",
-            name:
-              this.select == 0
-                ? "门"
-                : this.select == 1
-                ? "科"
-                : this.select == 2
-                ? "属"
-                : "种",
-            barWidth: "35%",
+            name:'人',
+            barWidth: "25%",
             label: {
               show: true,
               position: "right", // 位置
@@ -164,10 +167,7 @@ export default {
       // 装载数据  
        const dom = this.$refs.id;
       this.theEcharts.setOption(options, true); //设置为true可以使图表切换数据时重新渲染
-      const cb = () => {
-        this.theEcharts.resize();
-      };
-      EleResize.on(dom, cb);
+  
     },
   },
 };
