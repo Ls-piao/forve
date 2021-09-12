@@ -52,7 +52,7 @@
       <div class="page-header">
         <el-form class="searchbox" :inline="true">
           <el-form-item>
-            <template #label> 房屋编号： </template>
+            <template #label> 姓名： </template>
             <el-input v-model="outParams.id" size="mini"></el-input>
           </el-form-item>
           <el-form-item>
