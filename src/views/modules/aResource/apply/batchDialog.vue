@@ -39,31 +39,31 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       visible: false,
-      data: "",
+      data: '',
       radio: 1,
-      approveOpinion: "",
-    };
+      approveOpinion: ''
+    }
   },
   computed: {},
-  mounted() {},
+  mounted () {},
   methods: {
-    init(v) {
-      this.data = v;
-      this.visible = true;
+    init (v) {
+      this.data = v
+      this.visible = true
     },
-    cancelForm() {
-      this.visible = false;
+    cancelForm () {
+      this.visible = false
       this.approveOpinion = ''
       this.radio = 1
     },
-    batchCheckCommit() {
+    batchCheckCommit () {
       this.cancelForm()
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style lang="less">
 .dia {

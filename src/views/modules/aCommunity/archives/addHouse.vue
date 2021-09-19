@@ -178,183 +178,183 @@
 </template>
 <script>
 export default {
-  name: "addObject",
-  data() {
+  name: 'addObject',
+  data () {
     return {
       defaultForm: {
-        commnuity: "",
-        xiaoqu: "",
-        building: "",
-        unit: "",
-        houseType: "",
-        isUse: "",
-        floatPerson: "",
-        point: "",
-        hostName: "",
-        hostNumber: "",
+        commnuity: '',
+        xiaoqu: '',
+        building: '',
+        unit: '',
+        houseType: '',
+        isUse: '',
+        floatPerson: '',
+        point: '',
+        hostName: '',
+        hostNumber: ''
       },
       form: {
-        commnuity: "",
-        xiaoqu: "",
-        building: "",
-        unit: "",
-        houseType: "",
-        isUse: "",
-        floatPerson: "",
-        point: "",
-        hostName: "",
-        hostNumber: "",
+        commnuity: '',
+        xiaoqu: '',
+        building: '',
+        unit: '',
+        houseType: '',
+        isUse: '',
+        floatPerson: '',
+        point: '',
+        hostName: '',
+        hostNumber: ''
       },
       commnuityConfig: [
-        { label: "社区1", value: 1 },
-        { label: "社区2", value: 2 },
-        { label: "社区3", value: 3 },
+        { label: '社区1', value: 1 },
+        { label: '社区2', value: 2 },
+        { label: '社区3', value: 3 }
       ],
       xiaoquConfig: [
-        { label: "小区1", value: 1 },
-        { label: "小区2", value: 2 },
-        { label: "小区3", value: 3 },
+        { label: '小区1', value: 1 },
+        { label: '小区2', value: 2 },
+        { label: '小区3', value: 3 }
       ],
       buildingConfig: [
-        { label: "一栋", value: 1 },
-        { label: "二栋", value: 2 },
-        { label: "三栋", value: 3 },
+        { label: '一栋', value: 1 },
+        { label: '二栋', value: 2 },
+        { label: '三栋', value: 3 }
       ],
       unitConfig: [
-        { label: "一单元", value: 1 },
-        { label: "二单元", value: 2 },
-        { label: "三单元", value: 3 },
+        { label: '一单元', value: 1 },
+        { label: '二单元', value: 2 },
+        { label: '三单元', value: 3 }
       ],
       houseTypeConfig: [
-        { label: "自有房屋", value: 1 },
-        { label: "出租房屋", value: 2 },
-        { label: "公租房屋", value: 3 },
-        { label: "廉租房屋", value: 4 },
-        { label: "其他房屋", value: 5 },
+        { label: '自有房屋', value: 1 },
+        { label: '出租房屋', value: 2 },
+        { label: '公租房屋', value: 3 },
+        { label: '廉租房屋', value: 4 },
+        { label: '其他房屋', value: 5 }
       ],
       pointConfig: [
-        { label: "无分类", value: 1 },
-        { label: "刑满释放人员", value: 2 },
-        { label: "吸毒人员", value: 3 },
-        { label: "社区矫正人员", value: 4 },
-        { label: "精神病患者", value: 5 },
-        { label: "其他人员", value: 6 },
+        { label: '无分类', value: 1 },
+        { label: '刑满释放人员', value: 2 },
+        { label: '吸毒人员', value: 3 },
+        { label: '社区矫正人员', value: 4 },
+        { label: '精神病患者', value: 5 },
+        { label: '其他人员', value: 6 }
       ],
       rules: {
         commnuity: [
-          { required: true, message: "所属社区不能为空", trigger: "blur" },
+          { required: true, message: '所属社区不能为空', trigger: 'blur' }
         ],
         xiaoqu: [
-          { required: true, message: "所属小区不能为空", trigger: "blur" },
+          { required: true, message: '所属小区不能为空', trigger: 'blur' }
         ],
         building: [
-          { required: true, message: "楼栋不能为空", trigger: "blur" },
+          { required: true, message: '楼栋不能为空', trigger: 'blur' }
         ],
-        unit: [{ required: true, message: "单元号不能为空", trigger: "blur" }],
+        unit: [{ required: true, message: '单元号不能为空', trigger: 'blur' }],
         houseType: [
-          { required: true, message: "房屋性质不能为空", trigger: "blur" },
+          { required: true, message: '房屋性质不能为空', trigger: 'blur' }
         ],
         isUse: [
-          { required: true, message: "是否入住不能为空", trigger: "blur" },
+          { required: true, message: '是否入住不能为空', trigger: 'blur' }
         ],
         floatPerson: [
-          { required: true, message: "是否流动人口不能为空", trigger: "blur" },
+          { required: true, message: '是否流动人口不能为空', trigger: 'blur' }
         ],
 
         point: [
-          { required: true, message: "重点人口不能为空", trigger: "blur" },
+          { required: true, message: '重点人口不能为空', trigger: 'blur' }
         ],
         hostName: [
-          { required: true, message: "户主姓名不能为空", trigger: "blur" },
+          { required: true, message: '户主姓名不能为空', trigger: 'blur' }
         ],
         hostNumber: [
-          { required: true, message: "产权证号不能为空", trigger: "blur" },
-        ],
+          { required: true, message: '产权证号不能为空', trigger: 'blur' }
+        ]
       },
-      type: "",
+      type: '',
       visible: false,
-      loading: false,
-    };
+      loading: false
+    }
   },
   computed: {},
   watch: {},
 
   methods: {
-    handleChange(file, fileList) {
-      this.fileList = fileList.slice(-3);
+    handleChange (file, fileList) {
+      this.fileList = fileList.slice(-3)
     },
-    changeContent(v) {
-      this.form.content = v;
+    changeContent (v) {
+      this.form.content = v
     },
-    imagePreview(file) {
-      var that = this;
-      //定义一个文件阅读器
-      var reader = new FileReader();
-      //文件装载后将其显示在图片预览里
+    imagePreview (file) {
+      var that = this
+      // 定义一个文件阅读器
+      var reader = new FileReader()
+      // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
-        //将bade64位图片保存至数组里供上面图片显示
-        that.form.avatar = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        // 将bade64位图片保存至数组里供上面图片显示
+        that.form.avatar = e.target.result
+      }
+      reader.readAsDataURL(file)
     },
-    upload(file) {
-      this.imagePreview(file);
+    upload (file) {
+      this.imagePreview(file)
     },
 
-    async init(type, v) {
-      this.visible = true;
-      this.type = type;
+    async init (type, v) {
+      this.visible = true
+      this.type = type
 
-      if (type == "add") {
-        this.handleAdd();
+      if (type === 'add') {
+        this.handleAdd()
       } else {
-        this.handleEdit(v);
+        this.handleEdit(v)
       }
     },
-    //新增
-    handleAdd() {
-      this.form = Object.assign({}, this.defaultForm);
-      this.type = "add";
+    // 新增
+    handleAdd () {
+      this.form = Object.assign({}, this.defaultForm)
+      this.type = 'add'
     },
-    //编辑
-    handleEdit(e) {
-      this.form = e;
+    // 编辑
+    handleEdit (e) {
+      this.form = e
     },
-    cancelForm() {
-      this.visible = false;
+    cancelForm () {
+      this.visible = false
     },
-    submitForm() {
+    submitForm (params) {
       // 区分新增与修改
-      this.$refs["addobjformref"].validate((valid) => {
+      this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
-          if (this.type == "add") {
-            this.postSaveAddObj(params);
+          if (this.type === 'add') {
+            this.postSaveAddObj(params)
           } else {
-            this.submitFormEdit(params);
+            this.submitFormEdit(params)
           }
         } else {
-          return false;
+          return false
         }
-      });
+      })
     },
-    //网络请求保存新增监督对象
-    async postSaveAddObj(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求保存新增监督对象
+    async postSaveAddObj (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
     },
-    //网络请求编辑保存
-    async submitFormEdit(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求编辑保存
+    async submitFormEdit (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style lang="less">
 .itemview {

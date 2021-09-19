@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import MyRender from "./MyRender";
+import MyRender from './MyRender'
 export default {
   name: 'tableColumn',
   components: {
@@ -26,8 +26,8 @@ export default {
       type: Object,
       required: true
     }
-  },
-  
+  }
+
 }
 </script>
 

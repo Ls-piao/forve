@@ -63,88 +63,88 @@
 </template>
 
 <script>
-import tableData from "../data.json";
-import viewDialog from "./viewDialog";
+import tableData from '../data.json'
+import viewDialog from './viewDialog'
 import Bar from './bar2'
 import dataLine from './line'
 export default {
-  name: "",
+  name: '',
   components: {
     viewDialog,
     Bar,
     dataLine
   },
   props: {},
-  data() {
+  data () {
     return {
-        BarData: [
-        { title: "1月", value1: "150", value2: "120", value3: "110" },
-        { title: "2月", value1: "34", value2: "71", value3: "123" },
-        { title: "3月", value1: "85", value2: "37", value3: "335" },
-        { title: "4月", value1: "150", value2: "206", value3: "333" },
-        { title: "5月", value1: "123", value2: "206", value3: "333" },
-        { title: "6月", value1: "10", value2: "206", value3: "333" },
-        { title: "7月", value1: "140", value2: "206", value3: "333" },
-        { title: "8月", value1: "160", value2: "206", value3: "333" },
-        { title: "9月", value1: "144", value2: "206", value3: "333" },
-        { title: "10月", value1: "15", value2: "206", value3: "333" },
-        { title: "11月", value1: "45", value2: "206", value3: "333" },
-        { title: "12月", value1: "19", value2: "206", value3: "333" },
+      BarData: [
+        { title: '1月', value1: '150', value2: '120', value3: '110' },
+        { title: '2月', value1: '34', value2: '71', value3: '123' },
+        { title: '3月', value1: '85', value2: '37', value3: '335' },
+        { title: '4月', value1: '150', value2: '206', value3: '333' },
+        { title: '5月', value1: '123', value2: '206', value3: '333' },
+        { title: '6月', value1: '10', value2: '206', value3: '333' },
+        { title: '7月', value1: '140', value2: '206', value3: '333' },
+        { title: '8月', value1: '160', value2: '206', value3: '333' },
+        { title: '9月', value1: '144', value2: '206', value3: '333' },
+        { title: '10月', value1: '15', value2: '206', value3: '333' },
+        { title: '11月', value1: '45', value2: '206', value3: '333' },
+        { title: '12月', value1: '19', value2: '206', value3: '333' }
       ],
       searchParams: {
-        ID: "",
+        ID: ''
       },
       tableData: tableData.slice(0, 3),
       tableColumnNames: [
-          "cert_status",
-        "apply_ID",
-        "apply_qs",
-        "apply_createTime",
-        "apply_dwgr",
-        "apply_djql",
-        "apply_frdb",
-        "apply_txdz",
-        "apply_sfzh",
-        "apply_ldsyqqlr",
-        "apply_ldsyqqlr2",
-        "apply_slhlmsyqqlr",
-        "apply_slhlmsyqqlr2",
-        "cert_control",
+        'cert_status',
+        'apply_ID',
+        'apply_qs',
+        'apply_createTime',
+        'apply_dwgr',
+        'apply_djql',
+        'apply_frdb',
+        'apply_txdz',
+        'apply_sfzh',
+        'apply_ldsyqqlr',
+        'apply_ldsyqqlr2',
+        'apply_slhlmsyqqlr',
+        'apply_slhlmsyqqlr2',
+        'cert_control'
       ],
       outParams: {
-        ID: "",
+        ID: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    selectedDataChange(val) {
-      this.selectedData = val;
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleBatch(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleBatch (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要打印的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要打印的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.print();
+      this.print()
     },
-    view(v) {
-      this.$refs.viewDialog.init(v);
-    },
-  },
-};
+    view (v) {
+      this.$refs.viewDialog.init(v)
+    }
+  }
+}
 </script>
 <style lang="less">
 .searchbox {

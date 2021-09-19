@@ -91,26 +91,26 @@
 </template>
 
 <script>
-import MyRender from "./MyRender";
-import TableColumn from "./TableColumn";
-import columnsAll from "./columnsAll.js";
-function getIndex(idx) {
-    let orign = String(idx);
-    if (orign.length <= 1) {
-        orign = "0" + orign;
-    }
-    return orign;
+import MyRender from './MyRender'
+import TableColumn from './TableColumn'
+import columnsAll from './columnsAll.js'
+function getIndex (idx) {
+  let orign = String(idx)
+  if (orign.length <= 1) {
+    orign = '0' + orign
+  }
+  return orign
 }
 export default {
-  name: "MyTable",
+  name: 'MyTable',
   components: {
     MyRender,
     TableColumn
   },
   props: {
-    headerColor:{
-      type:String,
-      default:'#F5F7FA'
+    headerColor: {
+      type: String,
+      default: '#F5F7FA'
     },
     // 静态数据
     outerData: { type: Array, default: () => [] },
@@ -128,24 +128,24 @@ export default {
     disableItems: { type: Array, default: () => [] },
     // 是否支持选择
     selections: { type: Boolean, default: false },
-    showType: { type: String, default: "all" },
+    showType: { type: String, default: 'all' },
     // 是否支持分页
     pagination: { type: Boolean, default: true },
     // 是否展示合计行
     showSummary: { type: Boolean, default: false },
     getSummaries: Function,
-    //加载配置选项
+    // 加载配置选项
     loadingOption: {
       type: Object,
-      default: function() {
+      default: function () {
         return {
-          text: "",
-          spinner: "",
-          background: ""
-        };
+          text: '',
+          spinner: '',
+          background: ''
+        }
       }
     },
-    rowKey: { type: String, default: "" },
+    rowKey: { type: String, default: '' },
     maxHeight: Number,
     isSort: {
       type: Boolean,
@@ -153,180 +153,178 @@ export default {
     },
     size: {
       type: String,
-      default: "mini"
+      default: 'mini'
     },
-    limit:{
-      type:Number,
-      default:10
+    limit: {
+      type: Number,
+      default: 10
     },
-    tableHeight:{
-      type:String,
-      default:'100%'
+    tableHeight: {
+      type: String,
+      default: '100%'
     }
   },
-  data() {
+  data () {
     return {
       loading: false,
       page: 1,
       items: [],
       selectedItems: [],
       total: 0
-    };
-  },
-  computed: {
-    totalPage: function() {
-      return Math.ceil(this.total / this.limit || 1);
-    },
-    columns() {
-      if (this.customColumns && this.customColumns.length) {
-        for (let x of this.customColumns) {
-        }
-        return this.customColumns;
-      }
-      return this.getColumns(this.columnNames);
     }
   },
-  mounted() {
-    this.initData();
+  computed: {
+    totalPage: function () {
+      return Math.ceil(this.total / this.limit || 1)
+    },
+    columns () {
+      if (this.customColumns && this.customColumns.length) {
+        // for (let x of this.customColumns) {
+        // }
+        return this.customColumns
+      }
+      return this.getColumns(this.columnNames)
+    }
+  },
+  mounted () {
+    this.initData()
   },
   methods: {
     /* 获取列
      * colsName： 表格使用列
      */
-    getColumns(columnNames = []) {
+    getColumns (columnNames = []) {
       // 所有表格列
-      let colsAll = columnsAll(this.parent || this.$parent);
-      let cols = [];
+      let colsAll = columnsAll(this.parent || this.$parent)
+      let cols = []
       for (let i = 0, leni = columnNames.length; i < leni; i++) {
         for (let j = 0, lenj = colsAll.length; j < lenj; j++) {
           if (columnNames[i] === colsAll[j].columnName) {
-            cols.push(colsAll[j]);
-            break;
+            cols.push(colsAll[j])
+            break
           }
         }
       }
-      return cols;
+      return cols
     },
     // 行禁止
-    selectable(row) {
-      let flag = true;
+    selectable (row) {
+      let flag = true
       this.disableItems.map(item => {
         if (item.wareId === row.wareId || item.wareId === 0) {
-          flag = false;
+          flag = false
         }
-        return;
-      });
-      return flag;
+      })
+      return flag
     },
     // 初始化表格数据
-    initData() {
+    initData () {
       // 静态
       if (this.outerData.length) {
-        this.total = this.outerData.length;
+        this.total = this.outerData.length
         if (this.showAllOuterData) {
-          this.items = this.outerData;
-          return;
+          this.items = this.outerData
+          return
         }
-        let start = (this.page - 1) * this.limit;
-        let end = this.page * this.limit;
-        this.items = this.outerData.slice(start, end);
+        let start = (this.page - 1) * this.limit
+        let end = this.page * this.limit
+        this.items = this.outerData.slice(start, end)
       } else {
         // 动态
-        this.handleFetch();
+        this.handleFetch()
       }
     },
     // 表格数据请求
-    async handleFetch() {
-      this.loading = true;
+    async handleFetch () {
+      this.loading = true
       const params = this.pagination
         ? Object.assign(
             {},
-            {
-              page: this.page,
-              limit: this.limit
-            },
+          {
+            page: this.page,
+            limit: this.limit
+          },
             this.outParams
           )
-        : this.outParams;
+        : this.outParams
       // 调整页码大小
-      params && (this.limit = params.limit);
-      const res = await this.fetchFun(params);
-      this.loading = false;
-      if (!res) return; // res为undefined，出错中止
+      params && (this.limit = params.limit)
+      const res = await this.fetchFun(params)
+      this.loading = false
+      if (!res) return // res为undefined，出错中止
       const {
         data: { data }
-      } = res;
+      } = res
 
       // const { data } = res
       // 异常处理
       if (!data) {
-        this.total = 0;
-        this.items = [];
-        return;
+        this.total = 0
+        this.items = []
+        return
       }
       // 分页与不分页区分
       if (this.pagination) {
-        this.total = data.total;
-        this.items = data.list;
+        this.total = data.total
+        this.items = data.list
       } else {
-        this.total = data.length;
-        this.items = data;
+        this.total = data.length
+        this.items = data
       }
     },
     // 选项选择
-    selectionChange(val) {
-      this.selectedItems = val;
-      this.$emit("selectedDataChange", val);
+    selectionChange (val) {
+      this.selectedItems = val
+      this.$emit('selectedDataChange', val)
     },
     // 页码跳转
-    currentChange(val) {
+    currentChange (val) {
       if (this.loading) {
-        return;
+        return
       }
-      this.page = val;
-      this.initData();
+      this.page = val
+      this.initData()
     },
     // 上一页
-    handlePreviousPage(noPreviousPage) {
+    handlePreviousPage (noPreviousPage) {
       if (this.loading) {
-        return;
+        return
       }
       if (this.page === 1) {
-        return noPreviousPage();
+        return noPreviousPage()
       }
-      this.page--;
-      this.initData();
+      this.page--
+      this.initData()
     },
     // 下一页
-    handleNextPage(noNextPage) {
+    handleNextPage (noNextPage) {
       if (this.loading) {
-        return;
+        return
       }
       if (this.total <= this.page * this.limit) {
-        noNextPage();
-        return;
+        noNextPage()
+        return
       }
-      this.page++;
-      this.initData();
+      this.page++
+      this.initData()
     },
     // 每页数据条数改变
-    sizeChange(val) {
-      this.limit = val;
-      this.page = 1;
-      this.initData();
+    sizeChange (val) {
+      this.limit = val
+      this.page = 1
+      this.initData()
     },
-    getIndex(idx) {
-      return getIndex(idx);
+    getIndex (idx) {
+      return getIndex(idx)
     },
-    getRowKeys(row) {
-      return row[this.rowKey];
+    getRowKeys (row) {
+      return row[this.rowKey]
     },
-    rowClick(row){
-      if(!this.selections)
-       this.$refs.table.toggleRowSelection(row);
+    rowClick (row) {
+      if (!this.selections) { this.$refs.table.toggleRowSelection(row) }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped></style>

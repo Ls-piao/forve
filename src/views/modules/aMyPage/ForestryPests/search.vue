@@ -148,151 +148,151 @@
 </template>
 
 <script>
-import animateInteger from "../components/animate-integer/index.vue";
-import tableData from "./data.json";
-import { cloneDeep } from "lodash";
+import animateInteger from '../components/animate-integer/index.vue'
+import tableData from './data.json'
+import { cloneDeep } from 'lodash'
 
 import preview from '../components/preview'
-import Preview from '../components/preview.vue';
+import Preview from '../components/preview.vue'
 export default {
-  name: "",
+  name: '',
   components: {
     animateInteger,
     preview,
     Preview
   },
   props: {},
-  data() {
+  data () {
     return {
       checkAll: false,
       checkValues: [],
       isIndeterminate: true,
       show: false,
       searchParams: {
-        dangerType: "",
-        startYear: "",
-        endYear: "",
-        month: "",
-        DisasterArea: "",
-        light: "",
-        middle: "",
-        height: "",
+        dangerType: '',
+        startYear: '',
+        endYear: '',
+        month: '',
+        DisasterArea: '',
+        light: '',
+        middle: '',
+        height: ''
       },
       dangerConfig: [
-        { label: "森林火灾", value: 1 },
-        { label: "病虫害", value: 2 },
-        { label: "野生动物疫源疾病", value: 3 },
-        { label: "有害植物入侵", value: 4 },
+        { label: '森林火灾', value: 1 },
+        { label: '病虫害', value: 2 },
+        { label: '野生动物疫源疾病', value: 3 },
+        { label: '有害植物入侵', value: 4 }
       ],
       degreeConfig: [
-        { label: "轻度", value: 1 },
-        { label: "中度", value: 2 },
-        { label: "重度", value: 3 },
+        { label: '轻度', value: 1 },
+        { label: '中度', value: 2 },
+        { label: '重度', value: 3 }
       ],
       /**
        * 表格相关
        */
       tableData,
       tableColumnNames: [
-        "forest_house",
-        "forest_picId",
-        "forest_dangerType",
-        "forest_year",
-        "forest_month",
-        "forest_MonitorArea",
-        "forest_DisasterArea",
-        "forest_light",
-        "forest_middle",
-        "forest_height",
-        "forest_location",
-        "forest_prospect",
-        "forest_close",
-        "control_edit_del",
+        'forest_house',
+        'forest_picId',
+        'forest_dangerType',
+        'forest_year',
+        'forest_month',
+        'forest_MonitorArea',
+        'forest_DisasterArea',
+        'forest_light',
+        'forest_middle',
+        'forest_height',
+        'forest_location',
+        'forest_prospect',
+        'forest_close',
+        'control_edit_del'
       ],
       outParams: {
-        dangerType: "",
-        startYear: "",
-        endYear: "",
-        month: "",
-        DisasterArea: "",
-        light: "",
-        middle: "",
-        height: "",
+        dangerType: '',
+        startYear: '',
+        endYear: '',
+        month: '',
+        DisasterArea: '',
+        light: '',
+        middle: '',
+        height: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
       /**
        * 表格结束
        */
-    };
-  },
-  computed: {
-    tableFetchFun() {
-      return;
-    },
-  },
-  watch: {},
-  created() {},
-  mounted() {},
-  methods: {
-    check(val) {
-      let checkedCount = val.length;
-      this.checkAll = checkedCount === this.degreeConfig.length;
-      this.isIndeterminate =
-        checkedCount > 0 && checkedCount < this.degreeConfig.length;
-    },
-    choseAll(val) {
-      this.checkValues = val ? this.degreeConfig : [];
-      this.isIndeterminate = false;
-    },
-    selectedDataChange(val) {
-      this.selectedData = val;
-    },
-    handleSearch() {
-      this.$refs.table.page = 1;
-      this.$refs.table.initData();
-    },
-    handleDelete(scope) {
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
-      })
-        .then(() => {
-          this.deleteCommit(scope);
-        })
-        .catch(() => {});
-    },
-    //删除
-    async deleteCommit(scope) {
-      let i = this.tableData.findIndex((v) => v.ID == scope.ID);
-      this.tableData.splice(i, 1);
-      this.$message.success("操作成功");
-      this.$refs.table.initData(); // 刷新表格
-    },
-    // 新增编辑
-    add() {
-      this.$router.push("/aMyPage/ForestryPests/import");
-    },
-    //编辑
-    editDialog(scope) {
-      this.$router.push("/aMyPage/ForestryPests/import?id=" + scope.ID);
-    },
-    //查看详情
-    //充值
-    reset() {
-      this.outParams = cloneDeep(this.searchParams);
-      this.$refs.table.table();
-    },
-    doSearch() {
-      this.show = true;
-      this.$refs.table.table();
-    },
-    preview(v,prop){
-      this.$refs.preview.init(v,prop)
     }
   },
-};
+  computed: {
+    tableFetchFun () {
+
+    }
+  },
+  watch: {},
+  created () {},
+  mounted () {},
+  methods: {
+    check (val) {
+      let checkedCount = val.length
+      this.checkAll = checkedCount === this.degreeConfig.length
+      this.isIndeterminate =
+        checkedCount > 0 && checkedCount < this.degreeConfig.length
+    },
+    choseAll (val) {
+      this.checkValues = val ? this.degreeConfig : []
+      this.isIndeterminate = false
+    },
+    selectedDataChange (val) {
+      this.selectedData = val
+    },
+    handleSearch () {
+      this.$refs.table.page = 1
+      this.$refs.table.initData()
+    },
+    handleDelete (scope) {
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
+        .then(() => {
+          this.deleteCommit(scope)
+        })
+        .catch(() => {})
+    },
+    // 删除
+    async deleteCommit (scope) {
+      let i = this.tableData.findIndex((v) => v.ID === scope.ID)
+      this.tableData.splice(i, 1)
+      this.$message.success('操作成功')
+      this.$refs.table.initData() // 刷新表格
+    },
+    // 新增编辑
+    add () {
+      this.$router.push('/aMyPage/ForestryPests/import')
+    },
+    // 编辑
+    editDialog (scope) {
+      this.$router.push('/aMyPage/ForestryPests/import?id=' + scope.ID)
+    },
+    // 查看详情
+    // 充值
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.table()
+    },
+    doSearch () {
+      this.show = true
+      this.$refs.table.table()
+    },
+    preview (v, prop) {
+      this.$refs.preview.init(v, prop)
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">

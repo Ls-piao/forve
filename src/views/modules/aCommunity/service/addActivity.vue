@@ -91,128 +91,128 @@
 <script>
 import Editor from './editor'
 export default {
-  name: "addObject",
-  components:{
+  name: 'addObject',
+  components: {
     Editor
   },
-  data() {
+  data () {
     return {
       defaultForm: {
-       title:"",
-       tip:"",
-       type:"",
-       avatar:"",
-       content:""
+        title: '',
+        tip: '',
+        type: '',
+        avatar: '',
+        content: ''
       },
       form: {
-       title:"",
-       tip:"",
-       type:"",
-       avatar:"",
-       content:""
+        title: '',
+        tip: '',
+        type: '',
+        avatar: '',
+        content: ''
       },
       typeConfig: [
-        { label: "类型1", value: 1 },
-        { label: "类型2", value: 2 },
-        { label: "类型3", value: 3 },
+        { label: '类型1', value: 1 },
+        { label: '类型2', value: 2 },
+        { label: '类型3', value: 3 }
       ],
 
       rules: {
         title: [
-          { required: true, message: "标题不能为空", trigger: "blur" },
+          { required: true, message: '标题不能为空', trigger: 'blur' }
         ],
-        tip: [{ required: true, message: "摘要不能为空", trigger: "blur" }],
+        tip: [{ required: true, message: '摘要不能为空', trigger: 'blur' }],
         type: [
-          { required: true, message: "类型不能为空", trigger: "blur" },
+          { required: true, message: '类型不能为空', trigger: 'blur' }
         ],
         avatar: [
-          { required: true, message: "图片不能为空", trigger: "blur" },
+          { required: true, message: '图片不能为空', trigger: 'blur' }
         ],
         content: [
-          { required: true, message: "内容不能为空", trigger: "blur" },
-        ],
+          { required: true, message: '内容不能为空', trigger: 'blur' }
+        ]
       },
-      type: "",
+      type: '',
       visible: false,
-      loading: false,
-    };
+      loading: false
+    }
   },
   computed: {},
   watch: {},
 
   methods: {
-    changeContent(v){
+    changeContent (v) {
       this.form.content = v
     },
-    imagePreview(file) {
-      var that = this;
-      //定义一个文件阅读器
-      var reader = new FileReader();
-      //文件装载后将其显示在图片预览里
+    imagePreview (file) {
+      var that = this
+      // 定义一个文件阅读器
+      var reader = new FileReader()
+      // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
-        //将bade64位图片保存至数组里供上面图片显示
-        that.form.avatar = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        // 将bade64位图片保存至数组里供上面图片显示
+        that.form.avatar = e.target.result
+      }
+      reader.readAsDataURL(file)
     },
-    upload(file) {
-      this.imagePreview(file);
+    upload (file) {
+      this.imagePreview(file)
     },
 
-    async init(type, v) {
-      this.visible = true;
-      this.type = type;
+    async init (type, v) {
+      this.visible = true
+      this.type = type
 
-      if (type == "add") {
-        this.handleAdd();
+      if (type === 'add') {
+        this.handleAdd()
       } else {
-        this.handleEdit(v);
+        this.handleEdit(v)
       }
     },
-    //新增
-    handleAdd() {
-      this.form = Object.assign({}, this.defaultForm);
-      this.type = "add";
+    // 新增
+    handleAdd () {
+      this.form = Object.assign({}, this.defaultForm)
+      this.type = 'add'
     },
-    //编辑
-    handleEdit(e) {
-      this.form = e;
+    // 编辑
+    handleEdit (e) {
+      this.form = e
     },
-    cancelForm() {
-      this.visible = false;
+    cancelForm () {
+      this.visible = false
     },
-    submitForm() {
+    submitForm (params) {
       // 区分新增与修改
-      this.$refs["addobjformref"].validate((valid) => {
+      this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
-          if (this.type == "add") {
-            this.postSaveAddObj(params);
+          if (this.type === 'add') {
+            this.postSaveAddObj(params)
           } else {
-            this.submitFormEdit(params);
+            this.submitFormEdit(params)
           }
         } else {
-          return false;
+          return false
         }
-      });
+      })
     },
-    //网络请求保存新增监督对象
-    async postSaveAddObj(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求保存新增监督对象
+    async postSaveAddObj (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
     },
-    //网络请求编辑保存
-    async submitFormEdit(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求编辑保存
+    async submitFormEdit (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style lang="less">
 .itemview {

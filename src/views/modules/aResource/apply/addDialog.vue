@@ -461,307 +461,307 @@
 </template>
 <script>
 export default {
-  name: "addObject",
-  data() {
+  name: 'addObject',
+  data () {
     return {
       defaultForm: {
-        qs: "",
+        qs: '',
         createTime: new Date().getTime(),
         djql: [],
-        dwgr: "",
-        frdb: "",
-        txdz: "",
-        ldsyqqlr: "",
-        ldsyqqlr2: "",
-        sfzh: "",
-        slhlmsyqqlr: "",
-        slhlmsyqqlr2: "",
-        zl: "",
-        xdm: "",
-        lb: "",
-        xb: "",
-        mj: "",
-        lz: "",
-        zlnd: "",
-        zs: "",
-        zysz: "",
-        qtsz: "",
-        ldsyq: "",
-        zzrq: "",
-        dz: "",
-        xz: "",
-        bz: "",
-        nz: "",
-        szgc: "",
-        qy: "",
+        dwgr: '',
+        frdb: '',
+        txdz: '',
+        ldsyqqlr: '',
+        ldsyqqlr2: '',
+        sfzh: '',
+        slhlmsyqqlr: '',
+        slhlmsyqqlr2: '',
+        zl: '',
+        xdm: '',
+        lb: '',
+        xb: '',
+        mj: '',
+        lz: '',
+        zlnd: '',
+        zs: '',
+        zysz: '',
+        qtsz: '',
+        ldsyq: '',
+        zzrq: '',
+        dz: '',
+        xz: '',
+        bz: '',
+        nz: '',
+        szgc: '',
+        qy: '',
         gczl: 1,
-        gyl: "",
-        dl: "",
-        zyqlyj:"",
-        lqgyqlrsm:"",
-        xzfyj:"",
-        jtldsyqqlryj:"",
-        lyzgbmyj:"",
-        fzjgyj:""
+        gyl: '',
+        dl: '',
+        zyqlyj: '',
+        lqgyqlrsm: '',
+        xzfyj: '',
+        jtldsyqqlryj: '',
+        lyzgbmyj: '',
+        fzjgyj: ''
       },
       form: {
-        qs: "",
+        qs: '',
         createTime: new Date().getTime(),
         djql: [],
-        dwgr: "",
-        frdb: "",
-        txdz: "",
-        ldsyqqlr: "",
-        ldsyqqlr2: "",
-        sfzh: "",
-        slhlmsyqqlr: "",
-        slhlmsyqqlr2: "",
-        zl: "",
-        xdm: "",
-        lb: "",
-        xb: "",
-        mj: "",
-        lz: "",
-        zlnd: "",
-        zs: "",
-        zysz: "",
-        qtsz: "",
-        ldsyq: "",
-        zzrq: "",
-        dz: "",
-        xz: "",
-        bz: "",
-        nz: "",
-        szgc: "",
-        qy: "",
+        dwgr: '',
+        frdb: '',
+        txdz: '',
+        ldsyqqlr: '',
+        ldsyqqlr2: '',
+        sfzh: '',
+        slhlmsyqqlr: '',
+        slhlmsyqqlr2: '',
+        zl: '',
+        xdm: '',
+        lb: '',
+        xb: '',
+        mj: '',
+        lz: '',
+        zlnd: '',
+        zs: '',
+        zysz: '',
+        qtsz: '',
+        ldsyq: '',
+        zzrq: '',
+        dz: '',
+        xz: '',
+        bz: '',
+        nz: '',
+        szgc: '',
+        qy: '',
         gczl: 1,
-        gyl: "",
-        dl: "",
-        zyqlyj:"",
-        lqgyqlrsm:"",
-        xzfyj:"",
-        jtldsyqqlryj:"",
-        lyzgbmyj:"",
-        fzjgyj:""
+        gyl: '',
+        dl: '',
+        zyqlyj: '',
+        lqgyqlrsm: '',
+        xzfyj: '',
+        jtldsyqqlryj: '',
+        lyzgbmyj: '',
+        fzjgyj: ''
       },
       qsConfig: [
-        { label: "国有", value: 1 },
-        { label: "私有", value: 2 },
-        { label: "个人", value: 3 },
+        { label: '国有', value: 1 },
+        { label: '私有', value: 2 },
+        { label: '个人', value: 3 }
       ],
       djqlConfig: [
-        { label: "林地所有权", value: 1 },
-        { label: "森林或林木所有权", value: 2 },
-        { label: "林地使用权", value: 3 },
-        { label: "森林或林木使用权", value: 4 },
+        { label: '林地所有权', value: 1 },
+        { label: '森林或林木所有权', value: 2 },
+        { label: '林地使用权', value: 3 },
+        { label: '森林或林木使用权', value: 4 }
       ],
       lzConfig: [
-        { label: "林种1", value: 1 },
-        { label: "林种2", value: 2 },
-        { label: "林种3", value: 3 },
+        { label: '林种1', value: 1 },
+        { label: '林种2', value: 2 },
+        { label: '林种3', value: 3 }
       ],
       zyszConfig: [
-        { label: "树种1", value: 1 },
-        { label: "树种2", value: 2 },
-        { label: "树种3", value: 3 },
-        { label: "树种4", value: 4 },
+        { label: '树种1', value: 1 },
+        { label: '树种2', value: 2 },
+        { label: '树种3', value: 3 },
+        { label: '树种4', value: 4 }
       ],
       szgcConfig: [
-        { label: "树种1", value: 1 },
-        { label: "树种2", value: 2 },
-        { label: "树种3", value: 3 },
-        { label: "树种4", value: 4 },
+        { label: '树种1', value: 1 },
+        { label: '树种2', value: 2 },
+        { label: '树种3', value: 3 },
+        { label: '树种4', value: 4 }
       ],
       qyConfig: [
-        { label: "起源1", value: 1 },
-        { label: "起源2", value: 2 },
-        { label: "起源3", value: 3 },
-        { label: "起源4", value: 4 },
+        { label: '起源1', value: 1 },
+        { label: '起源2', value: 2 },
+        { label: '起源3', value: 3 },
+        { label: '起源4', value: 4 }
       ],
       gylConfig: [
-        { label: "公益林1", value: 1 },
-        { label: "公益林2", value: 2 },
-        { label: "公益林3", value: 3 },
-        { label: "公益林4", value: 4 },
+        { label: '公益林1', value: 1 },
+        { label: '公益林2', value: 2 },
+        { label: '公益林3', value: 3 },
+        { label: '公益林4', value: 4 }
       ],
       dlConfig: [
-        { label: "地类1", value: 1 },
-        { label: "地类2", value: 2 },
-        { label: "地类3", value: 3 },
-        { label: "地类4", value: 4 },
+        { label: '地类1', value: 1 },
+        { label: '地类2', value: 2 },
+        { label: '地类3', value: 3 },
+        { label: '地类4', value: 4 }
       ],
       rules: {
-        qs: [{ required: true, message: "权属不能为空", trigger: "blur" }],
-        qy: [{ required: true, message: "起源不能为空", trigger: "blur" }],
-        zl: [{ required: true, message: "坐落不能为空", trigger: "blur" }],
-        xdm: [{ required: true, message: "小地名不能为空", trigger: "blur" }],
-        zs: [{ required: true, message: "株数不能为空", trigger: "blur" }],
-        lb: [{ required: true, message: "林班不能为空", trigger: "blur" }],
-        lb: [{ required: true, message: "小班不能为空", trigger: "blur" }],
-        mj: [{ required: true, message: "面积不能为空", trigger: "blur" }],
-        dz: [{ required: true, message: "东至不能为空", trigger: "blur" }],
-        nz: [{ required: true, message: "南至不能为空", trigger: "blur" }],
-        xz: [{ required: true, message: "西至不能为空", trigger: "blur" }],
-        bz: [{ required: true, message: "北至不能为空", trigger: "blur" }],
-        zyqlyj: [{ required: true, message: "主要权力依据不能为空", trigger: "blur" }],
-        lqgyqlrsm: [{ required: true, message: "林权共有权利人说明（注记）不能为空", trigger: "blur" }],
-        xzfyj: [{ required: true, message: "乡（政）府意见不能为空", trigger: "blur" }],
-        jtldsyqqlryj: [{ required: true, message: "集体林地所有权权利人意见不能为空", trigger: "blur" }],
-        lyzgbmyj: [{ required: true, message: "林业主管部门意见不能为空", trigger: "blur" }],
-        fzjgyj: [{ required: true, message: "发证机关意见不能为空", trigger: "blur" }],
+        qs: [{ required: true, message: '权属不能为空', trigger: 'blur' }],
+        qy: [{ required: true, message: '起源不能为空', trigger: 'blur' }],
+        zl: [{ required: true, message: '坐落不能为空', trigger: 'blur' }],
+        xdm: [{ required: true, message: '小地名不能为空', trigger: 'blur' }],
+        zs: [{ required: true, message: '株数不能为空', trigger: 'blur' }],
+        lb: [{ required: true, message: '林班不能为空', trigger: 'blur' }],
+        xb: [{ required: true, message: '小班不能为空', trigger: 'blur' }],
+        mj: [{ required: true, message: '面积不能为空', trigger: 'blur' }],
+        dz: [{ required: true, message: '东至不能为空', trigger: 'blur' }],
+        nz: [{ required: true, message: '南至不能为空', trigger: 'blur' }],
+        xz: [{ required: true, message: '西至不能为空', trigger: 'blur' }],
+        bz: [{ required: true, message: '北至不能为空', trigger: 'blur' }],
+        zyqlyj: [{ required: true, message: '主要权力依据不能为空', trigger: 'blur' }],
+        lqgyqlrsm: [{ required: true, message: '林权共有权利人说明（注记）不能为空', trigger: 'blur' }],
+        xzfyj: [{ required: true, message: '乡（政）府意见不能为空', trigger: 'blur' }],
+        jtldsyqqlryj: [{ required: true, message: '集体林地所有权权利人意见不能为空', trigger: 'blur' }],
+        lyzgbmyj: [{ required: true, message: '林业主管部门意见不能为空', trigger: 'blur' }],
+        fzjgyj: [{ required: true, message: '发证机关意见不能为空', trigger: 'blur' }],
         gczl: [
-          { required: true, message: "是否工程造林不能为空", trigger: "blur" },
+          { required: true, message: '是否工程造林不能为空', trigger: 'blur' }
         ],
-        gyl: [{ required: true, message: "公益林不能为空", trigger: "blur" }],
+        gyl: [{ required: true, message: '公益林不能为空', trigger: 'blur' }],
         szgc: [
-          { required: true, message: "树种构成不能为空", trigger: "blur" },
+          { required: true, message: '树种构成不能为空', trigger: 'blur' }
         ],
         zlnd: [
-          { required: true, message: "造林年度不能为空", trigger: "blur" },
+          { required: true, message: '造林年度不能为空', trigger: 'blur' }
         ],
-        lz: [{ required: true, message: "林种不能为空", trigger: "blur" }],
+        lz: [{ required: true, message: '林种不能为空', trigger: 'blur' }],
         zysz: [
-          { required: true, message: "主要树种不能为空", trigger: "blur" },
+          { required: true, message: '主要树种不能为空', trigger: 'blur' }
         ],
         qtsz: [
-          { required: true, message: "其他树种不能为空", trigger: "blur" },
+          { required: true, message: '其他树种不能为空', trigger: 'blur' }
         ],
         ldsyq: [
-          { required: true, message: "林地使用期不能为空", trigger: "blur" },
+          { required: true, message: '林地使用期不能为空', trigger: 'blur' }
         ],
         zzrq: [
-          { required: true, message: "终止日期不能为空", trigger: "blur" },
+          { required: true, message: '终止日期不能为空', trigger: 'blur' }
         ],
         ldsyqqlr: [
           {
             required: true,
-            message: "林地所有权权利人不能为空",
-            trigger: "blur",
-          },
+            message: '林地所有权权利人不能为空',
+            trigger: 'blur'
+          }
         ],
         ldsyqqlr2: [
           {
             required: true,
-            message: "林地使用权权利人不能为空",
-            trigger: "blur",
-          },
+            message: '林地使用权权利人不能为空',
+            trigger: 'blur'
+          }
         ],
         slhlmsyqqlr: [
           {
             required: true,
-            message: "森林或林木所有权权利人不能为空",
-            trigger: "blur",
-          },
+            message: '森林或林木所有权权利人不能为空',
+            trigger: 'blur'
+          }
         ],
         slhlmsyqqlr2: [
           {
             required: true,
-            message: "森林或林木使用权权利人不能为空",
-            trigger: "blur",
-          },
+            message: '森林或林木使用权权利人不能为空',
+            trigger: 'blur'
+          }
         ],
         sfzh: [
           {
             pattern:
               /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$)/,
             required: true,
-            message: "身份证号不能为空",
-            trigger: "blur",
-          },
+            message: '身份证号不能为空',
+            trigger: 'blur'
+          }
         ],
         createTime: [
-          { required: true, message: "日期不能为空", trigger: "blur" },
+          { required: true, message: '日期不能为空', trigger: 'blur' }
         ],
-        djql: [{ required: true, message: "登记权力必选", trigger: "blur" }],
+        djql: [{ required: true, message: '登记权力必选', trigger: 'blur' }],
         frdb: [
-          { required: true, message: "法人代表不能为空", trigger: "blur" },
+          { required: true, message: '法人代表不能为空', trigger: 'blur' }
         ],
         txdz: [
-          { required: true, message: "通讯地址不能为空", trigger: "blur" },
+          { required: true, message: '通讯地址不能为空', trigger: 'blur' }
         ],
         dwgr: [
-          { required: true, message: "单位个人不能为空", trigger: "blur" },
-        ],
+          { required: true, message: '单位个人不能为空', trigger: 'blur' }
+        ]
       },
-      type: "",
+      type: '',
       visible: false,
-      loading: false,
-    };
+      loading: false
+    }
   },
   computed: {},
   watch: {},
 
   methods: {
-   async init(type, v) {
-      this.visible = true;
-      this.type = type;
-              
-      if (type == "add") {
-        this.handleAdd();
+    async init (type, v) {
+      this.visible = true
+      this.type = type
+
+      if (type === 'add') {
+        this.handleAdd()
       } else {
-        this.handleEdit(v);
+        this.handleEdit(v)
       }
     },
-    //新增
-    handleAdd() {
-      this.form = Object.assign({}, this.defaultForm);
-      this.type = "add";
+    // 新增
+    handleAdd () {
+      this.form = Object.assign({}, this.defaultForm)
+      this.type = 'add'
     },
-    //编辑
-    handleEdit(e) {
-      this.form = e;
+    // 编辑
+    handleEdit (e) {
+      this.form = e
     },
-    cancelForm() {
-      this.visible = false;
+    cancelForm () {
+      this.visible = false
     },
-    submitForm() {
+    submitForm (params) {
       // 区分新增与修改
-      this.$refs["addobjformref"].validate((valid) => {
+      this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
-          if (this.type == "add") {
-            this.postSaveAddObj(params);
+          if (this.type === 'add') {
+            this.postSaveAddObj(params)
           } else {
-            this.submitFormEdit(params);
+            this.submitFormEdit(params)
           }
         } else {
-          return false;
+          return false
         }
-      });
+      })
     },
-    //删除缓存词典
-    remove(k, data) {
-      if (data == "szsw") {
-        this.historySzsw.splice(k, 1);
-      } else if (data == "jtcy") {
-        this.historyJtcy.splice(k, 1);
+    // 删除缓存词典
+    remove (k, data) {
+      if (data === 'szsw') {
+        this.historySzsw.splice(k, 1)
+      } else if (data === 'jtcy') {
+        this.historyJtcy.splice(k, 1)
       }
       let form = {
         szsw: this.historySzsw,
-        jtcy: this.historyJtcy,
-      };
-      localStorage.setItem("form", JSON.stringify(form));
+        jtcy: this.historyJtcy
+      }
+      localStorage.setItem('form', JSON.stringify(form))
     },
-    deepc(obj) {
-      return JSON.parse(JSON.stringify(obj));
+    deepc (obj) {
+      return JSON.parse(JSON.stringify(obj))
     },
-    //网络请求保存新增监督对象
-    async postSaveAddObj(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求保存新增监督对象
+    async postSaveAddObj (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
     },
-    //网络请求编辑保存
-    async submitFormEdit(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求编辑保存
+    async submitFormEdit (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style lang="less">
 .adddia {

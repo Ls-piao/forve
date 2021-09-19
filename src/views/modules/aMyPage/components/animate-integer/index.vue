@@ -4,36 +4,36 @@
 
 <script>
 // const TWEEN = require("./Tween.js");
-import TWEEN from "./Tween.js";
+import TWEEN from './Tween.js'
 export default {
-  name: "animate_integer",
+  name: 'animate_integer',
   props: {
     value: {
       type: Number | String,
-      required: true,
+      required: true
     },
     toLocaleString: {
       type: Boolean | Function,
-      default: false,
-    },
+      default: false
+    }
   },
-  data() {
+  data () {
     return {
-      tweenValue: 0,
-    };
+      tweenValue: 0
+    }
   },
   watch: {
     value: function (newValue, oldValue) {
-      this.tween(oldValue, newValue);
-    },
+      this.tween(oldValue, newValue)
+    }
   },
   computed: {},
   methods: {
     tween: function (startValue, endValue) {
-      var vm = this;
-      function animate() {
+      var vm = this
+      function animate () {
         if (TWEEN.update()) {
-          requestAnimationFrame(animate);
+          requestAnimationFrame(animate)
         }
       }
       new TWEEN.Tween({ tweeningValue: startValue })
@@ -42,19 +42,19 @@ export default {
           if (vm.toLocaleString) {
             vm.tweenValue = Number(
               this._object.tweeningValue.toFixed(0)
-            ).toLocaleString();
+            ).toLocaleString()
           } else {
-            vm.tweenValue = this._object.tweeningValue.toFixed(0);
+            vm.tweenValue = this._object.tweeningValue.toFixed(0)
           }
         })
-        .start();
+        .start()
 
-      animate();
-    },
+      animate()
+    }
   },
-  created() {},
-  mounted() {
-    this.tween(0, this.value);
-  },
-};
+  created () {},
+  mounted () {
+    this.tween(0, this.value)
+  }
+}
 </script>

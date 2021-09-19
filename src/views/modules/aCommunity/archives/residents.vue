@@ -149,115 +149,115 @@
 </template>
 
 <script>
-import personData from "./person.json";
-import treeData from "./treeData2.json";
-import addDialog from "./addResident";
-import viewDialog from "./viewResident";
+import personData from './person.json'
+import treeData from './treeData2.json'
+import addDialog from './addResident'
+import viewDialog from './viewResident'
 import previewDialog from './preview'
 export default {
-  name: "",
+  name: '',
   components: {
     addDialog,
     viewDialog,
     previewDialog
   },
   props: {},
-  data() {
+  data () {
     return {
       treeData,
-      filterText: "",
-      filterNode: "name",
+      filterText: '',
+      filterNode: 'name',
 
       searchParams: {
-        id: "",
-        user: "",
-        number: "",
+        id: '',
+        user: '',
+        number: ''
       },
       tableData: personData,
       tableColumnNames: [
-        "resident_id",
-        "resident_community",
-        "resident_xiaoqu",
-        "resident_building",
-        "resident_unit",
-        "resident_number",
-        "resident_avatar",
-        "resident_name",
-        "resident_sex",
-        "resident_relation",
-        "resident_phone",
-        "resident_work",
-        "resident_isReligious",
-        "resident_isLow",
-        "resident_idCard",
-        "resident_born",
-        "resident_mz",
-        "resident_isFloat",
-        "resident_jyqk",
-        "resident_whcd",
-        "resident_health",
-        "resident_jycs",
-        "resident_hj",
-        "resident_zzmm",
-        "resident_hyzk",
-        "resident_cjlb",
-        "resident_desc",
-        "shop_control",
+        'resident_id',
+        'resident_community',
+        'resident_xiaoqu',
+        'resident_building',
+        'resident_unit',
+        'resident_number',
+        'resident_avatar',
+        'resident_name',
+        'resident_sex',
+        'resident_relation',
+        'resident_phone',
+        'resident_work',
+        'resident_isReligious',
+        'resident_isLow',
+        'resident_idCard',
+        'resident_born',
+        'resident_mz',
+        'resident_isFloat',
+        'resident_jyqk',
+        'resident_whcd',
+        'resident_health',
+        'resident_jycs',
+        'resident_hj',
+        'resident_zzmm',
+        'resident_hyzk',
+        'resident_cjlb',
+        'resident_desc',
+        'shop_control'
       ],
       outParams: {
-        id: "",
-        user: "",
-        number: "",
+        id: '',
+        user: '',
+        number: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    handleNodeClick() {},
-    selectedDataChange(val) {
-      this.selectedData = val;
+    handleNodeClick () {},
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleDelete(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要删除的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要删除的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dels(scope);
+          this.dels(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    add() {
-      this.$refs.addDialog.init("add");
+    add () {
+      this.$refs.addDialog.init('add')
     },
-    edit(v) {
-      this.$refs.addDialog.init("edit", v);
+    edit (v) {
+      this.$refs.addDialog.init('edit', v)
     },
-    view(v) {
-      this.$refs.viewDialog.init(v);
+    view (v) {
+      this.$refs.viewDialog.init(v)
     },
-    preview(v,prop){
-        this.$refs.previewDialog.init(v,prop)
+    preview (v, prop) {
+      this.$refs.previewDialog.init(v, prop)
     }
-  },
-};
+  }
+}
 </script>
 <style lang="less">
 .tree-line {

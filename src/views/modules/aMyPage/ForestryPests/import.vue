@@ -121,204 +121,200 @@
   </div>
 </template>
 <script>
-import tableData from "./data.json";
+import tableData from './data.json'
 export default {
-  name: "addObject",
-  data() {
+  name: 'addObject',
+  data () {
     return {
       defaultForm: {
-        house: "",
-        picId: "",
-        dangerType: "",
-        year: "",
-        month: "",
-        MonitorArea: "",
-        DisasterArea: "",
-        light: "",
-        middle: "",
-        height: "",
-        location: "",
-        prospect: "",
-        close: "",
+        house: '',
+        picId: '',
+        dangerType: '',
+        year: '',
+        month: '',
+        MonitorArea: '',
+        DisasterArea: '',
+        light: '',
+        middle: '',
+        height: '',
+        location: '',
+        prospect: '',
+        close: ''
       },
       form: {
-        house: "",
-        picId: "",
-        dangerType: "",
-        year: "",
-        month: "",
-        MonitorArea: "",
-        DisasterArea: "",
-        light: "",
-        middle: "",
-        height: "",
-        location: "",
-        prospect: "",
-        close: "",
+        house: '',
+        picId: '',
+        dangerType: '',
+        year: '',
+        month: '',
+        MonitorArea: '',
+        DisasterArea: '',
+        light: '',
+        middle: '',
+        height: '',
+        location: '',
+        prospect: '',
+        close: ''
       },
       rules: {
         house: [
-          { required: true, message: "林业局不能为空", trigger: "blur" },
+          { required: true, message: '林业局不能为空', trigger: 'blur' }
         ],
         picId: [
-          { required: true, message: "图斑编号不能为空", trigger: "blur" },
+          { required: true, message: '图斑编号不能为空', trigger: 'blur' }
         ],
         dangerType: [
-          { required: true, message: "灾害类型不能为空", trigger: "blur" },
+          { required: true, message: '灾害类型不能为空', trigger: 'blur' }
         ],
         year: [
-          { required: true, message: "年度不能为空", trigger: "blur" },
+          { required: true, message: '年度不能为空', trigger: 'blur' }
         ],
         month: [
-          { required: true, message: "月份不能为空", trigger: "blur" },
+          { required: true, message: '月份不能为空', trigger: 'blur' }
         ],
         MonitorArea: [
-          { required: true, message: "监测面积不能为空", trigger: "blur" },
+          { required: true, message: '监测面积不能为空', trigger: 'blur' }
         ],
         DisasterArea: [
-          { required: true, message: "受灾面积不能为空", trigger: "blur" },
+          { required: true, message: '受灾面积不能为空', trigger: 'blur' }
         ],
         light: [
-          { required: true, message: "发生轻度灾害不能为空", trigger: "blur" },
+          { required: true, message: '发生轻度灾害不能为空', trigger: 'blur' }
         ],
         middle: [
-          { required: true, message: "发生中度灾害不能为空", trigger: "blur" },
+          { required: true, message: '发生中度灾害不能为空', trigger: 'blur' }
         ],
         height: [
-          { required: true, message: "发生重度灾害不能为空", trigger: "blur" },
+          { required: true, message: '发生重度灾害不能为空', trigger: 'blur' }
         ],
         location: [
-          { required: true, message: "四至坐标不能为空", trigger: "blur" },
-        ],
-        
+          { required: true, message: '四至坐标不能为空', trigger: 'blur' }
+        ]
+
       },
       houseConfig: [
-        { label: "林业局", value: 0 },
-        { label: "大兴院业局", value: 1 },
-        { label: "绥化院", value: 2 },
+        { label: '林业局', value: 0 },
+        { label: '大兴院业局', value: 1 },
+        { label: '绥化院', value: 2 }
       ],
       protectConfig: [
-        { label: "一级", value: 1 },
-        { label: "二级", value: 2 },
-        { label: "三级", value: 3 },
-        { label: "四级", value: 4 },
+        { label: '一级', value: 1 },
+        { label: '二级', value: 2 },
+        { label: '三级', value: 3 },
+        { label: '四级', value: 4 }
       ],
       dangerConfig: [
-        { label: "森林火灾", value: 1 },
-        { label: "病虫害", value: 2 },
-        { label: "野生动物疫源疾病", value: 3 },
-        { label: "有害植物入侵", value: 4 },
+        { label: '森林火灾', value: 1 },
+        { label: '病虫害', value: 2 },
+        { label: '野生动物疫源疾病', value: 3 },
+        { label: '有害植物入侵', value: 4 }
       ],
       priceConfig: [
-        { label: "应用价值", value: 1 },
-        { label: "观赏价值", value: 2 },
-        { label: "学术价值", value: 3 },
-        { label: "文化价值", value: 4 },
-        { label: "绥阳局", value: 5 },
-        { label: "药用价值", value: 6 },
-        { label: "生态价值", value: 7 },
+        { label: '应用价值', value: 1 },
+        { label: '观赏价值', value: 2 },
+        { label: '学术价值', value: 3 },
+        { label: '文化价值', value: 4 },
+        { label: '绥阳局', value: 5 },
+        { label: '药用价值', value: 6 },
+        { label: '生态价值', value: 7 }
       ],
-      protectConfig: [
-        { label: "保护区", value: 1 },
-        { label: "大自然", value: 2 },
-      ],
-      type: "",
-      loading: false,
-    };
+      type: '',
+      loading: false
+    }
   },
   computed: {
-    edit() {
+    edit () {
       if (this.$route.query.id) {
-        return true;
+        return true
       }
-      return false;
-    },
+      return false
+    }
   },
   watch: {},
-  async activated() {
+  async activated () {
     if (this.$route.query.id) {
-      this.type = "edit";
+      this.type = 'edit'
       let data =
-        tableData[tableData.findIndex((v) => v.ID == this.$route.query.id)];
-      this.handleEdit(data);
+        tableData[tableData.findIndex((v) => v.ID === this.$route.query.id)]
+      this.handleEdit(data)
     } else {
-      this.type = "add";
-      this.handleAdd();
+      this.type = 'add'
+      this.handleAdd()
     }
   },
 
   methods: {
-    imagePreview(file) {
-      var that = this;
-      //定义一个文件阅读器
-      var reader = new FileReader();
-      //文件装载后将其显示在图片预览里
+    imagePreview (file) {
+      var that = this
+      // 定义一个文件阅读器
+      var reader = new FileReader()
+      // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
-        //将bade64位图片保存至数组里供上面图片显示
-        that.form.huoben = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        // 将bade64位图片保存至数组里供上面图片显示
+        that.form.huoben = e.target.result
+      }
+      reader.readAsDataURL(file)
     },
-    imagePreview2(file) {
-      var that = this;
-      //定义一个文件阅读器
-      var reader = new FileReader();
-      //文件装载后将其显示在图片预览里
+    imagePreview2 (file) {
+      var that = this
+      // 定义一个文件阅读器
+      var reader = new FileReader()
+      // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
-        //将bade64位图片保存至数组里供上面图片显示
-        that.form.biaoben = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        // 将bade64位图片保存至数组里供上面图片显示
+        that.form.biaoben = e.target.result
+      }
+      reader.readAsDataURL(file)
     },
-    upload1(file) {
-      this.imagePreview(file);
+    upload1 (file) {
+      this.imagePreview(file)
     },
-    upload2(file) {
-      this.imagePreview2(file);
+    upload2 (file) {
+      this.imagePreview2(file)
     },
-    //新增
-    //新增
-    handleAdd() {
-      this.form = Object.assign({}, this.defaultForm);
+    // 新增
+    // 新增
+    handleAdd () {
+      this.form = Object.assign({}, this.defaultForm)
     },
-    //编辑
-    handleEdit(e) {
-      this.form = e;
+    // 编辑
+    handleEdit (e) {
+      this.form = e
     },
-    cancelForm() {
-      this.$router.go(-1);
+    cancelForm () {
+      this.$router.go(-1)
     },
-    submitForm(formName) {
+    submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          let params = {};
-          this.type == "add" && this.postSaveAddObj(params);
-          this.type == "edit" && this.submitFormEdit(params);
+          let params = {}
+          this.type === 'add' && this.postSaveAddObj(params)
+          this.type === 'edit' && this.submitFormEdit(params)
         } else {
-          console.log("error submit!!");
-          return false;
+          console.log('error submit!!')
+          return false
         }
-      });
+      })
     },
 
-    //网络请求保存新增
-    async postSaveAddObj(params) {
-      this.loading = true;
-      this.loading = false;
-      this.$router.go(-1);
-      this.$message.success("操作成功");
-      this.$parent.$refs.table.initData(); // 刷新表格
+    // 网络请求保存新增
+    async postSaveAddObj (params) {
+      this.loading = true
+      this.loading = false
+      this.$router.go(-1)
+      this.$message.success('操作成功')
+      this.$parent.$refs.table.initData() // 刷新表格
     },
-    //网络请求编辑保存
-    async submitFormEdit(params) {
-      this.loading = true;
-      this.loading = false;
-      this.$router.go(-1);
-      this.$message.success("操作成功");
-      this.$parent.$refs.table.initData(); // 刷新表格
-    },
-  },
-};
+    // 网络请求编辑保存
+    async submitFormEdit (params) {
+      this.loading = true
+      this.loading = false
+      this.$router.go(-1)
+      this.$message.success('操作成功')
+      this.$parent.$refs.table.initData() // 刷新表格
+    }
+  }
+}
 </script>
 <style lang="less">
 .addobject {

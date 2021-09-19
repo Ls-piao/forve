@@ -148,95 +148,95 @@
 </template>
 
 <script>
-import houseData from "./house.json";
-import treeData from "./treeData.json";
-import addDialog from "./addHouse";
-import viewDialog from "./viewHouse";
+import houseData from './house.json'
+import treeData from './treeData.json'
+import addDialog from './addHouse'
+import viewDialog from './viewHouse'
 export default {
-  name: "",
+  name: '',
   components: {
     addDialog,
-    viewDialog,
+    viewDialog
   },
   props: {},
-  data() {
+  data () {
     return {
       treeData,
-      filterText: "",
-      filterNode: "name",
+      filterText: '',
+      filterNode: 'name',
 
       searchParams: {
-        id: "",
-        user: "",
-        number: "",
+        id: '',
+        user: '',
+        number: ''
       },
       tableData: houseData,
       tableColumnNames: [
-        "house_id",
-        "house_community",
-        "house_xiaoqu",
-        "house_hostName",
-        "house_number",
-        "house_building",
-        "house_hostNumber",
-        "house_unit",
-        "house_houseType",
-        "house_isUse",
-        "house_floatPerson",
-        "house_point",
-        "shop_control",
+        'house_id',
+        'house_community',
+        'house_xiaoqu',
+        'house_hostName',
+        'house_number',
+        'house_building',
+        'house_hostNumber',
+        'house_unit',
+        'house_houseType',
+        'house_isUse',
+        'house_floatPerson',
+        'house_point',
+        'shop_control'
       ],
       outParams: {
-        id: "",
-        user: "",
-        number: "",
+        id: '',
+        user: '',
+        number: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    handleNodeClick() {},
-    selectedDataChange(val) {
-      this.selectedData = val;
+    handleNodeClick () {},
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleDelete(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要删除的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要删除的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dels(scope);
+          this.dels(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    add() {
-      this.$refs.addDialog.init("add");
+    add () {
+      this.$refs.addDialog.init('add')
     },
-    edit(v) {
-      this.$refs.addDialog.init("edit", v);
+    edit (v) {
+      this.$refs.addDialog.init('edit', v)
     },
-    view(v) {
-      this.$refs.viewDialog.init(v);
-    },
-  },
-};
+    view (v) {
+      this.$refs.viewDialog.init(v)
+    }
+  }
+}
 </script>
 <style lang="less">
 .tree-line {

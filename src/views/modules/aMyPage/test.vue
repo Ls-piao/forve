@@ -5,13 +5,13 @@
 </template>
 <script>
 export default {
-  data() {
-    return {};
+  data () {
+    return {}
   },
   methods: {},
   watch: {},
-  computed: {},
-};
+  computed: {}
+}
 </script>
 
 <style lang='less' scoped>

@@ -70,94 +70,96 @@
 </template>
 
 <script>
-import tableData from "./data.json";
+import tableData from './data.json'
 import playVideo from './video'
 export default {
-  name: "",
+  name: '',
   components: {
     playVideo
   },
   props: {},
-  data() {
+  data () {
     return {
       searchParams: {
-        cameraId: "",
-        videoId: "",
-        result: "",
+        cameraId: '',
+        videoId: '',
+        result: ''
       },
-      tableData:tableData.slice(0,3),
+      tableData: tableData.slice(0, 3),
       tableColumnNames: [
-        "human_cameraId",
-        "human_videoId",
-        "human_result",
-        "human_time",
-        "human_creatTime",
-        "human_type",
-        "human_place",
-        "human_des",
-        "human_del",
-        "human_control",
+        'human_cameraId',
+        'human_videoId',
+        'human_result',
+        'human_time',
+        'human_creatTime',
+        'human_type',
+        'human_place',
+        'human_des',
+        'human_del',
+        'human_control'
       ],
       outParams: {
-        cameraId: "",
-        videoId: "",
-        result: "",
+        cameraId: '',
+        videoId: '',
+        result: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-     selectedDataChange(val) {
-      this.selectedData = val;
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleDelete(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要删除的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要删除的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dels(scope);
+          this.dels(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    play(v) {
+    play (v) {
       this.$refs.video.init(v)
     },
-    collect(v) {
+    collect (v) {
       if (
-        this.tableData[this.tableData.findIndex((s) => v.videoId == s.videoId)]
+        this.tableData[this.tableData.findIndex((s) => v.videoId === s.videoId)]
           .isCollect === true
       ) {
+        // eslint-disable-next-line standard/computed-property-even-spacing
         this.tableData[
-          this.tableData.findIndex((s) => v.videoId == s.videoId)
-        ].isCollect = false;
+          this.tableData.findIndex((s) => v.videoId === s.videoId)
+        ].isCollect = false
       } else {
+        // eslint-disable-next-line standard/computed-property-even-spacing
         this.tableData[
-          this.tableData.findIndex((s) => v.videoId == s.videoId)
-        ].isCollect = true;
+          this.tableData.findIndex((s) => v.videoId === s.videoId)
+        ].isCollect = true
       }
-      
+
       this.$refs.table.initData()
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style lang="less">
 .searchbox {

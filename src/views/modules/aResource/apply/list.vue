@@ -70,98 +70,98 @@
 </template>
 
 <script>
-import tableData from "../data.json";
-import addDialog from "./addDialog";
+import tableData from '../data.json'
+import addDialog from './addDialog'
 export default {
-  name: "",
+  name: '',
   components: {
-    addDialog,
+    addDialog
   },
   props: {},
-  data() {
+  data () {
     return {
       searchParams: {
-        ID: "",
+        ID: ''
       },
       tableData: tableData,
       tableColumnNames: [
-          "apply_ID",
-        "apply_qs",
-        "apply_createTime",
-        "apply_dwgr",
-        "apply_djql",
-        "apply_frdb",
-        "apply_txdz",
-        "apply_sfzh",
-        "apply_ldsyqqlr",
-        "apply_ldsyqqlr2",
-        "apply_slhlmsyqqlr",
-        "apply_slhlmsyqqlr2",
-        "apply_control",
+        'apply_ID',
+        'apply_qs',
+        'apply_createTime',
+        'apply_dwgr',
+        'apply_djql',
+        'apply_frdb',
+        'apply_txdz',
+        'apply_sfzh',
+        'apply_ldsyqqlr',
+        'apply_ldsyqqlr2',
+        'apply_slhlmsyqqlr',
+        'apply_slhlmsyqqlr2',
+        'apply_control'
       ],
       outParams: {
-        ID: "",
+        ID: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    selectedDataChange(val) {
-      this.selectedData = val;
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleDelete(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要删除的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要删除的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dels(scope);
+          this.dels(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    add() {
-      this.$refs.addDialog.init("add");
+    add () {
+      this.$refs.addDialog.init('add')
     },
-    edit(v) {
-      this.$refs.addDialog.init("edit", v);
+    edit (v) {
+      this.$refs.addDialog.init('edit', v)
     },
-    handleSubmit(v) {
+    handleSubmit (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      this.$confirm("确认提交吗?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认提交吗?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.submit(scope);
+          this.submit(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    submit(){
+    submit () {
 
     }
-  },
-};
+  }
+}
 </script>
 <style lang="less">
 .searchbox {

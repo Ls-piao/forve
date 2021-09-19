@@ -65,85 +65,85 @@
 </template>
 
 <script>
-import tableData from "./data.json";
-import viewDialog from "./view.vue";
-import batchDialog from "./batchDialog.vue";
+import tableData from './data.json'
+import viewDialog from './view.vue'
+import batchDialog from './batchDialog.vue'
 export default {
-  name: "",
+  name: '',
   components: {
     viewDialog,
     batchDialog
   },
   props: {},
-  data() {
+  data () {
     return {
       searchParams: {
-        id: "",
-        name: "",
+        id: '',
+        name: ''
       },
       tableData: tableData.slice(0, 3),
       tableColumnNames: [
-        "message_id",
-        "message_title",
-        "message_content",
-        "message_file",
-        "message_user",
-        "message_control",
+        'message_id',
+        'message_title',
+        'message_content',
+        'message_file',
+        'message_user',
+        'message_control'
       ],
       outParams: {
-        id: "",
-        name: "",
+        id: '',
+        name: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    selectedDataChange(val) {
-      this.selectedData = val;
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleDelete(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要删除的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要删除的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dels(scope);
+          this.dels(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    handleBatch(scope) {
+    handleBatch (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要审核的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要审核的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.$refs.batchDialog.init(scope);
+      this.$refs.batchDialog.init(scope)
     },
-     view(v) {
-      this.$refs.viewDialog.init(v);
-    },
-  },
-};
+    view (v) {
+      this.$refs.viewDialog.init(v)
+    }
+  }
+}
 </script>
 <style lang="less">
 .searchbox {

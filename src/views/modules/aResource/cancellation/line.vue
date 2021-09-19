@@ -3,181 +3,181 @@
 </template>
 
 <script>
-import echarts from "echarts";
+import echarts from 'echarts'
 
 export default {
-  name: "",
+  name: '',
   components: {},
   props: {
     id: {
       type: String,
-      default: "pie",
+      default: 'pie'
     },
 
     data: {
       type: Array,
       default: () => [
-        { title: "近危", value: 55 },
-        { title: "易危", value: 15 },
-        { title: "濒危", value: 30 },
-      ],
+        { title: '近危', value: 55 },
+        { title: '易危', value: 15 },
+        { title: '濒危', value: 30 }
+      ]
     },
     title: {
       type: String,
-      default: "标题",
+      default: '标题'
     },
     color: {
       type: Array,
-      default: () => ["#ffe000", "#ffa800", "#ff5b00", "#ff3000"],
+      default: () => ['#ffe000', '#ffa800', '#ff5b00', '#ff3000']
     },
     tip: {
       type: Object,
       default: () => {
         return {
-          tip1: "程度",
-          tip2: "占比",
-        };
-      },
-    },
+          tip1: '程度',
+          tip2: '占比'
+        }
+      }
+    }
   },
 
-  data() {
+  data () {
     return {
-      theEcharts: null,
-    };
+      theEcharts: null
+    }
   },
   computed: {
-    BaseOptions() {
-      let data = [];
+    BaseOptions () {
+      let data = []
       for (var i = 0; i < this.data.length; i++) {
         data.push(
           {
             value: this.data[i].value,
             name: this.data[i].title,
-            itemStyle: {},
+            itemStyle: {}
           },
           {
             value: 2,
-            name: "",
+            name: '',
             itemStyle: {
               normal: {
                 label: {
-                  show: false,
+                  show: false
                 },
                 labelLine: {
-                  show: false,
+                  show: false
                 },
-                color: "rgba(0, 0, 0, 0)",
-                borderColor: "rgba(0, 0, 0, 0)",
-                borderWidth: 0,
-              },
-            },
+                color: 'rgba(0, 0, 0, 0)',
+                borderColor: 'rgba(0, 0, 0, 0)',
+                borderWidth: 0
+              }
+            }
           }
-        );
+        )
       }
-      let that = this;
+      // let that = this
       let options = {
-        backgroundColor: "#fff",
+        backgroundColor: '#fff',
         tooltip: {
-          trigger: "axis",
+          trigger: 'axis',
           axisPointer: {
             // 坐标轴指示器，坐标轴触发有效
-            type: "shadow", // 默认为直线，可选为：'line' | 'shadow'
-          },
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+          }
         },
         grid: {
-          top: "8%",
-          left: "1%",
-          right: "1%",
-          bottom: "8%",
-          containLabel: true,
+          top: '8%',
+          left: '1%',
+          right: '1%',
+          bottom: '8%',
+          containLabel: true
         },
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             boundaryGap: false,
             axisLine: {
-              //坐标轴轴线相关设置。数学上的x轴
+              // 坐标轴轴线相关设置。数学上的x轴
               show: false,
               lineStyle: {
-                color: "#f9f9f9",
-              },
+                color: '#f9f9f9'
+              }
             },
             axisLabel: {
-              //坐标轴刻度标签的相关设置
+              // 坐标轴刻度标签的相关设置
               textStyle: {
-                color: "#000",
+                color: '#000'
               },
 
-              interval: 0,
+              interval: 0
             },
             axisTick: {
-              show: false,
+              show: false
             },
-            data: ["1", "2", "3", "4", "5", "6", "7", "8", 9, 10, 11, 12].map(
-              (v) => v + "月"
-            ),
-          },
+            data: ['1', '2', '3', '4', '5', '6', '7', '8', 9, 10, 11, 12].map(
+              (v) => v + '月'
+            )
+          }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             min: 0,
             splitNumber: 7,
             splitLine: {
               show: false,
               lineStyle: {
-                color: "#rgba(0,0,0,.09)",
-              },
+                color: '#rgba(0,0,0,.09)'
+              }
             },
             axisLine: {
-              show: false,
+              show: false
             },
             axisLabel: {
               margin: 20,
               textStyle: {
-                color: "#000",
-              },
+                color: '#000'
+              }
             },
             axisTick: {
-              show: false,
-            },
-          },
+              show: false
+            }
+          }
         ],
         series: [
           {
-            name: "占比",
-            type: "line",
-            smooth: false, //是否平滑曲线显示
-            // 			symbol:'circle',  // 默认是空心圆（中间是白色的），改成实心圆
+            name: '占比',
+            type: 'line',
+            smooth: false, // 是否平滑曲线显示
+            // symbol:'circle',  // 默认是空心圆（中间是白色的），改成实心圆
             showAllSymbol: true,
-            symbol: "emptyCircle",
+            symbol: 'emptyCircle',
             symbolSize: 6,
             lineStyle: {
               normal: {
-                color: "#F866FC", // 线条颜色
+                color: '#F866FC' // 线条颜色
               },
-              borderColor: "#f0f",
+              borderColor: '#f0f'
             },
             label: {
               show: true,
-              position: "top",
+              position: 'top',
               textStyle: {
-                color: "#fff",
-              },
+                color: '#fff'
+              }
             },
             itemStyle: {
               normal: {
-                color: "#28ffb3",
-              },
+                color: '#28ffb3'
+              }
             },
             tooltip: {
-              show: true,
+              show: true
             },
             areaStyle: {
-              //区域填充样式
+              // 区域填充样式
               normal: {
-                //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
+                // 线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
                 color: new echarts.graphic.LinearGradient(
                   0,
                   0,
@@ -186,21 +186,21 @@ export default {
                   [
                     {
                       offset: 0,
-                      color: "#F866FC",
+                      color: '#F866FC'
                     },
                     {
                       offset: 1,
-                      color: "#BAC8B9",
-                    },
+                      color: '#BAC8B9'
+                    }
                   ],
                   false
                 ),
-                shadowColor: "rgba(61,234,255, 0)", //阴影颜色
-                shadowBlur: 30, //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
-              },
+                shadowColor: 'rgba(61,234,255, 0)', // 阴影颜色
+                shadowBlur: 30 // shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
+              }
             },
-            data: [5, 2, 12, 7, 17, 14, 4, 26, 12, 30, 7, 12],
-          },
+            data: [5, 2, 12, 7, 17, 14, 4, 26, 12, 30, 7, 12]
+          }
           //, {
           //     name: '最新注册量',
           //     type: 'bar',
@@ -237,26 +237,26 @@ export default {
           //         }
           //     },
           //     data: [200, 382, 102, 267, 186, 315, 316]
-          //}
-        ],
-      };
-      this.drawChart(options);
-      return options;
-    },
+          // }
+        ]
+      }
+      this.drawChart(options)
+      return options
+    }
   },
-  created() {},
-  mounted() {
-    this.theEcharts = echarts.init(document.getElementById(this.id));
-    this.theEcharts.clear(); //适用于大数据量的切换时图表绘制错误,先清空在重绘
-    this.drawChart(this.BaseOptions);
+  created () {},
+  mounted () {
+    this.theEcharts = echarts.init(document.getElementById(this.id))
+    this.theEcharts.clear() // 适用于大数据量的切换时图表绘制错误,先清空在重绘
+    this.drawChart(this.BaseOptions)
   },
   methods: {
-    drawChart(options) {
+    drawChart (options) {
       // 装载数据
-      this.theEcharts.setOption(options, true); //设置为true可以使图表切换数据时重新渲染
-    },
-  },
-};
+      this.theEcharts.setOption(options, true) // 设置为true可以使图表切换数据时重新渲染
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

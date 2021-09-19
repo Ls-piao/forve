@@ -16,29 +16,29 @@
 
 <script>
 export default {
-	data() {
-       return{
-           visible:false,
-           data:'',
-           prop:''
-       }
+  data () {
+    return {
+      visible: false,
+      data: '',
+      prop: ''
+    }
+  },
+  computed: {
+
+  },
+  mounted () {
+
+  },
+  methods: {
+    init (v, prop) {
+      this.data = v
+      this.prop = prop
+      this.visible = true
     },
-    computed: {
-       
-    },
-	mounted() {
-        
-    },
-	methods: {
-        init(v,prop){
-            this.data = v
-            this.prop = prop
-            this.visible = true
-        },
-        cancelForm(){
-            this.visible = false  
-        }
-	},
+    cancelForm () {
+      this.visible = false
+    }
+  }
 }
 </script>
 

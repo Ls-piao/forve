@@ -26969,7 +26969,7 @@
                             "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,",
                             "name": "首页",
                             "sort": 30,
-                            "href": "",
+                            "href": "/aMine/index",
                             "target": "",
                             "icon": "",
                             "isShow": "1",
@@ -27007,7 +27007,7 @@
                                 "parentId": "0"
                             },
                             "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,",
-                            "name": "矿产资源",
+                            "name": "保护开发",
                             "sort": 60,
                             "href": "",
                             "target": "",
@@ -27016,7 +27016,129 @@
                             "type": "1",
                             "permission": "",
                             "affix": "1",
-                            "parentId": "7dc07e70cdaa4c6ab4f4c2e391ada52f"
+                            "parentId": "7dc07e70cdaa4c6ab4f4c2e391ada52f",
+                            "children":[
+                                {
+                                    "id": "P-1-1",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:38:18",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:38:18",
+                                    "parent": {
+                                        "id": "80863382a0104643b156bf07056599c2",
+                                        "name": "矿产资源监测",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,80863382a0104643b156bf07056599c2",
+                                    "name": "能源基地",
+                                    "sort": 60,
+                                    "href": "/aMine/protect/energyArea",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "80863382a0104643b156bf07056599c2"
+                                },
+                                {
+                                    "id": "P-1-2",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:38:18",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:38:18",
+                                    "parent": {
+                                        "id": "80863382a0104643b156bf07056599c2",
+                                        "name": "矿产资源监测",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,80863382a0104643b156bf07056599c2",
+                                    "name": "规划矿区",
+                                    "sort": 60,
+                                    "href": "/aMine/protect/energyArea",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "80863382a0104643b156bf07056599c2"
+                                },
+                                {
+                                    "id": "P-1-3",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:38:18",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:38:18",
+                                    "parent": {
+                                        "id": "80863382a0104643b156bf07056599c2",
+                                        "name": "矿产资源监测",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,80863382a0104643b156bf07056599c2",
+                                    "name": "资源保护区",
+                                    "sort": 60,
+                                    "href": "/aMine/protect/energyArea",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "80863382a0104643b156bf07056599c2"
+                                }
+                            ]
                         },
                         {
                             "id": "743a985155814d3292c7311a87d4c40c",
@@ -27047,7 +27169,7 @@
                                 "parentId": "0"
                             },
                             "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,",
-                            "name": "矿产资源开发管理",
+                            "name": "勘测规划",
                             "sort": 90,
                             "href": "",
                             "target": "",
@@ -27056,7 +27178,89 @@
                             "type": "1",
                             "permission": "",
                             "affix": "1",
-                            "parentId": "7dc07e70cdaa4c6ab4f4c2e391ada52f"
+                            "parentId": "7dc07e70cdaa4c6ab4f4c2e391ada52f",
+                            "children":[
+                                {
+                                    "id": "P-2-1",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:38:18",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:38:18",
+                                    "parent": {
+                                        "id": "743a985155814d3292c7311a87d4c40c",
+                                        "name": "矿产资源监测",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,743a985155814d3292c7311a87d4c40c",
+                                    "name": "资源堪察区",
+                                    "sort": 60,
+                                    "href": "/aMine/reconnaissance/area",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "743a985155814d3292c7311a87d4c40c"
+                                },
+                                {
+                                    "id": "P-2-2",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:38:18",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:38:18",
+                                    "parent": {
+                                        "id": "743a985155814d3292c7311a87d4c40c",
+                                        "name": "矿产资源监测",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,743a985155814d3292c7311a87d4c40c",
+                                    "name": "资源堪察区块",
+                                    "sort": 60,
+                                    "href": "/aMine/reconnaissance/modules",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "743a985155814d3292c7311a87d4c40c"
+                                }
+                            ]
                         },
                         {
                             "id": "e4117da2e6c140d9812e326b1dbeeaf3",
@@ -27087,7 +27291,7 @@
                                 "parentId": "0"
                             },
                             "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,",
-                            "name": "矿产监测",
+                            "name": "开采规划",
                             "sort": 120,
                             "href": "",
                             "target": "",
@@ -27096,48 +27300,91 @@
                             "type": "1",
                             "permission": "",
                             "affix": "1",
-                            "parentId": "7dc07e70cdaa4c6ab4f4c2e391ada52f"
-                        },
-                        {
-                            "id": "c6717d0e6ea64438aa3130d41cd19463",
-                            "remarks": "",
-                            "createBy": {
-                                "id": "1",
-                                "roleIds": "",
-                                "roleIdList": [],
-                                "admin": true,
-                                "roleNames": ""
-                            },
-                            "createDate": "2021-08-25 23:39:31",
-                            "updateBy": {
-                                "id": "1",
-                                "roleIds": "",
-                                "roleIdList": [],
-                                "admin": true,
-                                "roleNames": ""
-                            },
-                            "updateDate": "2021-08-25 23:39:31",
-                            "parent": {
-                                "id": "7dc07e70cdaa4c6ab4f4c2e391ada52f",
-                                "name": "矿产资源监测",
-                                "sort": 30,
-                                "children": [],
-                                "isShow": "1",
-                                "type": "1",
-                                "parentId": "0"
-                            },
-                            "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,",
-                            "name": "矿产监测",
-                            "sort": 150,
-                            "href": "",
-                            "target": "",
-                            "icon": "",
-                            "isShow": "1",
-                            "type": "1",
-                            "permission": "",
-                            "affix": "1",
-                            "parentId": "7dc07e70cdaa4c6ab4f4c2e391ada52f"
+                            "parentId": "7dc07e70cdaa4c6ab4f4c2e391ada52f",
+                            "children":[
+                                {
+                                    "id": "P-3-1",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:38:18",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:38:18",
+                                    "parent": {
+                                        "id": "e4117da2e6c140d9812e326b1dbeeaf3",
+                                        "name": "矿产资源监测",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,e4117da2e6c140d9812e326b1dbeeaf3",
+                                    "name": "重点开采区",
+                                    "sort": 60,
+                                    "href": "/aMine/reconnaissance/modules",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "e4117da2e6c140d9812e326b1dbeeaf3"
+                                },
+                                {
+                                    "id": "P-3-2",
+                                    "remarks": "",
+                                    "createBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "createDate": "2021-08-25 23:38:18",
+                                    "updateBy": {
+                                        "id": "1",
+                                        "roleIds": "",
+                                        "roleIdList": [],
+                                        "admin": true,
+                                        "roleNames": ""
+                                    },
+                                    "updateDate": "2021-08-25 23:38:18",
+                                    "parent": {
+                                        "id": "e4117da2e6c140d9812e326b1dbeeaf3",
+                                        "name": "矿产资源监测",
+                                        "sort": 30,
+                                        "children": [],
+                                        "isShow": "1",
+                                        "type": "1",
+                                        "parentId": "0"
+                                    },
+                                    "parentIds": "0,1,114a8a2901434da1813603177106d817,7dc07e70cdaa4c6ab4f4c2e391ada52f,e4117da2e6c140d9812e326b1dbeeaf3",
+                                    "name": "开采规划区",
+                                    "sort": 60,
+                                    "href": "/aMine/reconnaissance/modules",
+                                    "target": "",
+                                    "icon": "",
+                                    "isShow": "1",
+                                    "type": "1",
+                                    "permission": "",
+                                    "affix": "1",
+                                    "parentId": "e4117da2e6c140d9812e326b1dbeeaf3"
+                                }
+                            ]
                         }
+                        
                     ],
                     "href": "",
                     "target": "",

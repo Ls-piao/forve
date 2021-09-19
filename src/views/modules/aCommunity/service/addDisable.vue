@@ -138,145 +138,145 @@
 </template>
 <script>
 export default {
-  name: "addObject",
+  name: 'addObject',
   components: {},
-  data() {
+  data () {
     return {
       defaultForm: {
-        name: "",
-        age: "",
-        community: "",
-        building: "",
-        unit: "",
-        number: "",
-        status: "",
-        desc: "",
+        name: '',
+        age: '',
+        community: '',
+        building: '',
+        unit: '',
+        number: '',
+        status: '',
+        desc: ''
       },
       form: {
-        name: "",
-        age: "",
-        community: "",
-        building: "",
-        unit: "",
-        number: "",
-        status: "",
-        desc: "",
+        name: '',
+        age: '',
+        community: '',
+        building: '',
+        unit: '',
+        number: '',
+        status: '',
+        desc: ''
       },
       typeConfig: [
-        { label: "类型1", value: 1 },
-        { label: "类型2", value: 2 },
-        { label: "类型3", value: 3 },
+        { label: '类型1', value: 1 },
+        { label: '类型2', value: 2 },
+        { label: '类型3', value: 3 }
       ],
       commnuityConfig: [
-        { label: "社区1", value: 1 },
-        { label: "社区2", value: 2 },
-        { label: "社区3", value: 3 },
+        { label: '社区1', value: 1 },
+        { label: '社区2', value: 2 },
+        { label: '社区3', value: 3 }
       ],
       buildingConfig: [
-        { label: "1栋", value: 1 },
-        { label: "2栋", value: 2 },
-        { label: "3栋", value: 3 },
+        { label: '1栋', value: 1 },
+        { label: '2栋', value: 2 },
+        { label: '3栋', value: 3 }
       ],
       unitConfig: [
-        { label: "一单元", value: 1 },
-        { label: "二单元", value: 2 },
-        { label: "三单元", value: 3 },
+        { label: '一单元', value: 1 },
+        { label: '二单元', value: 2 },
+        { label: '三单元', value: 3 }
       ],
       rules: {
-        name: [{ required: true, message: "姓名不能为空", trigger: "blur" }],
-        age: [{ required: true, message: "年龄不能为空", trigger: "blur" }],
-        building: [{ required: true, message: "楼栋不能为空", trigger: "blur" }],
-        number: [{ required: true, message: "门牌号不能为空", trigger: "blur" }],
-        status: [{ required: true, message: "状态不能为空", trigger: "blur" }],
-        desc: [{ required: true, message: "描述不能为空", trigger: "blur" }],
+        name: [{ required: true, message: '姓名不能为空', trigger: 'blur' }],
+        age: [{ required: true, message: '年龄不能为空', trigger: 'blur' }],
+        building: [{ required: true, message: '楼栋不能为空', trigger: 'blur' }],
+        number: [{ required: true, message: '门牌号不能为空', trigger: 'blur' }],
+        status: [{ required: true, message: '状态不能为空', trigger: 'blur' }],
+        desc: [{ required: true, message: '描述不能为空', trigger: 'blur' }],
         community: [
-          { required: true, message: "所属社区不能为空", trigger: "blur" },
+          { required: true, message: '所属社区不能为空', trigger: 'blur' }
         ],
         unit: [
-          { required: true, message: "单元能为空", trigger: "blur" },
-        ],
+          { required: true, message: '单元能为空', trigger: 'blur' }
+        ]
       },
-      type: "",
+      type: '',
       visible: false,
-      loading: false,
-    };
+      loading: false
+    }
   },
   computed: {},
   watch: {},
 
   methods: {
-    changeContent(v) {
-      this.form.content = v;
+    changeContent (v) {
+      this.form.content = v
     },
-    imagePreview(file) {
-      var that = this;
-      //定义一个文件阅读器
-      var reader = new FileReader();
-      //文件装载后将其显示在图片预览里
+    imagePreview (file) {
+      var that = this
+      // 定义一个文件阅读器
+      var reader = new FileReader()
+      // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
-        //将bade64位图片保存至数组里供上面图片显示
-        that.form.avatar = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        // 将bade64位图片保存至数组里供上面图片显示
+        that.form.avatar = e.target.result
+      }
+      reader.readAsDataURL(file)
     },
-    upload(file) {
-      this.imagePreview(file);
+    upload (file) {
+      this.imagePreview(file)
     },
 
-    async init(type, v) {
-      this.visible = true;
-      this.type = type;
+    async init (type, v) {
+      this.visible = true
+      this.type = type
 
-      if (type == "add") {
-        this.handleAdd();
+      if (type === 'add') {
+        this.handleAdd()
       } else {
-        this.handleEdit(v);
+        this.handleEdit(v)
       }
     },
-    //新增
-    handleAdd() {
-      this.form = Object.assign({}, this.defaultForm);
-      this.type = "add";
+    // 新增
+    handleAdd () {
+      this.form = Object.assign({}, this.defaultForm)
+      this.type = 'add'
     },
-    //编辑
-    handleEdit(e) {
-      this.form = e;
+    // 编辑
+    handleEdit (e) {
+      this.form = e
     },
-    cancelForm() {
-      this.visible = false;
+    cancelForm () {
+      this.visible = false
     },
-    submitForm() {
+    submitForm (params) {
       // 区分新增与修改
-      this.$refs["addobjformref"].validate((valid) => {
+      this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
-          if (this.type == "add") {
-            this.postSaveAddObj(params);
+          if (this.type === 'add') {
+            this.postSaveAddObj(params)
           } else {
-            this.submitFormEdit(params);
+            this.submitFormEdit(params)
           }
         } else {
-          return false;
+          return false
         }
-      });
+      })
     },
-    //网络请求保存新增监督对象
-    async postSaveAddObj(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求保存新增监督对象
+    async postSaveAddObj (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
     },
-    //网络请求编辑保存
-    async submitFormEdit(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求编辑保存
+    async submitFormEdit (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style lang="less">
 .itemview {

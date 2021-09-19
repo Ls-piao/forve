@@ -162,146 +162,146 @@
 </template>
 <script>
 export default {
-  name: "addObject",
-  data() {
+  name: 'addObject',
+  data () {
     return {
       defaultForm: {
-              name:"",
-          commnuity:"",
-          number:"",
-          place:"",
-          license:"",
-          legalPerson:"",
-          legalPersonJob:"",
-          legalPersonForm:"",
-          type:"",
-          industry:"",
-          area:"",
-          desc:"",
+        name: '',
+        commnuity: '',
+        number: '',
+        place: '',
+        license: '',
+        legalPerson: '',
+        legalPersonJob: '',
+        legalPersonForm: '',
+        type: '',
+        industry: '',
+        area: '',
+        desc: ''
       },
       form: {
-          name:"",
-          commnuity:"",
-          number:"",
-          place:"",
-          license:"",
-          legalPerson:"",
-          legalPersonJob:"",
-          legalPersonForm:"",
-          type:"",
-          industry:"",
-          area:"",
-          desc:"",
+        name: '',
+        commnuity: '',
+        number: '',
+        place: '',
+        license: '',
+        legalPerson: '',
+        legalPersonJob: '',
+        legalPersonForm: '',
+        type: '',
+        industry: '',
+        area: '',
+        desc: ''
 
       },
       commnuityConfig: [
-        { label: "社区1", value: 1 },
-        { label: "社区2", value: 2 },
-        { label: "社区3", value: 3 },
+        { label: '社区1', value: 1 },
+        { label: '社区2', value: 2 },
+        { label: '社区3', value: 3 }
       ],
-      typeConfig:[
-        { label: "类型1", value: 1 },
-        { label: "类型2", value: 2 },
-        { label: "类型3", value: 3 },
-          
+      typeConfig: [
+        { label: '类型1', value: 1 },
+        { label: '类型2', value: 2 },
+        { label: '类型3', value: 3 }
+
       ],
 
       rules: {
         commnuity: [
-          { required: true, message: "所属社区不能为空", trigger: "blur" },
+          { required: true, message: '所属社区不能为空', trigger: 'blur' }
         ],
-        name: [{ required: true, message: "店名不能为空", trigger: "blur" }],
-        place: [{ required: true, message: "商户位置不能为空", trigger: "blur" }],
-        number: [{ required: true, message: "门牌号不能为空", trigger: "blur" }],
-        license: [{ required: true, message: "营业执照不能为空", trigger: "blur" }],
-        legalPerson: [{ required: true, message: "法人姓名不能为空", trigger: "blur" }],
-        legalPersonJob: [{ required: true, message: "法人身份不能为空", trigger: "blur" }],
-        legalPersonForm: [{ required: true, message: "法人户籍不能为空", trigger: "blur" }],
-        legalPerson: [{ required: true, message: "法人姓名不能为空", trigger: "blur" }],
-        type: [{ required: true, message: "房间性质不能为空", trigger: "blur" }],
-        industry: [{ required: true, message: "从事行业不能为空", trigger: "blur" }],
-        area: [{ required: true, message: "面积不能为空", trigger: "blur" }],
-        desc: [{ required: true, message: "备注不能为空", trigger: "blur" }],
+        name: [{ required: true, message: '店名不能为空', trigger: 'blur' }],
+        place: [{ required: true, message: '商户位置不能为空', trigger: 'blur' }],
+        number: [{ required: true, message: '门牌号不能为空', trigger: 'blur' }],
+        license: [{ required: true, message: '营业执照不能为空', trigger: 'blur' }],
+        legalPerson: [{ required: true, message: '法人姓名不能为空', trigger: 'blur' }],
+        legalPersonJob: [{ required: true, message: '法人身份不能为空', trigger: 'blur' }],
+        legalPersonForm: [{ required: true, message: '法人户籍不能为空', trigger: 'blur' }],
+        // legalPerson: [{ required: true, message: '法人姓名不能为空', trigger: 'blur' }],
+        type: [{ required: true, message: '房间性质不能为空', trigger: 'blur' }],
+        industry: [{ required: true, message: '从事行业不能为空', trigger: 'blur' }],
+        area: [{ required: true, message: '面积不能为空', trigger: 'blur' }],
+        desc: [{ required: true, message: '备注不能为空', trigger: 'blur' }]
       },
-      type: "",
+      type: '',
       visible: false,
-      loading: false,
-    };
+      loading: false
+    }
   },
   computed: {},
   watch: {},
 
   methods: {
-    async init(type, v) {
-      this.visible = true;
-      this.type = type;
+    async init (type, v) {
+      this.visible = true
+      this.type = type
 
-      if (type == "add") {
-        this.handleAdd();
+      if (type === 'add') {
+        this.handleAdd()
       } else {
-        this.handleEdit(v);
+        this.handleEdit(v)
       }
     },
-    //新增
-    handleAdd() {
-      this.form = Object.assign({}, this.defaultForm);
-      this.type = "add";
+    // 新增
+    handleAdd () {
+      this.form = Object.assign({}, this.defaultForm)
+      this.type = 'add'
     },
-    //编辑
-    handleEdit(e) {
-      this.form = e;
+    // 编辑
+    handleEdit (e) {
+      this.form = e
     },
-    cancelForm() {
-      this.visible = false;
+    cancelForm () {
+      this.visible = false
     },
-    submitForm() {
+    submitForm (params) {
       // 区分新增与修改
-      this.$refs["addobjformref"].validate((valid) => {
+      this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
-          if (this.type == "add") {
-            this.postSaveAddObj(params);
+          if (this.type === 'add') {
+            this.postSaveAddObj(params)
           } else {
-            this.submitFormEdit(params);
+            this.submitFormEdit(params)
           }
         } else {
-          return false;
+          return false
         }
-      });
+      })
     },
-    //删除缓存词典
-    remove(k, data) {
-      if (data == "szsw") {
-        this.historySzsw.splice(k, 1);
-      } else if (data == "jtcy") {
-        this.historyJtcy.splice(k, 1);
+    // 删除缓存词典
+    remove (k, data) {
+      if (data === 'szsw') {
+        this.historySzsw.splice(k, 1)
+      } else if (data === 'jtcy') {
+        this.historyJtcy.splice(k, 1)
       }
       let form = {
         szsw: this.historySzsw,
-        jtcy: this.historyJtcy,
-      };
-      localStorage.setItem("form", JSON.stringify(form));
+        jtcy: this.historyJtcy
+      }
+      localStorage.setItem('form', JSON.stringify(form))
     },
-    deepc(obj) {
-      return JSON.parse(JSON.stringify(obj));
+    deepc (obj) {
+      return JSON.parse(JSON.stringify(obj))
     },
-    //网络请求保存新增监督对象
-    async postSaveAddObj(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求保存新增监督对象
+    async postSaveAddObj (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
     },
-    //网络请求编辑保存
-    async submitFormEdit(params) {
-      this.loading = true;
-      this.loading = false;
-      this.visible = false;
-      this.$message.success("操作成功");
+    // 网络请求编辑保存
+    async submitFormEdit (params) {
+      this.loading = true
+      this.loading = false
+      this.visible = false
+      this.$message.success('操作成功')
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style lang="less">
 .itemview {

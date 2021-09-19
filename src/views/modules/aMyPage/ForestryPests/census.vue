@@ -120,105 +120,105 @@
   </div>
 </template>
 <script>
-import animateInteger from "../components/animate-integer/index.vue";
-import Pie2 from "../components/pie2";
-import Line1 from "../components/line";
-import Bar from "../components/bar4";
+import animateInteger from '../components/animate-integer/index.vue'
+import Pie2 from '../components/pie2'
+import Line1 from '../components/line'
+import Bar from '../components/bar4'
 export default {
   components: {
     Pie2,
     animateInteger,
     Line1,
-    Bar,
+    Bar
   },
-  data() {
+  data () {
     return {
-      up: require("../images/up.png"),
-      upgreen: require("../images/up-green.png"),
-      searchParams: "",
-      searchDates: "",
+      up: require('../images/up.png'),
+      upgreen: require('../images/up-green.png'),
+      searchParams: '',
+      searchDates: '',
       pickerOptions: {
         shortcuts: [
           {
-            text: "最近一周",
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-              picker.$emit("pick", [start, end]);
-            },
+            text: '最近一周',
+            onClick (picker) {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+              picker.$emit('pick', [start, end])
+            }
           },
           {
-            text: "最近一个月",
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-              picker.$emit("pick", [start, end]);
-            },
+            text: '最近一个月',
+            onClick (picker) {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+              picker.$emit('pick', [start, end])
+            }
           },
           {
-            text: "最近三个月",
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-              picker.$emit("pick", [start, end]);
-            },
-          },
-        ],
+            text: '最近三个月',
+            onClick (picker) {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+              picker.$emit('pick', [start, end])
+            }
+          }
+        ]
       },
       PieData: [
-        { title: "林火", value: 33 },
-        { title: "病虫害", value: 37 },
-        { title: "有害植物入侵受灾", value: 30 },
+        { title: '林火', value: 33 },
+        { title: '病虫害', value: 37 },
+        { title: '有害植物入侵受灾', value: 30 }
       ],
       BarData: [
-        { title: "2010", value1: "150", value2: "120", value3: "110" },
-        { title: "2011", value1: "34", value2: "71", value3: "123" },
-        { title: "2012", value1: "85", value2: "37", value3: "335" },
-        { title: "2013", value1: "77", value2: "212", value3: "322" },
-        { title: "2014", value1: "35", value2: "271", value3: "145" },
-        { title: "2015", value1: "44", value2: "255", value3: "141" },
-        { title: "2016", value1: "112", value2: "216", value3: "361" },
-        { title: "2017", value1: "78", value2: "186", value3: "252" },
-        { title: "2018", value1: "88", value2: "154", value3: "253" },
-        { title: "2019", value1: "16", value2: "165", value3: "221" },
-        { title: "2020", value1: "64", value2: "146", value3: "121" },
-        { title: "2021", value1: "99", value2: "193", value3: "224" },
+        { title: '2010', value1: '150', value2: '120', value3: '110' },
+        { title: '2011', value1: '34', value2: '71', value3: '123' },
+        { title: '2012', value1: '85', value2: '37', value3: '335' },
+        { title: '2013', value1: '77', value2: '212', value3: '322' },
+        { title: '2014', value1: '35', value2: '271', value3: '145' },
+        { title: '2015', value1: '44', value2: '255', value3: '141' },
+        { title: '2016', value1: '112', value2: '216', value3: '361' },
+        { title: '2017', value1: '78', value2: '186', value3: '252' },
+        { title: '2018', value1: '88', value2: '154', value3: '253' },
+        { title: '2019', value1: '16', value2: '165', value3: '221' },
+        { title: '2020', value1: '64', value2: '146', value3: '121' },
+        { title: '2021', value1: '99', value2: '193', value3: '224' }
       ],
       banners: [
-        require("../images/banner1.jpg"),
-        require("../images/banner2.jpg"),
-        require("../images/banner3.jpg"),
-        require("../images/banner4.jpg"),
-        require("../images/banner5.jpg"),
-        require("../images/banner6.jpg"),
-      ],
-    };
+        require('../images/banner1.jpg'),
+        require('../images/banner2.jpg'),
+        require('../images/banner3.jpg'),
+        require('../images/banner4.jpg'),
+        require('../images/banner5.jpg'),
+        require('../images/banner6.jpg')
+      ]
+    }
   },
   methods: {
-    reset() {
-      this.searchDates = "";
-      this.searchParams = "";
+    reset () {
+      this.searchDates = ''
+      this.searchParams = ''
     },
-    doSearch() {},
+    doSearch () {}
   },
   watch: {
-    searchDates(v) {
+    searchDates (v) {
       if (v) {
-        this.searchParams.beginDate = v[0] + " 00:00:00";
-        this.searchParams.endDate = v[1] + " 23:59:59";
+        this.searchParams.beginDate = v[0] + ' 00:00:00'
+        this.searchParams.endDate = v[1] + ' 23:59:59'
       } else {
-        this.searchParams.beginDate = "";
-        this.searchParams.endDate = "";
+        this.searchParams.beginDate = ''
+        this.searchParams.endDate = ''
       }
-    },
+    }
   },
   computed: {},
-  mounted() {},
-  created() {},
-};
+  mounted () {},
+  created () {}
+}
 </script>
 
 <style lang="less">

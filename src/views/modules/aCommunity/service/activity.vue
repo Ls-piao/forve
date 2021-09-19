@@ -71,85 +71,85 @@
 </template>
 
 <script>
-import tableData from "./activity.json";
-import addDialog from "./addActivity.vue";
-import viewDialog from "./viewActivity.vue";
-import previewDialog from "./preview";
+import tableData from './activity.json'
+import addDialog from './addActivity.vue'
+import viewDialog from './viewActivity.vue'
+import previewDialog from './preview'
 export default {
-  name: "",
+  name: '',
   components: {
     addDialog,
     viewDialog,
-    previewDialog,
+    previewDialog
   },
   props: {},
-  data() {
+  data () {
     return {
       searchParams: {
-        id: "",
-        name: "",
+        id: '',
+        name: ''
       },
       tableData: tableData.slice(0, 3),
       tableColumnNames: [
-        "service_id",
-        "service_title",
-        "service_avatar",
-        "service_type",
-        "service_tip",
-        "shop_control",
+        'service_id',
+        'service_title',
+        'service_avatar',
+        'service_type',
+        'service_tip',
+        'shop_control'
       ],
       outParams: {
-        id: "",
-        name: "",
+        id: '',
+        name: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    selectedDataChange(val) {
-      this.selectedData = val;
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleDelete(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要删除的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要删除的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dels(scope);
+          this.dels(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    add() {
-      this.$refs.addDialog.init("add");
+    add () {
+      this.$refs.addDialog.init('add')
     },
-    edit(v) {
-      this.$refs.addDialog.init("edit", v);
+    edit (v) {
+      this.$refs.addDialog.init('edit', v)
     },
-    view(v) {
-      this.$refs.viewDialog.init(v);
+    view (v) {
+      this.$refs.viewDialog.init(v)
     },
-    preview(v, prop) {
-      this.$refs.previewDialog.init(v, prop);
-    },
-  },
-};
+    preview (v, prop) {
+      this.$refs.previewDialog.init(v, prop)
+    }
+  }
+}
 </script>
 <style lang="less">
 .searchbox {

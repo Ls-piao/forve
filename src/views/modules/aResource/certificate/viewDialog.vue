@@ -186,35 +186,35 @@
 <script>
 import Print from 'vue-print-nb'
 export default {
-  components:{
+  components: {
     Print
   },
-  data() {
+  data () {
     return {
       visible: false,
-      data: "",
-      printObj:{
-        id:'print',
-        popTitle:'证书',
-        extraHead:'<meta http-equiv="Content-Language" content="zh-cn" />'
+      data: '',
+      printObj: {
+        id: 'print',
+        popTitle: '证书',
+        extraHead: '<meta http-equiv="Content-Language" content="zh-cn" />'
       }
-    };
-  },
-  computed: {},
-  mounted() {},
-  methods: {
-    init(v) {
-      this.data = v;
-      this.visible = true;
-    },
-    cancelForm() {
-      this.visible = false;
-    },
-    print(){
-      
     }
   },
-};
+  computed: {},
+  mounted () {},
+  methods: {
+    init (v) {
+      this.data = v
+      this.visible = true
+    },
+    cancelForm () {
+      this.visible = false
+    },
+    print () {
+
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>

@@ -133,136 +133,136 @@
 </template>
 
 <script>
-import animateInteger from "../components/animate-integer/index.vue";
-import tableData from "./data.json";
-import { cloneDeep } from "lodash";
+import animateInteger from '../components/animate-integer/index.vue'
+import tableData from './data.json'
+import { cloneDeep } from 'lodash'
 import preview from '../components/preview'
 export default {
-  name: "",
+  name: '',
   components: {
     animateInteger,
     preview
   },
   props: {},
-  data() {
+  data () {
     return {
       searchParams: {
-        CNzhongName: "",
-        CNkeName: "",
-        CNshuName: "",
-        ENzhongName: "",
-        ENkeName: "",
-        ENshuName: "",
-        dangerType: "",
-        protectType: "",
+        CNzhongName: '',
+        CNkeName: '',
+        CNshuName: '',
+        ENzhongName: '',
+        ENkeName: '',
+        ENshuName: '',
+        dangerType: '',
+        protectType: ''
       },
       dangerConfig: [
-        { label: "近危", value: 0 },
-        { label: "易危", value: 1 },
-        { label: "濒危", value: 2 },
+        { label: '近危', value: 0 },
+        { label: '易危', value: 1 },
+        { label: '濒危', value: 2 }
       ],
       protectConfig: [
-        { label: "一级", value: 1 },
-        { label: "二级", value: 2 },
-        { label: "三级", value: 3 },
-        { label: "四级", value: 4 },
+        { label: '一级', value: 1 },
+        { label: '二级', value: 2 },
+        { label: '三级', value: 3 },
+        { label: '四级', value: 4 }
       ],
       /**
        * 表格相关
        */
       tableData,
       tableColumnNames: [
-        "plants_CNzhong",
-        "plants_CNke",
-        "plants_CNshu",
-        "plants_ENzhong",
-        "plants_ENke",
-        "plants_ENshu",
-        "plants_dangerType",
-        "plants_protectType",
-        "plants_area",
-        "plants_point",
-        "plants_place",
-        "plants_associated",
-        "plants_price",
-        "plants_protect",
-        "plants_huoben",
-        "plants_biaoben",
-        "control_edit_del",
+        'plants_CNzhong',
+        'plants_CNke',
+        'plants_CNshu',
+        'plants_ENzhong',
+        'plants_ENke',
+        'plants_ENshu',
+        'plants_dangerType',
+        'plants_protectType',
+        'plants_area',
+        'plants_point',
+        'plants_place',
+        'plants_associated',
+        'plants_price',
+        'plants_protect',
+        'plants_huoben',
+        'plants_biaoben',
+        'control_edit_del'
       ],
       outParams: {
-        CNzhongName: "",
-        CNkeName: "",
-        CNshuName: "",
-        ENzhongName: "",
-        ENkeName: "",
-        ENshuName: "",
-        dangerType: "",
-        protectType: "",
+        CNzhongName: '',
+        CNkeName: '',
+        CNshuName: '',
+        ENzhongName: '',
+        ENkeName: '',
+        ENshuName: '',
+        dangerType: '',
+        protectType: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
       /**
        * 表格结束
        */
-    };
-  },
-  computed: {
-    tableFetchFun() {
-      return;
-    },
-  },
-  watch: {},
-  created() {},
-  mounted() {},
-  methods: {
-    selectedDataChange(val) {
-      this.selectedData = val;
-    },
-    handleSearch() {
-      this.$refs.table.page = 1;
-      this.$refs.table.initData();
-    },
-    handleDelete(scope) {
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
-      })
-        .then(() => {
-          this.deleteCommit(scope);
-        })
-        .catch(() => {});
-    },
-    //删除
-    async deleteCommit(scope) {
-      let i = this.tableData.findIndex((v) => v.ID == scope.ID);
-      this.tableData.splice(i, 1);
-      this.$message.success("操作成功");
-      this.$refs.table.initData(); // 刷新表格
-    },
-    // 新增编辑
-    add() {
-      this.$router.push("/aMyPage/plants/import");
-    },
-    //编辑
-    editDialog(scope) {
-      this.$router.push("/aMyPage/plants/import?id=" + scope.ID);
-    },
-    //查看详情
-    //充值
-    reset() {
-      this.outParams = cloneDeep(this.searchParams);
-      this.$refs.table.initData();
-    },
-    doSearch(){
-        this.$refs.table.initData()
-    },
-    preview(v,prop){
-        this.$refs.preview.init(v,prop)
     }
   },
-};
+  computed: {
+    tableFetchFun () {
+
+    }
+  },
+  watch: {},
+  created () {},
+  mounted () {},
+  methods: {
+    selectedDataChange (val) {
+      this.selectedData = val
+    },
+    handleSearch () {
+      this.$refs.table.page = 1
+      this.$refs.table.initData()
+    },
+    handleDelete (scope) {
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
+        .then(() => {
+          this.deleteCommit(scope)
+        })
+        .catch(() => {})
+    },
+    // 删除
+    async deleteCommit (scope) {
+      let i = this.tableData.findIndex((v) => v.ID === scope.ID)
+      this.tableData.splice(i, 1)
+      this.$message.success('操作成功')
+      this.$refs.table.initData() // 刷新表格
+    },
+    // 新增编辑
+    add () {
+      this.$router.push('/aMyPage/plants/import')
+    },
+    // 编辑
+    editDialog (scope) {
+      this.$router.push('/aMyPage/plants/import?id=' + scope.ID)
+    },
+    // 查看详情
+    // 充值
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    preview (v, prop) {
+      this.$refs.preview.init(v, prop)
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">

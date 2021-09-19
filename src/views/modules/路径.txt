@@ -1,0 +1,38 @@
+文件路径：
+	解压缩后 把文件夹  放在 src\views\modules下
+	
+菜单路径：
+
+      视频页面
+	今日                   	/aMyPage/human/today
+	全部		/aMyPage/human/list
+	收藏		/aMyPage/human/collect	
+	
+      资产管理模块
+	申请表管理
+	      申请表填报         /aResource/apply/list
+                      申请表审批         /aResource/apply/batch
+	证书管理
+	      证书查询	/aResource/certificate/list	
+	      证书打印             /aResource/certificate/census
+	注销管理
+	      注销证查询	/aResource/cancellation/list
+	      注销公告	/aResource/cancellation/census
+	台账管理
+	      台账列表	/aResource/parameter/list
+
+      社区模块
+	社区档案首页  	/aCommunity/index
+	社区档案管理
+	       房屋档案	/aCommunity/archives/house
+	       居民管理	/aCommunity/archives/residents
+	       商户管理 	/aCommunity/archives/merchants
+	社区服务
+	       社区活动	/aCommunity/service/activity
+	       残疾人管理	/aCommunity/service/disabilities
+	       交流服务	/aCommunity/service/communication
+	消息咨询
+	       消息录入	/aCommunity/message/list
+	       消息审核	/aCommunity/message/batch
+	       消息发布	/aCommunity/message/commit
+	

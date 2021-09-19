@@ -56,69 +56,69 @@
 </template>
 
 <script>
-import tableData from "../data.json";
-import viewDialog from "./viewDialog";
+import tableData from '../data.json'
+import viewDialog from './viewDialog'
 export default {
-  name: "",
+  name: '',
   components: {
-    viewDialog,
+    viewDialog
   },
   props: {},
-  data() {
+  data () {
     return {
       searchParams: {
-        ID: "",
+        ID: ''
       },
       tableData: tableData.slice(0, 3),
       tableColumnNames: [
-        "apply_ID",
-        "apply_qs",
-        "apply_createTime",
-        "apply_dwgr",
-        "apply_djql",
-        "apply_frdb",
-        "apply_txdz",
-        "apply_sfzh",
-        "apply_ldsyqqlr",
-        "apply_ldsyqqlr2",
-        "apply_slhlmsyqqlr",
-        "apply_slhlmsyqqlr2",
-        "cert_control",
+        'apply_ID',
+        'apply_qs',
+        'apply_createTime',
+        'apply_dwgr',
+        'apply_djql',
+        'apply_frdb',
+        'apply_txdz',
+        'apply_sfzh',
+        'apply_ldsyqqlr',
+        'apply_ldsyqqlr2',
+        'apply_slhlmsyqqlr',
+        'apply_slhlmsyqqlr2',
+        'cert_control'
       ],
       outParams: {
-        ID: "",
+        ID: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    selectedDataChange(val) {
-      this.selectedData = val;
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleBatch(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleBatch (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要打印的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要打印的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.print();
+      this.print()
     },
-    view(v) {
-      this.$refs.viewDialog.init(v);
-    },
-  },
-};
+    view (v) {
+      this.$refs.viewDialog.init(v)
+    }
+  }
+}
 </script>
 <style lang="less">
 .searchbox {

@@ -40,24 +40,24 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       visible: false,
-      data: "",
-    };
+      data: ''
+    }
   },
   computed: {},
-  mounted() {},
+  mounted () {},
   methods: {
-    init(v) {
-      this.data = v;
-      this.visible = true;
+    init (v) {
+      this.data = v
+      this.visible = true
     },
-    cancelForm() {
-      this.visible = false;
-    },
-  },
-};
+    cancelForm () {
+      this.visible = false
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>

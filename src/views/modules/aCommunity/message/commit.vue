@@ -61,76 +61,76 @@
 </template>
 
 <script>
-import tableData from "./data.json";
-import addDialog from "./add.vue";
-import viewDialog from "./view.vue";
+import tableData from './data.json'
+import addDialog from './add.vue'
+import viewDialog from './view.vue'
 export default {
-  name: "",
+  name: '',
   components: {
     addDialog,
-    viewDialog,
+    viewDialog
   },
   props: {},
-  data() {
+  data () {
     return {
       searchParams: {
-        id: "",
-        name: "",
+        id: '',
+        name: ''
       },
       tableData: tableData.slice(0, 3),
       tableColumnNames: [
-        "message_id",
-        "message_title",
-        "message_content",
-        "message_file",
-        "message_view",
-        "message_status",
-        "message_user",
-        "message_commit_control",
+        'message_id',
+        'message_title',
+        'message_content',
+        'message_file',
+        'message_view',
+        'message_status',
+        'message_user',
+        'message_commit_control'
       ],
       outParams: {
-        id: "",
-        name: "",
+        id: '',
+        name: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    selectedDataChange(val) {
-      this.selectedData = val;
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    fabu(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    fabu (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要发布的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要发布的数据', '错误提示', { type: 'error' })
+        return
       }
-        this.$confirm("确认发布?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认发布?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dels(scope);
+          this.dels(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    view(v) {
-      this.$refs.viewDialog.init(v);
-    },
-  },
-};
+    view (v) {
+      this.$refs.viewDialog.init(v)
+    }
+  }
+}
 </script>
 <style lang="less">
 .searchbox {

@@ -121,96 +121,96 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { loading, scrollBoard } from "@jiaminghi/data-view";
-Vue.use(scrollBoard).use(loading);
+import Vue from 'vue'
+import { loading, scrollBoard } from '@jiaminghi/data-view'
 
-import Pie from "../components/pie";
-import Bar from "../components/bar";
-import Bar2 from "../components/bar2";
-import Bar3 from "../components/bar3";
+import Pie from '../components/pie'
+import Bar from '../components/bar'
+import Bar2 from '../components/bar2'
+import Bar3 from '../components/bar3'
+Vue.use(scrollBoard).use(loading)
 export default {
-  name: "",
+  name: '',
   components: {
     Pie,
     Bar,
     Bar2,
-    Bar3,
+    Bar3
   },
   props: {},
-  data() {
+  data () {
     return {
       config: {
-        header: ["", "蕨类", "裸子植物", "被子植物", "高等植物"],
+        header: ['', '蕨类', '裸子植物', '被子植物', '高等植物'],
         data: [
-          ["科", "150", "34", "85", "150"],
-          ["属", "120", "71", "37", "206"],
-          ["种", "110", "123", "335", "333"],
+          ['科', '150', '34', '85', '150'],
+          ['属', '120', '71', '37', '206'],
+          ['种', '110', '123', '335', '333']
         ],
-        headerBGC: "#fff",
-        oddRowBGC: "#fff",
-        evenRowBGC: "#f6f8fa",
+        headerBGC: '#fff',
+        oddRowBGC: '#fff',
+        evenRowBGC: '#f6f8fa'
       },
       ProtectConfig1: {
         data: [
-          ["<i class='el-icon-grape' />", "东北红豆杉"],
-          ["<i class='el-icon-grape' />", "长白松"],
+          ["<i class='el-icon-grape' />", '东北红豆杉'],
+          ["<i class='el-icon-grape' />", '长白松']
         ],
-        columnWidth: ["40", "140"],
-        oddRowBGC: "#fff",
-        evenRowBGC: "#f6f8fa",
+        columnWidth: ['40', '140'],
+        oddRowBGC: '#fff',
+        evenRowBGC: '#f6f8fa'
       },
       ProtectConfig2: {
         data: [
-          ["<i class='el-icon-grape' />", "红松"],
-          ["<i class='el-icon-grape' />", "钻天柳"],
-          ["<i class='el-icon-grape' />", "水曲柳"],
-          ["<i class='el-icon-grape' />", "水曲柳"],
-          ["<i class='el-icon-grape' />", "水曲柳"],
-          ["<i class='el-icon-grape' />", "水曲柳"],
-          ["<i class='el-icon-grape' />", "水曲柳"],
-          ["<i class='el-icon-grape' />", "水曲柳"],
-          ["<i class='el-icon-grape' />", "水曲柳"],
+          ["<i class='el-icon-grape' />", '红松'],
+          ["<i class='el-icon-grape' />", '钻天柳'],
+          ["<i class='el-icon-grape' />", '水曲柳'],
+          ["<i class='el-icon-grape' />", '水曲柳'],
+          ["<i class='el-icon-grape' />", '水曲柳'],
+          ["<i class='el-icon-grape' />", '水曲柳'],
+          ["<i class='el-icon-grape' />", '水曲柳'],
+          ["<i class='el-icon-grape' />", '水曲柳'],
+          ["<i class='el-icon-grape' />", '水曲柳']
         ],
-        oddRowBGC: "#fff",
-        evenRowBGC: "#f6f8fa",
-        columnWidth: ["40", "140"],
+        oddRowBGC: '#fff',
+        evenRowBGC: '#f6f8fa',
+        columnWidth: ['40', '140']
       },
       select: 0,
       ProtectColor: [
-        "#0CD2E6",
-        "#3751E6",
-        "#FFC722",
-        "#886EFF",
-        "#008DEC",
-        "#114C90",
-        "#00BFA5",
+        '#0CD2E6',
+        '#3751E6',
+        '#FFC722',
+        '#886EFF',
+        '#008DEC',
+        '#114C90',
+        '#00BFA5'
       ],
       ProtectData: [
-        { title: "一级植物", value: 15 },
-        { title: "二级植物", value: 40 },
-        { title: "三级植物", value: 45 },
+        { title: '一级植物', value: 15 },
+        { title: '二级植物', value: 40 },
+        { title: '三级植物', value: 45 }
       ],
       DangerData: [
-        { title: "近危", value: 55 },
-        { title: "易危", value: 15 },
-        { title: "濒危", value: 30 },
+        { title: '近危', value: 55 },
+        { title: '易危', value: 15 },
+        { title: '濒危', value: 30 }
       ],
       PlantsData: [
-        { title: "蕨类", value1: "150", value2: "120", value3: "110" },
-        { title: "裸子植物", value1: "34", value2: "71", value3: "123" },
-        { title: "被子植物", value1: "85", value2: "37", value3: "335" },
-        { title: "高等植物", value1: "150", value2: "206", value3: "333" },
+        { title: '蕨类', value1: '150', value2: '120', value3: '110' },
+        { title: '裸子植物', value1: '34', value2: '71', value3: '123' },
+        { title: '被子植物', value1: '85', value2: '37', value3: '335' },
+        { title: '高等植物', value1: '150', value2: '206', value3: '333' }
       ],
-      PlantsType: ["门", "科", "属", "种"],
-    };
+      PlantsType: ['门', '科', '属', '种']
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
-  methods: {},
-};
+  created () {},
+  mounted () {},
+  methods: {}
+}
 </script>
 
 <style scoped lang="less">

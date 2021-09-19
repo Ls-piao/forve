@@ -6,34 +6,34 @@
 
 <script>
 export default {
-     name:'',
-    components: {
+  name: '',
+  components: {
 
-    },
-    props: {
+  },
+  props: {
 
-    },
-    data() {
-        return {
+  },
+  data () {
+    return {
 
-        };
-    },
-    computed: {
+    }
+  },
+  computed: {
 
-    },
-    watch: {
+  },
+  watch: {
 
-    },
-    created() {
+  },
+  created () {
 
-    },
-    mounted() {
+  },
+  mounted () {
 
-    },
-    methods: {
+  },
+  methods: {
 
-    },
-};
+  }
+}
 </script>
 
 <style scoped lang="scss">

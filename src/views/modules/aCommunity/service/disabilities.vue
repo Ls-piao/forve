@@ -94,87 +94,87 @@
 </template>
 
 <script>
-import tableData from "./disable.json";
-import addDialog from "./addDisable.vue";
-import viewDialog from "./viewDisable.vue";
+import tableData from './disable.json'
+import addDialog from './addDisable.vue'
+import viewDialog from './viewDisable.vue'
 export default {
-  name: "",
+  name: '',
   components: {
     addDialog,
-    viewDialog,
+    viewDialog
   },
   props: {},
-  data() {
+  data () {
     return {
       searchParams: {
-        id: "",
-        name: "",
+        id: '',
+        name: ''
       },
       tableData: tableData.slice(0, 3),
       tableColumnNames: [
-        "disable_id",
-        "disable_name",
-        "disable_age",
-        "disable_community",
-        "disable_building",
-        "disable_unit",
-        "disable_number",
-        "disable_status",
-        "disable_desc",
-        "shop_control",
+        'disable_id',
+        'disable_name',
+        'disable_age',
+        'disable_community',
+        'disable_building',
+        'disable_unit',
+        'disable_number',
+        'disable_status',
+        'disable_desc',
+        'shop_control'
       ],
       outParams: {
-        id: "",
-        name: "",
+        id: '',
+        name: ''
       },
-      showType: "all", // 表格显示数据类型
-      selectedData: [], // 选中表格数据
-    };
+      showType: 'all', // 表格显示数据类型
+      selectedData: [] // 选中表格数据
+    }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    selectedDataChange(val) {
-      this.selectedData = val;
+    selectedDataChange (val) {
+      this.selectedData = val
     },
-    doSearch() {},
-    reset() {},
-    dels(items) {},
-    handleDelete(scope) {
+    doSearch () {},
+    reset () {},
+    dels (items) {},
+    handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
-        scope = [scope];
+        scope = [scope]
       }
-      if (scope.length == 0) {
-        this.$alert("请选择需要删除的数据", "错误提示", { type: "error" });
-        return;
+      if (scope.length === 0) {
+        this.$alert('请选择需要删除的数据', '错误提示', { type: 'error' })
+        return
       }
-      this.$confirm("确认删除?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+      this.$confirm('确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dels(scope);
+          this.dels(scope)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
-    add() {
-      this.$refs.addDialog.init("add");
+    add () {
+      this.$refs.addDialog.init('add')
     },
-    edit(v) {
-      this.$refs.addDialog.init("edit", v);
+    edit (v) {
+      this.$refs.addDialog.init('edit', v)
     },
-    view(v) {
-      this.$refs.viewDialog.init(v);
+    view (v) {
+      this.$refs.viewDialog.init(v)
     },
-    preview(v, prop) {
-      this.$refs.previewDialog.init(v, prop);
-    },
-  },
-};
+    preview (v, prop) {
+      this.$refs.previewDialog.init(v, prop)
+    }
+  }
+}
 </script>
 <style lang="less">
 .searchbox {

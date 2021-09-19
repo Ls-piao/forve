@@ -108,7 +108,7 @@
       <el-form-item label="保护措施">
         <el-select v-model="form.area" placeholder="请选择保护措施">
           <el-option
-            v-for="v in protectConfig"
+            v-for="v in proConfig"
             :key="v.value"
             :label="v.label"
             :value="v.value"
@@ -151,210 +151,210 @@
   </div>
 </template>
 <script>
-import tableData from "./data.json";
+import tableData from './data.json'
 export default {
-  name: "addObject",
-  data() {
+  name: 'addObject',
+  data () {
     return {
       defaultForm: {
-        CNzhongName: "",
-        CNkeName: "",
-        CNshuName: "",
-        ENzhongName: "",
-        ENkeName: "",
-        ENshuName: "",
-        dangerType: "",
-        protectType: "",
-        area: "",
-        point: "",
-        palce: "",
-        associated: "",
-        price: "",
-        huoben: "",
-        biaoben: "",
+        CNzhongName: '',
+        CNkeName: '',
+        CNshuName: '',
+        ENzhongName: '',
+        ENkeName: '',
+        ENshuName: '',
+        dangerType: '',
+        protectType: '',
+        area: '',
+        point: '',
+        palce: '',
+        associated: '',
+        price: '',
+        huoben: '',
+        biaoben: ''
       },
       form: {
-        CNzhongName: "",
-        CNkeName: "",
-        CNshuName: "",
-        ENzhongName: "",
-        ENkeName: "",
-        ENshuName: "",
-        dangerType: "",
-        protectType: "",
-        area: "",
-        point: "",
-        palce: "",
-        associated: "",
-        price: "",
-        huoben: "",
-        biaoben: "",
+        CNzhongName: '',
+        CNkeName: '',
+        CNshuName: '',
+        ENzhongName: '',
+        ENkeName: '',
+        ENshuName: '',
+        dangerType: '',
+        protectType: '',
+        area: '',
+        point: '',
+        palce: '',
+        associated: '',
+        price: '',
+        huoben: '',
+        biaoben: ''
       },
       rules: {
         CNzhongName: [
-          { required: true, message: "中文种名不能为空", trigger: "blur" },
+          { required: true, message: '中文种名不能为空', trigger: 'blur' }
         ],
         CNkeName: [
-          { required: true, message: "中文科名不能为空", trigger: "blur" },
+          { required: true, message: '中文科名不能为空', trigger: 'blur' }
         ],
         CNshuName: [
-          { required: true, message: "中文属名不能为空", trigger: "blur" },
+          { required: true, message: '中文属名不能为空', trigger: 'blur' }
         ],
         ENzhongName: [
-          { required: true, message: "拉丁种名不能为空", trigger: "blur" },
+          { required: true, message: '拉丁种名不能为空', trigger: 'blur' }
         ],
         ENkeName: [
-          { required: true, message: "拉丁科名不能为空", trigger: "blur" },
+          { required: true, message: '拉丁科名不能为空', trigger: 'blur' }
         ],
         ENshuName: [
-          { required: true, message: "拉丁属名不能为空", trigger: "blur" },
+          { required: true, message: '拉丁属名不能为空', trigger: 'blur' }
         ],
         dangerType: [
-          { required: true, message: "濒危程度不能为空", trigger: "blur" },
+          { required: true, message: '濒危程度不能为空', trigger: 'blur' }
         ],
         protectType: [
-          { required: true, message: "保护等级不能为空", trigger: "blur" },
+          { required: true, message: '保护等级不能为空', trigger: 'blur' }
         ],
         area: [
-          { required: true, message: "分布地域不能为空", trigger: "blur" },
+          { required: true, message: '分布地域不能为空', trigger: 'blur' }
         ],
         huoben: [
-          { required: true, message: "活本图不能为空", trigger: "blur" },
+          { required: true, message: '活本图不能为空', trigger: 'blur' }
         ],
         biaoben: [
-          { required: true, message: "标本图不能为空", trigger: "blur" },
-        ],
-       
+          { required: true, message: '标本图不能为空', trigger: 'blur' }
+        ]
+
       },
       dangerConfig: [
-        { label: "近危", value: 0 },
-        { label: "易危", value: 1 },
-        { label: "濒危", value: 2 },
+        { label: '近危', value: 0 },
+        { label: '易危', value: 1 },
+        { label: '濒危', value: 2 }
       ],
       protectConfig: [
-        { label: "一级", value: 1 },
-        { label: "二级", value: 2 },
-        { label: "三级", value: 3 },
-        { label: "四级", value: 4 },
+        { label: '一级', value: 1 },
+        { label: '二级', value: 2 },
+        { label: '三级', value: 3 },
+        { label: '四级', value: 4 }
       ],
       areaConfig: [
-        { label: "珲春局", value: 1 },
-        { label: "天桥岭局", value: 2 },
-        { label: "汪清局", value: 3 },
-        { label: "大兴沟局", value: 4 },
-        { label: "绥阳局", value: 5 },
-        { label: "穆棱局", value: 6 },
+        { label: '珲春局', value: 1 },
+        { label: '天桥岭局', value: 2 },
+        { label: '汪清局', value: 3 },
+        { label: '大兴沟局', value: 4 },
+        { label: '绥阳局', value: 5 },
+        { label: '穆棱局', value: 6 }
       ],
       priceConfig: [
-        { label: "应用价值", value: 1 },
-        { label: "观赏价值", value: 2 },
-        { label: "学术价值", value: 3 },
-        { label: "文化价值", value: 4 },
-        { label: "绥阳局", value: 5 },
-        { label: "药用价值", value: 6 },
-        { label: "生态价值", value: 7 },
+        { label: '应用价值', value: 1 },
+        { label: '观赏价值', value: 2 },
+        { label: '学术价值', value: 3 },
+        { label: '文化价值', value: 4 },
+        { label: '绥阳局', value: 5 },
+        { label: '药用价值', value: 6 },
+        { label: '生态价值', value: 7 }
       ],
-      protectConfig: [
-        { label: "保护区", value: 1 },
-        { label: "大自然", value: 2 },
+      proConfig: [
+        { label: '保护区', value: 1 },
+        { label: '大自然', value: 2 }
       ],
-      type: "",
-      loading: false,
-    };
+      type: '',
+      loading: false
+    }
   },
   computed: {
-    edit() {
+    edit () {
       if (this.$route.query.id) {
-        return true;
+        return true
       }
-      return false;
-    },
+      return false
+    }
   },
   watch: {},
-  async activated() {
+  async activated () {
     if (this.$route.query.id) {
-      this.type = "edit";
+      this.type = 'edit'
       let data =
-        tableData[tableData.findIndex((v) => v.ID == this.$route.query.id)];
-      this.handleEdit(data);
+        tableData[tableData.findIndex((v) => v.ID === this.$route.query.id)]
+      this.handleEdit(data)
     } else {
-      this.type = "add";
-      this.handleAdd();
+      this.type = 'add'
+      this.handleAdd()
     }
   },
 
   methods: {
-    imagePreview(file) {
-      var that = this;
-      //定义一个文件阅读器
-      var reader = new FileReader();
-      //文件装载后将其显示在图片预览里
+    imagePreview (file) {
+      var that = this
+      // 定义一个文件阅读器
+      var reader = new FileReader()
+      // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
-        //将bade64位图片保存至数组里供上面图片显示
-        that.form.huoben = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        // 将bade64位图片保存至数组里供上面图片显示
+        that.form.huoben = e.target.result
+      }
+      reader.readAsDataURL(file)
     },
-    imagePreview2(file) {
-      var that = this;
-      //定义一个文件阅读器
-      var reader = new FileReader();
-      //文件装载后将其显示在图片预览里
+    imagePreview2 (file) {
+      var that = this
+      // 定义一个文件阅读器
+      var reader = new FileReader()
+      // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
-        //将bade64位图片保存至数组里供上面图片显示
-        that.form.biaoben = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        // 将bade64位图片保存至数组里供上面图片显示
+        that.form.biaoben = e.target.result
+      }
+      reader.readAsDataURL(file)
     },
-    upload1(file) {
-      this.imagePreview(file);
+    upload1 (file) {
+      this.imagePreview(file)
     },
-    upload2(file) {
-      this.imagePreview2(file);
+    upload2 (file) {
+      this.imagePreview2(file)
     },
-    //新增
-     //新增
-    handleAdd() {
-        this.form = Object.assign({}, this.defaultForm);
+    // 新增
+     // 新增
+    handleAdd () {
+      this.form = Object.assign({}, this.defaultForm)
     },
-    //编辑
-    handleEdit(e) {
-      this.form = e;
+    // 编辑
+    handleEdit (e) {
+      this.form = e
     },
-    cancelForm() {
-      this.$router.go(-1);
+    cancelForm () {
+      this.$router.go(-1)
     },
-    submitForm(formName) {
+    submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-            let params = {}
-          this.type == "add" && this.postSaveAddObj(params);
-          this.type == "edit" && this.submitFormEdit(params);
+          let params = {}
+          this.type === 'add' && this.postSaveAddObj(params)
+          this.type === 'edit' && this.submitFormEdit(params)
         } else {
-          console.log("error submit!!");
-          return false;
+          console.log('error submit!!')
+          return false
         }
-      });
+      })
     },
 
-    //网络请求保存新增
-    async postSaveAddObj(params) {
-      this.loading = true;
-      this.loading = false;
-      this.$router.go(-1);
-      this.$message.success("操作成功");
-      this.$parent.$refs.table.initData(); // 刷新表格
+    // 网络请求保存新增
+    async postSaveAddObj (params) {
+      this.loading = true
+      this.loading = false
+      this.$router.go(-1)
+      this.$message.success('操作成功')
+      this.$parent.$refs.table.initData() // 刷新表格
     },
-    //网络请求编辑保存
-    async submitFormEdit(params) {
-      this.loading = true;
-      this.loading = false;
-      this.$router.go(-1);
-      this.$message.success("操作成功");
-      this.$parent.$refs.table.initData(); // 刷新表格
-    },
-  },
-};
+    // 网络请求编辑保存
+    async submitFormEdit (params) {
+      this.loading = true
+      this.loading = false
+      this.$router.go(-1)
+      this.$message.success('操作成功')
+      this.$parent.$refs.table.initData() // 刷新表格
+    }
+  }
+}
 </script>
 <style lang="less">
 .addobject {
