@@ -76,13 +76,13 @@ import {
       } from 'vxe-table'
 import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
 
+import MyTable from '@/views/modules/hby/forestry/aMyPage/components/myTable'
+
       // 按需加载的方式默认是不带国际化的，自定义国际化需要自行解析占位符 '{0}'，例如：
 VXETable.setup({
   i18n: (key, args) => XEUtils.toFormatString(XEUtils.get(zhCN, key), args)
 })
-
-import MyTable from "@/views/modules/aMyPage/components/myTable";
-Vue.component(MyTable.name, MyTable);
+Vue.component(MyTable.name, MyTable)
       // 表格功能
 Vue.use(Header)
       .use(Footer)

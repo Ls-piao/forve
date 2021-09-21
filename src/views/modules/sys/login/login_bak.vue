@@ -83,39 +83,39 @@
 <script>
 // import configData from "./config.json";
 export default {
-  data() {
+  data () {
     return {
-      time: "",
-      logo: "",
-      productName: "",
+      time: '',
+      logo: '',
+      productName: '',
       loading: false,
       inputForm: {
-        username: "admin",
-        password: "admin",
-        uuid: "",
-        captcha: "",
+        username: 'admin',
+        password: 'admin',
+        uuid: '',
+        captcha: ''
       },
       rules: {
         username: [
-          { required: true, message: "帐号不能为空", trigger: "blur" },
+          { required: true, message: '帐号不能为空', trigger: 'blur' }
         ],
         password: [
-          { required: true, message: "密码不能为空", trigger: "blur" },
+          { required: true, message: '密码不能为空', trigger: 'blur' }
         ],
         captcha: [
-          { required: true, message: "验证码不能为空", trigger: "blur" },
-        ],
+          { required: true, message: '验证码不能为空', trigger: 'blur' }
+        ]
       },
-      captchaPath: "",
-    };
+      captchaPath: ''
+    }
   },
-  created() {
-    this.getTime();
+  created () {
+    this.getTime()
     setInterval(() => {
-      this.getTime();
-    }, 1000);
+      this.getTime()
+    }, 1000)
   },
-  mounted() {
+  mounted () {
     // this.$http.get("/sys/sysConfig/getConfig").then(({ data }) => {
     //   // this.logo = data.config.logo
     //   this.productName = data.config.productName;
@@ -124,40 +124,40 @@ export default {
   },
   methods: {
     // 提交表单
-    login() {
-      this.$router.push({ name: "home" });
-      // this.$refs['inputForm'].validate((valid) => {
-      //   if (valid) {
-      //     this.loading = true
-      //     this.$http({
-      //       url: '/sys/login',
-      //       method: 'post',
-      //       data: {
-      //         'userName': this.inputForm.username,
-      //         'password': this.inputForm.password
-      //       }
-      //     }).then(({data}) => {
-      //       if (data && data.success) {
-      //         this.$cookie.set('token', data.token)
-      //         this.$cookie.set('refreshToken', data.refreshToken)
-      //         this.$router.push({name: 'home'})
-      //       } else {
-      //         this.loading = false
-      //         // this.getCaptcha()
-      //       }
-      //     })
-      //   }
-      // })
+    login () {
+      // this.$router.push({ name: "home" });
+      this.$refs['inputForm'].validate((valid) => {
+        if (valid) {
+          this.loading = true
+          this.$http({
+            url: '/sys/login',
+            method: 'post',
+            data: {
+              'userName': this.inputForm.username,
+              'password': this.inputForm.password
+            }
+          }).then(({data}) => {
+            if (data && data.success) {
+              this.$cookie.set('token', data.token)
+              this.$cookie.set('refreshToken', data.refreshToken)
+              this.$router.push({name: 'home'})
+            } else {
+              this.loading = false
+              // this.getCaptcha()
+            }
+          })
+        }
+      })
     },
-    getTime() {
-      this.time = this.moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+    getTime () {
+      this.time = this.moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
     },
     // 获取验证码
-    getCaptcha() {
-      this.captchaPath = this.$http.BASE_URL + `/captcha.jpg`;
-    },
-  },
-};
+    getCaptcha () {
+      this.captchaPath = this.$http.BASE_URL + `/captcha.jpg`
+    }
+  }
+}
 </script>
 
 <style lang="scss">

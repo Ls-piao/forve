@@ -1,0 +1,201 @@
+<template>
+  <el-dialog
+    :visible.sync="visible"
+    :close-on-click-modal="false"
+    @closed="cancelForm"
+    class="dia adddia"
+    title="查阅"
+  >
+    <div id="print">
+      <div class="itemview">
+        <div class="div-title">基本信息</div>
+        <div class="formitem">
+          <el-row>
+            <el-col :span="8">
+              <span class="item-title">标识码：</span>
+              <span class="item-content">{{ data.BSM }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">要素代码：</span>
+              <span class="item-content">{{ data.YSDM }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">区块编号：</span>
+              <span class="item-content">{{ data.FQBH }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">区块名称：</span>
+              <span class="item-content">{{ data.FQMC }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">区块面积：</span>
+              <span class="item-content">{{ data.FQMJ }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">开采主矿种代码：</span>
+              <span class="item-content">{{ data.KZDM }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">开采主矿种名称：</span>
+              <span class="item-content">{{ data.KZMC }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">涉及总量控制矿种代码：</span>
+              <span class="item-content">{{ data.ZLKZKZDM }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">涉及总量控制矿种名称：</span>
+              <span class="item-content">{{ data.ZLKZKZMC }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">拐点坐标：</span>
+              <span class="item-content">{{ data.GDZB }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">资源量单位：</span>
+              <span class="item-content">{{ data.ZYLDW }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">开采主矿种探明资源量：</span>
+              <span class="item-content">{{ data.TMZYL }}</span>
+            </el-col>
+         
+            <el-col :span="8">
+              <span class="item-title">开采主矿种控制资源量：</span>
+              <span class="item-content">{{ data.KZZYL }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">其他开采矿种及探明资源量：</span>
+              <span class="item-content">{{ data.QTKZJTMZYL }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">其他开采矿种及控制资源量：</span>
+              <span class="item-content">{{ data.QTKZJKZZYL }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">其他开采矿种及推断资源量：</span>
+              <span class="item-content">{{ data.QTKZJTDZYL }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">投放时序：</span>
+              <span class="item-content">{{ data.TFSX }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">规划期：</span>
+              <span class="item-content">{{ data.GHQ }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">规划标准级别：</span>
+              <span class="item-content">{{ data.GHBZJB }}</span>
+            </el-col>
+            <el-col :span="24">
+              <span class="item-title">备注：</span>
+              <span class="item-content">{{ data.BZ }}</span>
+            </el-col>
+         
+          </el-row>
+        </div>
+      </div>
+    </div>
+  </el-dialog>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      visible: false,
+      data: ''
+    }
+  },
+  computed: {},
+  mounted () {},
+  methods: {
+    init (v) {
+      this.data = v
+      this.visible = true
+    },
+    cancelForm () {
+      this.visible = false
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+#print {
+  margin-bottom: 180px;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 80px;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  //   text-align: center;
+  // line-height: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > div {
+    > button {
+      height: 50px;
+      width: 200px;
+    }
+  }
+}
+.itemview {
+  background: white;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+
+.div-title {
+  font-size: 16px;
+  font-weight: 600;
+  border-left: #127efc 4px solid;
+  padding-left: 20px;
+}
+
+.formitem {
+  margin-top: 10px;
+  border-top: #eee 1px solid;
+  padding: 0 15px 20px 15px;
+}
+
+.el-form-item {
+  width: 100%;
+}
+
+/deep/.el-form-item__content {
+  width: calc(100% - 100px) !important;
+}
+
+.martop10 {
+  margin-top: 10px;
+}
+
+.item-title,
+.item-content {
+  display: inline-block;
+  margin-top: 20px;
+}
+.more {
+  width: 220px;
+}
+.item-title {
+  min-width: 80px;
+  text-align: right;
+}
+
+.item-content {
+  margin-left: 20px;
+}
+
+.nodata {
+  padding: 30px 0 10px 0;
+  text-align: center;
+}
+</style>

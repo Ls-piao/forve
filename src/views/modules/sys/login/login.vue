@@ -160,95 +160,95 @@
 
 <script>
 export default {
-  name: "login.vue",
-  data() {
+  name: 'login.vue',
+  data () {
     return {
       isShow: false,
       loading: false,
       inputForm: {
-        username: "admin",
-        password: "admin",
-        uuid: "",
-        captcha: "",
+        username: 'admin',
+        password: 'admin',
+        uuid: '',
+        captcha: ''
       },
       rules: {
         username: [
-          { required: true, message: "帐号不能为空", trigger: "blur" },
+          { required: true, message: '帐号不能为空', trigger: 'blur' }
         ],
         password: [
-          { required: true, message: "密码不能为空", trigger: "blur" },
+          { required: true, message: '密码不能为空', trigger: 'blur' }
         ],
         captcha: [
-          { required: true, message: "验证码不能为空", trigger: "blur" },
-        ],
+          { required: true, message: '验证码不能为空', trigger: 'blur' }
+        ]
       },
-      captchaPath: "",
-    };
+      captchaPath: ''
+    }
   },
-  created() {
-    this.resize();
+  created () {
+    this.resize()
   },
   methods: {
     // 提交表单
-    login() {
-      this.$cookie.set("token", "12312asdasd123123asdasd");
-      this.$cookie.set("refreshToken", "12312asdasdasdasd");
-      this.$router.push({ name: "index" });
-      // this.$refs['inputForm'].validate((valid) => {
-      //   if (valid) {
-      //     this.loading = true
-      //     this.$http({
-      //       url: '/sys/login',
-      //       method: 'post',
-      //       data: {
-      //         'userName': this.inputForm.username,
-      //         'password': this.inputForm.password
-      //       }
-      //     }).then(({data}) => {
-      //       if (data && data.success) {
-      //         this.$cookie.set('token', data.token)
-      //         this.$cookie.set('refreshToken', data.refreshToken)
-      //         this.$router.push({name: 'index'})
-      //         // this.$notify.success({
-      //         //   title: '成功',
-      //         //   message: '登陆成功'
-      //         // })
-      //         // this.loading = false
-      //       } else {
-      //         this.loading = false
-      //         // this.getCaptcha()
-      //       }
-      //     })
-      //   }
-      // })
+    login () {
+      // this.$cookie.set('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzIyMDA5NjYsInVzZXJuYW1lIjoiYWRtaW4ifQ.kYipzujGpZTpk758-G4Apcg35Mqgs3HPi8HHrUObSe8')
+      // this.$cookie.set('refreshToken', '12312asdasdasdasd')
+      // this.$router.push({ name: 'index' })
+      this.$refs['inputForm'].validate((valid) => {
+        if (valid) {
+          this.loading = true
+          this.$http({
+            url: '/sys/login',
+            method: 'post',
+            data: {
+              'userName': this.inputForm.username,
+              'password': this.inputForm.password
+            }
+          }).then(({data}) => {
+            if (data && data.success) {
+              this.$cookie.set('token', data.token)
+              this.$cookie.set('refreshToken', data.refreshToken)
+              this.$router.push({name: 'index'})
+              this.$notify.success({
+                title: '成功',
+                message: '登陆成功'
+              })
+              this.loading = false
+            } else {
+              this.loading = false
+              this.getCaptcha()
+            }
+          })
+        }
+      })
     },
     // 获取验证码
-    getCaptcha() {
-      this.captchaPath = this.$http.BASE_URL + `/captcha.jpg`;
+    getCaptcha () {
+      this.captchaPath = this.$http.BASE_URL + `/captcha.jpg`
     },
     // 控制登录页面显示隐藏
-    showLogin(flag) {
-      this.isShow = flag === 0;
+    showLogin (flag) {
+      this.isShow = flag === 0
     },
-    resize() {
-      this.tofix();
-      window.addEventListener("resize", function () {
+    resize () {
+      this.tofix()
+      window.addEventListener('resize', function () {
         // this.tofix()
-      });
+      })
     },
     // 定义html字体 运行在所有js之前减少闪屏
-    tofix() {
+    tofix () {
       var width =
         document.documentElement.clientWidth > 1366
           ? document.documentElement.clientWidth
-          : 1366;
-      var rate = (width / 1920) * 100;
-      console.log(width + "width");
-      console.log(rate + "rate");
-      document.querySelector("html").style.fontSize = rate + "px";
-    },
-  },
-};
+          : 1366
+      var rate = (width / 1920) * 100
+      console.log(width + 'width')
+      console.log(rate + 'rate')
+      document.querySelector('html').style.fontSize = rate + 'px'
+    }
+  }
+}
 </script>
 
 <style scoped>
