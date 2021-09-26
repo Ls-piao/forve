@@ -18,162 +18,171 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="标识码" prop="BSM">
+                <el-form-item label="标识码" prop="biaoshima">
                   <el-input
-                    v-model="form.BSM"
+                    v-model="form.biaoshima"
                     size="small"
                     placeholder="请输入标识码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="要素代码" prop="YSDM">
+                <el-form-item label="要素代码" prop="yaosudaima">
                   <el-input
-                    v-model="form.YSDM"
+                    v-model="form.yaosudaima"
                     size="small"
                     placeholder="请输入要素代码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="区块编号" prop="QKBH">
+                <el-form-item label="区块编号" prop="quyubianhao">
                   <el-input
-                    v-model="form.QKBH"
+                    v-model="form.quyubianhao"
                     size="small"
                     placeholder="请输入分区编号"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="区块名称" prop="QKMC">
+                <el-form-item label="区块名称" prop="qukuangname">
                   <el-input
-                    v-model="form.QKMC"
+                    v-model="form.qukuangname"
                     size="small"
                     placeholder="请输入区块名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="区块面积" prop="QKMJ">
+                <el-form-item label="区块面积" prop="qukuaimj">
                   <el-input
-                    v-model="form.QKMJ"
+                    v-model="form.qukuaimj"
                     size="small"
                     placeholder="请输入区块面积"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="开采主矿种代码" prop="KZDM">
+                <el-form-item label="开采主矿种代码" prop="kaicaizhukuangdm">
                   <el-input
-                    v-model="form.KZDM"
+                    v-model="form.kaicaizhukuangdm"
                     size="small"
                     placeholder="请输入开采主矿种代码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="开采主矿种名称" prop="KZMC">
+                <el-form-item label="开采主矿种名称" prop="kaicaizhukuangmc">
                   <el-input
-                    v-model="form.KZMC"
+                    v-model="form.kaicaizhukuangmc"
                     size="small"
                     placeholder="请输入开采主矿种名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="涉及总量控制矿种代码" prop="ZLKZKZDM">
+                <el-form-item label="涉及总量控制矿种代码" prop="shejizonglingdaima">
                   <el-input
-                    v-model="form.ZLKZKZDM"
+                    v-model="form.shejizonglingdaima"
                     size="small"
                     placeholder="请输入涉及总量控制矿种代码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="涉及总量控制矿种名称" prop="ZLKZKZMC">
+                <el-form-item label="涉及总量控制矿种名称" prop="shejizonglingmingc">
                   <el-input
-                    v-model="form.ZLKZKZMC"
+                    v-model="form.shejizonglingmingc"
                     size="small"
                     placeholder="请输入涉及总量控制矿种名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="拐点坐标" prop="GDZB">
+                <el-form-item label="拐点坐标" prop="guaidianzuobiao">
                   <el-input
-                    v-model="form.GDZB"
+                    v-model="form.guaidianzuobiao"
                     size="small"
                     placeholder="请输入拐点坐标"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="资源量单位" prop="ZYLDW">
+                <el-form-item label="资源量单位" prop="ziyuanliangdanwei">
                   <el-input
-                    v-model="form.ZYLDW"
+                    v-model="form.ziyuanliangdanwei"
                     size="small"
                     placeholder="请输入资源量单位"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="开采主矿种探明资源量" prop="TMZYL">
+                <el-form-item label="开采主矿种探明资源量" prop="kaicaiziyuanl">
                   <el-input
-                    v-model="form.TMZYL"
+                    v-model="form.kaicaiziyuanl"
                     size="small"
                     placeholder="请输入开采主矿种探明资源量"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="开采主矿种控制资源量" prop="KZZYL">
+                <el-form-item label="开采主矿种控制资源量" prop="kaicaikongzhiliang">
                   <el-input
-                    v-model="form.KZZYL"
+                    v-model="form.kaicaikongzhiliang"
                     size="small"
                     placeholder="请输入开采主矿种控制资源量"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="其他开采矿种及探明资源量" prop="QTKZJTMZYL">
+                <el-form-item label="开采主矿种推断资源量" prop="TDZYL">
                   <el-input
-                    v-model="form.QTKZJTMZYL"
+                    v-model="form.TDZYL"
+                    size="small"
+                    placeholder="请输入开采主矿种推断资源量"
+                  ></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="其他开采矿种及探明资源量" prop="qtlaicaitanmingliang">
+                  <el-input
+                    v-model="form.qtlaicaitanmingliang"
                     size="small"
                     placeholder="请输入其他开采矿种及探明资源量"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="其他开采矿种及控制资源量" prop="QTKZJKZZYL">
+                <el-form-item label="其他开采矿种及控制资源量" prop="qitakckzkongzhiliang">
                   <el-input
-                    v-model="form.QTKZJKZZYL"
+                    v-model="form.qitakckzkongzhiliang"
                     size="small"
                     placeholder="请输入其他开采矿种及控制资源量"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="其他开采矿种及推断资源量" prop="QTKZJTDZYL">
+                <el-form-item label="其他开采矿种及推断资源量" prop="qtkaicaituiduanliang">
                   <el-input
-                    v-model="form.QTKZJTDZYL"
+                    v-model="form.qtkaicaituiduanliang"
                     size="small"
                     placeholder="请输入其他开采矿种及推断资源量"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="投放时序" prop="TFSX">
+                <el-form-item label="投放时序" prop="toufangshixu">
                   <el-input
-                    v-model="form.TFSX"
+                    v-model="form.toufangshixu"
                     size="small"
                     placeholder="请输入投放时序"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="规划期" prop="GHQ">
+                <el-form-item label="规划期" prop="guihuaqi">
                   <el-date-picker
-                    v-model="form.GHQ"
+                    v-model="form.guihuaqi"
                     type="date"
                     placeholder="选择规划期"
                   >
@@ -181,18 +190,18 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="规划编制级别" prop="GHBZJB">
+                <el-form-item label="规划编制级别" prop="guihuabzlevel">
                   <el-input
-                    v-model="form.GHBZJB"
+                    v-model="form.guihuabzlevel"
                     size="small"
                     placeholder="请输入规划编制级别"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="备注" prop="BZ">
+                <el-form-item label="备注" prop="remarks">
                   <el-input
-                    v-model="form.BZ"
+                    v-model="form.remarks"
                     type="textarea"
                     size="small"
                     placeholder="请输入备注"
@@ -224,50 +233,50 @@ export default {
   data () {
     return {
       defaultForm: {
-        BSM: '',
-        YSDM: '',
-        QKBH: '',
-        QKMC: '',
-        QKMJ: '',
-        KZDM: '',
-        KZMC: '',
-        ZLKZKZDM: '',
-        ZLKZKZMC: '',
-        GDZB: '',
-        ZYLDW: '',
-        TMZYL: '',
-        KZZYL: '',
+        biaoshima: '',
+        yaosudaima: '',
+        quyubianhao: '',
+        qukuangname: '',
+        qukuaimj: '',
+        kaicaizhukuangdm: '',
+        kaicaizhukuangmc: '',
+        shejizonglingdaima: '',
+        shejizonglingmingc: '',
+        guaidianzuobiao: '',
+        ziyuanliangdanwei: '',
+        kaicaiziyuanl: '',
+        kaicaikongzhiliang: '',
         TDZYL: '',
-        QTKZJTMZYL: '',
-        QTKZJKZZYL: '',
-        QTKZJTDZYL: '',
-        TFSX: '',
-        BZ: '',
-        GHQ: '',
-        GHBZJB: ''
+        qtlaicaitanmingliang: '',
+        qitakckzkongzhiliang: '',
+        qtkaicaituiduanliang: '',
+        toufangshixu: '',
+        remarks: '',
+        guihuaqi: '',
+        guihuabzlevel: ''
       },
       form: {
-        BSM: '',
-        YSDM: '',
-        QKBH: '',
-        QKMC: '',
-        QKMJ: '',
-        KZDM: '',
-        KZMC: '',
-        ZLKZKZDM: '',
-        ZLKZKZMC: '',
-        GDZB: '',
-        ZYLDW: '',
-        TMZYL: '',
-        KZZYL: '',
+        biaoshima: '',
+        yaosudaima: '',
+        quyubianhao: '',
+        qukuangname: '',
+        qukuaimj: '',
+        kaicaizhukuangdm: '',
+        kaicaizhukuangmc: '',
+        shejizonglingdaima: '',
+        shejizonglingmingc: '',
+        guaidianzuobiao: '',
+        ziyuanliangdanwei: '',
+        kaicaiziyuanl: '',
+        kaicaikongzhiliang: '',
         TDZYL: '',
-        QTKZJTMZYL: '',
-        QTKZJKZZYL: '',
-        QTKZJTDZYL: '',
-        TFSX: '',
-        BZ: '',
-        GHQ: '',
-        GHBZJB: ''
+        qtlaicaitanmingliang: '',
+        qitakckzkongzhiliang: '',
+        qtkaicaituiduanliang: '',
+        toufangshixu: '',
+        remarks: '',
+        guihuaqi: '',
+        guihuabzlevel: ''
       },
       commnuityConfig: [
         { label: '社区1', value: 1 },
@@ -275,60 +284,53 @@ export default {
         { label: '社区3', value: 3 }
       ],
       rules: {
-        BSM: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
-        YSDM: [
+        biaoshima: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
+        yaosudaima: [
           { required: true, message: '要素代码不能为空', trigger: 'blur' }
         ],
-        QKBH: [
+        quyubianhao: [
           { required: true, message: '分区编号不能为空', trigger: 'blur' }
         ],
-        QKMC: [
+        qukuangname: [
           { required: true, message: '区块名称不能为空', trigger: 'blur' }
         ],
-        QKMJ: [
+        qukuaimj: [
           { required: true, message: '区块面积不能为空', trigger: 'blur' }
         ],
-        KZMC: [
+        kaicaizhukuangmc: [
           { required: true, message: '开采主矿种名称不能为空', trigger: 'blur' }
         ],
-        ZLKZKZDM: [
+        shejizonglingdaima: [
           { required: true, message: '涉及总量控制矿种代码不能为空', trigger: 'blur' }
         ],
-        ZLKZKZMC: [
+        shejizonglingmingc: [
           { required: true, message: '涉及总量控制矿种名称不能为空', trigger: 'blur' }
         ],
-        GDZB: [
+        guaidianzuobiao: [
           {
             required: true,
             message: '拐点坐标不能为空',
             trigger: 'blur'
           }
         ],
-        ZYLDW: [
+        ziyuanliangdanwei: [
           {
             required: true,
             message: '资源量单位不能为空',
             trigger: 'blur'
           }
         ],
-        TMZYL: [
+        kaicaiziyuanl: [
           {
             required: true,
             message: '开采主矿种探明资源量不能为空',
             trigger: 'blur'
           }
         ],
-        KZZYL: [
+        kaicaikongzhiliang: [
           { required: true, message: '开采主矿种控制资源量不能为空', trigger: 'blur' }
-        ],
-
-        TDZYL: [
-          { required: true, message: '开采主矿种推断资源量不能为空', trigger: 'blur' }
-        ],
-        GHQ: [{ required: true, message: '规划期不能为空', trigger: 'blur' }],
-        GHBZJB: [
-          { required: true, message: '规划编制级别不能为空', trigger: 'blur' }
         ]
+
       },
       type: '',
       visible: false,
@@ -382,10 +384,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate(valid => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -399,18 +402,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/zhongdiankcqu/zhongyaokaicaiqu/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/zhongdiankcqu/zhongyaokaicaiqu/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }

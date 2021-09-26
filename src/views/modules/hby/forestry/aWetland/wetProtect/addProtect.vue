@@ -18,117 +18,117 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="标识码" prop="BSM">
+                <el-form-item label="标识码" prop="biaoshima">
                   <el-input
-                    v-model="form.BSM"
+                    v-model="form.biaoshima"
                     size="small"
                     placeholder="请输入标识码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="要素代码" prop="YSDM">
+                <el-form-item label="要素代码" prop="yaosu">
                   <el-input
-                    v-model="form.YSDM"
+                    v-model="form.yaosu"
                     size="small"
                     placeholder="请输入要素代码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="地区名称" prop="DQMC">
+                <el-form-item label="地区名称" prop="diquname">
                   <el-input
-                    v-model="form.DQMC"
+                    v-model="form.diquname"
                     size="small"
                     placeholder="请输入地区名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="区域编码" prop="QYBM">
+                <el-form-item label="区域编码" prop="quyubianma">
                   <el-input
-                    v-model="form.QYBM"
+                    v-model="form.quyubianma"
                     size="small"
                     placeholder="请输入区域编码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="湿地斑块编码" prop="SDBKDM">
+                <el-form-item label="湿地斑块编码" prop="shidibk">
                   <el-input
-                    v-model="form.SDBKDM"
+                    v-model="form.shidibk"
                     size="small"
                     placeholder="请输入湿地斑块编码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="土地权属" prop="TDQS">
+                <el-form-item label="土地权属" prop="quanshu">
                   <el-input
-                    v-model="form.TDQS"
+                    v-model="form.quanshu"
                     size="small"
                     placeholder="请输入土地权属"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="主要利用方式" prop="ZYLYFS">
+                <el-form-item label="主要利用方式" prop="zhuyaoliyong">
                   <el-input
-                    v-model="form.ZYLYFS"
+                    v-model="form.zhuyaoliyong"
                     size="small"
                     placeholder="请输入主要利用方式"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="受威胁类型" prop="SWXLX">
+                <el-form-item label="受威胁类型" prop="wxtype">
                   <el-input
-                    v-model="form.SWXLX"
+                    v-model="form.wxtype"
                     size="small"
                     placeholder="请输入受威胁类型"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="保护地名称" prop="BHDMC">
+                <el-form-item label="保护地名称" prop="baohudi">
                   <el-input
-                    v-model="form.BHDMC"
+                    v-model="form.baohudi"
                     size="small"
                     placeholder="请输入保护地名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="保护地面积" prop="BHDMJ">
+                <el-form-item label="保护地面积" prop="baohumj">
                   <el-input
-                    v-model="form.BHDMJ"
+                    v-model="form.baohumj"
                     size="small"
                     placeholder="请输入保护地面积"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="分级分类" prop="FJFL">
+                <el-form-item label="分级分类" prop="leveltype">
                   <el-input
-                    v-model="form.FJFL"
+                    v-model="form.leveltype"
                     size="small"
                     placeholder="请输入分级分类"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="调查人" prop="DCR">
+                <el-form-item label="调查人" prop="diaocha">
                   <el-input
-                    v-model="form.DCR"
+                    v-model="form.diaocha"
                     size="small"
                     placeholder="请输入调查人"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="调查时间" prop="YSCKQZS">
+                <el-form-item label="调查时间" prop="dcdate">
                   <el-input
-                    v-model="form.YSCKQZS"
+                    v-model="form.dcdate"
                     size="small"
                     placeholder="请输入调查时间"
                   ></el-input>
@@ -159,34 +159,34 @@ export default {
   data () {
     return {
       defaultForm: {
-        BSM: '',
-        YSDM: '',
-        DQMC: '',
-        QYBM: '',
-        SDBKDM: '',
-        TDQS: '',
-        ZYLYFS: '',
-        SWXLX: '',
-        FJFL: '',
-        BHDMC: '',
-        BHDMJ: '',
-        DCR: '',
-        DCSJ: ''
+        biaoshima: '',
+        yaosu: '',
+        diquname: '',
+        quyubianma: '',
+        shidibk: '',
+        quanshu: '',
+        zhuyaoliyong: '',
+        wxtype: '',
+        leveltype: '',
+        baohudi: '',
+        baohumj: '',
+        diaocha: '',
+        dcdate: ''
       },
       form: {
-        BSM: '',
-        YSDM: '',
-        DQMC: '',
-        QYBM: '',
-        SDBKDM: '',
-        TDQS: '',
-        ZYLYFS: '',
-        SWXLX: '',
-        FJFL: '',
-        BHDMC: '',
-        BHDMJ: '',
-        DCR: '',
-        DCSJ: ''
+        biaoshima: '',
+        yaosu: '',
+        diquname: '',
+        quyubianma: '',
+        shidibk: '',
+        quanshu: '',
+        zhuyaoliyong: '',
+        wxtype: '',
+        leveltype: '',
+        baohudi: '',
+        baohumj: '',
+        diaocha: '',
+        dcdate: ''
       },
       commnuityConfig: [
         { label: '社区1', value: 1 },
@@ -194,17 +194,17 @@ export default {
         { label: '社区3', value: 3 }
       ],
       rules: {
-        BSM: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
-        YSDM: [
+        biaoshima: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
+        yaosu: [
           { required: true, message: '要素代码不能为空', trigger: 'blur' }
         ],
-        DQMC: [
+        diquname: [
           { required: true, message: '地区名称不能为空', trigger: 'blur' }
         ],
-        QYBM: [
+        quyubianma: [
           { required: true, message: '区域编码不能为空', trigger: 'blur' }
         ],
-        SDBKDM: [
+        shidibk: [
           { required: true, message: '湿地斑块编码不能为空', trigger: 'blur' }
         ]
 
@@ -261,10 +261,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate(valid => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -278,18 +279,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/shidibaohu/shidibaohu/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/shidibaohu/shidibaohu/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }

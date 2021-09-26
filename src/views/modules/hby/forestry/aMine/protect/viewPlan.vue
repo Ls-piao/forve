@@ -13,72 +13,72 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.biaoshima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.yaosudaima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">规划矿区编号：</span>
-              <span class="item-content">{{ data.GHKQBH }}</span>
+              <span class="item-content">{{ data.guihuabh }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">规划矿区名称：</span>
-              <span class="item-content">{{ data.GHKQMC }}</span>
+              <span class="item-content">{{ data.guihuakuangqu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">所在行政区：</span>
-              <span class="item-content">{{ data.SZXZQ }}</span>
+              <span class="item-content">{{ data.suoshuxzq }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">基地面积：</span>
-              <span class="item-content">{{ data.JDMJ }}</span>
+              <span class="item-content">{{ data.kuangqumj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">拐点坐标：</span>
-              <span class="item-content">{{ data.GDZB }}</span>
+              <span class="item-content">{{ data.guaidian }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">主要矿产代码：</span>
-              <span class="item-content">{{ data.ZYKCDM }}</span>
+              <span class="item-content">{{ data.zhuyaokcdm }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">主要矿产名称：</span>
-              <span class="item-content">{{ data.ZYKCMC }}</span>
+              <span class="item-content">{{ data.zhuyaokuangchanming }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">主要矿产探明资源量：</span>
-              <span class="item-content">{{ data.ZYKCTMZYL }}</span>
+              <span class="item-content">{{ data.tanmingzyl }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">主要矿产控制资源量：</span>
-              <span class="item-content">{{ data.ZYKCKZZYL }}</span>
+              <span class="item-content">{{ data.kongzhizyl }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">主要矿产推断资源量：</span>
-              <span class="item-content">{{ data.ZYKCTDZYL }}</span>
+              <span class="item-content">{{ data.tuiduanzyl }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">已设探矿权总数：</span>
-              <span class="item-content">{{ data.YSTKQZS }}</span>
+              <span class="item-content">{{ data.yitoukqzs }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">拟设探矿权总数：</span>
-              <span class="item-content">{{ data.NSTKQZS }}</span>
+              <span class="item-content">{{ data.nitoukuangquan }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">已设采矿权总数：</span>
-              <span class="item-content">{{ data.YSCKQZS }}</span>
+              <span class="item-content">{{ data.yitoukuangquan }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">已设采矿权设计开采规模：</span>
-              <span class="item-content">{{ data.YSKCGM }}</span>
+              <span class="item-content">{{ data.yishecaikuanggm }}</span>
             </el-col>
          
             <el-col :span="8">
               <span class="item-title">拟设采矿权总数：</span>
-              <span class="item-content">{{ data.NSCKQZS }}</span>
+              <span class="item-content">{{ data.nishecaik }}</span>
             </el-col>
          
           </el-row>

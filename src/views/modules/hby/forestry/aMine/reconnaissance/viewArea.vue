@@ -13,59 +13,59 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.biaoshima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.yaosudaima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">分区编号：</span>
-              <span class="item-content">{{ data.JDBH }}</span>
+              <span class="item-content">{{ data.fenquhao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">分区名称：</span>
-              <span class="item-content">{{ data.JDMC }}</span>
+              <span class="item-content">{{ data.fenquming }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">所在行政区：</span>
-              <span class="item-content">{{ data.SZXZQ }}</span>
+              <span class="item-content">{{ data.suozaixingzhengqu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">分区面积：</span>
-              <span class="item-content">{{ data.JDMJ }}</span>
+              <span class="item-content">{{ data.fenqumj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">拐点坐标：</span>
-              <span class="item-content">{{ data.GDZB }}</span>
+              <span class="item-content">{{ data.guaidianzuobiao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">主要矿产代码：</span>
-              <span class="item-content">{{ data.ZYKCDM }}</span>
+              <span class="item-content">{{ data.zhuyaokuangchan }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">主要矿产名称：</span>
-              <span class="item-content">{{ data.ZYKCMC }}</span>
+              <span class="item-content">{{ data.zhuyaokcmingcheng }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">已设探矿权总数：</span>
-              <span class="item-content">{{ data.YSTKQZS }}</span>
+              <span class="item-content">{{ data.yitoukqzongshu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">拟设探矿权总数：</span>
-              <span class="item-content">{{ data.NSTKQZS }}</span>
+              <span class="item-content">{{ data.nitoukuangquanzongshu }}</span>
             </el-col>
             <el-col :span="12">
               <span class="item-title">规划期：</span>
-              <span class="item-content">{{ data.GHQ }}</span>
+              <span class="item-content">{{ data.guihuaqi }}</span>
             </el-col>
             <el-col :span="12">
               <span class="item-title">规划编制级别：</span>
-              <span class="item-content">{{ data.GHBZJB }}</span>
+              <span class="item-content">{{ data.guaihualevel }}</span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">备注：</span>
-              <span class="item-content">{{ data.BZ }}</span>
+              <span class="item-content">{{ data.remarks }}</span>
             </el-col>
           </el-row>
         </div>

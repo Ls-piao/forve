@@ -13,64 +13,64 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.biaoshima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.yaosudm }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">地区名称：</span>
-              <span class="item-content">{{ data.DQMC }}</span>
+              <span class="item-content">{{ data.diquname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区域编码：</span>
-              <span class="item-content">{{ data.QYBM }}</span>
+              <span class="item-content">{{ data.quyubm }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">湿地斑块编码：</span>
-              <span class="item-content">{{ data.SDBKDM }}</span>
+              <span class="item-content">{{ data.shibibankuai }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">纬度：</span>
-              <span class="item-content">{{ data.WD }}</span>
+              <span class="item-content">{{ data.weidu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">经度：</span>
-              <span class="item-content">{{ data.JD }}</span>
+              <span class="item-content">{{ data.jingdu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">矿化度：</span>
-              <span class="item-content">{{ data.KHD }}</span>
+              <span class="item-content">{{ data.kuanghuadu }}</span>
             </el-col>
          
             <el-col :span="8">
               <span class="item-title">PH：</span>
-              <span class="item-content">{{ data.PH }}</span>
+              <span class="item-content">{{ data.phzhi }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">溶解氧(mg/L)：</span>
-              <span class="item-content">{{ data.RJY }}</span>
+              <span class="item-content">{{ data.rongjieyang }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">五日生化需氧量(mg/L)：</span>
-              <span class="item-content">{{ data.WRSHXYL }}</span>
+              <span class="item-content">{{ data.wurishenghua }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">化学需氧量(mg/L)：</span>
-              <span class="item-content">{{ data.HXXYL }}</span>
+              <span class="item-content">{{ data.huaxueliang }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">总氮（mg/kg）：</span>
-              <span class="item-content">{{ data.ZD }}</span>
+              <span class="item-content">{{ data.zongdan }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">氨氮(mg/L)：</span>
-              <span class="item-content">{{ data.AD }}</span>
+              <span class="item-content">{{ data.andan }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">总磷：</span>
-              <span class="item-content">{{ data.ZL }}</span>
+              <span class="item-content">{{ data.zonglin }}</span>
             </el-col>
           </el-row>
         </div>

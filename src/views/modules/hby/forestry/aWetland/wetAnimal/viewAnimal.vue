@@ -13,67 +13,71 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.biaoshima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.ysdm }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">地区名称：</span>
-              <span class="item-content">{{ data.DQMC }}</span>
+              <span class="item-content">{{ data.diqu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区域编码：</span>
-              <span class="item-content">{{ data.QYBM }}</span>
+              <span class="item-content">{{ data.quyu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">湿地斑块编码：</span>
-              <span class="item-content">{{ data.SDBKDM }}</span>
+              <span class="item-content">{{ data.sdbk }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">动物类型：</span>
-              <span class="item-content">{{ data.DWLX }}</span>
+              <span class="item-content">{{ data.animaltype }}</span>
             </el-col>
                   <el-col :span="8">
               <span class="item-title">纬度：</span>
-              <span class="item-content">{{ data.WD }}</span>
+              <span class="item-content">{{ data.weidu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">经度：</span>
-              <span class="item-content">{{ data.JD }}</span>
+              <span class="item-content">{{ data.jingdu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">样点号：</span>
-              <span class="item-content">{{ data.YDH }}</span>
+              <span class="item-content">{{ data.yangdian }}</span>
             </el-col>
                  <el-col :span="8">
               <span class="item-title">调查人：</span>
-              <span class="item-content">{{ data.DCR }}</span>
+              <span class="item-content">{{ data.dcrname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">天气状况：</span>
-              <span class="item-content">{{ data.TQZK }}</span>
+              <span class="item-content">{{ data.weather }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">调查起始时间：</span>
-              <span class="item-content">{{ data.DCQSSJ }}</span>
+              <span class="item-content">{{ data.startime }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">调查结束时间：</span>
+              <span class="item-content">{{ data.endtime }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">中文名：</span>
-              <span class="item-content">{{ data.ZWM }}</span>
+              <span class="item-content">{{ data.chinaname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">拉丁名：</span>
-              <span class="item-content">{{ data.LDM }}</span>
+              <span class="item-content">{{ data.ldm }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">数量：</span>
-              <span class="item-content">{{ data.SL }}</span>
+              <span class="item-content">{{ data.sl }}</span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">备注：</span>
-              <span class="item-content">{{ data.BZ }}</span>
+              <span class="item-content">{{ data.remarks }}</span>
             </el-col>
           </el-row>
         </div>

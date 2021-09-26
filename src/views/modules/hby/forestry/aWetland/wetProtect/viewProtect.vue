@@ -13,43 +13,55 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.biaoshima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.yaosu }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">地区名称：</span>
+              <span class="item-content">{{ data.diquname }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">区域编码：</span>
+              <span class="item-content">{{ data.quyubianma }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">湿地斑块编码：</span>
+              <span class="item-content">{{ data.shidibk }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">土地权属：</span>
-              <span class="item-content">{{ data.TDQS }}</span>
+              <span class="item-content">{{ data.quanshu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">主要利用方式：</span>
-              <span class="item-content">{{ data.ZYLYFS }}</span>
+              <span class="item-content">{{ data.zhuyaoliyong }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">受威胁类型：</span>
-              <span class="item-content">{{ data.SWXLX }}</span>
+              <span class="item-content">{{ data.wxtype }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">保护地名称：</span>
-              <span class="item-content">{{ data.BHDMC }}</span>
+              <span class="item-content">{{ data.baohudi }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">保护地面积：</span>
-              <span class="item-content">{{ data.BHDMJ }}</span>
+              <span class="item-content">{{ data.baohumj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">分级分类：</span>
-              <span class="item-content">{{ data.FJFL }}</span>
+              <span class="item-content">{{ data.leveltype }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">调查人：</span>
-              <span class="item-content">{{ data.DCR }}</span>
+              <span class="item-content">{{ data.diaocha }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">调查时间：</span>
-              <span class="item-content">{{ data.DCSJ }}</span>
+              <span class="item-content">{{ data.dcdate }}</span>
             </el-col>
           </el-row>
         </div>

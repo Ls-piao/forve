@@ -18,117 +18,117 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="标识码" prop="BSM">
+                <el-form-item label="标识码" prop="baoshima">
                   <el-input
-                    v-model="form.BSM"
+                    v-model="form.baoshima"
                     size="small"
                     placeholder="请输入标识码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="要素代码" prop="YSDM">
+                <el-form-item label="要素代码" prop="yaosu">
                   <el-input
-                    v-model="form.YSDM"
+                    v-model="form.yaosu"
                     size="small"
                     placeholder="请输入要素代码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="地区名称" prop="DQMC">
+                <el-form-item label="地区名称" prop="diquname">
                   <el-input
-                    v-model="form.DQMC"
+                    v-model="form.diquname"
                     size="small"
                     placeholder="请输入地区名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="区域编码" prop="QYBM">
+                <el-form-item label="区域编码" prop="quyubianma">
                   <el-input
-                    v-model="form.QYBM"
+                    v-model="form.quyubianma"
                     size="small"
                     placeholder="请输入区域编码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="湿地斑块编码" prop="SDBKDM">
+                <el-form-item label="湿地斑块编码" prop="shidibk">
                   <el-input
-                    v-model="form.SDBKDM"
+                    v-model="form.shidibk"
                     size="small"
                     placeholder="请输入湿地斑块编码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="湿地类" prop="SDL">
+                <el-form-item label="湿地类" prop="shidilei">
                   <el-input
-                    v-model="form.SDL"
+                    v-model="form.shidilei"
                     size="small"
                     placeholder="请输入湿地类"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="湿地面积" prop="SDMJ">
+                <el-form-item label="湿地面积" prop="shidimj">
                   <el-input
-                    v-model="form.SDMJ"
+                    v-model="form.shidimj"
                     size="small"
                     placeholder="请输入湿地面积"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="平均海拔" prop="PJHB">
+                <el-form-item label="平均海拔" prop="pjhaiba">
                   <el-input
-                    v-model="form.PJHB"
+                    v-model="form.pjhaiba"
                     size="small"
                     placeholder="请输入平均海拔"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="所属三级流域" prop="SSSLQY">
+                <el-form-item label="所属三级流域" prop="suoshusanji">
                   <el-input
-                    v-model="form.SSSLQY"
+                    v-model="form.suoshusanji"
                     size="small"
                     placeholder="请输入所属三级流域"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="纬度" prop="WD">
+                <el-form-item label="纬度" prop="weidu">
                   <el-input
-                    v-model="form.WD"
+                    v-model="form.weidu"
                     size="small"
                     placeholder="请输入纬度"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="经度" prop="JD">
+                <el-form-item label="经度" prop="jingdu">
                   <el-input
-                    v-model="form.JD"
+                    v-model="form.jingdu"
                     size="small"
                     placeholder="请输入经度"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="调查人" prop="DCR">
+                <el-form-item label="调查人" prop="diaocharen">
                   <el-input
-                    v-model="form.DCR"
+                    v-model="form.diaocharen"
                     size="small"
                     placeholder="请输入调查人"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="调查时间" prop="YSCKQZS">
+                <el-form-item label="调查时间" prop="diaochadate">
                   <el-input
-                    v-model="form.YSCKQZS"
+                    v-model="form.diaochadate"
                     size="small"
                     placeholder="请输入调查时间"
                   ></el-input>
@@ -159,33 +159,33 @@ export default {
   data () {
     return {
       defaultForm: {
-        BSM: '',
-        YSDM: '',
-        DQMC: '',
-        QYBM: '',
-        SDBKDM: '',
-        SDL: '',
-        SDMJ: '',
-        PJHB: '',
-        SSSLQY: '',
-        WD: '',
-        JD: '',
-        DCR: '',
+        baoshima: '',
+        yaosu: '',
+        diquname: '',
+        quyubianma: '',
+        shidibk: '',
+        shidilei: '',
+        shidimj: '',
+        pjhaiba: '',
+        suoshusanji: '',
+        weidu: '',
+        jingdu: '',
+        diaocharen: '',
         DCSJ: ''
       },
       form: {
-        BSM: '',
-        YSDM: '',
-        DQMC: '',
-        QYBM: '',
-        SDBKDM: '',
-        SDL: '',
-        SDMJ: '',
-        PJHB: '',
-        SSSLQY: '',
-        WD: '',
-        JD: '',
-        DCR: '',
+        baoshima: '',
+        yaosu: '',
+        diquname: '',
+        quyubianma: '',
+        shidibk: '',
+        shidilei: '',
+        shidimj: '',
+        pjhaiba: '',
+        suoshusanji: '',
+        weidu: '',
+        jingdu: '',
+        diaocharen: '',
         DCSJ: ''
       },
       commnuityConfig: [
@@ -194,50 +194,50 @@ export default {
         { label: '社区3', value: 3 }
       ],
       rules: {
-        BSM: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
-        YSDM: [
+        baoshima: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
+        yaosu: [
           { required: true, message: '要素代码不能为空', trigger: 'blur' }
         ],
-        DQMC: [
+        diquname: [
           { required: true, message: '地区名称不能为空', trigger: 'blur' }
         ],
-        QYBM: [
+        quyubianma: [
           { required: true, message: '区域编码不能为空', trigger: 'blur' }
         ],
-        SDBKDM: [
+        shidibk: [
           { required: true, message: '湿地斑块编码不能为空', trigger: 'blur' }
         ],
-        SDL: [
+        shidilei: [
           { required: true, message: '湿地类不能为空', trigger: 'blur' }
         ],
-        SDMJ: [
+        shidimj: [
           { required: true, message: '湿地面积不能为空', trigger: 'blur' }
         ],
-        PJHB: [
+        pjhaiba: [
           { required: true, message: '平均海拔不能为空', trigger: 'blur' }
         ],
-        SSSLQY: [
+        suoshusanji: [
           {
             required: true,
             message: '所属三级流域不能为空',
             trigger: 'blur'
           }
         ],
-        WD: [
+        weidu: [
           {
             required: true,
             message: '纬度不能为空',
             trigger: 'blur'
           }
         ],
-        JD: [
+        jingdu: [
           {
             required: true,
             message: '经度不能为空',
             trigger: 'blur'
           }
         ],
-        DCR: [
+        diaocharen: [
           { required: true, message: '调查人不能为空', trigger: 'blur' }
         ],
 

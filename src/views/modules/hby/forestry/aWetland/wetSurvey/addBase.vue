@@ -18,153 +18,153 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="标识码" prop="BSM">
+                <el-form-item label="标识码" prop="bsnum">
                   <el-input
-                    v-model="form.BSM"
+                    v-model="form.bsnum"
                     size="small"
                     placeholder="请输入标识码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="要素代码" prop="YSDM">
+                <el-form-item label="要素代码" prop="ysnun">
                   <el-input
-                    v-model="form.YSDM"
+                    v-model="form.ysnun"
                     size="small"
                     placeholder="请输入要素代码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="地区名称" prop="DQMC">
+                <el-form-item label="地区名称" prop="diquname">
                   <el-input
-                    v-model="form.DQMC"
+                    v-model="form.diquname"
                     size="small"
                     placeholder="请输入地区名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="区域编码" prop="QYBM">
+                <el-form-item label="区域编码" prop="qybianhao">
                   <el-input
-                    v-model="form.QYBM"
+                    v-model="form.qybianhao"
                     size="small"
                     placeholder="请输入区域编码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="湿地斑块编码" prop="SDBKDM">
+                <el-form-item label="湿地斑块编码" prop="sdbianhao">
                   <el-input
-                    v-model="form.SDBKDM"
+                    v-model="form.sdbianhao"
                     size="small"
                     placeholder="请输入湿地斑块编码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="基质类型" prop="JZLX">
+                <el-form-item label="基质类型" prop="jztype">
                   <el-input
-                    v-model="form.JZLX"
+                    v-model="form.jztype"
                     size="small"
                     placeholder="请输入基质类型"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="样点号" prop="YDH">
+                <el-form-item label="样点号" prop="yangdianhao">
                   <el-input
-                    v-model="form.YDH"
+                    v-model="form.yangdianhao"
                     size="small"
                     placeholder="请输入样点号"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="纬度" prop="WD">
+                <el-form-item label="纬度" prop="weidu">
                   <el-input
-                    v-model="form.WD"
+                    v-model="form.weidu"
                     size="small"
                     placeholder="请输入纬度"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="经度" prop="JD">
+                <el-form-item label="经度" prop="jingdu">
                   <el-input
-                    v-model="form.JD"
+                    v-model="form.jingdu"
                     size="small"
                     placeholder="请输入经度"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="调查人" prop="DCR">
+                <el-form-item label="调查人" prop="dcname">
                   <el-input
-                    v-model="form.DCR"
+                    v-model="form.dcname"
                     size="small"
                     placeholder="请输入调查人"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="调查时间" prop="YSCKQZS">
+                <el-form-item label="调查时间" prop="dcdate">
                   <el-input
-                    v-model="form.YSCKQZS"
+                    v-model="form.dcdate"
                     size="small"
                     placeholder="请输入调查时间"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="有机质（%）" prop="YJZ">
+                <el-form-item label="有机质（%）" prop="youjizhi">
                   <el-input
-                    v-model="form.YJZ"
+                    v-model="form.youjizhi"
                     size="small"
                     placeholder="请输入有机质（%）"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="泥炭层厚度（cm）" prop="NTCHD">
+                <el-form-item label="泥炭层厚度（cm）" prop="tnchoudu">
                   <el-input
-                    v-model="form.NTCHD"
+                    v-model="form.tnchoudu"
                     size="small"
                     placeholder="请输入泥炭层厚度（cm）"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="PH" prop="PH">
+                <el-form-item label="PH" prop="phzhi">
                   <el-input
-                    v-model="form.PH"
+                    v-model="form.phzhi"
                     size="small"
                     placeholder="请输入PH"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="总氮（mg/kg）" prop="ZD">
+                <el-form-item label="总氮（mg/kg）" prop="zongdan">
                   <el-input
-                    v-model="form.ZD"
+                    v-model="form.zongdan"
                     size="small"
                     placeholder="请输入总氮（mg/kg）"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="总磷" prop="ZL">
+                <el-form-item label="总磷" prop="zonglin">
                   <el-input
-                    v-model="form.ZL"
+                    v-model="form.zonglin"
                     size="small"
                     placeholder="请输入总磷"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="土壤水溶性盐总量（mg/kg）" prop="TRSRXYZL">
+                <el-form-item label="土壤水溶性盐总量（mg/kg）" prop="turang">
                   <el-input
-                    v-model="form.TRSRXYZL"
+                    v-model="form.turang"
                     size="small"
                     placeholder="请输入土壤水溶性盐总量（mg/kg）"
                   ></el-input>
@@ -195,42 +195,42 @@ export default {
   data () {
     return {
       defaultForm: {
-        BSM: '',
-        YSDM: '',
-        DQMC: '',
-        QYBM: '',
-        SDBKDM: '',
-        JZLX: '',
-        YDH: '',
-        WD: '',
-        JD: '',
-        DCR: '',
-        DCSJ: '',
-        YJZ: '',
-        NTCHD: '',
-        PH: '',
-        ZD: '',
-        ZL: '',
-        TRSRXYZL: ''
+        bsnum: '',
+        ysnun: '',
+        diquname: '',
+        qybianhao: '',
+        sdbianhao: '',
+        jztype: '',
+        yangdianhao: '',
+        weidu: '',
+        jingdu: '',
+        dcname: '',
+        dcdate: '',
+        youjizhi: '',
+        tnchoudu: '',
+        phzhi: '',
+        zongdan: '',
+        zonglin: '',
+        turang: ''
       },
       form: {
-        BSM: '',
-        YSDM: '',
-        DQMC: '',
-        QYBM: '',
-        SDBKDM: '',
-        JZLX: '',
-        YDH: '',
-        WD: '',
-        JD: '',
-        DCR: '',
-        DCSJ: '',
-        YJZ: '',
-        NTCHD: '',
-        PH: '',
-        ZD: '',
-        ZL: '',
-        TRSRXYZL: ''
+        bsnum: '',
+        ysnun: '',
+        diquname: '',
+        qybianhao: '',
+        sdbianhao: '',
+        jztype: '',
+        yangdianhao: '',
+        weidu: '',
+        jingdu: '',
+        dcname: '',
+        dcdate: '',
+        youjizhi: '',
+        tnchoudu: '',
+        phzhi: '',
+        zongdan: '',
+        zonglin: '',
+        turang: ''
       },
       commnuityConfig: [
         { label: '社区1', value: 1 },
@@ -238,17 +238,17 @@ export default {
         { label: '社区3', value: 3 }
       ],
       rules: {
-        BSM: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
-        YSDM: [
+        bsnum: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
+        ysnun: [
           { required: true, message: '要素代码不能为空', trigger: 'blur' }
         ],
-        DQMC: [
+        diquname: [
           { required: true, message: '地区名称不能为空', trigger: 'blur' }
         ],
-        QYBM: [
+        qybianhao: [
           { required: true, message: '区域编码不能为空', trigger: 'blur' }
         ],
-        SDBKDM: [
+        sdbianhao: [
           { required: true, message: '湿地斑块编码不能为空', trigger: 'blur' }
         ]
       },
@@ -304,10 +304,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate(valid => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -321,18 +322,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/jcortr/jcortr/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/jcortr/jcortr/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }

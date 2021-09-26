@@ -13,47 +13,47 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.biaoshi }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.yaosu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">地区名称：</span>
-              <span class="item-content">{{ data.DQMC }}</span>
+              <span class="item-content">{{ data.diqumingcheng }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区域编码：</span>
-              <span class="item-content">{{ data.QYBM }}</span>
+              <span class="item-content">{{ data.quyubianhao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">湿地斑块编码：</span>
-              <span class="item-content">{{ data.SDBKDM }}</span>
+              <span class="item-content">{{ data.shidibankuai }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">湿地植被面积：</span>
-              <span class="item-content">{{ data.SDZBMJ }}</span>
+              <span class="item-content">{{ data.shidizbmj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">调查人：</span>
-              <span class="item-content">{{ data.DCR }}</span>
+              <span class="item-content">{{ data.dcname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">调查时间：</span>
-              <span class="item-content">{{ data.DCSJ }}</span>
+              <span class="item-content">{{ data.dcdate }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">优势种中文名：</span>
-              <span class="item-content">{{ data.YSZZWM }}</span>
+              <span class="item-content">{{ data.youshizhong }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">优势种拉丁名：</span>
-              <span class="item-content">{{ data.YSZLDM }}</span>
+              <span class="item-content">{{ data.yslading }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">优势种科名：</span>
-              <span class="item-content">{{ data.YSZKM }}</span>
+              <span class="item-content">{{ data.yskeming }}</span>
             </el-col>
           </el-row>
         </div>

@@ -13,43 +13,43 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.biaoshima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.yaosudaima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区块编号：</span>
-              <span class="item-content">{{ data.QKBH }}</span>
+              <span class="item-content">{{ data.qukuaihao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区块名称：</span>
-              <span class="item-content">{{ data.QKMC }}</span>
+              <span class="item-content">{{ data.qukuaiming }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">勘查主矿种名称：</span>
-              <span class="item-content">{{ data.KZMC }}</span>
+              <span class="item-content">{{ data.kanchazhukuangming }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">勘查主矿种代码：</span>
-              <span class="item-content">{{ data.KZDM }}</span>
+              <span class="item-content">{{ data.kanchazhukuangzhongdm }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区块面积：</span>
-              <span class="item-content">{{ data.QKMJ }}</span>
+              <span class="item-content">{{ data.qukuaimianji }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">拐点坐标：</span>
-              <span class="item-content">{{ data.GDZB }}</span>
+              <span class="item-content">{{ data.guaidianzuobiao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">其他勘查矿种代码：</span>
-              <span class="item-content">{{ data.QTKZDM }}</span>
+              <span class="item-content">{{ data.qitakckuangdaima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">其他勘查矿种名称：</span>
-              <span class="item-content">{{ data.QTKZMC }}</span>
+              <span class="item-content">{{ data.qitakcming }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">现有勘查程度：</span>
@@ -57,27 +57,27 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">拟设探矿权总数：</span>
-              <span class="item-content">{{ data.NSTKQZS }}</span>
+              <span class="item-content">{{ data.xianyouchengdu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">拟设探矿权勘查阶段：</span>
-              <span class="item-content">{{ data.NSKCJD }}</span>
+              <span class="item-content">{{ data.nishekcjieduan }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">投放时序：</span>
-              <span class="item-content">{{ data.TFSX }}</span>
+              <span class="item-content">{{ data.toufangshixu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">规划期：</span>
-              <span class="item-content">{{ data.GHQ }}</span>
+              <span class="item-content">{{ data.xianyouguihuaqi }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">规划编制级别：</span>
-              <span class="item-content">{{ data.GHBZJB }}</span>
+              <span class="item-content">{{ data.guihualevel }}</span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">备注：</span>
-              <span class="item-content">{{ data.BZ }}</span>
+              <span class="item-content">{{ data.remarks }}</span>
             </el-col>
           </el-row>
         </div>

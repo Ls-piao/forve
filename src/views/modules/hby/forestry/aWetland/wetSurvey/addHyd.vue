@@ -18,108 +18,108 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="标识码" prop="BSM">
+                <el-form-item label="标识码" prop="biaoshima">
                   <el-input
-                    v-model="form.BSM"
+                    v-model="form.biaoshima"
                     size="small"
                     placeholder="请输入标识码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="要素代码" prop="YSDM">
+                <el-form-item label="要素代码" prop="yaosudaima">
                   <el-input
-                    v-model="form.YSDM"
+                    v-model="form.yaosudaima"
                     size="small"
                     placeholder="请输入要素代码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="地区名称" prop="DQMC">
+                <el-form-item label="地区名称" prop="diqumingcheng">
                   <el-input
-                    v-model="form.DQMC"
+                    v-model="form.diqumingcheng"
                     size="small"
                     placeholder="请输入地区名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="区域编码" prop="QYBM">
+                <el-form-item label="区域编码" prop="quyubianma">
                   <el-input
-                    v-model="form.QYBM"
+                    v-model="form.quyubianma"
                     size="small"
                     placeholder="请输入区域编码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="湿地斑块编码" prop="SDBKDM">
+                <el-form-item label="湿地斑块编码" prop="shidibankuai">
                   <el-input
-                    v-model="form.SDBKDM"
+                    v-model="form.shidibankuai"
                     size="small"
                     placeholder="请输入湿地斑块编码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="水源补给状况" prop="SYBJZK">
+                <el-form-item label="水源补给状况" prop="shuiyuan">
                   <el-input
-                    v-model="form.SYBJZK"
+                    v-model="form.shuiyuan"
                     size="small"
                     placeholder="请输入水源补给状况"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="水源补给方式" prop="SYBJFS">
+                <el-form-item label="水源补给方式" prop="shuiyuanbuji">
                   <el-input
-                    v-model="form.SYBJFS"
+                    v-model="form.shuiyuanbuji"
                     size="small"
                     placeholder="请输入水源补给方式"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="平均水深" prop="PJFS">
+                <el-form-item label="平均水深" prop="pjshuishen">
                   <el-input
-                    v-model="form.PJFS"
+                    v-model="form.pjshuishen"
                     size="small"
                     placeholder="请输入平均水深"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="入流流量" prop="RLLY">
+                <el-form-item label="入流流量" prop="ruliuliang">
                   <el-input
-                    v-model="form.RLLY"
+                    v-model="form.ruliuliang"
                     size="small"
                     placeholder="请输入入流流量"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="样点号" prop="YDH">
+                <el-form-item label="样点号" prop="yangdianhao">
                   <el-input
-                    v-model="form.YDH"
+                    v-model="form.yangdianhao"
                     size="small"
                     placeholder="请输入样点号"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="氨氮(mg/L)" prop="AD">
+                <el-form-item label="氨氮(mg/L)" prop="andanliang">
                   <el-input
-                    v-model="form.AD"
+                    v-model="form.andanliang"
                     size="small"
                     placeholder="请输入氨氮(mg/L)"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="总磷" prop="ZL">
+                <el-form-item label="总磷" prop="zonglin">
                   <el-input
-                    v-model="form.ZL"
+                    v-model="form.zonglin"
                     size="small"
                     placeholder="请输入总磷"
                   ></el-input>
@@ -127,90 +127,90 @@
               </el-col>
            
               <el-col :span="8">
-                <el-form-item label="纬度" prop="WD">
+                <el-form-item label="纬度" prop="weidu">
                   <el-input
-                    v-model="form.WD"
+                    v-model="form.weidu"
                     size="small"
                     placeholder="请输入纬度"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="经度" prop="JD">
+                <el-form-item label="经度" prop="jingdu">
                   <el-input
-                    v-model="form.JD"
+                    v-model="form.jingdu"
                     size="small"
                     placeholder="请输入经度"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="化学需氧量(mg/L)" prop="HXXYL">
+                <el-form-item label="化学需氧量(mg/L)" prop="huaxueliang">
                   <el-input
-                    v-model="form.HXXYL"
+                    v-model="form.huaxueliang"
                     size="small"
                     placeholder="请输入化学需氧量(mg/L)"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="总氮（mg/kg）" prop="ZD">
+                <el-form-item label="总氮（mg/kg）" prop="zongdan">
                   <el-input
-                    v-model="form.ZD"
+                    v-model="form.zongdan"
                     size="small"
                     placeholder="请输入总氮（mg/kg）"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="PH" prop="PH">
+                <el-form-item label="PH" prop="phzhi">
                   <el-input
-                    v-model="form.PH"
+                    v-model="form.phzhi"
                     size="small"
                     placeholder="请输入PH"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="溶解氧(mg/L)" prop="RJY">
+                <el-form-item label="溶解氧(mg/L)" prop="rongjie">
                   <el-input
-                    v-model="form.RJY"
+                    v-model="form.rongjie"
                     size="small"
                     placeholder="请输入溶解氧(mg/L)"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="矿化度" prop="KHD">
+                <el-form-item label="矿化度" prop="kuanghuadu">
                   <el-input
-                    v-model="form.KHD"
+                    v-model="form.kuanghuadu"
                     size="small"
                     placeholder="请输入矿化度"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="五日生化需氧量(mg/L)" prop="WRSHXYL">
+                <el-form-item label="五日生化需氧量(mg/L)" prop="wurishenghua">
                   <el-input
-                    v-model="form.WRSHXYL"
+                    v-model="form.wurishenghua"
                     size="small"
                     placeholder="请输入五日生化需氧量(mg/L)"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="调查人" prop="DCR">
+                <el-form-item label="调查人" prop="dcname">
                   <el-input
-                    v-model="form.DCR"
+                    v-model="form.dcname"
                     size="small"
                     placeholder="请输入调查人"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="调查时间" prop="DCSJ">
+                <el-form-item label="调查时间" prop="dcdate">
                   <el-input
-                    v-model="form.DCSJ"
+                    v-model="form.dcdate"
                     size="small"
                     placeholder="请输入调查时间"
                   ></el-input>
@@ -241,52 +241,52 @@ export default {
   data () {
     return {
       defaultForm: {
-        BSM: '',
-        YSDM: '',
-        DQMC: '',
-        QYBM: '',
-        SDBKDM: '',
-        SYBJZK: '',
-        SYBJFS: '',
-        PJFS: '',
-        RLLY: '',
-        YDH: '',
+        biaoshima: '',
+        yaosudaima: '',
+        diqumingcheng: '',
+        quyubianma: '',
+        shidibankuai: '',
+        shuiyuan: '',
+        shuiyuanbuji: '',
+        pjshuishen: '',
+        ruliuliang: '',
+        yangdianhao: '',
         AD: '',
         ZL: '',
         WD: '',
         JD: '',
-        HXXYL: '',
+        huaxueliang: '',
         ZD: '',
         PH: '',
-        RJY: '',
+        rongjie: '',
         KHD: '',
         WRSHXYL: '',
         DCR: '',
         DCSJ: ''
       },
       form: {
-        BSM: '',
-        YSDM: '',
-        DQMC: '',
-        QYBM: '',
-        SDBKDM: '',
-        SYBJZK: '',
-        SYBJFS: '',
-        PJFS: '',
-        RLLY: '',
-        YDH: '',
-        AD: '',
-        ZL: '',
-        WD: '',
-        JD: '',
-        HXXYL: '',
-        ZD: '',
-        PH: '',
-        RJY: '',
-        KHD: '',
-        WRSHXYL: '',
-        DCR: '',
-        DCSJ: ''
+        biaoshima: '',
+        yaosudaima: '',
+        diqumingcheng: '',
+        quyubianma: '',
+        shidibankuai: '',
+        shuiyuan: '',
+        shuiyuanbuji: '',
+        pjshuishen: '',
+        ruliuliang: '',
+        yangdianhao: '',
+        andanliang: '',
+        zonglin: '',
+        weidu: '',
+        jingdu: '',
+        huaxueliang: '',
+        zongdan: '',
+        phzhi: '',
+        rongjie: '',
+        kuanghuadu: '',
+        wurishenghua: '',
+        dcname: '',
+        dcdate: ''
       },
       commnuityConfig: [
         { label: '社区1', value: 1 },
@@ -294,17 +294,17 @@ export default {
         { label: '社区3', value: 3 }
       ],
       rules: {
-        BSM: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
-        YSDM: [
+        biaoshima: [{ required: true, message: '标识码不能为空', trigger: 'blur' }],
+        yaosudaima: [
           { required: true, message: '要素代码不能为空', trigger: 'blur' }
         ],
-        DQMC: [
+        diqumingcheng: [
           { required: true, message: '地区名称不能为空', trigger: 'blur' }
         ],
-        QYBM: [
+        quyubianma: [
           { required: true, message: '区域编码不能为空', trigger: 'blur' }
         ],
-        SDBKDM: [
+        shidibankuai: [
           { required: true, message: '湿地斑块编码不能为空', trigger: 'blur' }
         ]
       },
@@ -360,10 +360,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate(valid => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -377,18 +378,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/shuiwendc/shuiwen/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/shuiwendc/shuiwen/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }

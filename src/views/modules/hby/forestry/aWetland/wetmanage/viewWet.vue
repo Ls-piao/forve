@@ -13,56 +13,56 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.baoshima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.yaosu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">地区名称：</span>
-              <span class="item-content">{{ data.DQMC }}</span>
+              <span class="item-content">{{ data.diquname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区域编码：</span>
-              <span class="item-content">{{ data.QYBM }}</span>
+              <span class="item-content">{{ data.quyubianma }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">湿地斑块编码：</span>
-              <span class="item-content">{{ data.SDBKDM }}</span>
+              <span class="item-content">{{ data.shidibk }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">湿地类：</span>
-              <span class="item-content">{{ data.SDL }}</span>
+              <span class="item-content">{{ data.shidilei }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">湿地面积：</span>
-              <span class="item-content">{{ data.SDMJ }}</span>
+              <span class="item-content">{{ data.shidimj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">平均海拔：</span>
-              <span class="item-content">{{ data.PJHB }}</span>
+              <span class="item-content">{{ data.pjhaiba }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">所属三级流域：</span>
-              <span class="item-content">{{ data.SSSLQY }}</span>
+              <span class="item-content">{{ data.suoshusanji }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">纬度：</span>
-              <span class="item-content">{{ data.WD }}</span>
+              <span class="item-content">{{ data.weidu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">经度：</span>
-              <span class="item-content">{{ data.JD }}</span>
+              <span class="item-content">{{ data.jingdu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">调查人：</span>
-              <span class="item-content">{{ data.DCR }}</span>
+              <span class="item-content">{{ data.diaocharen }}</span>
             </el-col>
          
             <el-col :span="8">
               <span class="item-title">调查时间：</span>
-              <span class="item-content">{{ data.DCSJ }}</span>
+              <span class="item-content">{{ data.diaochadate }}</span>
             </el-col>
           </el-row>
         </div>

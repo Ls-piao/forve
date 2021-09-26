@@ -4,30 +4,30 @@
       <el-form class="searchbox" :inline="true">
         <el-form-item>
           <template #label> 区块编号： </template>
-          <el-input v-model="outParams.id" size="mini"></el-input>
+          <el-input v-model="outParams.qukuaihao" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
           <template #label> 区块名称： </template>
-          <el-input v-model="outParams.user" size="mini"></el-input>
+          <el-input v-model="outParams.qukuaiming" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
           <template #label> 主矿种代码： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
+          <el-input v-model="outParams.kanchazhukuangzhongdm" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
           <template #label> 主矿种名称： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
+          <el-input v-model="outParams.kanchazhukuangming" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
           <template #label>其他矿种代码： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
+          <el-input v-model="outParams.qitakckuangdaima" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 其他矿种编号： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
+          <template #label> 其他矿种名称： </template>
+          <el-input v-model="outParams.qitakcming" size="mini"></el-input>
         </el-form-item>
       </el-form>
-      <div style="line-height: 2.2">
+      <div style="line-height: 2.2;width:200px">
         <el-button
           @click="doSearch"
           size="mini"
@@ -72,14 +72,23 @@
           @click="downTemplate(selectedData)"
           >下载模板</el-button
         >
-        <el-button
-          class="checkbtn"
-          type="warning"
-          size="mini"
-          icon="el-icon-upload2"
-          @click="importData(selectedData)"
-          >导入</el-button
+         <el-upload
+          class="uploadBtn"
+          :action="
+            `${this.$http.BASE_URL}/hby/ziyuankanchaqukuai/ziyuankanchaquK/import`
+          "
+          :on-success="uploadSuccess"
+          :headers="headers"
+          :show-file-list="false"
         >
+          <el-button
+            class="checkbtn"
+            type="warning"
+            size="mini"
+            icon="el-icon-upload2"
+            >导入</el-button
+          >
+        </el-upload>
         <el-button
           class="checkbtn"
           type="primary"
@@ -88,13 +97,24 @@
           @click="exportData(selectedData)"
           >导出</el-button
         >
+        <el-button
+          type="default"
+          size="mini"
+          icon="el-icon-refresh"
+          @click="
+            () => {
+              this.$refs.table.initData();
+            }
+          "
+        >
+        </el-button>
       </div>
 
       <MyTable
         class="tables"
         ref="table"
-        :outerData="tableData"
         :columnNames="tableColumnNames"
+        :fetchFun="tableFetchFun"
         :outParams="outParams"
         :selections="true"
         :showType="showType"
@@ -110,7 +130,7 @@
 </template>
 
 <script>
-import tableData from './modulesData.json'
+import { cloneDeep } from 'lodash'
 import addDialog from './addModules'
 import viewDialog from './viewModules'
 export default {
@@ -126,11 +146,13 @@ export default {
       filterNode: 'name',
 
       searchParams: {
-        id: '',
-        user: '',
-        number: ''
+        qitakcming: '',
+        qitakckuangdaima: '',
+        kanchazhukuangzhongdm: '',
+        kanchazhukuangming: '',
+        qukuaiming: '',
+        qukuaihao: ''
       },
-      tableData: tableData,
       tableColumnNames: [
         'modules_BSM',
         'modules_YSDM',
@@ -151,26 +173,92 @@ export default {
         'shop_control'
       ],
       outParams: {
-        id: '',
-        user: '',
-        number: ''
+        qitakcming: '',
+        qitakckuangdaima: '',
+        kanchazhukuangzhongdm: '',
+        kanchazhukuangming: '',
+        qukuaiming: '',
+        qukuaihao: ''
+      },
+      headers: {
+        token: this.$cookie.get('token')
       },
       showType: 'all', // 表格显示数据类型
       selectedData: [] // 选中表格数据
     }
   },
-  computed: {},
+  computed: {
+    tableFetchFun () {
+      return this.initData
+    }
+  },
   watch: {},
   created () {},
   mounted () {},
   methods: {
+    initData () {
+      return this.$http({
+        url: '/hby/ziyuankanchaqukuai/ziyuankanchaquK/list',
+        params: this.outParams
+      })
+    },
     handleNodeClick () {},
     selectedDataChange (val) {
       this.selectedData = val
     },
-    doSearch () {},
-    reset () {},
-    dels (items) {},
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
+    // 导入
+    uploadSuccess (res, file) {
+      if (res.success) {
+        this.$message.success({
+          dangerouslyUseHTMLString: true,
+          message: res.msg
+        })
+        this.$refs.table.initData()
+      } else {
+        this.$message.error(res.msg)
+      }
+    },
+    exportData () {
+      this.$http({
+        method: 'get',
+        url: '/hby/ziyuankanchaqukuai/ziyuankanchaquK/export',
+        responseType: 'blob'
+      })
+        .then(response => {
+          if (!response) {
+            return
+          }
+          let link = document.createElement('a')
+          link.href = window.URL.createObjectURL(new Blob([response.data]))
+          link.target = '_blank'
+          let filename = response.headers['content-disposition']
+          link.download = decodeURI(filename)
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+          // eslint-disable-next-line handle-callback-err
+        })
+    },
+    dels (items) {
+      let ids = items.map(v => v.id).join(',')
+      this.$http
+        .delete('/hby/ziyuankanchaqukuai/ziyuankanchaquK/delete', {
+          params: { ids }
+        })
+        .then(({ data }) => {
+          if (data.code === 200) {
+            this.$message.success('操作成功')
+            this.$refs.table.initData() // 刷新表格
+          }
+        })
+    },
     handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
@@ -234,6 +322,7 @@ export default {
 .searchbox {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .page-header {
   position: relative;

@@ -13,84 +13,88 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.biaoshima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.yaosudaima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区块编号：</span>
-              <span class="item-content">{{ data.FQBH }}</span>
+              <span class="item-content">{{ data.quyubianhao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区块名称：</span>
-              <span class="item-content">{{ data.FQMC }}</span>
+              <span class="item-content">{{ data.qukuangname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区块面积：</span>
-              <span class="item-content">{{ data.FQMJ }}</span>
+              <span class="item-content">{{ data.qukuaimj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">开采主矿种代码：</span>
-              <span class="item-content">{{ data.KZDM }}</span>
+              <span class="item-content">{{ data.kaicaizhukuangdm }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">开采主矿种名称：</span>
-              <span class="item-content">{{ data.KZMC }}</span>
+              <span class="item-content">{{ data.kaicaizhukuangmc }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">涉及总量控制矿种代码：</span>
-              <span class="item-content">{{ data.ZLKZKZDM }}</span>
+              <span class="item-content">{{ data.shejizonglingdaima }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">涉及总量控制矿种名称：</span>
-              <span class="item-content">{{ data.ZLKZKZMC }}</span>
+              <span class="item-content">{{ data.shejizonglingmingc }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">拐点坐标：</span>
-              <span class="item-content">{{ data.GDZB }}</span>
+              <span class="item-content">{{ data.guaidianzuobiao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">资源量单位：</span>
-              <span class="item-content">{{ data.ZYLDW }}</span>
+              <span class="item-content">{{ data.ziyuanliangdanwei }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">开采主矿种探明资源量：</span>
-              <span class="item-content">{{ data.TMZYL }}</span>
+              <span class="item-content">{{ data.kaicaiziyuanl }}</span>
             </el-col>
          
             <el-col :span="8">
               <span class="item-title">开采主矿种控制资源量：</span>
-              <span class="item-content">{{ data.KZZYL }}</span>
+              <span class="item-content">{{ data.kaicaikongzhiliang }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">开采主矿种推断资源量：</span>
+              <span class="item-content">{{ data.TDZYL }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">其他开采矿种及探明资源量：</span>
-              <span class="item-content">{{ data.QTKZJTMZYL }}</span>
+              <span class="item-content">{{ data.qtlaicaitanmingliang }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">其他开采矿种及控制资源量：</span>
-              <span class="item-content">{{ data.QTKZJKZZYL }}</span>
+              <span class="item-content">{{ data.qitakckzkongzhiliang }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">其他开采矿种及推断资源量：</span>
-              <span class="item-content">{{ data.QTKZJTDZYL }}</span>
+              <span class="item-content">{{ data.qtkaicaituiduanliang }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">投放时序：</span>
-              <span class="item-content">{{ data.TFSX }}</span>
+              <span class="item-content">{{ data.toufangshixu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">规划期：</span>
-              <span class="item-content">{{ data.GHQ }}</span>
+              <span class="item-content">{{ data.guihuaqi }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">规划标准级别：</span>
-              <span class="item-content">{{ data.GHBZJB }}</span>
+              <span class="item-content">{{ data.guihuabzlevel }}</span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">备注：</span>
-              <span class="item-content">{{ data.BZ }}</span>
+              <span class="item-content">{{ data.remarks }}</span>
             </el-col>
          
           </el-row>

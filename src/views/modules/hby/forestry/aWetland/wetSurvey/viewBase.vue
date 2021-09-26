@@ -13,72 +13,72 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">标识码：</span>
-              <span class="item-content">{{ data.BSM }}</span>
+              <span class="item-content">{{ data.bsnum }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">要素代码：</span>
-              <span class="item-content">{{ data.YSDM }}</span>
+              <span class="item-content">{{ data.ysnun }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">地区名称：</span>
-              <span class="item-content">{{ data.DQMC }}</span>
+              <span class="item-content">{{ data.diquname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">区域编码：</span>
-              <span class="item-content">{{ data.QYBM }}</span>
+              <span class="item-content">{{ data.qybianhao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">湿地斑块编码：</span>
-              <span class="item-content">{{ data.SDBKDM }}</span>
+              <span class="item-content">{{ data.sdbianhao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">基质类型：</span>
-              <span class="item-content">{{ data.JZLX }}</span>
+              <span class="item-content">{{ data.jztype }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">样点号：</span>
-              <span class="item-content">{{ data.YDH }}</span>
+              <span class="item-content">{{ data.yangdianhao }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">纬度：</span>
-              <span class="item-content">{{ data.WD }}</span>
+              <span class="item-content">{{ data.weidu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">经度：</span>
-              <span class="item-content">{{ data.JD }}</span>
+              <span class="item-content">{{ data.jingdu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">调查人：</span>
-              <span class="item-content">{{ data.DCR }}</span>
+              <span class="item-content">{{ data.dcname }}</span>
             </el-col>
          
             <el-col :span="8">
               <span class="item-title">调查时间：</span>
-              <span class="item-content">{{ data.DCSJ }}</span>
+              <span class="item-content">{{ data.dcdate }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">有机质（%）：</span>
-              <span class="item-content">{{ data.YJZ }}</span>
+              <span class="item-content">{{ data.youjizhi }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">泥炭层厚度（cm）：</span>
-              <span class="item-content">{{ data.NTCHD }}</span>
+              <span class="item-content">{{ data.tnchoudu }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">PH：</span>
-              <span class="item-content">{{ data.PH }}</span>
+              <span class="item-content">{{ data.phzhi }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">总氮（mg/kg）：</span>
-              <span class="item-content">{{ data.ZD }}</span>
+              <span class="item-content">{{ data.zongdan }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">总磷：</span>
-              <span class="item-content">{{ data.ZL }}</span>
+              <span class="item-content">{{ data.zonglin }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">土壤水溶性盐总量（mg/kg）：</span>
-              <span class="item-content">{{ data.TRSRXYZL }}</span>
+              <span class="item-content">{{ data.turang }}</span>
             </el-col>
           </el-row>
         </div>

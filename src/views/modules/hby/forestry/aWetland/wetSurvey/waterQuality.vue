@@ -2,25 +2,13 @@
   <div class="container">
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
-        <el-form-item>
-          <template #label> 规划矿区编号： </template>
-          <el-input v-model="outParams.id" size="mini"></el-input>
+           <el-form-item>
+          <template #label> 标识码： </template>
+          <el-input v-model="outParams.bsnum" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 规划矿区名称： </template>
-          <el-input v-model="outParams.user" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <template #label> 行政区： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <template #label>矿产代码： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <template #label> 矿产名称： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
+          <template #label> 湿地斑块编码： </template>
+          <el-input v-model="outParams.shibibankuai" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">
@@ -68,14 +56,21 @@
           @click="downTemplate(selectedData)"
           >下载模板</el-button
         >
-        <el-button
-          class="checkbtn"
-          type="warning"
-          size="mini"
-          icon="el-icon-upload2"
-          @click="importData(selectedData)"
-          >导入</el-button
+              <el-upload
+          class="uploadBtn"
+          :action="`${this.$http.BASE_URL}/hby/shuizhidc/shuizhidc/export`"
+          :on-success="uploadSuccess"
+          :headers="headers"
+          :show-file-list="false"
         >
+          <el-button
+            class="checkbtn"
+            type="warning"
+            size="mini"
+            icon="el-icon-upload2"
+            >导入</el-button
+          >
+        </el-upload>
         <el-button
           class="checkbtn"
           type="primary"
@@ -84,13 +79,19 @@
           @click="exportData(selectedData)"
           >导出</el-button
         >
+            <el-button
+            type="default"
+            size="mini"
+            icon="el-icon-refresh"
+            @click="()=>{this.$refs.table.initData()}">
+          </el-button>
       </div>
 
       <MyTable
         class="tables"
         ref="table"
-        :outerData="tableData"
         :columnNames="tableColumnNames"
+        :fetchFun="tableFetchFun"
         :outParams="outParams"
         :selections="true"
         :showType="showType"
@@ -106,8 +107,9 @@
 </template>
 
 <script>
-import tableData from './baseData.json'
 import addDialog from './addWater'
+
+import { cloneDeep } from 'lodash'
 import viewDialog from './viewWater'
 export default {
   name: '',
@@ -122,11 +124,9 @@ export default {
       filterNode: 'name',
 
       searchParams: {
-        id: '',
-        user: '',
-        number: ''
+        bsnum: '',
+        shibibankuai: ''
       },
-      tableData: tableData,
       tableColumnNames: [
         'water_BSM',
         'water_YSDM',
@@ -146,26 +146,87 @@ export default {
         'shop_control'
       ],
       outParams: {
-        id: '',
-        user: '',
-        number: ''
+        bsnum: '',
+        shibibankuai: ''
+      },
+      headers: {
+        token: this.$cookie.get('token')
       },
       showType: 'all', // 表格显示数据类型
       selectedData: [] // 选中表格数据
     }
   },
-  computed: {},
+  computed: {
+    tableFetchFun () {
+      return this.initData
+    }
+  },
   watch: {},
   created () {},
   mounted () {},
   methods: {
+    initData () {
+      return this.$http({
+        url: '/hby/shuizhidc/shuizhidc/list',
+        params: this.outParams
+      })
+    },
     handleNodeClick () {},
     selectedDataChange (val) {
       this.selectedData = val
     },
-    doSearch () {},
-    reset () {},
-    dels (items) {},
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
+    // 导入
+    uploadSuccess (res, file) {
+      if (res.success) {
+        this.$message.success({dangerouslyUseHTMLString: true,
+          message: res.msg})
+        this.$refs.table.initData()
+      } else {
+        this.$message.error(res.msg)
+      }
+    },
+    exportData () {
+      this.$http({
+        method: 'get',
+        url: '/hby/shuizhidc/shuizhidc/export',
+        responseType: 'blob'
+      }).then(response => {
+        if (!response) {
+          return
+        }
+        let link = document.createElement('a')
+        link.href = window.URL.createObjectURL(new Blob([response.data]))
+        link.target = '_blank'
+        let filename = response.headers['content-disposition']
+        link.download = decodeURI(filename)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+         // eslint-disable-next-line handle-callback-err
+      }).catch((error) => {
+
+      })
+    },
+    dels (items) {
+      let ids = items.map(v => v.id).join(',')
+      this.$http
+        .delete('/hby/shuizhidc/shuizhidc/delete', {
+          params: { ids }
+        })
+        .then(({ data }) => {
+          if (data.code === 200) {
+            this.$message.success('操作成功')
+            this.$refs.table.initData() // 刷新表格
+          }
+        })
+    },
     handleDelete (scope) {
       if (scope instanceof Array) {
       } else {
