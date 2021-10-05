@@ -3,12 +3,7 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item>
-          <template #label> 咨询编号： </template>
-          <el-input v-model="outParams.id" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <template #label> 咨询名称： </template>
-          <el-input v-model="outParams.name" size="mini"></el-input>
+          <el-input placeholder="咨询名称" v-model="outParams.zxmc" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">
@@ -50,11 +45,11 @@
         >
       </div>
 
-      <MyTable
+        <MyTable
         class="tables"
         ref="table"
-        :outerData="tableData"
         :columnNames="tableColumnNames"
+        :fetchFun="tableFetchFun"
         :outParams="outParams"
         :selections="true"
         :showType="showType"
@@ -70,7 +65,7 @@
 </template>
 
 <script>
-import tableData from './community.json'
+import { cloneDeep } from 'lodash'
 import addDialog from './addCommunity.vue'
 import viewDialog from './viewCommunity.vue'
 export default {
@@ -83,10 +78,8 @@ export default {
   data () {
     return {
       searchParams: {
-        id: '',
-        name: ''
+        zxmc: ''
       },
-      tableData: tableData.slice(0, 3),
       tableColumnNames: [
         'community_id',
         'community_person',
@@ -96,24 +89,82 @@ export default {
         'shop_control'
       ],
       outParams: {
-        id: '',
-        name: ''
+        zxmc: ''
       },
       showType: 'all', // 表格显示数据类型
       selectedData: [] // 选中表格数据
     }
   },
-  computed: {},
+  computed: {
+    tableFetchFun () {
+      return this.initData
+    }
+  },
   watch: {},
   created () {},
   mounted () {},
   methods: {
+    initData () {
+      return this.$http({
+        url: '/hby/jlfu/jlfw/list',
+        params: this.outParams
+      })
+    },
     selectedDataChange (val) {
       this.selectedData = val
     },
-    doSearch () {},
-    reset () {},
-    dels (items) {},
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
+    // 导入
+    uploadSuccess (res, file) {
+      if (res.success) {
+        this.$message.success({dangerouslyUseHTMLString: true,
+          message: res.msg})
+        this.$refs.table.initData()
+      } else {
+        this.$message.error(res.msg)
+      }
+    },
+    exportData () {
+      this.$http({
+        method: 'get',
+        url: '/hby/jlfu/jlfw/export',
+        responseType: 'blob'
+      }).then(response => {
+        if (!response) {
+          return
+        }
+        let link = document.createElement('a')
+        link.href = window.URL.createObjectURL(new Blob([response.data]))
+        link.target = '_blank'
+        let filename = response.headers['content-disposition']
+        link.download = decodeURI(filename)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+         // eslint-disable-next-line handle-callback-err
+      }).catch((error) => {
+
+      })
+    },
+    dels (items) {
+      let ids = items.map(v => v.id).join(',')
+      this.$http
+        .delete('/hby/jlfu/jlfw/delete', {
+          params: { ids }
+        })
+        .then(({ data }) => {
+          if (data.code === 200) {
+            this.$message.success('操作成功')
+            this.$refs.table.initData() // 刷新表格
+          }
+        })
+    },
     handleDelete (scope) {
       if (scope instanceof Array) {
       } else {

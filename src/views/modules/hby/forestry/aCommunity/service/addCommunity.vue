@@ -18,29 +18,29 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="咨询名称" prop="title">
+                <el-form-item label="咨询名称" prop="zxmc">
                   <el-input
                     size="small"
-                    v-model="form.title"
+                    v-model="form.zxmc"
                     placeholder="请输入咨询名称"
                   ></el-input>
                 </el-form-item>
               </el-col>
               
               <el-col :span="8">
-                <el-form-item label="咨询人" prop="person">
+                <el-form-item label="咨询人" prop="zxr">
                   <el-input
                     size="small"
-                    v-model="form.person"
+                    v-model="form.zxr"
                     placeholder="请输入咨询人"
                   ></el-input>
                 </el-form-item>
               </el-col>
 
               <el-col :span="8">
-                <el-form-item label="咨询时间" prop="time">
+                <el-form-item label="咨询时间" prop="zxsj">
                   <el-date-picker
-                    v-model="form.time"
+                    v-model="form.zxsj"
                     type="date"
                     placeholder="请选择时间"
                   >
@@ -48,10 +48,10 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="被咨询人" prop="accept">
+                <el-form-item label="被咨询人" prop="bzxr">
                   <el-input
                     size="small"
-                    v-model="form.type"
+                    v-model="form.bzxr"
                     placeholder="请输入被咨询人"
                   ></el-input>
                 </el-form-item>
@@ -62,10 +62,10 @@
       </el-form>
       <span class="footer" slot="footer">
         <div>
-          <el-button size="medium" @click="cancelForm">取 消</el-button>
+          <el-button size="small" @click="cancelForm">取 消</el-button>
           <el-button
             type="primary"
-            size="medium"
+            size="small"
             @click="submitForm"
             :loading="loading"
             >确 定</el-button
@@ -83,16 +83,18 @@ export default {
   data () {
     return {
       defaultForm: {
-        title: '',
-        time: '',
-        person: '',
-        accept: ''
+        id: '',
+        zxmc: '',
+        zxsj: '',
+        bzxr: '',
+        zxr: ''
       },
       form: {
-        title: '',
-        time: '',
-        person: '',
-        accept: ''
+        id: '',
+        zxmc: '',
+        zxsj: '',
+        bzxr: '',
+        zxr: ''
       },
       typeConfig: [
         { label: '类型1', value: 1 },
@@ -155,10 +157,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -172,18 +175,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/jlfu/jlfw/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/jlfu/jlfw/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }
@@ -297,25 +316,17 @@ export default {
     }
   }
 }
-.footer {
+     .footer {
   position: absolute;
   left: 0;
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  //   text-align: center;
-  // line-height: 2;
+  width: 100%; 
+  padding-right:40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  > div {
-    > button {
-      height: 50px;
-      width: 200px;
-    }
-  }
+  justify-content: flex-end;
 }
 .avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;

@@ -19,18 +19,18 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="店名" prop="name">
+                <el-form-item label="店名" prop="shname">
                   <el-input
                     size="small"
-                    v-model="form.name"
+                    v-model="form.shname"
                     placeholder="请输入店名"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="所属社区" prop="commnuity">
+                <el-form-item label="所属社区" prop="sqname">
                   <el-select
-                    v-model="form.commnuity"
+                    v-model="form.sqname"
                     size="small"
                     placeholder="请选择所属社区"
                   >
@@ -44,63 +44,63 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="门牌号" prop="number">
+                <el-form-item label="门牌号" prop="mph">
                   <el-input
                     size="small"
-                    v-model="form.number"
+                    v-model="form.mph"
                     placeholder="请输入门牌号"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="商户位置" prop="place">
+                <el-form-item label="商户位置" prop="wz">
                   <el-input
                     size="small"
-                    v-model="form.place"
+                    v-model="form.wz"
                     placeholder="请输入商户位置"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="营业执照" prop="license">
+                <el-form-item label="营业执照" prop="yyzz">
                   <el-input
                     size="small"
-                    v-model="form.license"
+                    v-model="form.yyzz"
                     placeholder="请输入营业执照"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="法人姓名" prop="legalPerson">
+                <el-form-item label="法人姓名" prop="frname">
                   <el-input
                     size="small"
-                    v-model="form.legalPerson"
+                    v-model="form.frname"
                     placeholder="请输入法人姓名"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="法人身份" prop="legalPersonJob">
+                <el-form-item label="法人身份" prop="frsf">
                   <el-input
                     size="small"
-                    v-model="form.legalPersonJob"
+                    v-model="form.frsf"
                     placeholder="请输入法人身份"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="法人户籍" prop="legalPersonForm">
+                <el-form-item label="法人户籍" prop="frhj">
                   <el-input
                     size="small"
-                    v-model="form.legalPersonForm"
+                    v-model="form.frhj"
                     placeholder="请输入法人户籍"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="房间性质" prop="shop_type">
+                <el-form-item label="房间性质" prop="fwxz">
                    <el-select
-                    v-model="form.shop_type"
+                    v-model="form.fwxz"
                     size="small"
                     placeholder="请选择房间性质"
                   >
@@ -114,28 +114,28 @@
                 </el-form-item>
               </el-col>
                <el-col :span="8">
-                <el-form-item label="从事行业" prop="industry">
+                <el-form-item label="从事行业" prop="cszy">
                   <el-input
                     size="small"
-                    v-model="form.industry"
+                    v-model="form.cszy"
                     placeholder="请输入从事行业"
                   ></el-input>
                 </el-form-item>
               </el-col>
                <el-col :span="8">
-                <el-form-item label="面积" prop="area">
+                <el-form-item label="面积" prop="mj">
                   <el-input
                     size="small"
-                    v-model="form.area"
+                    v-model="form.mj"
                     placeholder="请输入面积"
                   ></el-input>
                 </el-form-item>
               </el-col>
                <el-col :span="24">
-                <el-form-item label="备注" prop="desc">
+                <el-form-item label="备注" prop="remarks">
                   <el-input
                     size="small"
-                    v-model="form.desc"
+                    v-model="form.remarks"
                     type="textarea"
                     placeholder="请输入备注"
                   ></el-input>
@@ -147,10 +147,10 @@
       </el-form>
       <span class="footer" slot="footer">
         <div>
-          <el-button size="medium" @click="cancelForm">取 消</el-button>
+          <el-button size="small" @click="cancelForm">取 消</el-button>
           <el-button
             type="primary"
-            size="medium"
+            size="small"
             @click="submitForm"
             :loading="loading"
             >确 定</el-button
@@ -166,32 +166,34 @@ export default {
   data () {
     return {
       defaultForm: {
-        name: '',
-        commnuity: '',
-        number: '',
-        place: '',
-        license: '',
-        legalPerson: '',
-        legalPersonJob: '',
-        legalPersonForm: '',
-        type: '',
-        industry: '',
-        area: '',
-        desc: ''
+        id: '',
+        shname: '',
+        sqname: '',
+        mph: '',
+        wz: '',
+        yyzz: '',
+        frname: '',
+        frsf: '',
+        frhj: '',
+        fwxz: '',
+        cszy: '',
+        mj: '',
+        remarks: ''
       },
       form: {
-        name: '',
-        commnuity: '',
-        number: '',
-        place: '',
-        license: '',
-        legalPerson: '',
-        legalPersonJob: '',
-        legalPersonForm: '',
-        type: '',
-        industry: '',
-        area: '',
-        desc: ''
+        id: '',
+        shname: '',
+        sqname: '',
+        mph: '',
+        wz: '',
+        yyzz: '',
+        frname: '',
+        frsf: '',
+        frhj: '',
+        fwxz: '',
+        cszy: '',
+        mj: '',
+        remarks: ''
 
       },
       commnuityConfig: [
@@ -207,21 +209,6 @@ export default {
       ],
 
       rules: {
-        commnuity: [
-          { required: true, message: '所属社区不能为空', trigger: 'blur' }
-        ],
-        name: [{ required: true, message: '店名不能为空', trigger: 'blur' }],
-        place: [{ required: true, message: '商户位置不能为空', trigger: 'blur' }],
-        number: [{ required: true, message: '门牌号不能为空', trigger: 'blur' }],
-        license: [{ required: true, message: '营业执照不能为空', trigger: 'blur' }],
-        legalPerson: [{ required: true, message: '法人姓名不能为空', trigger: 'blur' }],
-        legalPersonJob: [{ required: true, message: '法人身份不能为空', trigger: 'blur' }],
-        legalPersonForm: [{ required: true, message: '法人户籍不能为空', trigger: 'blur' }],
-        // legalPerson: [{ required: true, message: '法人姓名不能为空', trigger: 'blur' }],
-        type: [{ required: true, message: '房间性质不能为空', trigger: 'blur' }],
-        industry: [{ required: true, message: '从事行业不能为空', trigger: 'blur' }],
-        area: [{ required: true, message: '面积不能为空', trigger: 'blur' }],
-        desc: [{ required: true, message: '备注不能为空', trigger: 'blur' }]
       },
       type: '',
       visible: false,
@@ -254,10 +241,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -287,18 +275,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/shgl/shgl/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData()// 刷新表格
+        }
+      })
     },
-    // 网络请求编辑保存
+   // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/shgl/shgl/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }
@@ -412,24 +416,16 @@ export default {
     }
   }
 }
-.footer {
+     .footer {
   position: absolute;
   left: 0;
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  //   text-align: center;
-  // line-height: 2;
+  width: 100%; 
+  padding-right:40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  > div {
-    > button {
-      height: 50px;
-      width: 200px;
-    }
-  }
+  justify-content: flex-end;
 }
 </style>

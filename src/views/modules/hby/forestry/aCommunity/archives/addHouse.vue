@@ -18,9 +18,9 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="所属社区" prop="commnuity">
+                <el-form-item label="所属社区" prop="sqname">
                   <el-select
-                    v-model="form.commnuity"
+                    v-model="form.sqname"
                     size="small"
                     placeholder="请选择所属社区"
                   >
@@ -34,9 +34,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="所属小区" prop="xiaoqu">
+                <el-form-item label="所属小区" prop="xqname">
                   <el-select
-                    v-model="form.xiaoqu"
+                    v-model="form.xqname"
                     size="small"
                     placeholder="请选择所属小区"
                   >
@@ -50,9 +50,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="楼栋" prop="building">
+                <el-form-item label="楼栋" prop="ldId">
                   <el-select
-                    v-model="form.building"
+                    v-model="form.ldId"
                     size="small"
                     placeholder="请选择楼栋"
                   >
@@ -66,9 +66,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="单元" prop="unit">
+                <el-form-item label="单元" prop="dy">
                   <el-select
-                    v-model="form.unit"
+                    v-model="form.dy"
                     size="small"
                     placeholder="请选择单元"
                   >
@@ -82,18 +82,18 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="门牌号" prop="number">
+                <el-form-item label="门牌号" prop="mph">
                   <el-input
                     size="small"
-                    v-model="form.number"
+                    v-model="form.mph"
                     placeholder="请输入门牌号"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="房屋性质" prop="houseType">
+                <el-form-item label="房屋性质" prop="fwxz">
                   <el-select
-                    v-model="form.houseType"
+                    v-model="form.fwxz"
                     size="small"
                     placeholder="请选择房屋性质"
                   >
@@ -108,45 +108,45 @@
               </el-col>
 
               <el-col :span="8">
-                <el-form-item label="户主姓名" prop="hostName">
+                <el-form-item label="户主姓名" prop="hzname">
                   <el-input
                     placeholder="请输入姓名"
-                    v-model="form.hostName"
+                    v-model="form.hzname"
                     size="small"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="产权证号" prop="hostNumber">
+                <el-form-item label="产权证号" prop="cqzh">
                   <el-input
                     placeholder="请输入产权证号"
-                    v-model="form.hostNumber"
+                    v-model="form.cqzh"
                     size="small"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="是否入住" prop="isUse">
-                  <el-radio-group v-model="form.isUse" size="mini">
+                <el-form-item label="是否入住" prop="isrz">
+                  <el-radio-group v-model="form.isrz" size="mini">
                     <el-radio-button size="mini" :label="0">是</el-radio-button>
                     <el-radio-button size="mini" :label="1">否</el-radio-button>
                   </el-radio-group>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="是否流动人口" prop="floatPerson">
-                  <el-radio-group v-model="form.floatPerson" size="mini">
+                <el-form-item label="是否流动人口" prop="isld">
+                  <el-radio-group v-model="form.isld" size="mini">
                     <el-radio-button size="mini" :label="0">是</el-radio-button>
                     <el-radio-button size="mini" :label="1">否</el-radio-button>
                   </el-radio-group>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="重点人口" prop="point">
+                <el-form-item label="重点人口" prop="zdrk">
                   <el-select
-                    v-model="form.point"
+                    v-model="form.zdrk"
                     size="small"
-                    placeholder="请选择房屋性质"
+                    placeholder="请选择重点人口"
                   >
                     <el-option
                       v-for="v in pointConfig"
@@ -163,10 +163,10 @@
       </el-form>
       <span class="footer" slot="footer">
         <div>
-          <el-button size="medium" @click="cancelForm">取 消</el-button>
+          <el-button size="small" @click="cancelForm">取 消</el-button>
           <el-button
             type="primary"
-            size="medium"
+            size="small"
             @click="submitForm"
             :loading="loading"
             >确 定</el-button
@@ -182,28 +182,30 @@ export default {
   data () {
     return {
       defaultForm: {
-        commnuity: '',
-        xiaoqu: '',
-        building: '',
-        unit: '',
-        houseType: '',
-        isUse: '',
-        floatPerson: '',
-        point: '',
-        hostName: '',
-        hostNumber: ''
+        sqname: '',
+        xqname: '',
+        ldId: '',
+        dy: '',
+        mph: '',
+        fwxz: '',
+        isrz: '',
+        isld: '',
+        zdrk: '',
+        hzname: '',
+        cqzh: ''
       },
       form: {
-        commnuity: '',
-        xiaoqu: '',
-        building: '',
-        unit: '',
-        houseType: '',
-        isUse: '',
-        floatPerson: '',
-        point: '',
-        hostName: '',
-        hostNumber: ''
+        sqname: '',
+        xqname: '',
+        ldId: '',
+        dy: '',
+        mph: '',
+        fwxz: '',
+        isrz: '',
+        isld: '',
+        zdrk: '',
+        hzname: '',
+        cqzh: ''
       },
       commnuityConfig: [
         { label: '社区1', value: 1 },
@@ -241,35 +243,7 @@ export default {
         { label: '其他人员', value: 6 }
       ],
       rules: {
-        commnuity: [
-          { required: true, message: '所属社区不能为空', trigger: 'blur' }
-        ],
-        xiaoqu: [
-          { required: true, message: '所属小区不能为空', trigger: 'blur' }
-        ],
-        building: [
-          { required: true, message: '楼栋不能为空', trigger: 'blur' }
-        ],
-        unit: [{ required: true, message: '单元号不能为空', trigger: 'blur' }],
-        houseType: [
-          { required: true, message: '房屋性质不能为空', trigger: 'blur' }
-        ],
-        isUse: [
-          { required: true, message: '是否入住不能为空', trigger: 'blur' }
-        ],
-        floatPerson: [
-          { required: true, message: '是否流动人口不能为空', trigger: 'blur' }
-        ],
 
-        point: [
-          { required: true, message: '重点人口不能为空', trigger: 'blur' }
-        ],
-        hostName: [
-          { required: true, message: '户主姓名不能为空', trigger: 'blur' }
-        ],
-        hostNumber: [
-          { required: true, message: '产权证号不能为空', trigger: 'blur' }
-        ]
       },
       type: '',
       visible: false,
@@ -323,10 +297,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -340,17 +315,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/fwda/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
+      this.$http({
+        url: '/hby/fwda/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
       // this.$parent.$refs.table.handleFetch(); // 刷新表格
     }
   }
@@ -472,7 +464,6 @@ export default {
   height: 80px;
   background: #fff;
   width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
   //   text-align: center;
   // line-height: 2;
   display: flex;

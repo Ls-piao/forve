@@ -39,9 +39,9 @@
               </el-col>
 
               <el-col :span="8">
-                <el-form-item label="所属社区" prop="community">
+                <el-form-item label="所属社区" prop="sqname">
                   <el-select
-                    v-model="form.community"
+                    v-model="form.sqname"
                     size="small"
                     placeholder="请选择所属社区"
                   >
@@ -55,9 +55,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="楼栋" prop="building">
+                <el-form-item label="楼栋" prop="ld">
                   <el-select
-                    v-model="form.building"
+                    v-model="form.ld"
                     size="small"
                     placeholder="请选择楼栋"
                   >
@@ -71,9 +71,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="单位" prop="unit">
+                <el-form-item label="单位" prop="dw">
                   <el-select
-                    v-model="form.unit"
+                    v-model="form.dw"
                     size="small"
                     placeholder="请选择单位"
                   >
@@ -88,17 +88,17 @@
               </el-col>
 
               <el-col :span="8">
-                <el-form-item label="门牌号" prop="number">
+                <el-form-item label="门牌号" prop="mph">
                   <el-input
                     size="small"
-                    v-model="form.number"
+                    v-model="form.mph"
                     placeholder="请输入门牌号"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="状态" prop="status">
-                  <el-radio-group v-model="form.status" size="mini">
+                <el-form-item label="状态" prop="type">
+                  <el-radio-group v-model="form.type" size="mini">
                     <el-radio-button size="mini" :label="0"
                       >健康</el-radio-button
                     >
@@ -109,9 +109,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="描述" prop="desc">
+                <el-form-item label="描述" prop="remarks">
                   <el-input
-                    v-model="form.desc"
+                    v-model="form.remarks"
                     placeholder="请输入描述"
                     type="textarea"
                   ></el-input>
@@ -123,10 +123,10 @@
       </el-form>
       <span class="footer" slot="footer">
         <div>
-          <el-button size="medium" @click="cancelForm">取 消</el-button>
+          <el-button size="small" @click="cancelForm">取 消</el-button>
           <el-button
             type="primary"
-            size="medium"
+            size="small"
             @click="submitForm"
             :loading="loading"
             >确 定</el-button
@@ -143,24 +143,26 @@ export default {
   data () {
     return {
       defaultForm: {
+        id: '',
         name: '',
         age: '',
-        community: '',
-        building: '',
-        unit: '',
-        number: '',
-        status: '',
-        desc: ''
+        sqname: '',
+        ld: '',
+        dw: '',
+        mph: '',
+        type: '',
+        remarks: ''
       },
       form: {
+        id: '',
         name: '',
         age: '',
-        community: '',
-        building: '',
-        unit: '',
-        number: '',
-        status: '',
-        desc: ''
+        sqname: '',
+        ld: '',
+        dw: '',
+        mph: '',
+        type: '',
+        remarks: ''
       },
       typeConfig: [
         { label: '类型1', value: 1 },
@@ -184,17 +186,7 @@ export default {
       ],
       rules: {
         name: [{ required: true, message: '姓名不能为空', trigger: 'blur' }],
-        age: [{ required: true, message: '年龄不能为空', trigger: 'blur' }],
-        building: [{ required: true, message: '楼栋不能为空', trigger: 'blur' }],
-        number: [{ required: true, message: '门牌号不能为空', trigger: 'blur' }],
-        status: [{ required: true, message: '状态不能为空', trigger: 'blur' }],
-        desc: [{ required: true, message: '描述不能为空', trigger: 'blur' }],
-        community: [
-          { required: true, message: '所属社区不能为空', trigger: 'blur' }
-        ],
-        unit: [
-          { required: true, message: '单元能为空', trigger: 'blur' }
-        ]
+        age: [{ required: true, message: '年龄不能为空', trigger: 'blur' }]
       },
       type: '',
       visible: false,
@@ -245,10 +237,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -262,18 +255,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/cjr/cjr/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/cjr/cjr/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }
@@ -387,25 +396,17 @@ export default {
     }
   }
 }
-.footer {
+     .footer {
   position: absolute;
   left: 0;
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  //   text-align: center;
-  // line-height: 2;
+  width: 100%; 
+  padding-right:40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  > div {
-    > button {
-      height: 50px;
-      width: 200px;
-    }
-  }
+  justify-content: flex-end;
 }
 .avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;

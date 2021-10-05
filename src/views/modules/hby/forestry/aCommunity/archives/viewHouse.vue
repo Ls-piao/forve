@@ -13,47 +13,47 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">户主：</span>
-              <span class="item-content">{{ data.hostName }}</span>
+              <span class="item-content">{{ data.hzname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">产权证号：</span>
-              <span class="item-content">{{ data.hostNumber }}</span>
+              <span class="item-content">{{ data.cqzh }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">社区名称：</span>
-              <span class="item-content">{{ data.community }}</span>
+              <span class="item-content">{{ data.sqname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">小区名称：</span>
-              <span class="item-content">{{ data.xiaoqu }}</span>
+              <span class="item-content">{{ data.xqname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">楼栋号：</span>
-              <span class="item-content">{{ data.building }}</span>
+              <span class="item-content">{{ data.ldId }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">单元号：</span>
-              <span class="item-content">{{ data.unit }}</span>
+              <span class="item-content">{{ data.dy }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">门牌号：</span>
-              <span class="item-content">{{ data.number }}</span>
+              <span class="item-content">{{ data.mph }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">房屋性质：</span>
-              <span class="item-content">{{ data.houseType }}</span>
+              <span class="item-content">{{ data.fwxz }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">是否入住：</span>
-              <span class="item-content">{{ data.isUse }}</span>
+              <span class="item-content">{{ data.isrz }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">流动人口：</span>
-              <span class="item-content">{{ data.floatPerson }}</span>
+              <span class="item-content">{{ data.isld }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">重点人口：</span>
-              <span class="item-content">{{ data.point }}</span>
+              <span class="item-content">{{ data.zdrk }}</span>
             </el-col>
           </el-row>
         </div>
@@ -94,8 +94,7 @@ export default {
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%; 
   //   text-align: center;
   // line-height: 2;
   display: flex;

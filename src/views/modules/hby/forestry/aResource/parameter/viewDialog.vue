@@ -222,8 +222,7 @@ export default {
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%; 
   //   text-align: center;
   // line-height: 2;
   display: flex;

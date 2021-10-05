@@ -18,9 +18,9 @@
           <div class="formitem">
             <el-row>
               <el-col :span="8">
-                <el-form-item label="所属社区" prop="commnuity">
+                <el-form-item label="所属社区" prop="sqname">
                   <el-select
-                    v-model="form.commnuity"
+                    v-model="form.sqname"
                     size="small"
                     placeholder="请选择所属社区"
                   >
@@ -34,9 +34,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="所属小区" prop="xiaoqu">
+                <el-form-item label="所属小区" prop="xqname">
                   <el-select
-                    v-model="form.xiaoqu"
+                    v-model="form.xqname"
                     size="small"
                     placeholder="请选择所属小区"
                   >
@@ -50,9 +50,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="楼栋" prop="building">
+                <el-form-item label="楼栋" prop="ldId">
                   <el-select
-                    v-model="form.building"
+                    v-model="form.ldId"
                     size="small"
                     placeholder="请选择楼栋"
                   >
@@ -66,9 +66,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="单元" prop="unit">
+                <el-form-item label="单元" prop="dy">
                   <el-select
-                    v-model="form.unit"
+                    v-model="form.dy"
                     size="small"
                     placeholder="请选择单元"
                   >
@@ -82,9 +82,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="房间" prop="number">
+                <el-form-item label="房间" prop="mph">
                   <el-select
-                    v-model="form.number"
+                    v-model="form.mph"
                     size="small"
                     placeholder="请选择房间"
                   >
@@ -109,39 +109,39 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="性别" prop="sex">
-                  <el-radio-group v-model="form.sex" size="mini">
+                <el-form-item label="性别" prop="sax">
+                  <el-radio-group v-model="form.sax" size="mini">
                     <el-radio-button size="mini" :label="0">女</el-radio-button>
                     <el-radio-button size="mini" :label="1">男</el-radio-button>
                   </el-radio-group>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="身份证号码" prop="idCard">
+                <el-form-item label="身份证号码" prop="cardid">
                   <el-input
                     size="small"
-                    v-model="form.name"
+                    v-model="form.cardid"
                     placeholder="请输入身份证号码"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="照片" prop="avatar">
+                <el-form-item label="照片" prop="pic">
                   <el-upload
                     class="avatar-uploader"
                     :show-file-list="false"
                     :before-upload="upload"
                   >
-                    <img v-if="form.avatar" :src="form.avatar" class="avatar" />
+                    <img v-if="form.pic" :src="form.pic" class="avatar" />
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                   </el-upload>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="成员关系" prop="relation">
+                <el-form-item label="成员关系" prop="cygx">
                   <el-input
                     placeholder="请输入成员关系"
-                    v-model="form.relation"
+                    v-model="form.cygx"
                     size="small"
                   ></el-input>
                 </el-form-item>
@@ -157,36 +157,36 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="工作单位" prop="work">
+                <el-form-item label="工作单位" prop="gzdw">
                   <el-input
                     placeholder="请输入工作单位"
                     type="number"
-                    v-model="form.work"
+                    v-model="form.gzdw"
                     size="small"
                   ></el-input>
                 </el-form-item>
               </el-col>
 
               <el-col :span="8">
-                <el-form-item label="是否信教" prop="isReligious">
-                  <el-radio-group v-model="form.isReligious" size="mini">
+                <el-form-item label="是否信教" prop="isxj">
+                  <el-radio-group v-model="form.isxj" size="mini">
                     <el-radio-button size="mini" :label="0">是</el-radio-button>
                     <el-radio-button size="mini" :label="1">否</el-radio-button>
                   </el-radio-group>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="是否低保户" prop="isLow">
-                  <el-radio-group v-model="form.isLow" size="mini">
+                <el-form-item label="是否低保户" prop="isdbh">
+                  <el-radio-group v-model="form.isdbh" size="mini">
                     <el-radio-button size="mini" :label="0">是</el-radio-button>
                     <el-radio-button size="mini" :label="1">否</el-radio-button>
                   </el-radio-group>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="出生日期" prop="born">
+                <el-form-item label="出生日期" prop="datecs">
                   <el-date-picker
-                    v-model="form.born"
+                    v-model="form.datecs"
                     type="date"
                     placeholder="选择日期"
                   >
@@ -235,16 +235,16 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="健康状况" prop="health">
-                  <el-radio-group v-model="form.health" size="mini">
+                <el-form-item label="健康状况" prop="jkzk">
+                  <el-radio-group v-model="form.jkzk" size="mini">
                     <el-radio-button size="mini" :label="0">是</el-radio-button>
                     <el-radio-button size="mini" :label="1">否</el-radio-button>
                   </el-radio-group>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="是否流动人员" prop="isFloat">
-                  <el-radio-group v-model="form.isFloat" size="mini">
+                <el-form-item label="是否流动人员" prop="isld">
+                  <el-radio-group v-model="form.isld" size="mini">
                     <el-radio-button size="mini" :label="0">是</el-radio-button>
                     <el-radio-button size="mini" :label="1">否</el-radio-button>
                   </el-radio-group>
@@ -266,9 +266,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="户籍地址" prop="hj">
+                <el-form-item label="户籍地址" prop="hjdz">
                   <el-input
-                    v-model="form.hj"
+                    v-model="form.hjdz"
                     size="small"
                     placeholder="请输入户籍地址"
                   ></el-input>
@@ -319,9 +319,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="备注" prop="desc">
+                <el-form-item label="备注" prop="remarks">
                   <el-input
-                    v-model="form.desc"
+                    v-model="form.remarks"
                     size="small"
                     type="textarea"
                     placeholder="请输入备注"
@@ -334,10 +334,10 @@
       </el-form>
       <span class="footer" slot="footer">
         <div>
-          <el-button size="medium" @click="cancelForm">取 消</el-button>
+          <el-button size="small" @click="cancelForm">取 消</el-button>
           <el-button
             type="primary"
-            size="medium"
+            size="small"
             @click="submitForm"
             :loading="loading"
             >确 定</el-button
@@ -354,63 +354,63 @@ export default {
     return {
       defaultForm: {
         id: '',
-        community: '',
-        xiaoqu: '',
-        building: '',
-        unit: '',
-        number: '',
+        sqname: '',
+        xqname: '',
+        ldId: '',
+        dy: '',
+        mph: '',
         name: '',
-        sex: '',
-        isHost: '',
+        sax: '',
+        cygx: '',
         relation: '',
         phone: '',
-        work: '',
-        isReligious: '',
-        isLow: '',
-        idCard: '',
-        born: '',
+        gzdw: '',
+        isxj: '',
+        isdbh: '',
+        cardid: '',
+        datecs: '',
         mz: '',
-        isFloat: '',
+        isld: '',
         jyqk: '',
         whcd: '',
-        health: '',
+        jkzk: '',
         jycs: '',
-        avatar: '',
-        hj: '',
+        pic: '',
+        hjdz: '',
         zzmm: '',
         hyzk: '',
         cjlb: '',
-        desc: ''
+        remarks: ''
       },
       form: {
         id: '',
-        community: '',
-        xiaoqu: '',
-        building: '',
-        unit: '',
-        number: '',
+        sqname: '',
+        xqname: '',
+        ldId: '',
+        dy: '',
+        mph: '',
         name: '',
-        sex: '',
-        isHost: '',
+        sax: '',
+        cygx: '',
         relation: '',
         phone: '',
-        work: '',
-        isReligious: '',
-        isLow: '',
-        idCard: '',
-        born: '',
+        gzdw: '',
+        isxj: '',
+        isdbh: '',
+        cardid: '',
+        datecs: '',
         mz: '',
-        isFloat: '',
+        isld: '',
         jyqk: '',
         whcd: '',
-        health: '',
+        jkzk: '',
         jycs: '',
-        avatar: '',
-        hj: '',
+        pic: '',
+        hjdz: '',
         zzmm: '',
         hyzk: '',
         cjlb: '',
-        desc: ''
+        remarks: ''
       },
       commnuityConfig: [
         { label: '社区1', value: 1 },
@@ -483,52 +483,28 @@ export default {
       ],
 
       rules: {
-        commnuity: [
+        sqname: [
           { required: true, message: '所属社区不能为空', trigger: 'blur' }
         ],
-        xiaoqu: [
+        xqname: [
           { required: true, message: '所属小区不能为空', trigger: 'blur' }
         ],
-        building: [
+        cardid: [
           { required: true, message: '楼栋不能为空', trigger: 'blur' }
         ],
-        unit: [{ required: true, message: '单元号不能为空', trigger: 'blur' }],
-        isReligious: [{ required: true, message: '是否信教不能为空', trigger: 'blur' }],
-        isLow: [{ required: true, message: '是否低保户不能为空', trigger: 'blur' }],
+        dy: [{ required: true, message: '单元号不能为空', trigger: 'blur' }],
         idCard: [{ pattern:
               /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$)/,
           required: true,
           message: '身份证号不能为空',
           trigger: 'blur' }],
-        born: [{ required: true, message: '出生日期不能为空', trigger: 'blur' }],
-        mz: [{ required: true, message: '民族不能为空', trigger: 'blur' }],
-        whcd: [{ required: true, message: '文化程度不能为空', trigger: 'blur' }],
-        health: [{ required: true, message: '健康情况不能为空', trigger: 'blur' }],
-        jycs: [{ required: true, message: '节孕措施不能为空', trigger: 'blur' }],
-        hj: [{ required: true, message: '户籍地址不能为空', trigger: 'blur' }],
-        zzmm: [{ required: true, message: '政治面貌不能为空', trigger: 'blur' }],
-        cjlb: [{ required: true, message: '残疾类别不能为空', trigger: 'blur' }],
-        // desc: [{ required: true, message: "备注不能为空", trigger: "blur" }],
-        // avatar: [{ required: true, message: "照片不能为空", trigger: "blur" }],
-        number: [{ required: true, message: '房屋号不能为空', trigger: 'blur' }],
         name: [
           { required: true, message: '姓名不能为空', trigger: 'blur' }
         ],
         sex: [
           { required: true, message: '性别不能为空', trigger: 'blur' }
-        ],
-        isHost: [
-          { required: true, message: '是否户主不能为空', trigger: 'blur' }
-        ],
-        relation: [
-          { required: true, message: '成员关系不能为空', trigger: 'blur' }
-        ],
-        phone: [
-          { required: true, message: '电话不能为空', trigger: 'blur' }
-        ],
-        work: [
-          { required: true, message: '工作单位不能为空', trigger: 'blur' }
         ]
+
       },
       type: '',
       visible: false,
@@ -552,7 +528,7 @@ export default {
       // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
         // 将bade64位图片保存至数组里供上面图片显示
-        that.form.avatar = e.target.result
+        that.form.pic = e.target.result
       }
       reader.readAsDataURL(file)
     },
@@ -582,10 +558,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -599,18 +576,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/jmgl/jmda/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/jmgl/jmda/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }
@@ -724,25 +717,17 @@ export default {
     }
   }
 }
-.footer {
+     .footer {
   position: absolute;
   left: 0;
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  //   text-align: center;
-  // line-height: 2;
+  width: 100%; 
+  padding-right:40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  > div {
-    > button {
-      height: 50px;
-      width: 200px;
-    }
-  }
+  justify-content: flex-end;
 }
 .avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;

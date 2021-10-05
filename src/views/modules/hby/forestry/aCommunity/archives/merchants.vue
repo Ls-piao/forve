@@ -3,16 +3,10 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item>
-          <template #label>
-             商铺编号：
-          </template>
-          <el-input v-model="outParams.id" size="mini"></el-input>
+          <el-input placeholder="商铺编号" v-model="outParams.id" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label>
-             点名：
-          </template>
-          <el-input v-model="outParams.name" size="mini"></el-input>
+          <el-input placeholder="店名" v-model="outParams.shname" size="mini"></el-input>
         </el-form-item>
      
       </el-form>
@@ -61,14 +55,21 @@
           @click="downTemplate(selectedData)"
           >下载模板</el-button
         >
-        <el-button
-          class="checkbtn"
-          type="warning"
-          size="mini"
-          icon="el-icon-upload2"
-          @click="importData(selectedData)"
-          >导入</el-button
+       <el-upload
+          class="uploadBtn"
+          :action="`${this.$http.BASE_URL}/shgl/shgl/import`"
+          :on-success="uploadSuccess"
+          :headers="headers"
+          :show-file-list="false"
         >
+          <el-button
+            class="checkbtn"
+            type="warning"
+            size="mini"
+            icon="el-icon-upload2"
+            >导入</el-button
+          >
+        </el-upload>
         <el-button
           class="checkbtn"
           type="primary"
@@ -77,13 +78,23 @@
           @click="exportData(selectedData)"
           >导出</el-button
         >
+        <el-button
+          type="default"
+          size="mini"
+          icon="el-icon-refresh"
+          @click="
+            () => {
+              this.$refs.table.initData();
+            }
+          "
+        >
+        </el-button>
       </div>
-
       <MyTable
         class="tables"
         ref="table"
-        :outerData="tableData"
         :columnNames="tableColumnNames"
+        :fetchFun="tableFetchFun"
         :outParams="outParams"
         :selections="true"
         :showType="showType"
@@ -99,7 +110,7 @@
 </template>
 
 <script>
-import tableData from '../data.json'
+import { cloneDeep } from 'lodash'
 import addDialog from './addMerchants.vue'
 import viewDialog from './viewMerchants.vue'
 export default {
@@ -113,9 +124,8 @@ export default {
     return {
       searchParams: {
         id: '',
-        name: ''
+        shname: ''
       },
-      tableData: tableData.slice(0, 3),
       tableColumnNames: [
         'shop_id',
         'shop_name',
@@ -134,23 +144,82 @@ export default {
       ],
       outParams: {
         id: '',
-        name: ''
+        shname: ''
       },
       showType: 'all', // 表格显示数据类型
       selectedData: [] // 选中表格数据
     }
   },
-  computed: {},
+  computed: {
+    tableFetchFun () {
+      return this.initData
+    }
+  },
   watch: {},
   created () {},
   mounted () {},
   methods: {
+    initData () {
+      return this.$http({
+        url: '/shgl/shgl/list',
+        params: this.outParams
+      })
+    },
     selectedDataChange (val) {
       this.selectedData = val
     },
-    doSearch () {},
-    reset () {},
-    dels (items) {},
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
+    // 导入
+    uploadSuccess (res, file) {
+      if (res.success) {
+        this.$message.success({dangerouslyUseHTMLString: true,
+          message: res.msg})
+        this.$refs.table.initData()
+      } else {
+        this.$message.error(res.msg)
+      }
+    },
+    exportData () {
+      this.$http({
+        method: 'get',
+        url: '/shgl/shgl/export',
+        responseType: 'blob'
+      }).then(response => {
+        if (!response) {
+          return
+        }
+        let link = document.createElement('a')
+        link.href = window.URL.createObjectURL(new Blob([response.data]))
+        link.target = '_blank'
+        let filename = response.headers['content-disposition']
+        link.download = decodeURI(filename)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+         // eslint-disable-next-line handle-callback-err
+      }).catch((error) => {
+
+      })
+    },
+    dels (items) {
+      let ids = items.map(v => v.id).join(',')
+      this.$http
+        .delete('/shgl/shgl/delete', {
+          params: { ids }
+        })
+        .then(({ data }) => {
+          if (data.code === 200) {
+            this.$message.success('操作成功')
+            this.$refs.table.initData() // 刷新表格
+          }
+        })
+    },
     handleDelete (scope) {
       if (scope instanceof Array) {
       } else {

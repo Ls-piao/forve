@@ -19,23 +19,12 @@
             <el-row>
               <el-col :span="8">
                 <el-form-item label="标题" prop="title">
-                  <el-select
-                    v-model="form.commnuity"
-                    size="small"
-                    placeholder="请选择所属社区"
-                  >
-                    <el-option
-                      v-for="v in commnuityConfig"
-                      :key="v.value"
-                      :label="v.label"
-                      :value="v.value"
-                    ></el-option>
-                  </el-select>
+                 <el-input  size="small" v-model="form.title"></el-input>
                 </el-form-item>
               </el-col>
 
               <el-col :span="24">
-                <el-form-item label="附件" prop="file">
+                <el-form-item label="附件" prop="fj">
                   <el-upload
                   size="small"
                     :on-change="handleChange"
@@ -47,7 +36,7 @@
               </el-col>
               <el-col :span="24">
                   <el-form-item label="内容" prop="content">
-                      <el-input type="textarea" size="small" v-model="form.content"></el-input>
+                      <el-input type="textarea" size="small" v-model="form.nr"></el-input>
                   </el-form-item>
               </el-col>
             </el-row>
@@ -56,10 +45,10 @@
       </el-form>
       <span class="footer" slot="footer">
         <div>
-          <el-button size="medium" @click="cancelForm">取 消</el-button>
+          <el-button size="small" @click="cancelForm">取 消</el-button>
           <el-button
             type="primary"
-            size="medium"
+            size="small"
             @click="submitForm"
             :loading="loading"
             >确 定</el-button
@@ -75,19 +64,21 @@ export default {
   data () {
     return {
       defaultForm: {
+        id: '',
         title: '',
-        content: '',
-        file: ''
+        nr: '',
+        fj: ''
       },
       form: {
+        id: '',
         title: '',
-        content: '',
-        file: ''
+        nr: '',
+        fj: ''
       },
       fileList: [],
       rules: {
         title: [{ required: true, message: '标题不能为空', trigger: 'blur' }],
-        content: [{ required: true, message: '内容不能为空', trigger: 'blur' }]
+        nr: [{ required: true, message: '内容不能为空', trigger: 'blur' }]
       },
       type: '',
       visible: false,
@@ -111,7 +102,7 @@ export default {
       // 文件装载后将其显示在图片预览里
       reader.onload = function (e) {
         // 将bade64位图片保存至数组里供上面图片显示
-        that.form.avatar = e.target.result
+        that.form.fj = e.target.result
       }
       reader.readAsDataURL(file)
     },
@@ -141,10 +132,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -158,18 +150,34 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/xxgl/xxgl/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/xxgl/xxgl/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }
@@ -283,25 +291,17 @@ export default {
     }
   }
 }
-.footer {
+     .footer {
   position: absolute;
   left: 0;
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  //   text-align: center;
-  // line-height: 2;
+  width: 100%; 
+  padding-right:40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  > div {
-    > button {
-      height: 50px;
-      width: 200px;
-    }
-  }
+  justify-content: flex-end;
 }
 .avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;

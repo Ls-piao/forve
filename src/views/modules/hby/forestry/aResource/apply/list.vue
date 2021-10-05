@@ -2,8 +2,8 @@
   <div class="container">
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
-        <el-form-item label="申请单编号">
-          <el-input v-model="outParams.cameraId" size="mini"></el-input>
+        <el-form-item >
+          <el-input placeholder="申请表编号" v-model="outParams.bh" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">
@@ -52,14 +52,15 @@
         >
       </div>
 
-      <MyTable
+       <MyTable
         class="tables"
         ref="table"
-        :outerData="tableData"
         :columnNames="tableColumnNames"
+        :fetchFun="tableFetchFun"
         :outParams="outParams"
         :selections="true"
         :showType="showType"
+        :isSort="false"
         :limit="15"
         @selectedDataChange="selectedDataChange"
         rowKey="id"
@@ -70,7 +71,7 @@
 </template>
 
 <script>
-import tableData from '../data.json'
+import { cloneDeep } from 'lodash'
 import addDialog from './addDialog'
 export default {
   name: '',
@@ -81,9 +82,8 @@ export default {
   data () {
     return {
       searchParams: {
-        ID: ''
+        bh: ''
       },
-      tableData: tableData,
       tableColumnNames: [
         'apply_ID',
         'apply_qs',
@@ -100,23 +100,82 @@ export default {
         'apply_control'
       ],
       outParams: {
-        ID: ''
+        bh: ''
       },
       showType: 'all', // 表格显示数据类型
       selectedData: [] // 选中表格数据
     }
   },
-  computed: {},
+  computed: {
+    tableFetchFun () {
+      return this.initData
+    }
+  },
   watch: {},
   created () {},
   mounted () {},
   methods: {
+    initData () {
+      return this.$http({
+        url: '/hby/lqgl/lqsp/list',
+        params: this.outParams
+      })
+    },
     selectedDataChange (val) {
       this.selectedData = val
     },
-    doSearch () {},
-    reset () {},
-    dels (items) {},
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
+    // 导入
+    uploadSuccess (res, file) {
+      if (res.success) {
+        this.$message.success({dangerouslyUseHTMLString: true,
+          message: res.msg})
+        this.$refs.table.initData()
+      } else {
+        this.$message.error(res.msg)
+      }
+    },
+    exportData () {
+      this.$http({
+        method: 'get',
+        url: '/hby/lqgl/lqsp/export',
+        responseType: 'blob'
+      }).then(response => {
+        if (!response) {
+          return
+        }
+        let link = document.createElement('a')
+        link.href = window.URL.createObjectURL(new Blob([response.data]))
+        link.target = '_blank'
+        let filename = response.headers['content-disposition']
+        link.download = decodeURI(filename)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+         // eslint-disable-next-line handle-callback-err
+      }).catch((error) => {
+
+      })
+    },
+    dels (items) {
+      let ids = items.map(v => v.id).join(',')
+      this.$http
+        .delete('/hby/lqgl/lqsp/delete', {
+          params: { ids }
+        })
+        .then(({ data }) => {
+          if (data.code === 200) {
+            this.$message.success('操作成功')
+            this.$refs.table.initData() // 刷新表格
+          }
+        })
+    },
     handleDelete (scope) {
       if (scope instanceof Array) {
       } else {

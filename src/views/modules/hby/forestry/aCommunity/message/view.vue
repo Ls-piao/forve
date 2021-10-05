@@ -15,21 +15,18 @@
               <span class="item-title">标题：</span>
               <span class="item-content">{{ data.title }}</span>
             </el-col>
-            <el-col :span="8">
-              <span class="item-title">状态：</span>
-              <span class="item-content">{{ data.status }}</span>
-            </el-col>
+          
             <el-col :span="8">
               <span class="item-title">发布者：</span>
-              <span class="item-content">{{ data.user }}</span>
+              <span class="item-content">{{ data.create_by }}</span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">附件：</span>
-              <span class="item-content"><a href="">{{ data.file }}</a></span>
+              <span class="item-content"><a href="">{{ data.fj }}</a></span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">内容：</span>
-              <span class="item-content">{{ data.content }}</span>
+              <span class="item-content">{{ data.nr }}</span>
             </el-col>
           </el-row>
         </div>
@@ -70,8 +67,7 @@ export default {
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%; 
   //   text-align: center;
   // line-height: 2;
   display: flex;

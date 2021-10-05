@@ -67,43 +67,43 @@ export default {
 }
 </script>
 <style lang="less">
-.dia {
-  .el-dialog__header {
-    color: #fff;
-    background: linear-gradient(
-      to right,
-      rgb(74, 108, 219),
-      #3f8ef7,
-      #2d9dc9,
-      #3f8ef7
-    ) !important;
-    span {
-      color: #fff;
-    }
-    i {
-      color: #fff;
-    }
-  }
-  .el-dialog__body {
-    background-color: #fff !important;
-  }
-}
-.dia-content {
-  .el-form {
-    .el-form-item {
-      .el-form-item__label {
-        line-height: 32px !important;
-      }
-      .el-form-item__content {
-        .el-textarea {
-          textarea {
-            min-height: 200px !important;
-          }
-        }
-      }
-    }
-  }
-}
+// .dia {
+//   .el-dialog__header {
+//     color: #fff;
+//     background: linear-gradient(
+//       to right,
+//       rgb(74, 108, 219),
+//       #3f8ef7,
+//       #2d9dc9,
+//       #3f8ef7
+//     ) !important;
+//     span {
+//       color: #fff;
+//     }
+//     i {
+//       color: #fff;
+//     }
+//   }
+//   .el-dialog__body {
+//     background-color: #fff !important;
+//   }
+// }
+// .dia-content {
+//   .el-form {
+//     .el-form-item {
+//       .el-form-item__label {
+//         line-height: 32px !important;
+//       }
+//       .el-form-item__content {
+//         .el-textarea {
+//           textarea {
+//             min-height: 200px !important;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 </style>
 <style lang="scss" scoped>
 .footer {

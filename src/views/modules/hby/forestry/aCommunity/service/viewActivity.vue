@@ -13,11 +13,11 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">活动名称：</span>
-              <span class="item-content">{{ data.title }}</span>
+              <span class="item-content">{{ data.hdname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">摘要：</span>
-              <span class="item-content">{{ data.tip }}</span>
+              <span class="item-content">{{ data.zy }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">类型：</span>
@@ -25,11 +25,11 @@
             </el-col>
             <el-col :span="24">
               <span class="item-title">封面图片：</span>
-              <span class="item-content"><img :src="data.avatar" class="avatar" alt=""></span>
+              <span class="item-content"><img :src="data.pic" class="avatar" alt=""></span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">内容：</span>
-              <span class="item-content" v-html="data.content"></span>
+              <span class="item-content" v-html="data.nr"></span>
             </el-col>
           </el-row>
         </div>
@@ -70,8 +70,7 @@ export default {
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%; 
   //   text-align: center;
   // line-height: 2;
   display: flex;

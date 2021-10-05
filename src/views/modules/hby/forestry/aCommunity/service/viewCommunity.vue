@@ -13,23 +13,19 @@
           <el-row>
             <el-col :span="8">
               <span class="item-title">咨询名称：</span>
-              <span class="item-content">{{ data.title }}</span>
+              <span class="item-content">{{ data.zxmc }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">咨询人：</span>
-              <span class="item-content">{{ data.person }}</span>
+              <span class="item-content">{{ data.zxr }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">咨询时间：</span>
-              <span class="item-content">{{ data.tip }}</span>
+              <span class="item-content">{{ data.zxsj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">被咨询人：</span>
-              <span class="item-content">{{ data.type }}</span>
-            </el-col>
-            <el-col :span="8">
-              <span class="item-title">状态：</span>
-              <span class="item-content">{{data.status}}</span>
+              <span class="item-content">{{ data.bzxr }}</span>
             </el-col>
           </el-row>
         </div>
@@ -70,8 +66,7 @@ export default {
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%; 
   //   text-align: center;
   // line-height: 2;
   display: flex;

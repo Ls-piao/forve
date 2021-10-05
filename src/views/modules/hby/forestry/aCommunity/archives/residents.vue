@@ -52,16 +52,10 @@
       <div class="page-header">
         <el-form class="searchbox" :inline="true">
           <el-form-item>
-            <template #label> 姓名： </template>
-            <el-input v-model="outParams.id" size="mini"></el-input>
+            <el-input placeholder="姓名" v-model="outParams.name" size="mini"></el-input>
           </el-form-item>
           <el-form-item>
-            <template #label> 户主： </template>
-            <el-input v-model="outParams.user" size="mini"></el-input>
-          </el-form-item>
-          <el-form-item>
-            <template #label> 门牌号： </template>
-            <el-input v-model="outParams.number" size="mini"></el-input>
+            <el-input placeholder="门牌号" v-model="outParams.mph" size="mini"></el-input>
           </el-form-item>
         </el-form>
         <div style="line-height: 2.2">
@@ -109,37 +103,55 @@
             @click="downTemplate(selectedData)"
             >下载模板</el-button
           >
+           <el-upload
+          class="uploadBtn"
+          :action="`${this.$http.BASE_URL}/hby/jmgl/jmda/import`"
+          :on-success="uploadSuccess"
+          :headers="headers"
+          :show-file-list="false"
+        >
           <el-button
             class="checkbtn"
             type="warning"
             size="mini"
             icon="el-icon-upload2"
-            @click="importData(selectedData)"
             >导入</el-button
           >
-          <el-button
-            class="checkbtn"
-            type="primary"
-            size="mini"
-            icon="el-icon-download"
-            @click="exportData(selectedData)"
-            >导出</el-button
-          >
-        </div>
+        </el-upload>
+        <el-button
+          class="checkbtn"
+          type="primary"
+          size="mini"
+          icon="el-icon-download"
+          @click="exportData(selectedData)"
+          >导出</el-button
+        >
+        <el-button
+          type="default"
+          size="mini"
+          icon="el-icon-refresh"
+          @click="
+            () => {
+              this.$refs.table.initData();
+            }
+          "
+        >
+        </el-button>
+      </div>
 
-        <MyTable
-          class="tables"
-          ref="table"
-          :outerData="tableData"
-          :columnNames="tableColumnNames"
-          :outParams="outParams"
-          :selections="true"
-          :showType="showType"
-          :isSort="false"
-          :limit="15"
-          @selectedDataChange="selectedDataChange"
-          rowKey="id"
-        ></MyTable>
+      <MyTable
+        class="tables"
+        ref="table"
+        :columnNames="tableColumnNames"
+        :fetchFun="tableFetchFun"
+        :outParams="outParams"
+        :selections="true"
+        :showType="showType"
+        :isSort="false"
+        :limit="15"
+        @selectedDataChange="selectedDataChange"
+        rowKey="id"
+      ></MyTable>
       </div>
       <addDialog ref="addDialog" />
       <viewDialog ref="viewDialog" />
@@ -149,7 +161,7 @@
 </template>
 
 <script>
-import personData from './person.json'
+import { cloneDeep } from 'lodash'
 import treeData from './treeData2.json'
 import addDialog from './addResident'
 import viewDialog from './viewResident'
@@ -169,11 +181,9 @@ export default {
       filterNode: 'name',
 
       searchParams: {
-        id: '',
-        user: '',
-        number: ''
+        name: '',
+        mph: ''
       },
-      tableData: personData,
       tableColumnNames: [
         'resident_id',
         'resident_community',
@@ -205,26 +215,84 @@ export default {
         'shop_control'
       ],
       outParams: {
-        id: '',
-        user: '',
-        number: ''
+        name: '',
+        mph: ''
       },
       showType: 'all', // 表格显示数据类型
       selectedData: [] // 选中表格数据
     }
   },
-  computed: {},
+  computed: {
+    tableFetchFun () {
+      return this.initData
+    }
+  },
   watch: {},
   created () {},
   mounted () {},
   methods: {
+    initData () {
+      return this.$http({
+        url: '/hby/jmgl/jmda/list',
+        params: this.outParams
+      })
+    },
     handleNodeClick () {},
     selectedDataChange (val) {
       this.selectedData = val
     },
-    doSearch () {},
-    reset () {},
-    dels (items) {},
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
+    // 导入
+    uploadSuccess (res, file) {
+      if (res.success) {
+        this.$message.success({dangerouslyUseHTMLString: true,
+          message: res.msg})
+        this.$refs.table.initData()
+      } else {
+        this.$message.error(res.msg)
+      }
+    },
+    exportData () {
+      this.$http({
+        method: 'get',
+        url: '/hby/jmgl/jmda/export',
+        responseType: 'blob'
+      }).then(response => {
+        if (!response) {
+          return
+        }
+        let link = document.createElement('a')
+        link.href = window.URL.createObjectURL(new Blob([response.data]))
+        link.target = '_blank'
+        let filename = response.headers['content-disposition']
+        link.download = decodeURI(filename)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+         // eslint-disable-next-line handle-callback-err
+      }).catch((error) => {
+
+      })
+    },
+    dels (items) {
+      let ids = items.map(v => v.id).join(',')
+      this.$http
+        .delete('/hby/jmgl/jmda/delete', {
+          params: { ids }
+        })
+        .then(({ data }) => {
+          if (data.code === 200) {
+            this.$message.success('操作成功')
+            this.$refs.table.initData() // 刷新表格
+          }
+        })
+    },
     handleDelete (scope) {
       if (scope instanceof Array) {
       } else {

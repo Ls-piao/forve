@@ -17,19 +17,23 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">社区名称：</span>
-              <span class="item-content">{{ data.community }}</span>
+              <span class="item-content">{{ data.sqname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">小区名称：</span>
-              <span class="item-content">{{ data.xiaoqu }}</span>
+              <span class="item-content">{{ data.xqname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">楼栋号：</span>
-              <span class="item-content">{{ data.building }}</span>
+              <span class="item-content">{{ data.ldId }}</span>
+            </el-col>
+            <el-col :span="8">
+              <span class="item-title">单元号：</span>
+              <span class="item-content">{{ data.dy }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">门牌号：</span>
-              <span class="item-content">{{ data.number }}</span>
+              <span class="item-content">{{ data.mph }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">姓名：</span>
@@ -37,16 +41,16 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">性别：</span>
-              <span class="item-content">{{ data.sex }}</span>
+              <span class="item-content">{{ data.sax }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">成员关系：</span>
-              <span class="item-content">{{ data.relation }}</span>
+              <span class="item-content">{{ data.cygx }}</span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">照片：</span>
               <span class="item-content">
-                <img :src="data.avatar" class="avatar" alt="">
+                <img :src="data.pic" class="avatar" alt="">
               </span>
             </el-col>
             <el-col :span="8">
@@ -55,15 +59,15 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">工作单位：</span>
-              <span class="item-content">{{ data.work }}</span>
+              <span class="item-content">{{ data.gzdw }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">是否信教：</span>
-              <span class="item-content">{{ data.isReligious }}</span>
+              <span class="item-content">{{ data.isxj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">是否低保户：</span>
-              <span class="item-content">{{ data.isLow }}</span>
+              <span class="item-content">{{ data.isdbh }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">身份证号码：</span>
@@ -71,15 +75,15 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">出生日期：</span>
-              <span class="item-content">{{ data.born }}</span>
+              <span class="item-content">{{ data.cardid }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">民族：</span>
-              <span class="item-content">{{ data.mz }}</span>
+              <span class="item-content">{{ data.datecs }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">是否流动人员：</span>
-              <span class="item-content">{{ data.isFloat }}</span>
+              <span class="item-content">{{ data.isld }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">就业情况：</span>
@@ -91,7 +95,7 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">健康状况：</span>
-              <span class="item-content">{{ data.health }}</span>
+              <span class="item-content">{{ data.jkzk }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">节孕措施：</span>
@@ -99,7 +103,7 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">户籍地址：</span>
-              <span class="item-content">{{ data.hj }}</span>
+              <span class="item-content">{{ data.hjdz }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">政治面貌：</span>
@@ -108,10 +112,6 @@
             <el-col :span="8">
               <span class="item-title">婚姻状况：</span>
               <span class="item-content">{{ data.hyzk }}</span>
-            </el-col>
-            <el-col :span="8">
-              <span class="item-title">残疾类别：</span>
-              <span class="item-content">{{ data.cjlb }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">残疾类别：</span>
@@ -160,8 +160,7 @@ export default {
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%; 
   //   text-align: center;
   // line-height: 2;
   display: flex;

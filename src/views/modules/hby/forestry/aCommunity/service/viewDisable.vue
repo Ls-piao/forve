@@ -21,27 +21,27 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">所属社区：</span>
-              <span class="item-content">{{ data.community }}</span>
+              <span class="item-content">{{ data.sqname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">楼栋：</span>
-              <span class="item-content">{{ data.building }}</span>
+              <span class="item-content">{{ data.ld }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">单位：</span>
-              <span class="item-content">{{ data.unit }}</span>
+              <span class="item-content">{{ data.dw }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">门牌号：</span>
-              <span class="item-content">{{ data.number }}</span>
+              <span class="item-content">{{ data.mph }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">状态：</span>
-              <span class="item-content">{{data.status}}</span>
+              <span class="item-content">{{data.type}}</span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">描述：</span>
-              <span class="item-content">{{data.desc}}</span>
+              <span class="item-content">{{data.remarks}}</span>
             </el-col>
           </el-row>
         </div>
@@ -82,8 +82,7 @@ export default {
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%; 
   //   text-align: center;
   // line-height: 2;
   display: flex;

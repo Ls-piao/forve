@@ -35,10 +35,10 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="填表日期" prop="creatTime">
+                <el-form-item label="填表日期" prop="tbrq">
                   <el-date-picker
                     size="small"
-                    v-model="form.createTime"
+                    v-model="form.tbrq"
                     type="date"
                     placeholder="选择日期"
                   >
@@ -47,10 +47,10 @@
               </el-col>
 
               <el-col :span="8">
-                <el-form-item label="单位个人" prop="dwgr">
+                <el-form-item label="单位个人" prop="danwei">
                   <el-input
                     size="small"
-                    v-model="form.dwgr"
+                    v-model="form.danwei"
                     placeholder="请输入单位个人"
                   ></el-input>
                 </el-form-item>
@@ -68,10 +68,10 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="法人代表" prop="frdb">
+                <el-form-item label="法人代表" prop="faren">
                   <el-input
                     size="small"
-                    v-model="form.frdb"
+                    v-model="form.faren"
                     placeholder="请输入法人代表"
                   ></el-input>
                 </el-form-item>
@@ -86,38 +86,38 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="身份证号" prop="sfzh">
+                <el-form-item label="身份证号" prop="idcard">
                   <el-input
                     size="small"
-                    v-model="form.sfzh"
+                    v-model="form.idcard"
                     maxlength="18"
                     placeholder="请输入身份证号"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="林地所有权权利人" prop="ldsyqqlr">
+                <el-form-item label="林地所有权权利人" prop="ldsyqr">
                   <el-input
                     size="small"
-                    v-model="form.ldsyqqlr"
+                    v-model="form.ldsyqr"
                     placeholder="请输入林地所有权权利人"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="林地使用权权利人" prop="ldsyqqlr2">
+                <el-form-item label="林地使用权权利人" prop="shiyongquanren">
                   <el-input
                     size="small"
-                    v-model="form.ldsyqqlr2"
+                    v-model="form.shiyongquanren"
                     placeholder="请输入林地使用权权利人"
                   ></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="森林或林木所有权权利人" prop="slhlmsyqqlr">
+                <el-form-item label="森林或林木所有权权利人" prop="sllmsyqr">
                   <el-input
                     size="small"
-                    v-model="form.slhlmsyqqlr"
+                    v-model="form.sllmsyqr"
                     placeholder="请输入森林或林木所有权权利人"
                   ></el-input>
                 </el-form-item>
@@ -125,11 +125,11 @@
               <el-col :span="8">
                 <el-form-item
                   label="森林或林木使用权权利人"
-                  prop="slhlmsyqqlr2"
+                  prop="slsyqr"
                 >
                   <el-input
                     size="small"
-                    v-model="form.slhlmsyqqlr2"
+                    v-model="form.slsyqr"
                     placeholder="请输入森林或林木使用权权利人"
                   ></el-input>
                 </el-form-item>
@@ -151,9 +151,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="8">
-                <el-form-item label="小地名" prop="xdm">
+                <el-form-item label="小地名" prop="xdiming">
                   <el-input
-                    v-model="form.xdm"
+                    v-model="form.xdiming"
                     size="small"
                     placeholder="请输入小地名"
                   ></el-input>
@@ -446,10 +446,10 @@
       </el-form>
       <span class="footer" slot="footer">
         <div>
-          <el-button size="medium" @click="cancelForm">取 消</el-button>
+          <el-button size="small" @click="cancelForm">取 消</el-button>
           <el-button
             type="primary"
-            size="medium"
+            size="small"
             @click="submitForm"
             :loading="loading"
             >确 定</el-button
@@ -473,7 +473,7 @@ export default {
         txdz: '',
         ldsyqqlr: '',
         ldsyqqlr2: '',
-        sfzh: '',
+        idcard: '',
         slhlmsyqqlr: '',
         slhlmsyqqlr2: '',
         zl: '',
@@ -506,16 +506,16 @@ export default {
       },
       form: {
         qs: '',
-        createTime: new Date().getTime(),
+        tbrq: new Date().getTime(),
         djql: [],
         dwgr: '',
         frdb: '',
         txdz: '',
-        ldsyqqlr: '',
-        ldsyqqlr2: '',
-        sfzh: '',
-        slhlmsyqqlr: '',
-        slhlmsyqqlr2: '',
+        ldsyqr: '',
+        shiyongquanren: '',
+        idcard: '',
+        sllmsyqr: '',
+        slsyqr: '',
         zl: '',
         xdm: '',
         lb: '',
@@ -591,76 +591,7 @@ export default {
         { label: '地类4', value: 4 }
       ],
       rules: {
-        qs: [{ required: true, message: '权属不能为空', trigger: 'blur' }],
-        qy: [{ required: true, message: '起源不能为空', trigger: 'blur' }],
-        zl: [{ required: true, message: '坐落不能为空', trigger: 'blur' }],
-        xdm: [{ required: true, message: '小地名不能为空', trigger: 'blur' }],
-        zs: [{ required: true, message: '株数不能为空', trigger: 'blur' }],
-        lb: [{ required: true, message: '林班不能为空', trigger: 'blur' }],
-        xb: [{ required: true, message: '小班不能为空', trigger: 'blur' }],
-        mj: [{ required: true, message: '面积不能为空', trigger: 'blur' }],
-        dz: [{ required: true, message: '东至不能为空', trigger: 'blur' }],
-        nz: [{ required: true, message: '南至不能为空', trigger: 'blur' }],
-        xz: [{ required: true, message: '西至不能为空', trigger: 'blur' }],
-        bz: [{ required: true, message: '北至不能为空', trigger: 'blur' }],
-        zyqlyj: [{ required: true, message: '主要权力依据不能为空', trigger: 'blur' }],
-        lqgyqlrsm: [{ required: true, message: '林权共有权利人说明（注记）不能为空', trigger: 'blur' }],
-        xzfyj: [{ required: true, message: '乡（政）府意见不能为空', trigger: 'blur' }],
-        jtldsyqqlryj: [{ required: true, message: '集体林地所有权权利人意见不能为空', trigger: 'blur' }],
-        lyzgbmyj: [{ required: true, message: '林业主管部门意见不能为空', trigger: 'blur' }],
-        fzjgyj: [{ required: true, message: '发证机关意见不能为空', trigger: 'blur' }],
-        gczl: [
-          { required: true, message: '是否工程造林不能为空', trigger: 'blur' }
-        ],
-        gyl: [{ required: true, message: '公益林不能为空', trigger: 'blur' }],
-        szgc: [
-          { required: true, message: '树种构成不能为空', trigger: 'blur' }
-        ],
-        zlnd: [
-          { required: true, message: '造林年度不能为空', trigger: 'blur' }
-        ],
-        lz: [{ required: true, message: '林种不能为空', trigger: 'blur' }],
-        zysz: [
-          { required: true, message: '主要树种不能为空', trigger: 'blur' }
-        ],
-        qtsz: [
-          { required: true, message: '其他树种不能为空', trigger: 'blur' }
-        ],
-        ldsyq: [
-          { required: true, message: '林地使用期不能为空', trigger: 'blur' }
-        ],
-        zzrq: [
-          { required: true, message: '终止日期不能为空', trigger: 'blur' }
-        ],
-        ldsyqqlr: [
-          {
-            required: true,
-            message: '林地所有权权利人不能为空',
-            trigger: 'blur'
-          }
-        ],
-        ldsyqqlr2: [
-          {
-            required: true,
-            message: '林地使用权权利人不能为空',
-            trigger: 'blur'
-          }
-        ],
-        slhlmsyqqlr: [
-          {
-            required: true,
-            message: '森林或林木所有权权利人不能为空',
-            trigger: 'blur'
-          }
-        ],
-        slhlmsyqqlr2: [
-          {
-            required: true,
-            message: '森林或林木使用权权利人不能为空',
-            trigger: 'blur'
-          }
-        ],
-        sfzh: [
+        idcard: [
           {
             pattern:
               /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$)/,
@@ -668,19 +599,6 @@ export default {
             message: '身份证号不能为空',
             trigger: 'blur'
           }
-        ],
-        createTime: [
-          { required: true, message: '日期不能为空', trigger: 'blur' }
-        ],
-        djql: [{ required: true, message: '登记权力必选', trigger: 'blur' }],
-        frdb: [
-          { required: true, message: '法人代表不能为空', trigger: 'blur' }
-        ],
-        txdz: [
-          { required: true, message: '通讯地址不能为空', trigger: 'blur' }
-        ],
-        dwgr: [
-          { required: true, message: '单位个人不能为空', trigger: 'blur' }
         ]
       },
       type: '',
@@ -714,10 +632,11 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
+          let params = this.form
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -747,28 +666,39 @@ export default {
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/lqgl/lqsp/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     },
     // 网络请求编辑保存
     async submitFormEdit (params) {
       this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/lqgl/lqsp/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
   }
 }
 </script>
 <style lang="less">
-.adddia {
-  .el-dialog {
-    max-width: 90% !important;
-  }
-}
 .itemview {
   .el-form-item {
     display: flex !important;
@@ -877,24 +807,16 @@ export default {
     }
   }
 }
-.footer {
+     .footer {
   position: absolute;
   left: 0;
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  //   text-align: center;
-  // line-height: 2;
+  width: 100%; 
+  padding-right:40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  > div {
-    > button {
-      height: 50px;
-      width: 200px;
-    }
-  }
+  justify-content: flex-end;
 }
 </style>

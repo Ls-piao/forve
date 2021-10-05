@@ -168,9 +168,18 @@ export default {
           }
         }
       ]
+
     }
   },
+  mounted () {
+    this.initData()
+  },
   methods: {
+    initData () {
+      this.$http.get('/hby/sqfw/sqfw/indexData').then(({data}) => {
+        console.log(data)
+      })
+    },
     reset () {
       this.searchDates = ''
       this.searchParams = ''
@@ -189,7 +198,6 @@ export default {
     }
   },
   computed: {},
-  mounted () {},
   created () {}
 }
 </script>

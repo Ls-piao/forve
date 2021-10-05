@@ -17,51 +17,51 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">店名：</span>
-              <span class="item-content">{{ data.name }}</span>
+              <span class="item-content">{{ data.shname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">所属社区：</span>
-              <span class="item-content">{{ data.commnuity }}</span>
+              <span class="item-content">{{ data.sqname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">门牌号：</span>
-              <span class="item-content">{{ data.number }}</span>
+              <span class="item-content">{{ data.mph }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">商户位置：</span>
-              <span class="item-content">{{ data.place }}</span>
+              <span class="item-content">{{ data.wz }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">营业执照：</span>
-              <span class="item-content">{{ data.license }}</span>
+              <span class="item-content">{{ data.yyzz }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">法人姓名：</span>
-              <span class="item-content">{{ data.legalPerson }}</span>
+              <span class="item-content">{{ data.frname }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">法人身份：</span>
-              <span class="item-content">{{ data.legalPersonJob }}</span>
+              <span class="item-content">{{ data.frsf }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">法人户籍：</span>
-              <span class="item-content">{{ data.legalPersonForm }}</span>
+              <span class="item-content">{{ data.frhj }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">房间性质：</span>
-              <span class="item-content">{{ data.type }}</span>
+              <span class="item-content">{{ data.fwxz }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">从事行业：</span>
-              <span class="item-content">{{ data.industry }}</span>
+              <span class="item-content">{{ data.cszy }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">面积：</span>
-              <span class="item-content">{{ data.area }}</span>
+              <span class="item-content">{{ data.mj }}</span>
             </el-col>
             <el-col :span="24">
               <span class="item-title">备注：</span>
-              <span class="item-content">{{ data.desc }}</span>
+              <span class="item-content">{{ data.remarks }}</span>
             </el-col>
           </el-row>
         </div>
@@ -102,8 +102,7 @@ export default {
   bottom: 0;
   height: 80px;
   background: #fff;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%; 
   //   text-align: center;
   // line-height: 2;
   display: flex;

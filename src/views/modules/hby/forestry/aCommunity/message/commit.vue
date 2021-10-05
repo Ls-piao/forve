@@ -2,13 +2,11 @@
   <div class="container">
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
-        <el-form-item>
-          <template #label> 咨询编号： </template>
-          <el-input v-model="outParams.id" size="mini"></el-input>
+       <el-form-item>
+          <el-input placeholder="标题" v-model="outParams.title" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 咨询名称： </template>
-          <el-input v-model="outParams.name" size="mini"></el-input>
+          <el-input placeholder="发布者" v-model="outParams.create_by" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">
@@ -41,11 +39,11 @@
         >
       </div>
 
-      <MyTable
+     <MyTable
         class="tables"
         ref="table"
-        :outerData="tableData"
         :columnNames="tableColumnNames"
+        :fetchFun="tableFetchFun"
         :outParams="outParams"
         :selections="true"
         :showType="showType"
@@ -61,7 +59,7 @@
 </template>
 
 <script>
-import tableData from './data.json'
+import { cloneDeep } from 'lodash'
 import addDialog from './add.vue'
 import viewDialog from './view.vue'
 export default {
@@ -77,7 +75,6 @@ export default {
         id: '',
         name: ''
       },
-      tableData: tableData.slice(0, 3),
       tableColumnNames: [
         'message_id',
         'message_title',
@@ -96,16 +93,31 @@ export default {
       selectedData: [] // 选中表格数据
     }
   },
-  computed: {},
+  computed: {
+    tableFetchFun () {
+      return this.initData
+    }
+  },
   watch: {},
   created () {},
   mounted () {},
   methods: {
+    initData () {
+      return this.$http({
+        url: '/hby/xxgl/xxgl/list',
+        params: this.outParams
+      })
+    },
     selectedDataChange (val) {
       this.selectedData = val
     },
-    doSearch () {},
-    reset () {},
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
     dels (items) {},
     fabu (scope) {
       if (scope instanceof Array) {
