@@ -3,27 +3,22 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item>
-          <template #label> 基地编号： </template>
-          <el-input v-model="outParams.jidibianhao" size="mini"></el-input>
+          <el-input placeholder="基地编号" v-model="outParams.jidibianhao" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 基地名称： </template>
-          <el-input v-model="outParams.jidimingcheng" size="mini"></el-input>
+          <el-input placeholder="基地名称" v-model="outParams.jidimingcheng" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 行政区： </template>
-          <el-input v-model="outParams.xingzhengqu" size="mini"></el-input>
+          <el-input placeholder="行政区" v-model="outParams.xingzhengqu" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label>矿产代码： </template>
-          <el-input
+          <el-input placeholder="矿产代码"
             v-model="outParams.zhuyaokuangchandm"
             size="mini"
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 矿产名称： </template>
-          <el-input v-model="outParams.zhuyaokuangchan" size="mini"></el-input>
+          <el-input placeholder="矿产名称" v-model="outParams.zhuyaokuangchan" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">

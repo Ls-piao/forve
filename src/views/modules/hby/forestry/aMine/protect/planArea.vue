@@ -3,24 +3,19 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item>
-          <template #label> 规划矿区编号： </template>
-          <el-input v-model="outParams.guihuabh" size="mini"></el-input>
+          <el-input placeholder="规划矿区编号" v-model="outParams.guihuabh" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 规划矿区名称： </template>
-          <el-input v-model="outParams.guihuakuangqu" size="mini"></el-input>
+          <el-input placeholder="规划矿区名称" v-model="outParams.guihuakuangqu" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 行政区： </template>
-          <el-input v-model="outParams.suoshuxzq" size="mini"></el-input>
+          <el-input placeholder="行政区" v-model="outParams.suoshuxzq" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label>矿产代码： </template>
-          <el-input v-model="outParams.zhuyaokcdm" size="mini"></el-input>
+          <el-input placeholder="矿产代码" v-model="outParams.zhuyaokcdm" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 矿产名称： </template>
-          <el-input v-model="outParams.zhuyaokuangchanming" size="mini"></el-input>
+          <el-input placeholder="矿产名称" v-model="outParams.zhuyaokuangchanming" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">

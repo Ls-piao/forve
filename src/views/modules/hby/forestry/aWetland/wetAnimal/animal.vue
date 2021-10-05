@@ -3,12 +3,10 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item>
-          <template #label> 标识码： </template>
-          <el-input v-model="outParams.biaoshima" size="mini"></el-input>
+          <el-input placeholder="标识码" v-model="outParams.biaoshima" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 湿地斑块编码： </template>
-          <el-input v-model="outParams.sdbk" size="mini"></el-input>
+          <el-input placeholder=" 湿地斑块编码" v-model="outParams.sdbk" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">

@@ -3,24 +3,19 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item>
-          <template #label> 区块编号： </template>
-          <el-input v-model="outParams.quyubianhao" size="mini"></el-input>
+          <el-input placeholder="区块编号" v-model="outParams.quyubianhao" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 区块名称： </template>
-          <el-input v-model="outParams.qukuangname" size="mini"></el-input>
+          <el-input placeholder="区块名称" v-model="outParams.qukuangname" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 区块面积： </template>
-          <el-input v-model="outParams.qukuaimj" size="mini"></el-input>
+          <el-input placeholder="区块面积" v-model="outParams.qukuaimj" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 主要矿产代码： </template>
-          <el-input v-model="outParams.kaicaizhukuangdm" size="mini"></el-input>
+          <el-input placeholder="主要矿产代码" v-model="outParams.kaicaizhukuangdm" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 主要矿产名称： </template>
-          <el-input v-model="outParams.kaicaizhukuangmc" size="mini"></el-input>
+          <el-input placeholder="主要矿产名称" v-model="outParams.kaicaizhukuangmc" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">

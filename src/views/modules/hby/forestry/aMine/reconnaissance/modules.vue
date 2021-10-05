@@ -7,24 +7,19 @@
           <el-input v-model="outParams.qukuaihao" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 区块名称： </template>
-          <el-input v-model="outParams.qukuaiming" size="mini"></el-input>
+          <el-input placeholder="区块名称" v-model="outParams.qukuaiming" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 主矿种代码： </template>
-          <el-input v-model="outParams.kanchazhukuangzhongdm" size="mini"></el-input>
+          <el-input placeholder="主矿种代码" v-model="outParams.kanchazhukuangzhongdm" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 主矿种名称： </template>
-          <el-input v-model="outParams.kanchazhukuangming" size="mini"></el-input>
+          <el-input placeholder="主矿种名称" v-model="outParams.kanchazhukuangming" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label>其他矿种代码： </template>
-          <el-input v-model="outParams.qitakckuangdaima" size="mini"></el-input>
+          <el-input placeholder="其他矿种代码" v-model="outParams.qitakckuangdaima" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 其他矿种名称： </template>
-          <el-input v-model="outParams.qitakcming" size="mini"></el-input>
+          <el-input placeholder="其他矿种名称" v-model="outParams.qitakcming" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2;width:200px">

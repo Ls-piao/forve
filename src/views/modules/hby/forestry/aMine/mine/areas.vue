@@ -3,24 +3,19 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item>
-          <template #label> 分区编号： </template>
-          <el-input v-model="outParams.fenquhao" size="mini"></el-input>
+          <el-input placeholder="分区编号" v-model="outParams.fenquhao" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 分区名称： </template>
-          <el-input v-model="outParams.fenquming" size="mini"></el-input>
+          <el-input placeholder="分区名称" v-model="outParams.fenquming" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 行政区： </template>
-          <el-input v-model="outParams.suozaixzqu" size="mini"></el-input>
+          <el-input placeholder="行政区" v-model="outParams.suozaixzqu" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label>矿产代码： </template>
-          <el-input v-model="outParams.zhuyaokcma" size="mini"></el-input>
+          <el-input placeholder="矿产代码" v-model="outParams.zhuyaokcma" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 矿产名称： </template>
-          <el-input v-model="outParams.zhuyaokcming" size="mini"></el-input>
+          <el-input placeholder="矿产名称" v-model="outParams.zhuyaokcming" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">

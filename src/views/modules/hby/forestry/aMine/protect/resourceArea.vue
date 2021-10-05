@@ -3,24 +3,19 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item>
-          <template #label> 保护区编号： </template>
-          <el-input v-model="outParams.id" size="mini"></el-input>
+          <el-input placeholder="保护区编号" v-model="outParams.id" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 保护区名称： </template>
-          <el-input v-model="outParams.user" size="mini"></el-input>
+          <el-input placeholder="保护区名称" v-model="outParams.user" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 行政区： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
+          <el-input placeholder="行政区" v-model="outParams.number" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label>矿产代码： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
+          <el-input placeholder="矿产代码" v-model="outParams.number" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <template #label> 矿产名称： </template>
-          <el-input v-model="outParams.number" size="mini"></el-input>
+          <el-input placeholder="矿产名称" v-model="outParams.number" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">
