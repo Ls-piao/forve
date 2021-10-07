@@ -250,7 +250,7 @@
                   </el-radio-group>
                 </el-form-item>
               </el-col>
-              <el-col :span="8">
+              <el-col :span="12">
                 <el-form-item label="节孕措施" prop="jycs">
                   <el-radio-group v-model="form.jycs" size="mini">
                     <el-radio-button size="mini" :label="0"
@@ -261,6 +261,18 @@
                     >
                     <el-radio-button size="mini" :label="2"
                       >上环</el-radio-button
+                    >
+                  </el-radio-group>
+                </el-form-item>
+              </el-col>
+               <el-col :span="12">
+                <el-form-item label="婚姻状况" prop="hyzk">
+                  <el-radio-group v-model="form.hyzk" size="mini">
+                    <el-radio-button size="mini" :label="0"
+                      >未婚</el-radio-button
+                    >
+                    <el-radio-button size="mini" :label="1"
+                      >已婚</el-radio-button
                     >
                   </el-radio-group>
                 </el-form-item>
@@ -290,18 +302,7 @@
                   </el-select>
                 </el-form-item>
               </el-col>
-              <el-col :span="8">
-                <el-form-item label="婚姻状况" prop="hyzk">
-                  <el-radio-group v-model="form.hyzk" size="mini">
-                    <el-radio-button size="mini" :label="0"
-                      >未婚</el-radio-button
-                    >
-                    <el-radio-button size="mini" :label="1"
-                      >已婚</el-radio-button
-                    >
-                  </el-radio-group>
-                </el-form-item>
-              </el-col>
+             
               <el-col :span="8">
                 <el-form-item label="残疾类别" prop="cjlb">
                   <el-select

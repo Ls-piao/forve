@@ -2,6 +2,7 @@
  * columnName：数组的唯一标识
  * render:表示函数式组件，供渲染
  */
+import dictUtils from '@/utils/dictUtils'
 export default function (target) {
   return [
         // 表格测试
@@ -11,8 +12,24 @@ export default function (target) {
         { columnName: 'plants_ENzhong', prop: 'ldzm', label: '拉丁种称', align: 'center', width: 100 },
         { columnName: 'plants_ENke', prop: 'ldkm', label: '拉丁科名', align: 'center', width: 100 },
         { columnName: 'plants_ENshu', prop: 'ldsm', label: '拉丁属名', align: 'center', width: 100 },
-        { columnName: 'plants_dangerType', prop: 'bwcd', label: '濒危程度', align: 'center', width: 100 },
-        { columnName: 'plants_protectType', prop: 'bhdj', label: '保护等级', align: 'center', width: 100 },
+    { columnName: 'plants_dangerType',
+      prop: 'bwcd',
+      label: '濒危程度',
+      align: 'center',
+      width: 100,
+      render: (h, c) => {
+        return <span>{dictUtils.getDictLabel('ZRZY_STZK_BWCD', c.row.bwcd)}</span>
+      }
+    },
+    { columnName: 'plants_protectType',
+      prop: 'bhdj',
+      label: '保护等级',
+      align: 'center',
+      width: 100,
+      render: (h, c) => {
+        return <span>{dictUtils.getDictLabel('ZRZY_STZK_BHDJ', c.row.bhdj)}</span>
+      }
+    },
         { columnName: 'plants_area', prop: 'fbdy', label: '分布地域', align: 'center', width: 100 },
         { columnName: 'plants_point', prop: 'xttz', label: '形态特征', align: 'center', minWidth: 330 },
         { columnName: 'plants_place', prop: 'qltz', label: '群落特征', align: 'center', minWidth: 330 },
@@ -40,8 +57,7 @@ export default function (target) {
       render: function (h, c) {
         if (c.row.bbt && c.row.bbt.length > 1) {
           return (
-
-                    <img onClick={() => target.preview(c.row, 'bbt')} src={c.row.bbt} class="img" />
+              <img onClick={() => target.preview(c.row, 'bbt')} src={c.row.bbt} class="img" />
           )
         }
       }
@@ -50,7 +66,15 @@ export default function (target) {
     // 林业表格
     { columnName: 'forest_house', prop: 'lyj', label: '林业局', align: 'center', width: 100 },
     { columnName: 'forest_picId', prop: 'tbbh', label: '图斑编号', align: 'center', width: 100 },
-    { columnName: 'forest_dangerType', prop: 'zhtype', label: '灾害类型', align: 'center', width: 100 },
+    { columnName: 'forest_dangerType',
+      prop: 'zhtype',
+      label: '灾害类型',
+      align: 'center',
+      width: 100,
+      render: (h, c) => {
+        return <span>{dictUtils.getDictLabel('ZRZY_LYYH_ZHLX', c.row.zhtype)}</span>
+      }
+    },
     { columnName: 'forest_year', prop: 'year', label: '年度', align: 'center', width: 100 },
     { columnName: 'forest_month', prop: 'month', label: '月份', align: 'center', width: 100 },
     { columnName: 'forest_MonitorArea', prop: 'jcmj', label: '监测面积', align: 'center', width: 100 },

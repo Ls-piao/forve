@@ -72,7 +72,7 @@ export default {
           text: '行业统计',
           top: '0%',
           textAlign: 'center',
-          left: '13%',
+          left: '15%',
           textStyle: {
             color: '#000',
             fontSize: 24,
@@ -123,7 +123,7 @@ export default {
           left: '2%',
           right: '4%',
           bottom: '14%',
-          top: '16%',
+          top: '20%',
           containLabel: true
         },
         series: [
@@ -131,9 +131,9 @@ export default {
             name: '访问来源',
             type: 'pie',
             radius: '50%',
-            center: ['50%', '50%'],
+            center: ['50%', '60%'],
             label: {
-              fontSize: 18
+              fontSize: 14
             },
             data: data,
             roseType: 'radius',

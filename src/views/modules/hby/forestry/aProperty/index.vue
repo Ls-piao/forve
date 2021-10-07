@@ -33,7 +33,7 @@
               style=" 
               padding: 10px;
               text-align: center;
-              font-size: 20px;
+              font-size: 16px;
               line-height:1.8
            "
             >
@@ -46,7 +46,7 @@
               style=" 
               padding: 10px;
               text-align: center;
-              font-size: 20px;
+              font-size: 16px;
               line-height:1.8
            "
             >
@@ -59,7 +59,7 @@
               style=" 
               padding: 10px;
               text-align: center;
-              font-size: 20px;
+              font-size: 16px;
               line-height:1.8
            "
             >
@@ -149,7 +149,7 @@ export default {
         grid: {
           left: 20,
           right: 20,
-          top: '25%',
+          top: '30%',
           bottom: '15%'
         },
         xAxis: {
@@ -216,9 +216,9 @@ export default {
       },
       option3: {
         grid: {
-          left: '10%',
+          left: '15%',
           right: 20,
-          top: '25%',
+          top: '35%',
           bottom: '15%'
         },
         xAxis: {
@@ -282,9 +282,9 @@ export default {
 
       option4: {
         grid: {
-          left: '15%',
+          left: '20%',
           right: '15%',
-          top: '25%',
+          top: '30%',
           bottom: '15%'
         },
         xAxis: {
@@ -346,7 +346,7 @@ export default {
         grid: {
           left: 20,
           right: 20,
-          top: '25%',
+          top: '30%',
           bottom: '15%'
         },
         xAxis: {
@@ -430,7 +430,7 @@ export default {
             }
           ],
           orient: 'vertical',
-          top: '25%',
+          top: '30%',
           right: '90%',
           textStyle: {
             fill: '#fff'
@@ -438,9 +438,9 @@ export default {
 
         },
         grid: {
-          left: '10%',
+          left: '15%',
           right: 20,
-          top: '25%',
+          top: '35%',
           bottom: '15%'
         },
         xAxis: {

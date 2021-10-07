@@ -430,7 +430,6 @@ export default {
   .top-item {
     flex: 1;
     margin-right: 24px;
-    height: 154px;
     padding: 0 20px;
     border-radius: 4px;
     position: relative;

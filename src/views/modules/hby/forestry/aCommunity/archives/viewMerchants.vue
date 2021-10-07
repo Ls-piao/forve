@@ -53,7 +53,7 @@
             </el-col>
             <el-col :span="8">
               <span class="item-title">从事行业：</span>
-              <span class="item-content">{{ data.cszy }}</span>
+              <span class="item-content">{{ $dictUtils.getDictLabel('ZRZY_SQFW_HYFL',data.cszy) }}</span>
             </el-col>
             <el-col :span="8">
               <span class="item-title">面积：</span>

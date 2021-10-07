@@ -127,11 +127,13 @@
               </el-col>
               <el-col :span="8">
                 <el-form-item label="调查时间" prop="diaochadate">
-                  <el-input
+                   <el-date-picker
                     v-model="form.diaochadate"
+                    type="date"
                     size="small"
-                    placeholder="请输入调查时间"
-                  ></el-input>
+                    placeholder="选择规划期"
+                  >
+                  </el-date-picker>
                 </el-form-item>
               </el-col>
             </el-row>
@@ -154,6 +156,7 @@
   </el-dialog>
 </template>
 <script>
+import moment from 'moment'
 export default {
   name: 'addObject',
   data () {
@@ -297,10 +300,12 @@ export default {
     cancelForm () {
       this.visible = false
     },
-    submitForm (params) {
+    submitForm () {
       // 区分新增与修改
       this.$refs['addobjformref'].validate(valid => {
         if (valid) {
+          let params = this.form
+          params.diaochadate = moment(params.diaochadate).format('YYYY-MM-DD')
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {
@@ -313,20 +318,34 @@ export default {
     },
     // 网络请求保存新增监督对象
     async postSaveAddObj (params) {
-      this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
-    },
-    // 网络请求编辑保存
-    async submitFormEdit (params) {
-      this.loading = true
-      this.loading = false
-      this.visible = false
-      this.$message.success('操作成功')
-      // this.$parent.$refs.table.handleFetch(); // 刷新表格
+      this.$http({
+        url: '/hby/shidiqugl/shidiqugl/save',
+        method: 'post',
+        data: params
+      }).then(({ data }) => {
+        if (data.code === 200) {
+          this.loading = false
+          this.visible = false
+          this.$message.success('操作成功')
+          this.$parent.$refs.table.initData() // 刷新表格
+        }
+      })
     }
+  },
+    // 网络请求编辑保存
+  async submitFormEdit (params) {
+    this.$http({
+      url: '/hby/shidiqugl/shidiqugl/save',
+      method: 'post',
+      data: params
+    }).then(({ data }) => {
+      if (data.code === 200) {
+        this.loading = false
+        this.visible = false
+        this.$message.success('操作成功')
+        this.$parent.$refs.table.initData() // 刷新表格
+      }
+    })
   }
 }
 </script>

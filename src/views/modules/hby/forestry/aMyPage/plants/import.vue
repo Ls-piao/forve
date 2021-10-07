@@ -51,7 +51,7 @@
             v-for="v in dangerConfig"
             :key="v.value"
             :label="v.label"
-            :value="v.label"
+            :value="v.value"
           ></el-option>
         </el-select>
       </el-form-item>
@@ -61,7 +61,7 @@
             v-for="v in protectConfig"
             :key="v.value"
             :label="v.label"
-            :value="v.label"
+            :value="v.value"
           ></el-option>
         </el-select>
       </el-form-item>
@@ -226,15 +226,10 @@ export default {
 
       },
       dangerConfig: [
-        { label: '近危', value: 0 },
-        { label: '易危', value: 1 },
-        { label: '濒危', value: 2 }
+
       ],
       protectConfig: [
-        { label: '一级', value: 1 },
-        { label: '二级', value: 2 },
-        { label: '三级', value: 3 },
-        { label: '四级', value: 4 }
+
       ],
       fbdyConfig: [
         { label: '珲春局', value: 1 },
@@ -271,6 +266,9 @@ export default {
   },
   watch: {},
   async activated () {
+    this.dangerConfig = this.$dictUtils.getDictList('ZRZY_STZK_BWCD')
+    console.log(this.dangerConfig)
+    this.protectConfig = this.$dictUtils.getDictList('ZRZY_STZK_BHDJ')
     if (this.$route.query.id) {
       this.type = 'edit'
       this.$http({

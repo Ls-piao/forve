@@ -175,11 +175,11 @@
         </div>
       </div>
     </div>
-     <div class="footer">
+     <!-- <div class="footer">
       <div>
         <el-button size="medium" type="primary" v-print="printObj" @click="print">打印</el-button>
       </div>
-    </div>
+    </div> -->
   </el-dialog>
 </template>
 

@@ -74,7 +74,7 @@ export default {
         'apply_qs',
         'apply_createTime',
         'apply_dwgr',
-        'apply_djql',
+        // 'apply_djql',
         'apply_frdb',
         'apply_txdz',
         'apply_sfzh',

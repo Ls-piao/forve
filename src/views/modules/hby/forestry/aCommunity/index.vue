@@ -7,7 +7,7 @@
             <img src="../aMyPage/images/data1.png" alt />
           </div>
           <div class="right">
-            <div class="num"><animateInteger value="95" /></div>
+            <div class="num"><animateInteger :value="data.sqzs||0" /></div>
             <div class="label">社区总数</div>
           </div>
         </div>
@@ -18,7 +18,7 @@
             <img src="../aMyPage/images/data2.png" alt />
           </div>
           <div class="right">
-            <div class="num"><animateInteger value="1883" /></div>
+            <div class="num"><animateInteger :value="data.fwzs||0" /></div>
             <div class="label">房屋总数</div>
           </div>
         </div>
@@ -29,7 +29,7 @@
             <img src="../aMyPage/images/data3.png" alt />
           </div>
           <div class="right">
-            <div class="num"><animateInteger value="351" /></div>
+            <div class="num"><animateInteger :value="data.shzs||0" /></div>
             <div class="label">周边商户</div>
           </div>
         </div>
@@ -40,7 +40,7 @@
             <img src="../aMyPage/images/data4.png" alt />
           </div>
           <div class="right">
-            <div class="num"><animateInteger value="354361" /></div>
+            <div class="num"><animateInteger :value="data.sqrs||0" /></div>
             <div class="label">社区人数</div>
           </div>
         </div>
@@ -50,10 +50,10 @@
       <div class="top">
         <div class="top-left banner">
           <!-- <div class="title">社区商户数</div> -->
-          <Line1 id="line1" />
+          <Line1 :data="shopsData" id="line1" />
         </div>
         <div class="top-right">
-          <Sex :data="SexData" :total="73013" />
+          <Sex :data="SexData" :total="data.man+data.woman" />
         </div>
       </div>
       <div class="bottom">
@@ -94,6 +94,7 @@ export default {
       'path://M512 292.205897c80.855572 0 146.358821-65.503248 146.358821-146.358821C658.358821 65.503248 592.855572 0 512 0 431.144428 0 365.641179 65.503248 365.641179 146.358821 365.641179 227.214393 431.144428 292.205897 512 292.205897zM512 731.282359c-80.855572 0-146.358821 65.503248-146.358821 146.358821 0 80.855572 65.503248 146.358821 146.358821 146.358821 80.855572 0 146.358821-65.503248 146.358821-146.358821C658.358821 796.273863 592.855572 731.282359 512 731.282359z'
     ]
     return {
+      data: null,
       searchParams: '',
       searchDates: '',
       pickerOptions: {
@@ -167,7 +168,8 @@ export default {
             }
           }
         }
-      ]
+      ],
+      shopsData: []
 
     }
   },
@@ -177,7 +179,18 @@ export default {
   methods: {
     initData () {
       this.$http.get('/hby/sqfw/sqfw/indexData').then(({data}) => {
-        console.log(data)
+        this.data = data.data
+        // this.shopsData =
+        let total = data.data.man + data.data.woman
+
+        this.SexData[0].nums = data.data.man
+        this.SexData[0].value = Math.floor(data.data.man / total * 100)
+        this.SexData[2].nums = data.data.woman
+        this.SexData[2].value = Math.floor(data.data.woman / total * 100)
+        this.BarData[0].value = data.data.age0
+        this.BarData[1].value = data.data.age12
+        this.BarData[2].value = data.data.age18
+        this.BarData[3].value = data.data.age40
       })
     },
     reset () {
@@ -235,7 +248,6 @@ export default {
   .top-item {
     flex: 1;
     margin-right: 24px;
-    height: 154px;
     padding: 0 20px;
     border-radius: 4px;
     position: relative;

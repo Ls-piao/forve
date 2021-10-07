@@ -16,7 +16,7 @@ export default {
     },
 
     data: {
-      type: Array,
+      type: Object,
       default: () => [
         { title: '近危', value: 55 },
         { title: '易危', value: 15 },
@@ -136,7 +136,7 @@ export default {
             splitLine: {
               show: true,
               lineStyle: {
-                color: '#rgba(0,0,0,.09)'
+                color: '#ccc'
               }
             },
             axisLine: {
@@ -145,7 +145,7 @@ export default {
             axisLabel: {
               margin: 20,
               textStyle: {
-                color: '#000'
+                color: '#ccc'
               }
             },
             axisTick: {

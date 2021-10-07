@@ -1,3 +1,4 @@
+import dictUtils from '@/utils/dictUtils'
 export default function (target) {
   return [
         { columnName: 'shop_id', prop: 'id', label: '商铺编号', align: 'center', width: 100 },
@@ -10,7 +11,15 @@ export default function (target) {
         { columnName: 'shop_legalPersonJob', prop: 'frsf', label: '法人身份', align: 'center', width: 100 },
         { columnName: 'shop_legalPersonForm', prop: 'frhj', label: '法人户籍', align: 'center', minWidth: 100 },
         { columnName: 'shop_type', prop: 'fwxz', label: '房间性质', align: 'center', width: 100 },
-        { columnName: 'shop_industry', prop: 'cszy', label: '从事行业', align: 'center', minWidth: 100 },
+    { columnName: 'shop_industry',
+      prop: 'cszy',
+      label: '从事行业',
+      align: 'center',
+      minWidth: 100,
+      render: (h, c) => {
+        return <span>{dictUtils.getDictLabel('ZRZY_SQFW_HYFL', c.row.cszy)}</span>
+      }
+    },
         { columnName: 'shop_area', prop: 'mj', label: '面积', align: 'center', width: 100 },
         { columnName: 'shop_desc', prop: 'remarks', label: '备注', align: 'center', minWidth: 100 },
     { columnName: 'shop_control',

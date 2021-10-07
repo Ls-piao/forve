@@ -209,10 +209,7 @@ export default {
         { label: '四级', value: 4 }
       ],
       dangerConfig: [
-        { label: '森林火灾', value: 1 },
-        { label: '病虫害', value: 2 },
-        { label: '野生动物疫源疾病', value: 3 },
-        { label: '有害植物入侵', value: 4 }
+
       ],
       priceConfig: [
         { label: '应用价值', value: 1 },
@@ -238,6 +235,7 @@ export default {
   },
   watch: {},
   async activated () {
+    this.dangerConfig = this.$dictUtils.getDictList('ZRZY_LYYH_ZHLX')
     this.type = 'add'
     this.handleAdd()
   },

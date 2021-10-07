@@ -74,7 +74,7 @@ export default {
             },
             top: '14%',
             textAlign: 'center',
-            left: '23%'
+            left: '30%'
           },
           {
             text: this.subTitle,

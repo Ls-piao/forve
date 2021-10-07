@@ -39,8 +39,8 @@ export default {
         },
         grid: {
           top: '10%',
-          left: '3%',
-          right: '3%',
+          left: '6%',
+          right: '6%',
           bottom: '16%'
         },
         legend: {
@@ -191,15 +191,7 @@ export default {
             showSymbol: false,
             lineStyle: {
               width: 5,
-              color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
-                offset: 0,
-                color: '#30cfd0'
-              },
-              {
-                offset: 1,
-                color: ' #330867'
-              }
-              ]),
+              color: ' #330867',
               shadowColor: 'rgba(158,135,255, 0.3)',
               shadowBlur: 10,
               shadowOffsetY: 20

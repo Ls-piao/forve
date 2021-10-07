@@ -15,7 +15,7 @@
           </div>
         </el-form-item> -->
         <el-form-item label="审核结果">
-          <el-radio v-model="radio" :label="1">通过</el-radio>
+          <el-radio v-model="radio" :label="2">通过</el-radio>
           <el-radio v-model="radio" :label="0">不通过</el-radio>
         </el-form-item>
         <el-form-item label="审核意见">
@@ -43,7 +43,7 @@ export default {
     return {
       visible: false,
       data: '',
-      radio: 1,
+      radio: '',
       approveOpinion: ''
     }
   },
@@ -57,10 +57,36 @@ export default {
     cancelForm () {
       this.visible = false
       this.approveOpinion = ''
-      this.radio = 1
+      this.radio = ''
     },
     batchCheckCommit () {
-      this.cancelForm()
+      if (this.radio === '') {
+        this.$message.error('请先选择审批结果')
+        return
+      }
+      let to = this.$loading('审批中')
+      try {
+        for (let x of this.data) {
+          x.status = this.radio
+          this.$http({
+            url: '/hby/lqgl/lqsp/save',
+            method: 'post',
+            data: x
+          }).then(({ data }) => {
+            if (data.code === 200) {
+              this.loading = false
+              this.visible = false
+            }
+          })
+        }
+        this.$message.success('操作成功')
+      } catch (error) {
+        this.$message.success('审批失败')
+      } finally {
+        to.close()
+        this.cancelForm()
+        this.$parent.$refs.table.initData() // 刷新表格
+      }
     }
   }
 }

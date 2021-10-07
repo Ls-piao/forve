@@ -73,7 +73,7 @@ export default {
           left: '48.5%',
           textStyle: {
             color: '#000',
-            fontSize: 14,
+            fontSize: 12,
             fontWeight: '550'
           }
         },

@@ -115,11 +115,18 @@
               </el-col>
                <el-col :span="8">
                 <el-form-item label="从事行业" prop="cszy">
-                  <el-input
-                    size="small"
+                  <el-select
                     v-model="form.cszy"
-                    placeholder="请输入从事行业"
-                  ></el-input>
+                    size="small"
+                    placeholder="请选择从事行业"
+                  >
+                    <el-option
+                      v-for="v in jobConfig"
+                      :key="v.value"
+                      :label="v.label"
+                      :value="v.value"
+                    ></el-option>
+                  </el-select>
                 </el-form-item>
               </el-col>
                <el-col :span="8">
@@ -207,7 +214,7 @@ export default {
         { label: '类型3', value: 3 }
 
       ],
-
+      jobConfig: [],
       rules: {
       },
       type: '',
@@ -222,7 +229,7 @@ export default {
     async init (type, v) {
       this.visible = true
       this.type = type
-
+      this.jobConfig = this.$dictUtils.getDictList('ZRZY_SQFW_HYFL')
       if (type === 'add') {
         this.handleAdd()
       } else {

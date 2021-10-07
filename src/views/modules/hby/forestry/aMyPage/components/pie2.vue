@@ -5,7 +5,6 @@
 <script>
 import echarts from 'echarts'
 
-import {EleResize} from './ele.resize.js'
 export default {
   name: '',
   components: {},
@@ -140,12 +139,7 @@ export default {
   methods: {
     drawChart (options) {
       // 装载数据
-      const dom = this.$refs.id
       this.theEcharts.setOption(options, true) // 设置为true可以使图表切换数据时重新渲染
-      const cb = () => {
-        this.theEcharts.resize()
-      }
-      EleResize.on(dom, cb)
     }
   }
 }

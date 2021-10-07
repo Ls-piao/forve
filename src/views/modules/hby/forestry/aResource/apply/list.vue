@@ -82,14 +82,15 @@ export default {
   data () {
     return {
       searchParams: {
-        bh: ''
+        bh: '',
+        status: 0
       },
       tableColumnNames: [
         'apply_ID',
         'apply_qs',
         'apply_createTime',
         'apply_dwgr',
-        'apply_djql',
+        // 'apply_djql',
         'apply_frdb',
         'apply_txdz',
         'apply_sfzh',
@@ -100,7 +101,8 @@ export default {
         'apply_control'
       ],
       outParams: {
-        bh: ''
+        bh: '',
+        status: 0
       },
       showType: 'all', // 表格显示数据类型
       selectedData: [] // 选中表格数据
@@ -212,12 +214,35 @@ export default {
         type: 'warning'
       })
         .then(() => {
+          for (let x of scope) {
+            x.status = 1
+          }
           this.submit(scope)
         })
         .catch(() => {})
     },
-    submit () {
-
+    submit (scope) {
+      let to = this.$loading('提交中')
+      try {
+        for (let x of scope) {
+          this.$http({
+            url: '/hby/lqgl/lqsp/save',
+            method: 'post',
+            data: x
+          }).then(({ data }) => {
+            if (data.code === 200) {
+              this.loading = false
+              this.visible = false
+            }
+          })
+        }
+        this.$message.success('操作成功')
+      } catch (error) {
+        this.$message.success('提交失败')
+      } finally {
+        to.close()
+        this.$parent.$refs.table.initData() // 刷新表格
+      }
     }
   }
 }

@@ -76,6 +76,7 @@
   </el-dialog>
 </template>
 <script>
+import moment from 'moment'
 export default {
   name: 'addObject',
   components: {
@@ -162,6 +163,7 @@ export default {
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
           let params = this.form
+          params.zxsj = moment(params.zxsj).format('YYYY-MM-DD')
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {

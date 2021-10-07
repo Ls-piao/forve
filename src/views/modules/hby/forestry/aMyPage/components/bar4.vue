@@ -134,7 +134,7 @@ export default {
         ],
         series: [
           {
-            name: '森林火灾',
+            name: '林业灾害',
             type: 'bar',
             barWidth: '15%',
             itemStyle: {
@@ -155,7 +155,7 @@ export default {
             data: this.data.map((v) => v.value1)
           },
           {
-            name: '有害植物入侵',
+            name: '森林火灾',
             type: 'bar',
             barWidth: '15%',
             itemStyle: {
@@ -176,7 +176,7 @@ export default {
             data: this.data.map((v) => v.value2)
           },
           {
-            name: '种类',
+            name: '病虫害',
             type: 'bar',
             barWidth: '15%',
             itemStyle: {

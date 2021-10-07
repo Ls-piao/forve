@@ -89,7 +89,7 @@ export default {
           text: '社区商户数',
           top: '3%',
           textAlign: 'center',
-          left: '7%',
+          left: '9%',
           textStyle: {
             color: '#000',
             fontSize: 24,
@@ -100,7 +100,7 @@ export default {
           left: '2%',
           right: '4%',
           bottom: '14%',
-          top: '16%',
+          top: '20%',
           containLabel: true
         },
         legend: {
@@ -219,45 +219,8 @@ export default {
                 shadowBlur: 30 // shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
               }
             },
-            data: [10, 20, 10, 5, 17, 16, 25, 26, 11, 8, 7, 12]
+            data: this.data.map((v) => v.value)
           }
-          //, {
-          //     name: '最新注册量',
-          //     type: 'bar',
-          //     barWidth: 20,
-          //     tooltip: {
-          //         show: false
-          //     },
-          //      label: {
-          //         show: true,
-          //         position: 'top',
-          //         textStyle: {
-          //             color: '#fff',
-          //         }
-          //     },
-          //     itemStyle: {
-          //         normal: {
-          //             // barBorderRadius: 5,
-          //             // color: new echarts.graphic.LinearGradient(
-          //             //     0, 0, 0, 1,
-          //             //     [{
-          //             //             offset: 0,
-          //             //             color: '#14c8d4'
-          //             //         },
-          //             //         {
-          //             //             offset: 1,
-          //             //             color: '#43eec6'
-          //             //         }
-          //             //     ]
-          //             // )
-          //             color: function(params) {
-          //                 var colorList = ['#0ec1ff', '#10cdff', '#12daff', '#15ebff', '#17f8ff', '#1cfffb', '#1dfff1'];
-          //                 return colorList[params.dataIndex];
-          //             }
-          //         }
-          //     },
-          //     data: [200, 382, 102, 267, 186, 315, 316]
-          // }
         ]
       }
       this.drawChart(options)

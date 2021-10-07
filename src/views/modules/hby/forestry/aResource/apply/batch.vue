@@ -3,7 +3,7 @@
     <div class="page-header">
       <el-form class="searchbox" :inline="true">
         <el-form-item label="申请单编号">
-          <el-input v-model="outParams.cameraId" size="mini"></el-input>
+          <el-input v-model="outParams.bh" size="mini"></el-input>
         </el-form-item>
       </el-form>
       <div style="line-height: 2.2">
@@ -37,14 +37,15 @@
         >
       </div>
 
-      <MyTable
+     <MyTable
         class="tables"
         ref="table"
-        :outerData="tableData"
         :columnNames="tableColumnNames"
+        :fetchFun="tableFetchFun"
         :outParams="outParams"
         :selections="true"
         :showType="showType"
+        :isSort="false"
         :limit="15"
         @selectedDataChange="selectedDataChange"
         rowKey="id"
@@ -56,7 +57,7 @@
 </template>
 
 <script>
-import tableData from '../data.json'
+import { cloneDeep } from 'lodash'
 import batchDialog from './batchDialog'
 import viewDialog from './viewDialog'
 export default {
@@ -69,15 +70,15 @@ export default {
   data () {
     return {
       searchParams: {
-        ID: ''
+        bh: '',
+        status: 1
       },
-      tableData: tableData.slice(0, 3),
       tableColumnNames: [
         'apply_ID',
         'apply_qs',
         'apply_createTime',
         'apply_dwgr',
-        'apply_djql',
+        // 'apply_djql',
         'apply_frdb',
         'apply_txdz',
         'apply_sfzh',
@@ -88,23 +89,39 @@ export default {
         'apply_batch_control'
       ],
       outParams: {
-        ID: ''
+        bh: '',
+
+        status: 1
       },
       showType: 'all', // 表格显示数据类型
       selectedData: [] // 选中表格数据
     }
   },
-  computed: {},
+  computed: {
+    tableFetchFun () {
+      return this.initData
+    }
+  },
   watch: {},
   created () {},
   mounted () {},
   methods: {
+    initData () {
+      return this.$http({
+        url: '/hby/lqgl/lqsp/list',
+        params: this.outParams
+      })
+    },
     selectedDataChange (val) {
       this.selectedData = val
     },
-    doSearch () {},
-    reset () {},
-    dels (items) {},
+    doSearch () {
+      this.$refs.table.initData()
+    },
+    reset () {
+      this.outParams = cloneDeep(this.searchParams)
+      this.$refs.table.initData()
+    },
     handleBatch (scope) {
       if (scope instanceof Array) {
       } else {

@@ -167,6 +167,8 @@
   </el-dialog>
 </template>
 <script>
+
+import moment from 'moment'
 export default {
   name: 'addObject',
   data () {
@@ -306,6 +308,7 @@ export default {
       this.$refs['addobjformref'].validate(valid => {
         if (valid) {
           let params = this.form
+          params.guihuaqi = moment(params.guihuaqi).format('YYYY-MM-DD')
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {

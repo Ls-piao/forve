@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="page-header">
+    <!-- <div class="page-header">
       <el-date-picker
         v-model="searchDates"
         type="daterange"
@@ -14,7 +14,7 @@
         >查询</el-button
       >
       <el-button @click="reset" icon="el-icon-refresh">重置</el-button>
-    </div>
+    </div> -->
     <div class="top" v-if="show">
       <div class="top-item">
         <div class="data">
@@ -173,18 +173,18 @@ export default {
         { title: '有害植物入侵受灾', value: 30 }
       ],
       BarData: [
-        { title: '2010', value1: '150', value2: '120', value3: '110' },
-        { title: '2011', value1: '34', value2: '71', value3: '123' },
-        { title: '2012', value1: '85', value2: '37', value3: '335' },
-        { title: '2013', value1: '77', value2: '212', value3: '322' },
-        { title: '2014', value1: '35', value2: '271', value3: '145' },
-        { title: '2015', value1: '44', value2: '255', value3: '141' },
-        { title: '2016', value1: '112', value2: '216', value3: '361' },
-        { title: '2017', value1: '78', value2: '186', value3: '252' },
-        { title: '2018', value1: '88', value2: '154', value3: '253' },
-        { title: '2019', value1: '16', value2: '165', value3: '221' },
-        { title: '2020', value1: '64', value2: '146', value3: '121' },
-        { title: '2021', value1: '99', value2: '193', value3: '224' }
+        { title: '2010', value1: '0', value2: '0', value3: '0' },
+        { title: '2011', value1: '0', value2: '0', value3: '0' },
+        { title: '2012', value1: '0', value2: '0', value3: '0' },
+        { title: '2013', value1: '0', value2: '0', value3: '0' },
+        { title: '2014', value1: '0', value2: '0', value3: '0' },
+        { title: '2015', value1: '0', value2: '0', value3: '0' },
+        { title: '2016', value1: '0', value2: '0', value3: '0' },
+        { title: '2017', value1: '0', value2: '0', value3: '0' },
+        { title: '2018', value1: '0', value2: '0', value3: '0' },
+        { title: '2019', value1: '0', value2: '0', value3: '0' },
+        { title: '2020', value1: '0', value2: '0', value3: '0' },
+        { title: '2021', value1: '0', value2: '0', value3: '0' }
       ],
       banners: [
         require('../images/banner1.jpg'),
@@ -215,12 +215,40 @@ export default {
         this.topData.slhz = data.data.slhz
         this.topData.bch = data.data.bch
         this.topData.ysdw = data.data.ysdw
-        this.PieData[0].value = data.data.slhz
-        this.PieData[1].value = data.data.bch
-        this.PieData[2].value = data.data.ysdw
-
+        this.PieData = []
+        for (let i in data.data.zhlxZh) {
+          this.PieData.push({
+            title: i,
+            value: data.data.zhlxZh[i]
+          })
+        }
         this.zmj = data.data.zmj
-        this.monthData = data.data.monthZh
+        for (let x = 1; x <= 12; x++) {
+          this.monthData[x] = 0
+        }
+        for (let i in this.monthData) {
+          for (let j in data.data.monthZh) {
+            if (i === j) {
+              this.monthData[i] = data.data.monthZh[i]
+            }
+          }
+        }
+        for (let x of data.data.totalYear) {
+          for (let a of this.BarData) {
+            if (a.title === x.year) {
+              for (let i in x) {
+                if (i === '林业灾害') {
+                  a.value1 = x[i]
+                } else if (i === '森林火灾') {
+                  a.value2 = x[i]
+                } else if (i === '病虫害') {
+                  a.value3 = x[i]
+                }
+              }
+            }
+          }
+        }
+        // this.monthData = data.data.monthZh
         this.BarData.forEach((v) => {
           for (let x in data.data.yearZh) {
             if (v.title === x) {
@@ -228,7 +256,9 @@ export default {
             }
           }
         })
-        this.show = true
+        this.$nextTick(() => {
+          this.show = true
+        })
       })
     }
   },
@@ -296,7 +326,6 @@ export default {
   .top-item {
     flex: 1;
     margin-right: 24px;
-    height: 154px;
     padding: 0 20px;
     border-radius: 4px;
     position: relative;

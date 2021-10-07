@@ -187,15 +187,10 @@ export default {
         '#00BFA5'
       ],
       ProtectData: [
-        { title: '一级植物', value: 15 },
-        { title: '二级植物', value: 40 },
-        { title: '三级植物', value: 45 },
-        { title: '四级植物', value: 45 }
+
       ],
       DangerData: [
-        { title: '近危', value: 55 },
-        { title: '易危', value: 15 },
-        { title: '濒危', value: 30 }
+
       ],
       PlantsData: [
         { title: '蕨类', value1: '150', value2: '120', value3: '110' },
@@ -222,13 +217,20 @@ export default {
         url: '/hby/bwsj/indexData',
         method: 'get'
       }).then(({data}) => {
-        this.DangerData[0].value = data.data.jw
-        this.DangerData[1].value = data.data.yw
-        this.DangerData[2].value = data.data.bw
-        this.ProtectData[0].value = data.data.level1
-        this.ProtectData[1].value = data.data.level2
-        this.ProtectData[2].value = data.data.level3
-        this.ProtectData[3].value = data.data.level4
+        this.DangerData = []
+        this.ProtectData = []
+        for (let i in data.data.bwZh) {
+          this.DangerData.push({
+            title: i,
+            value: data.data.bwZh[i]
+          })
+        }
+        for (let i in data.data.bhZh) {
+          this.ProtectData.push({
+            title: i,
+            value: data.data.bhZh[i]
+          })
+        }
         this.show = true
       })
     }

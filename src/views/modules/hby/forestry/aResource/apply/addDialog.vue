@@ -460,6 +460,7 @@
   </el-dialog>
 </template>
 <script>
+import moment from 'moment'
 export default {
   name: 'addObject',
   data () {
@@ -502,11 +503,12 @@ export default {
         xzfyj: '',
         jtldsyqqlryj: '',
         lyzgbmyj: '',
-        fzjgyj: ''
+        fzjgyj: '',
+        status: 0
       },
       form: {
         qs: '',
-        tbrq: new Date().getTime(),
+        tbrq: new Date(),
         djql: [],
         dwgr: '',
         frdb: '',
@@ -542,7 +544,8 @@ export default {
         xzfyj: '',
         jtldsyqqlryj: '',
         lyzgbmyj: '',
-        fzjgyj: ''
+        fzjgyj: '',
+        status: 0
       },
       qsConfig: [
         { label: '国有', value: 1 },
@@ -550,10 +553,10 @@ export default {
         { label: '个人', value: 3 }
       ],
       djqlConfig: [
-        { label: '林地所有权', value: 1 },
-        { label: '森林或林木所有权', value: 2 },
-        { label: '林地使用权', value: 3 },
-        { label: '森林或林木使用权', value: 4 }
+        { label: '林地所有权', value: '1' },
+        { label: '森林或林木所有权', value: '2' },
+        { label: '林地使用权', value: '3' },
+        { label: '森林或林木使用权', value: '4' }
       ],
       lzConfig: [
         { label: '林种1', value: 1 },
@@ -599,7 +602,16 @@ export default {
             message: '身份证号不能为空',
             trigger: 'blur'
           }
-        ]
+        ],
+        zzrq: [{ required: true,
+          message: '终止日期不能为空',
+          trigger: 'blur'}],
+        tbrq: [{ required: true,
+          message: '终止日期不能为空',
+          trigger: 'blur'}],
+        ldsyq: [{ required: true,
+          message: '林地使用期不能为空',
+          trigger: 'blur'}]
       },
       type: '',
       visible: false,
@@ -617,6 +629,7 @@ export default {
       if (type === 'add') {
         this.handleAdd()
       } else {
+        v.djql = v.djql.split(',')
         this.handleEdit(v)
       }
     },
@@ -637,6 +650,10 @@ export default {
       this.$refs['addobjformref'].validate((valid) => {
         if (valid) {
           let params = this.form
+          params.djql = params.djql.join(',')
+          params.tbrq = moment(params.tbrq).format('YYYY-MM-DD')
+          params.ldsyq = moment(params.ldsyq).format('YYYY-MM-DD')
+          params.zzrq = moment(params.zzrq).format('YYYY-MM-DD')
           if (this.type === 'add') {
             this.postSaveAddObj(params)
           } else {

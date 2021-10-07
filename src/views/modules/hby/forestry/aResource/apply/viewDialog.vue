@@ -23,10 +23,10 @@
               <span class="item-title">单位个人：</span>
               <span class="item-content">{{ data.dwgr }}</span>
             </el-col>
-            <el-col :span="8">
+            <!-- <el-col :span="8">
               <span class="item-title">登记权力：</span>
               <span class="item-content">{{ data.djql }}</span>
-            </el-col>
+            </el-col> -->
             <el-col :span="8">
               <span class="item-title">法人代表：</span>
               <span class="item-content">{{ data.frdb }}</span>

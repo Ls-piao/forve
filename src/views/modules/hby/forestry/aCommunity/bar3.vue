@@ -63,7 +63,7 @@ export default {
           text: '年龄分布',
           top: '0%',
           textAlign: 'center',
-          left: '5%',
+          left: '7%',
           textStyle: {
             color: '#000',
             fontSize: 24,
@@ -80,8 +80,8 @@ export default {
         grid: {
           left: '2%',
           right: '4%',
-          bottom: '14%',
-          top: '16%',
+          bottom: '10%',
+          top: '25%',
           containLabel: true
         },
         legend: {
