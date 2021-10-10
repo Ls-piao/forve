@@ -186,11 +186,10 @@ export default {
             data: [15, 5, 22, 12, 15, 3, 7, 14, 5, 13, 12, 12, 14],
             symbolSize: 1,
             symbol: 'circle',
-            smooth: true,
             yAxisIndex: 0,
             showSymbol: false,
             lineStyle: {
-              width: 5,
+              width: 2,
               color: ' #fda085',
               shadowColor: 'rgba(158,135,255, 0.3)',
               shadowBlur: 10,

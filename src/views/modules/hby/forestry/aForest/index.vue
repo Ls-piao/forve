@@ -61,7 +61,7 @@
       <div :class="$style.top">
         <div :class="$style.left">
           <div :class="$style.tipTitle">
-            森林覆盖率
+            森林蓄积量
           </div>
           <div :class="$style.chart">
             <chart1 id="chart1" />
@@ -105,7 +105,7 @@
         </div>
         <div :class="$style.right">
            <div :class="$style.tipTitle">
-            历年EVI变化
+            林种统计
           </div>
            <div :class="$style.chart">
             <chart6 id="chart6" />

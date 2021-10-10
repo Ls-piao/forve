@@ -190,15 +190,42 @@ export default {
             yAxisIndex: 0,
             showSymbol: false,
             lineStyle: {
-              width: 5,
-              color: ' #330867',
+              width: 2,
+              color: 'rgba(71,214,166, 1)',
               shadowColor: 'rgba(158,135,255, 0.3)',
               shadowBlur: 10,
               shadowOffsetY: 20
             },
+            areaStyle: {
+              // 区域填充样式
+              normal: {
+                // 线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
+                color: new echarts.graphic.LinearGradient(
+                  0,
+                  0,
+                  0,
+                  1,
+                  [
+                    {
+                      offset: 0,
+                      color: 'rgba(71,214,166, 0.9)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgba(71,214,166, 0.01)'
+                    }
+                  ],
+                  false
+                ),
+                shadowColor: 'rgba(61,234,255, 0)', // 阴影颜色
+                shadowBlur: 30 // shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
+              }
+            },
             itemStyle: {
               normal: {
                 color: colorList[0],
+                shadowColor: 'rgba(61,234,255, 0)', // 阴影颜色
+                shadowBlur: 30, // shadowBlur设图形阴影的模糊大小。配合shadowC
                 borderColor: colorList[0]
               }
             }

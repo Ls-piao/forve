@@ -579,7 +579,7 @@ export default {
 .center {
   display: flex;
   flex-direction: column;
-  height: 260px;
+  height: 360px;
   background: #fff;
   border-radius: 5px;
   .chart {

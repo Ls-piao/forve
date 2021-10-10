@@ -239,9 +239,33 @@
         align="center"
         fixed="right"
         :key="Math.random()"
-        width="200"
+        width="300"
         label="操作">
         <template  slot-scope="scope">
+          <el-button
+              v-if="
+                $route.query.previewMode ||
+                  hasPermission(`form:${tableName}:view`)
+              "
+              type="text"
+              icon="el-icon-upload"
+              size="mini"
+              @click="shangBao(scope.row.id)"
+            >
+              上报
+            </el-button>
+            <el-button
+              v-if="
+                $route.query.previewMode ||
+                  hasPermission(`form:${tableName}:view`)
+              "
+              type="text"
+              icon="el-icon-check"
+              size="mini"
+              @click="check(scope.row.id)"
+            >
+              审批
+            </el-button>
           <el-button v-if="$route.query.previewMode || hasPermission(`form:${tableName}:view`)" type="text" icon="el-icon-view" size="mini" @click="view(scope.row.id)">
             查看
           </el-button>
@@ -451,6 +475,20 @@
            // 查看
        view (id) {
          this.$refs.previewForm.init('view', `${this.$route.query.id}`, id)
+       },
+       shangBao (id) {
+         this.$confirm(`确定上报所选项吗?`, '提示', {
+           confirmButtonText: '确定',
+           cancelButtonText: '取消',
+           type: 'warning'
+         }).then(() => {})
+       },
+       check (id) {
+         this.$confirm(`请选择审批结果`, '审批', {
+           confirmButtonText: '通过',
+           cancelButtonText: '不通过',
+           type: 'warning'
+         }).then(() => {})
        },
        del (id) {
          let ids = id || this.dataListSelections.map(item => {

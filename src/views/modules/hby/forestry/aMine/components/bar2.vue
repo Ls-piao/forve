@@ -72,9 +72,9 @@ export default {
               fontSize: 18,
               fontWeight: '400'
             },
-            top: '14%',
+            top: '16%',
             textAlign: 'center',
-            left: '30%'
+            left: '24%'
           },
           {
             text: this.subTitle,
