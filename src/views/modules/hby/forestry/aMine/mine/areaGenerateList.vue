@@ -289,7 +289,6 @@
            pageSize: 10
          },
          params: {
-           status: 1
          },
          title: '',
          tableName: '',
