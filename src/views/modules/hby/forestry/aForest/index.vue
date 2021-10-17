@@ -78,37 +78,37 @@
       </div>
       <div :class="$style.center">
         <div :class="$style.left">
-           <div :class="$style.tipTitle">
+          <div :class="$style.tipTitle">
             年内NDVI变化
           </div>
-           <div :class="$style.chart">
+          <div :class="$style.chart">
             <chart3 id="chart3" />
           </div>
         </div>
         <div :class="$style.right">
-           <div :class="$style.tipTitle">
+          <div :class="$style.tipTitle">
             年内EVI变化
           </div>
-            <div :class="$style.chart">
+          <div :class="$style.chart">
             <chart4 id="chart4" />
           </div>
         </div>
       </div>
       <div :class="$style.bottom">
-         <div :class="$style.left">
-           <div :class="$style.tipTitle">
+        <div :class="$style.left">
+          <div :class="$style.tipTitle">
             历年NDVI变化
           </div>
-           <div :class="$style.chart">
+          <div :class="$style.chart">
             <chart5 id="chart5" />
           </div>
         </div>
         <div :class="$style.right">
-           <div :class="$style.tipTitle">
+          <div :class="$style.tipTitle">
             林种统计
           </div>
-           <div :class="$style.chart">
-            <chart6 id="chart6" />
+          <div :class="$style.chart">
+            <chart6 id="chart6" :data="data6" />
           </div>
         </div>
       </div>
@@ -137,13 +137,33 @@ export default {
   },
   props: {},
   data () {
-    return {}
+    return {
+      data6: []
+    }
   },
   computed: {},
   watch: {},
   created () {},
-  mounted () {},
-  methods: {}
+  mounted () {
+    this.init()
+  },
+  methods: {
+    init () {
+      this.$http({
+        url: '/hby/slindex/indexdata',
+        method: 'get'
+      }).then(({ data }) => {
+        for (let x of data.data.ldvo) {
+          let title = this.$dictUtils.getDictLabel('ZRZY_SLZY_SLLX')
+          this.data6.push({
+            title,
+            value: x.totals
+          })
+        }
+        this.data6 = data.data.ldvo
+      })
+    }
+  }
 }
 </script>
 
@@ -305,36 +325,36 @@ export default {
   }
   .top {
     display: flex;
-    >div{
-       display: flex;
+    > div {
+      display: flex;
       flex-direction: column;
-      .chart{
-        flex:1
+      .chart {
+        flex: 1;
       }
     }
     .left {
       width: 300px;
-      margin-right:16px;
+      margin-right: 16px;
       height: 200px;
     }
     .right {
-      flex:1
+      flex: 1;
     }
   }
   .bottom,
-  .center{
-    margin-bottom:16px;
+  .center {
+    margin-bottom: 16px;
     display: flex;
-    >div  {
-      flex:1;
+    > div {
+      flex: 1;
       height: 200px;
       display: flex;
       flex-direction: column;
-      .chart{
-        flex:1
+      .chart {
+        flex: 1;
       }
     }
-    .left{
+    .left {
       margin-right: 16px;
     }
   }

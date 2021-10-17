@@ -7,7 +7,9 @@
             <img src="./images/ziran1.png" alt />
           </div>
           <div :class="$style.right">
-            <div :class="$style.num"><animateInteger value="95" />㎡</div>
+            <div :class="$style.num">
+              {{zmj}}㎡
+            </div>
             <div :class="$style.label">林地面积</div>
           </div>
         </div>
@@ -18,7 +20,7 @@
             <img src="./images/ziran2.png" alt />
           </div>
           <div :class="$style.right">
-            <div :class="$style.num"><animateInteger value="10" />㎡</div>
+            <div :class="$style.num">{{qm}}㎡</div>
             <div :class="$style.label">乔木林地</div>
           </div>
         </div>
@@ -29,7 +31,7 @@
             <img src="./images/ziran3.png" alt />
           </div>
           <div :class="$style.right">
-            <div :class="$style.num"><animateInteger value="5" />㎡</div>
+            <div :class="$style.num">{{gm}}㎡</div>
             <div :class="$style.label">灌木林地</div>
           </div>
         </div>
@@ -40,7 +42,7 @@
             <img src="./images/ziran4.png" alt />
           </div>
           <div :class="$style.right">
-            <div :class="$style.num"><animateInteger value="5" />㎡</div>
+            <div :class="$style.num">{{zz}}㎡</div>
             <div :class="$style.label">沼泽林地</div>
           </div>
         </div>
@@ -51,7 +53,7 @@
             <img src="./images/ziran5.png" alt />
           </div>
           <div :class="$style.right">
-            <div :class="$style.num"><animateInteger value="5" />㎡</div>
+            <div :class="$style.num">{{5}}㎡</div>
             <div :class="$style.label">其他林地</div>
           </div>
         </div>
@@ -72,7 +74,7 @@
       <div :class="$style.content">
         <div :class="$style.left">
           <div :class="$style.tipTitle">
-            <el-select size="mini" v-model="leftData">
+            <el-select size="mini" v-model="leftData" @change="selectLeft">
               <el-option
                 v-for="v in selectData"
                 :key="v.label"
@@ -84,50 +86,27 @@
           <div :class="$style.table">
             <el-table style="width:100%" :data="leftTableData" stripe>
               <el-table-column
-                width="100"
-                prop="year"
+                prop="nd"
                 fixed="left"
                 label="年份"
               ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="type"
-                label="类型"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="area"
-                label="面积"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="pro"
-                label="百分比"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="num"
-                label="斑块数"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="bi"
-                label="斑块比"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="place"
-                label="区域"
-              ></el-table-column>
+              <el-table-column width="100" prop="type" label="类型">
+                <template slot-scope="s">
+                  {{ $dictUtils.getDictLabel(s.row.lz) }}
+                </template>
+              </el-table-column>
+              <el-table-column prop="total" label="面积"></el-table-column>
+
+              <el-table-column prop="bh" label="斑块数"></el-table-column>
             </el-table>
           </div>
         </div>
         <div :class="$style.center">
-          <chart2 id="chart2" />
+          <chart2 v-if="show" id="chart2" :data="barData" />
         </div>
         <div :class="$style.right">
           <div :class="$style.tipTitle">
-            <el-select size="mini" v-model="rightData">
+            <el-select size="mini" v-model="rightData" @change="selectRight">
               <el-option
                 v-for="v in selectData"
                 :key="v.label"
@@ -139,41 +118,18 @@
           <div :class="$style.table">
             <el-table style="width:100%" :data="rightTableData" stripe>
               <el-table-column
-                width="100"
-                prop="year"
+                prop="nd"
                 fixed="left"
                 label="年份"
               ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="type"
-                label="类型"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="area"
-                label="面积"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="pro"
-                label="百分比"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="num"
-                label="斑块数"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="bi"
-                label="斑块比"
-              ></el-table-column>
-              <el-table-column
-                width="100"
-                prop="place"
-                label="区域"
-              ></el-table-column>
+              <el-table-column width="100" prop="type" label="类型">
+                <template slot-scope="s">
+                  {{ $dictUtils.getDictLabel(s.row.lz) }}
+                </template>
+              </el-table-column>
+              <el-table-column prop="total" label="面积"></el-table-column>
+
+              <el-table-column prop="bh" label="斑块数"></el-table-column>
             </el-table>
           </div>
         </div>
@@ -196,223 +152,124 @@ export default {
   props: {},
   data () {
     return {
-      selectData: [
-        { label: '乔木林地', value: 1 },
-        { label: '灌木林地', value: 2 },
-        { label: '沼泽林地', value: 3 },
-        { label: '其他林地', value: 4 }
-      ],
+      selectData: [],
       leftData: '',
       rightData: '',
-      leftTableData: [
-        {
-          year: '2010',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2011',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2012',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2013',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2014',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2015',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2016',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2017',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2018',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2019',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2020',
-          type: '乔地',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        }
-      ],
-      rightTableData: [
-        {
-          year: '2010',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2011',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2012',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2013',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2014',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2015',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2016',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2017',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2018',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2019',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        },
-        {
-          year: '2020',
-          type: '灌木',
-          area: '123',
-          pro: '23%',
-          bi: '11%',
-          num: '5',
-          place: '大庆'
-        }
-      ]
+      show: false,
+      leftTableData: [],
+      rightTableData: [],
+      zmj: 0,
+      otherData: '',
+      qm: 0,
+      gm: 0,
+      zz: 0,
+      lineData: []
     }
   },
-  computed: {},
-  watch: {},
+  computed: {
+    barData () {
+      let a = this.leftTableData.map(v => {
+        return {
+          title: v.nd,
+          value1: v.total,
+          value2: 0
+
+        }
+      })
+      let b = this.rightTableData.map(v => {
+        return {
+          title: v.nd,
+          value1: 0,
+          value2: v.total
+        }
+      })
+      for (let x of a) {
+        x.name1 = this.$dictUtils.getDictLabel('ZRZY_SLZY_SLLX', this.leftData)
+        x.name2 = this.$dictUtils.getDictLabel('ZRZY_SLZY_SLLX', this.rightData)
+        for (let c of b) {
+          if (x.title === c.title) {
+            x.value2 = c.value2
+          } else {
+            a.push(c)
+          }
+        }
+      }
+      a.sort((s, j) => {
+        return s.title - j.title
+      })
+      return a
+    }
+  },
+  watch: {
+    barData () {
+      this.show = false
+      this.$nextTick(() => {
+        this.show = true
+      })
+    }
+  },
   created () {},
-  mounted () {},
-  methods: {}
+  async mounted () {
+    this.init()
+    this.selectData = await this.$dictUtils.getDictList('ZRZY_SLZY_SLLX')
+    this.selectLeft('1')
+    this.selectRight('2')
+  },
+  methods: {
+    init () {
+      this.$http({
+        url: '/hby/slindex/indexdata',
+        method: 'get'
+      }).then(({ data }) => {
+        this.zmj = data.data.zmj
+        this.qm = data.data.ldvo[1].total
+        this.gm = data.data.ldvo[2].total
+        this.zz = data.data.ldvo[3].total
+        this.lineData = []
+        for (let x of data.data.detail) {
+          this.lineData.push({
+            title: x.year,
+            value: x.tbmj
+          })
+        }
+
+        // for (let x of data.data.ldvo) {
+        //   let title = this.$dictUtils.getDictLabel('ZRZY_SLZY_SLLX')
+        //   this.data6.push({
+        //     title,
+        //     value: x.totals
+        //   })
+        // }
+      })
+    },
+    async selectLeft (v) {
+      this.show = false
+      this.$http({
+        url: '/hby/slindex/indexdataBylz',
+        method: 'get',
+        params: {
+          lz: v
+        }
+      }).then(({ data }) => {
+        this.leftData = v
+        this.leftTableData = data.data
+      })
+    },
+    selectRight (v) {
+      this.show = false
+      this.$http({
+        url: '/hby/slindex/indexdataBylz',
+        method: 'get',
+        params: {
+          lz: v
+        }
+      }).then(({ data }) => {
+        this.rightData = v
+
+        this.rightTableData = data.data
+      })
+    }
+  }
 }
 </script>
 <style lang="scss"></style>
@@ -500,11 +357,7 @@ export default {
     }
     &:nth-child(4) {
       color: #fff;
-      background: linear-gradient(
-        to right,
-        #f6d365 0%,
-        #fda085 100%
-      );
+      background: linear-gradient(to right, #f6d365 0%, #fda085 100%);
 
       &::after {
         background-image: url("../aMyPage/images/data4.png");
@@ -517,11 +370,7 @@ export default {
     }
     &:nth-child(5) {
       color: #fff;
-      background-image: linear-gradient(
-        to right,
-        #60b9b9 0%,
-        #330867 100%
-      );
+      background-image: linear-gradient(to right, #60b9b9 0%, #330867 100%);
 
       &::after {
         background-image: url("../aMyPage/images/data4.png");

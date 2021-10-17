@@ -315,6 +315,11 @@ export default {
 }
 </script>
 <style lang="less">
+.uploadBtn{
+  display: inline-block;
+  margin-left: 10px;
+  
+}
 .tree-line {
   .el-tree-node {
     position: relative;

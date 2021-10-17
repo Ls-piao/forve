@@ -6,7 +6,7 @@
           <i class="fa fa-envira icon"></i>
         </div>
         <div class="right">
-          <div class="num">95</div>
+          <div class="num">{{ topData.kczl }}</div>
           <div class="desc">矿产总量</div>
         </div>
       </div>
@@ -15,7 +15,7 @@
           <i class="fa fa-circle-o icon"></i>
         </div>
         <div class="right">
-          <div class="num">25</div>
+          <div class="num">{{ topData.jskczl }}</div>
           <div class="desc">金属矿产</div>
         </div>
       </div>
@@ -24,7 +24,7 @@
           <i class="fa fa-shield icon"></i>
         </div>
         <div class="right">
-          <div class="num">60</div>
+          <div class="num">{{ topData.fjskczl }}</div>
           <div class="desc">非金属矿产</div>
         </div>
       </div>
@@ -33,7 +33,7 @@
           <i class="fa fa-sitemap icon"></i>
         </div>
         <div class="right">
-          <div class="num">20</div>
+          <div class="num">{{ topData.nykczl }}</div>
           <div class="desc">能源矿产</div>
         </div>
       </div>
@@ -42,41 +42,87 @@
           <i class="fa fa-stethoscope icon"></i>
         </div>
         <div class="right">
-          <div class="num">10</div>
+          <div class="num">{{ topData.sqkczl }}</div>
           <div class="desc">水汽矿产</div>
         </div>
       </div>
     </div>
     <div class="mid">
       <div class="chart">
-        <Bar id="bar1" :data="data1" title="10" subTitle="金属矿区" />
-      </div>
-      <div class="chart">
-        <Bar id="bar2" :data="data2" title="25" subTitle="非金属矿区" />
-      </div>
-      <div class="chart">
-        <Bar id="bar3" :data="data3" title="7" subTitle="能源矿区" />
-      </div>
-      <div class="chart">
-        <Bar id="bar4" :data="data4" title="4" subTitle="水汽矿区" />
-      </div>
-      <div class="chart">
-        <Bar id="bar5" :data="data5" title="26" subTitle="金属矿产" axis="吨" />
+        <Bar
+          v-if="show"
+          id="bar1"
+          :data="data1"
+          :title="total.jskq"
+          subTitle="金属矿区"
+        />
       </div>
       <div class="chart">
         <Bar
+          v-if="show"
+          id="bar2"
+          :data="data2"
+          :title="total.fjskq"
+          subTitle="非金属矿区"
+        />
+      </div>
+      <div class="chart">
+        <Bar
+          v-if="show"
+          id="bar3"
+          :data="data3"
+          :title="total.nykq"
+          subTitle="能源矿区"
+        />
+      </div>
+      <div class="chart">
+        <Bar
+          v-if="show"
+          id="bar4"
+          :data="data4"
+          :title="total.sqkq"
+          subTitle="水汽矿区"
+        />
+      </div>
+      <div class="chart">
+        <Bar
+          v-if="show"
+          id="bar5"
+          :data="data5"
+          :title="total.jskczl||0"
+          axis="吨"
+          subTitle="金属矿产"
+        />
+      </div>
+      <div class="chart">
+        <Bar
+          v-if="show"
           id="bar6"
           :data="data6"
-          title="40"
+          :title="total.fjskczl"
+          axis="吨"
           subTitle="非金属矿产"
+        />
+      </div>
+      <div class="chart">
+        <Bar
+          v-if="show"
+          id="bar7"
+          :data="data7"
+          :title="total.nykczl"
+          subTitle="能源矿产"
           axis="吨"
         />
       </div>
       <div class="chart">
-        <Bar id="bar7" :data="data7" title="15" subTitle="能源矿产" axis="吨" />
-      </div>
-      <div class="chart">
-        <Bar id="bar8" :data="data8" title="14" subTitle="水汽矿产" axis="吨" />
+        <Bar
+          v-if="show"
+          id="bar8"
+          :data="data8"
+          :title="total.sqkczl"
+          axis="吨"
+          subTitle="水汽矿产"
+        />
       </div>
     </div>
     <div class="bottom">
@@ -87,14 +133,13 @@
               矿产产量比
             </div>
             <div class="chose">
-              <el-dropdown @command="v => (barCommand = v)">
+              <el-dropdown @command="getPieData">
                 <span class="el-dropdown-link">
-                  {{ barCommand
-                  }}<i class="el-icon-arrow-down el-icon--right"></i>
+                  {{ barCommand }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item command="本年">本年</el-dropdown-item>
-                  <el-dropdown-item command="历年">历年</el-dropdown-item>
+                  <el-dropdown-item command="1">本年</el-dropdown-item>
+                  <el-dropdown-item command="2">历年</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
@@ -108,21 +153,9 @@
             <div class="text">
               矿区分布
             </div>
-            <div class="chose">
-              <el-dropdown @command="v => (pieCommand = v)">
-                <span class="el-dropdown-link">
-                  {{ pieCommand
-                  }}<i class="el-icon-arrow-down el-icon--right"></i>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item command="本年">本年</el-dropdown-item>
-                  <el-dropdown-item command="历年">历年</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-            </div>
           </div>
           <div class="content">
-            <Bar3 id="pie2" :data="areaData" />
+            <Bar3 id="pie2" v-if="show" :data="areaData" />
           </div>
         </div>
       </div>
@@ -131,60 +164,60 @@
           <div class="title">
             <div class="text">金属资源产量</div>
             <div class="chose">
-              <el-dropdown @command="v => (bar1Command = v)">
+              <el-dropdown @command="getBar1Data">
                 <span class="el-dropdown-link">
                   {{ bar1Command
                   }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item command="本年">本年</el-dropdown-item>
-                  <el-dropdown-item command="历年">历年</el-dropdown-item>
+                  <el-dropdown-item command="1">本年</el-dropdown-item>
+                  <el-dropdown-item command="2">历年</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
           </div>
           <div class="content">
-            <Bar4 id="bottomBar1" :data="bar1Data" />
+            <Bar4 id="bottomBar1" v-if="show" :data="bar1Data" />
           </div>
         </div>
         <div class="chartItems">
           <div class="title">
             <div class="text">非金属资源产量</div>
             <div class="chose">
-              <el-dropdown @command="v => (bar2Command = v)">
+              <el-dropdown @command="getBar2Data">
                 <span class="el-dropdown-link">
                   {{ bar2Command
                   }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item command="本年">本年</el-dropdown-item>
-                  <el-dropdown-item command="历年">历年</el-dropdown-item>
+                  <el-dropdown-item command="1">本年</el-dropdown-item>
+                  <el-dropdown-item command="2">历年</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
           </div>
           <div class="content">
-            <Bar4 id="bottomBar2" :data="bar2Data" />
+            <Bar4 id="bottomBar2" v-if="show" :data="bar2Data" />
           </div>
         </div>
         <div class="chartItems">
           <div class="title">
             <div class="text">能源资源产量</div>
             <div class="chose">
-              <el-dropdown @command="v => (bar3Command = v)">
+              <el-dropdown @command="getBar3Data">
                 <span class="el-dropdown-link">
                   {{ bar3Command
                   }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item command="本年">本年</el-dropdown-item>
-                  <el-dropdown-item command="历年">历年</el-dropdown-item>
+                  <el-dropdown-item command="1">本年</el-dropdown-item>
+                  <el-dropdown-item command="2">历年</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
           </div>
           <div class="content">
-            <Bar4 id="bottomBar3" :data="bar3Data" />
+            <Bar4 id="bottomBar3" v-if="show" :data="bar3Data" />
           </div>
         </div>
       </div>
@@ -208,6 +241,26 @@ export default {
   props: {},
   data () {
     return {
+      show: false,
+      topData: {
+        kczl: 0,
+        jskczl: 0,
+        fjskczl: 0,
+        nykczl: 0,
+        sqkczl: 0
+      },
+      total: {
+        jskq: 0,
+        fjskq: 0,
+        nykq: 0,
+        sqkq: 0,
+        nyjd: 0,
+        ghkq: 0,
+        zybhq: 0,
+        zykcq: 0,
+        zykaicaiq: 0,
+        kcghq: 0
+      },
       data1: [
         { title: '2017', value: '6' },
         { title: '2018', value: '4' },
@@ -265,18 +318,18 @@ export default {
         { title: '2021', value: '1' }
       ],
       pieData: [
-        { title: '金属', value: '25' },
-        { title: '非金属', value: '60' },
-        { title: '能源', value: '20' },
-        { title: '水汽', value: '10' }
+        { title: '金属', value: '0' },
+        { title: '非金属', value: '0' },
+        { title: '能源', value: '0' },
+        { title: '水汽', value: '0' }
       ],
       areaData: [
-        { title: '能源基地', value: '7' },
-        { title: '规划矿区', value: '35' },
-        { title: '资源保护区', value: '20' },
-        { title: '资源堪察区', value: '10' },
-        { title: '重点开采区', value: '15' },
-        { title: '开采规划区', value: '27' }
+        { title: '能源基地', value: '0' },
+        { title: '规划矿区', value: '0' },
+        { title: '资源保护区', value: '0' },
+        { title: '资源堪察区', value: '0' },
+        { title: '重点开采区', value: '0' },
+        { title: '开采规划区', value: '0' }
       ],
       bar1Data: [
         { title: '铁', value: '15' },
@@ -309,8 +362,179 @@ export default {
   computed: {},
   watch: {},
   created () {},
-  mounted () {},
-  methods: {}
+  mounted () {
+    this.initData()
+    this.getPieData(1)
+    this.getBar1Data(1)
+    this.getBar2Data(1)
+    this.getBar3Data(1)
+  },
+  methods: {
+    async initData () {
+      this.$http({
+        url: '/hby/kcindex/indexdata',
+        method: 'get'
+      }).then(({ data }) => {
+        // topData
+        this.topData.sqkczl = data.data.sqkczl
+        this.topData.nykczl = data.data.nykczl
+        this.topData.fjskczl = data.data.fjskczl
+        this.topData.jskczl = data.data.jskczl
+        this.topData.kczl = data.data.kczl
+        // totaldata
+        this.total.jskq = data.data.jskq
+        this.total.fjskq = data.data.fjskq
+        this.total.nykq = data.data.nykq
+        this.total.sqkq = data.data.sqkq
+        this.total.jskczl = data.data.jskczl
+        this.total.fjskczl = data.data.fjskczl
+        this.total.nykczl = data.data.nykczl
+        this.total.sqkczl = data.data.sqkczl
+        // top柱状图
+        for (let x of this.data1) {
+          x.value = 0
+          for (let i in data.data.yearJs) {
+            let v = data.data.yearJs[i]
+            if (x.title === i) {
+              x.value = v
+            }
+          }
+        }
+        for (let x of this.data2) {
+          x.value = 0
+          for (let i in data.data.yearFJs) {
+            let v = data.data.yearFJs[i]
+            if (x.title === i) {
+              x.value = v
+            }
+          }
+        }
+        for (let x of this.data3) {
+          x.value = 0
+          for (let i in data.data.yearNyl) {
+            let v = data.data.yearNyl[i]
+            if (x.title === i) {
+              x.value = v
+            }
+          }
+        }
+        for (let x of this.data4) {
+          x.value = 0
+          for (let i in data.data.yearSq) {
+            let v = data.data.yearSq[i]
+            if (x.title === i) {
+              x.value = v
+            }
+          }
+        }
+        for (let x of this.data5) {
+          x.value = 0
+          for (let i in data.data.yearJsl) {
+            let v = data.data.yearJsl[i]
+            if (x.title === i) {
+              x.value = v
+            }
+          }
+        }
+        for (let x of this.data6) {
+          x.value = 0
+          for (let i in data.data.yearFJsl) {
+            let v = data.data.yearFJsl[i]
+            if (x.title === i) {
+              x.value = v
+            }
+          }
+        }
+        for (let x of this.data7) {
+          x.value = 0
+          for (let i in data.data.yearNyl) {
+            let v = data.data.yearNyl[i]
+            if (x.title === i) {
+              x.value = v
+            }
+          }
+        }
+        for (let x of this.data8) {
+          x.value = 0
+          for (let i in data.data.yearSql) {
+            let v = data.data.yearSql[i]
+            if (x.title === i) {
+              x.value = v
+            }
+          }
+        }
+        // mid柱状图
+        this.areaData[0].value = data.data.nyjd
+        this.areaData[1].value = data.data.ghkq
+        this.areaData[2].value = data.data.zybhq
+        this.areaData[3].value = data.data.zykcq
+        this.areaData[4].value = data.data.zykaicaiq
+        this.areaData[5].value = data.data.kcghq
+        this.$nextTick(() => {
+          this.show = true
+        })
+      })
+    },
+    getPieData (v) {
+      // eslint-disable-next-line eqeqeq
+      if (v == 1) {
+        this.barCommand = '本年'
+      } else {
+        this.barCommand = '历年'
+      }
+      this.$http({
+        url: '/hby/kcindex/indexdatabingzhuangtu',
+        method: 'get',
+        params: {
+          year: v
+        }
+      }).then(({data}) => {
+        this.pieData[0].value = data.data.jsbingtu
+        this.pieData[1].value = data.data.fjsbingtu
+        this.pieData[2].value = data.data.nybingtu
+        this.pieData[3].value = data.data.sqbingtu
+      })
+    },
+    getBar1Data (year) {
+      // eslint-disable-next-line eqeqeq
+      this.bar1Command = year == 1 ? '本年' : '历年'
+      this.$http({
+        url: '/hby/kcindex/indexdatazhuzhuangtu',
+        params: {
+          year,
+          type: 1
+        }
+      }).then(({data}) => {
+        this.bar1Data = data.data.jszhuzhuangtu
+      })
+    },
+    getBar2Data (year) {
+         // eslint-disable-next-line eqeqeq
+      this.bar2Command = year == 1 ? '本年' : '历年'
+      this.$http({
+        url: '/hby/kcindex/indexdatazhuzhuangtu',
+        params: {
+          year,
+          type: 2
+        }
+      }).then(({data}) => {
+        this.bar2Data = data.data.jszhuzhuangtu
+      })
+    },
+    getBar3Data (year) {
+         // eslint-disable-next-line eqeqeq
+      this.bar3Command = year == 1 ? '本年' : '历年'
+      this.$http({
+        url: '/hby/kcindex/indexdatazhuzhuangtu',
+        params: {
+          year,
+          type: 3
+        }
+      }).then(({data}) => {
+        this.bar3Data = data.data.jszhuzhuangtu
+      })
+    }
+  }
 }
 </script>
 

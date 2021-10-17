@@ -51,7 +51,7 @@ export default {
       for (var i = 0; i < this.data.length; i++) {
         data.push(
           {
-            value: this.data[i].value,
+            value: this.data[i].value || 0,
             name: this.data[i].title,
             itemStyle: {
               borderWidth: 3,
@@ -101,7 +101,11 @@ export default {
                     }
                     percent = ((params.value / total) * 100).toFixed(0)
                     if (params.name !== '') {
-                      return percent + '%' + '\r' + params.name
+                      let p = 0
+                      if (percent !== 'NaN') {
+                        p = percent
+                      }
+                      return p + '%' + '\r' + params.name
                     } else {
                       return ''
                     }

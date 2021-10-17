@@ -43,6 +43,7 @@ export default {
   },
   computed: {
     BaseOptions () {
+      let {data} = this
       let options = {
         backgroundColor: 'transparent',
         tooltip: {
@@ -87,7 +88,7 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+          data: data.map((v) => v.title),
           axisLine: {
             lineStyle: {
               color: '#DCE2E8'
@@ -159,38 +160,11 @@ export default {
             show: true
           }
         },
-        dataZoom: [
-          {
-            show: true,
-            height: 12,
-            xAxisIndex: [0],
-            bottom: '8%',
-            start: 10,
-            end: 90,
-            handleIcon:
-              'path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z',
-            handleSize: '110%',
-            handleStyle: {
-              color: '#d3dee5'
-            },
-            textStyle: {
-              color: '#fff'
-            },
-            borderColor: '#90979c'
-          },
-          {
-            type: 'inside',
-            show: true,
-            height: 15,
-            start: 1,
-            end: 35
-          }
-        ],
         series: [
           {
-            name: '乔木面积',
+            name: data[0].name1,
             type: 'bar',
-            data: [55, 112, 35, 68, 78, 91, 54, 111, 101, 132, 99, 100],
+            data: data.map((v) => v.value1),
             barWidth: '16px',
             itemStyle: {
               normal: {
@@ -200,9 +174,9 @@ export default {
             }
           },
           {
-            name: '灌木面积',
+            name: data[0].name2,
             type: 'bar',
-            data: [33, 44, 55, 66, 77, 11, 22, 33, 55, 66, 11, 55],
+            data: data.map((v) => v.value2),
             barWidth: '16px',
             itemStyle: {
               normal: {

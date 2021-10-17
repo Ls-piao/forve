@@ -18,7 +18,7 @@ export default {
       default: () => []
     },
     title: {
-      type: String,
+      type: [String, Number],
       default: '标题'
     },
     subTitle: {
@@ -54,7 +54,7 @@ export default {
       let options = {
         title: [
           {
-            text: this.title,
+            text: this.title.toString(),
             top: '6%',
             textAlign: 'center',
             left: '13%',
@@ -66,15 +66,15 @@ export default {
 
           },
           {
-            text: this.axis,
+            text: '单位:' + this.axis,
             textStyle: {
               color: '#fff',
-              fontSize: 18,
+              fontSize: 14,
               fontWeight: '400'
             },
-            top: '16%',
+            top: '18%',
             textAlign: 'center',
-            left: '24%'
+            right: '-6%'
           },
           {
             text: this.subTitle,
