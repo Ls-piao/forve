@@ -33,6 +33,7 @@
       </el-form-item>
       <el-form-item label="年度" prop="year">
         <el-date-picker
+        style="width:100%"
           v-model="form.year"
           type="year"
           placeholder="请选择年度"
