@@ -62,7 +62,7 @@
         面积堆积图
       </div>
       <div :class="$style.chart">
-        <chart1 id="chart1" />
+        <chart1 id="chart1" v-if="showLine" :data="lineData2" />
       </div>
     </div>
     <div :class="$style.bottom">
@@ -146,6 +146,22 @@
 import chart1 from './chart/area'
 import chart2 from './chart/contrastBar'
 import animateInteger from '../aMyPage/components/animate-integer/index.vue'
+import * as _ from 'lodash'
+// eslint-disable-next-line camelcase
+function array_key_set (arr, column, more = false) {
+  let a = {}
+  _.forOwn(arr, (v) => {
+    if (more) {
+      if (!a[v[column]]) {
+        a[v[column]] = []
+      }
+      a[v[column]].push(v)
+    } else {
+      a[v[column]] = v
+    }
+  })
+  return a
+}
 export default {
   name: '',
   components: {
@@ -160,6 +176,7 @@ export default {
       leftData: '',
       rightData: '',
       show: false,
+      showLine: false,
       leftTableData: [],
       rightTableData: [],
       zmj: 0,
@@ -168,6 +185,7 @@ export default {
       gm: 0,
       zz: 0,
       lineData: [],
+      lineData2: [],
       name1: '',
       name2: '',
       timer: null,
@@ -194,7 +212,9 @@ export default {
   async activated () {
     this.init()
     this.selectData = await this.$dictUtils.getDictList('ZRZY_SLZY_SLLX')
+
     await this.selectLeft('1')
+    await this.selectRight('2')
   },
   methods: {
     init () {
@@ -202,10 +222,10 @@ export default {
         url: '/hby/slindex/indexdata',
         method: 'get'
       }).then(({ data }) => {
-        this.zmj = data.data.zmj
-        this.qm = data.data.ldvo[1].total
-        this.gm = data.data.ldvo[2].total
-        this.zz = data.data.ldvo[3].total
+        this.zmj = data.data.zmj.toFixed(0)
+        this.qm = data.data.ldvo[1].total.toFixed(0)
+        this.gm = data.data.ldvo[2].total.toFixed(0)
+        this.zz = data.data.ldvo[3].total.toFixed(0)
         this.lineData = []
         for (let x of data.data.detail) {
           this.lineData.push({
@@ -213,6 +233,49 @@ export default {
             value: x.tbmj
           })
         }
+      })
+      this.$http({
+        url: '/hby/slindex/indexdataBylzDjTu'
+      }).then(({data}) => {
+        let d = array_key_set(data.data, 'year', true)
+        let xArr = Object.keys(d)
+        let res = []
+        for (let i in d) {
+          let x = d[i]
+
+          for (let a of x) {
+            for (let b of xArr) {
+              let obj = {
+                title: i,
+                value1: 0,
+                value2: 0,
+                value3: 0,
+                value4: 0
+              }
+              if (a.year === b) {
+                switch (a.lz) {
+                  case '1':
+                    obj.value1 = a.total
+                    break
+                  case '2':
+                    obj.value2 = a.total
+                    break
+                  case '3':
+                    obj.value3 = a.total
+                    break
+                  case '4':
+                    obj.value4 = a.total
+                    break
+                  default:
+                    break
+                }
+                res.push(obj)
+              }
+            }
+          }
+        }
+        this.lineData2 = res
+        this.showLine = true
       })
     },
     async selectLeft (v) {
