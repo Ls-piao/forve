@@ -145,7 +145,7 @@
             </div>
           </div>
           <div class="content">
-            <Pie id="pie1" :data="pieData" />
+            <Pie id="pie1" v-if="showPie" :data="pieData" />
           </div>
         </div>
         <div class="bottom-top-right">
@@ -177,7 +177,7 @@
             </div>
           </div>
           <div class="content">
-            <Bar4 id="bottomBar1" v-if="show" :data="bar1Data" />
+            <Bar4 id="bottomBar1" v-if="show1" :data="bar1Data" />
           </div>
         </div>
         <div class="chartItems">
@@ -197,7 +197,7 @@
             </div>
           </div>
           <div class="content">
-            <Bar4 id="bottomBar2" v-if="show" :data="bar2Data" />
+            <Bar4 id="bottomBar2" v-if="show2" :data="bar2Data" />
           </div>
         </div>
         <div class="chartItems">
@@ -217,7 +217,7 @@
             </div>
           </div>
           <div class="content">
-            <Bar4 id="bottomBar3" v-if="show" :data="bar3Data" />
+            <Bar4 id="bottomBar3" v-if="show3" :data="bar3Data" />
           </div>
         </div>
       </div>
@@ -242,6 +242,10 @@ export default {
   data () {
     return {
       show: false,
+      show1: false,
+      show2: false,
+      show3: false,
+      showPie: false,
       topData: {
         kczl: 0,
         jskczl: 0,
@@ -332,25 +336,25 @@ export default {
         { title: '开采规划区', value: '0' }
       ],
       bar1Data: [
-        { title: '铁', value: '15' },
-        { title: '钨', value: '23' },
-        { title: '钼', value: '13' },
-        { title: '锰', value: '8' },
-        { title: '铬', value: '7' }
+        // { title: '铁', value: '15' },
+        // { title: '钨', value: '23' },
+        // { title: '钼', value: '13' },
+        // { title: '锰', value: '8' },
+        // { title: '铬', value: '7' }
       ],
       bar2Data: [
-        { title: '石灰石', value: '15' },
-        { title: '黄金', value: '23' },
-        { title: '花岗岩', value: '13' },
-        { title: '大理石', value: '8' },
-        { title: '玄武岩', value: '7' }
+        // { title: '石灰石', value: '15' },
+        // { title: '黄金', value: '23' },
+        // { title: '花岗岩', value: '13' },
+        // { title: '大理石', value: '8' },
+        // { title: '玄武岩', value: '7' }
       ],
       bar3Data: [
-        { title: '煤', value: '15' },
-        { title: '油页岩', value: '23' },
-        { title: '天然气', value: '13' },
-        { title: '页岩气', value: '8' },
-        { title: '地热资源', value: '7' }
+        // { title: '煤', value: '15' },
+        // { title: '油页岩', value: '23' },
+        // { title: '天然气', value: '13' },
+        // { title: '页岩气', value: '8' },
+        // { title: '地热资源', value: '7' }
       ],
       pieCommand: '本年',
       bar1Command: '本年',
@@ -362,7 +366,7 @@ export default {
   computed: {},
   watch: {},
   created () {},
-  mounted () {
+  activated () {
     this.initData()
     this.getPieData(1)
     this.getBar1Data(1)
@@ -476,6 +480,7 @@ export default {
       })
     },
     getPieData (v) {
+      this.showPie = false
       // eslint-disable-next-line eqeqeq
       if (v == 1) {
         this.barCommand = '本年'
@@ -493,9 +498,13 @@ export default {
         this.pieData[1].value = data.data.fjsbingtu
         this.pieData[2].value = data.data.nybingtu
         this.pieData[3].value = data.data.sqbingtu
+        this.$nextTick(() => {
+          this.showPie = true
+        })
       })
     },
     getBar1Data (year) {
+      this.show1 = false
       // eslint-disable-next-line eqeqeq
       this.bar1Command = year == 1 ? '本年' : '历年'
       this.$http({
@@ -505,10 +514,19 @@ export default {
           type: 1
         }
       }).then(({data}) => {
-        this.bar1Data = data.data.jszhuzhuangtu
+        for (let x of data.data.jszhuzhuangtu) {
+          this.bar1Data.push({
+            title: x.zhuyaokuangchan,
+            value: x.total
+          })
+        }
+        this.$nextTick(() => {
+          this.show1 = true
+        })
       })
     },
     getBar2Data (year) {
+      this.show2 = false
          // eslint-disable-next-line eqeqeq
       this.bar2Command = year == 1 ? '本年' : '历年'
       this.$http({
@@ -518,10 +536,19 @@ export default {
           type: 2
         }
       }).then(({data}) => {
-        this.bar2Data = data.data.jszhuzhuangtu
+        for (let x of data.data.fjszhuzhuangtu) {
+          this.bar2Data.push({
+            title: x.zhuyaokuangchan,
+            value: x.total
+          })
+        }
+        this.$nextTick(() => {
+          this.show2 = true
+        })
       })
     },
     getBar3Data (year) {
+      this.show3 = false
          // eslint-disable-next-line eqeqeq
       this.bar3Command = year == 1 ? '本年' : '历年'
       this.$http({
@@ -531,7 +558,15 @@ export default {
           type: 3
         }
       }).then(({data}) => {
-        this.bar3Data = data.data.jszhuzhuangtu
+        for (let x of data.data.nyzhuzhuangtu) {
+          this.bar3Data.push({
+            title: x.zhuyaokuangchan,
+            value: x.total
+          })
+        }
+        this.$nextTick(() => {
+          this.show3 = true
+        })
       })
     }
   }
