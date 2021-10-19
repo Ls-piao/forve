@@ -6,7 +6,8 @@
       :inline="true"
       :model="form"
       :rules="rules"
-      label-width="80px"
+      label-width="120px"
+      label-position="left"
     >
       <el-form-item label="林业局" prop="lyj">
         <el-select v-model="form.lyj" placeholder="请选择林业局">
@@ -381,7 +382,7 @@ export default {
 }
 
 /deep/.el-form-item__content {
-  width: calc(100% - 100px) !important;
+  width: calc(100% - 150px) !important;
 }
 
 .martop10 {

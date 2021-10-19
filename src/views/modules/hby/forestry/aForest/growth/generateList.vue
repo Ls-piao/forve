@@ -283,6 +283,9 @@
           show-overflow-tooltip
           :sortable="option.isSort ? 'custom' : false"
           :label="option.name"
+           header-align="center"
+          align="center"
+:min-width="getWidth(option.model)"
         >
           <template slot-scope="scope">
             <div
@@ -645,6 +648,18 @@ export default {
     }
   },
   methods: {
+    getWidth (v) {
+      switch (v) {
+        case 'QS':
+          return 150
+        case 'TXDZ':
+          return 400
+        case 'SFZH':
+          return 300
+        default:
+          return 100
+      }
+    },
     generateModel (genList) {
       for (let i = 0; i < genList.length; i++) {
         if (genList[i].type === 'grid') {

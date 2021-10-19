@@ -29,40 +29,40 @@
 </template>
 
 <script>
-import SubMenu from "./_common_left_submenu";
+import SubMenu from './_common_left_submenu'
 
 export default {
-  name: "sub-menu",
+  name: 'sub-menu',
   props: {
     menu: {
       type: Object,
-      required: true,
+      required: true
     },
     dynamicMenuRoutes: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   components: {
-    SubMenu,
+    SubMenu
   },
   computed: {
     sidebarLayoutSkin: {
-      get() {
-        return this.$store.state.common.sidebarLayoutSkin;
-      },
-    },
+      get () {
+        return this.$store.state.common.sidebarLayoutSkin
+      }
+    }
   },
   methods: {
-    translateRouterPath(menu) {
-      return "/" + menu.href.replace(/^\//g, "");
+    translateRouterPath (menu) {
+      return '/' + menu.href.replace(/^\//g, '')
     },
     // 通过menuId与动态(菜单)路由进行匹配跳转至指定路由
-    gotoRouteHandle(menu) {
-      console.log(menu);
-      let d = this.translateRouterPath(menu);
-      console.log(d);
-      this.$router.push({ path: d });
+    gotoRouteHandle (menu) {
+      console.log(menu)
+      let d = this.translateRouterPath(menu)
+      console.log(d)
+      this.$router.push({ path: d })
       // const route = this.dynamicMenuRoutes.filter(
       //   (item) => item.meta.menuId === menu.id
       // );
@@ -71,7 +71,7 @@ export default {
       //   let routePath = this.translateRouterPath(menu);
       //   this.$router.push({ path: routePath });
       // }
-    },
-  },
-};
+    }
+  }
+}
 </script>

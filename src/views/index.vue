@@ -169,185 +169,185 @@
 </template>
 
 <script>
-import { clearLoginInfo, hasPermission } from "@/utils";
-import UpdatePassword from "./layout/UpdatePassword";
+import { clearLoginInfo, hasPermission } from '@/utils'
+import UpdatePassword from './layout/UpdatePassword'
 export default {
-  data() {
+  data () {
     return {
       updatePassowrdVisible: false,
-      state: "",
-      allMenuList: [],
-    };
+      state: '',
+      allMenuList: []
+    }
   },
   components: {
-    UpdatePassword,
+    UpdatePassword
   },
   computed: {
     photo: {
-      get() {
-        return this.$store.state.user.photo;
-      },
+      get () {
+        return this.$store.state.user.photo
+      }
     },
     userName: {
-      get() {
-        return this.$store.state.user.name;
-      },
-    },
+      get () {
+        return this.$store.state.user.name
+      }
+    }
   },
-  created() {
+  created () {
     this.allMenuList = JSON.parse(
-      sessionStorage.getItem("allMenuList") || "[]"
-    );
-    this.resize();
+      sessionStorage.getItem('allMenuList') || '[]'
+    )
+    this.resize()
   },
-  mounted() {
+  mounted () {
     // this.getUserInfo()
     // this.getConfig()
     // this.getTimeState()
   },
   methods: {
     // 获取当前登录用户信息
-    getUserInfo() {
+    getUserInfo () {
       this.$http({
-        url: "/sys/user/info",
-        method: "get",
+        url: '/sys/user/info',
+        method: 'get'
       }).then(({ data }) => {
         if (data.success) {
-          this.$store.commit("user/updateUser", data.user);
+          this.$store.commit('user/updateUser', data.user)
         }
-      });
+      })
     },
     // 获取产品name 和 logo
-    getConfig() {
-      this.$http.get("/sys/sysConfig/getConfig").then(({ data }) => {
+    getConfig () {
+      this.$http.get('/sys/sysConfig/getConfig').then(({ data }) => {
         if (data.success) {
           this.$store.commit(
-            "config/updateProductName",
+            'config/updateProductName',
             data.config.productName
-          );
-          this.$store.commit("config/updateLogo", data.config.logo);
-          if (!localStorage.getItem("defaultLayout")) {
+          )
+          this.$store.commit('config/updateLogo', data.config.logo)
+          if (!localStorage.getItem('defaultLayout')) {
             this.$store.commit(
-              "config/updateDefaultLayout",
+              'config/updateDefaultLayout',
               data.config.defaultLayout
-            );
+            )
           }
-          if (!localStorage.getItem("defaultTheme")) {
+          if (!localStorage.getItem('defaultTheme')) {
             this.$store.commit(
-              "config/updateDefaultTheme",
+              'config/updateDefaultTheme',
               data.config.defaultTheme
-            );
+            )
           }
         }
-      });
+      })
     },
     // 页面提示信息
-    getTimeState() {
+    getTimeState () {
       // 获取当前时间
-      let timeNow = new Date();
+      let timeNow = new Date()
       // 获取当前小时
-      let hours = timeNow.getHours();
+      let hours = timeNow.getHours()
       // 设置默认文字
-      let state = ``;
+      let state = ``
       // 判断当前时间段
       if (hours >= 0 && hours <= 10) {
-        state = `早上好!`;
+        state = `早上好!`
       } else if (hours > 10 && hours <= 14) {
-        state = `中午好!`;
+        state = `中午好!`
       } else if (hours > 14 && hours <= 18) {
-        state = `下午好!`;
+        state = `下午好!`
       } else if (hours > 18 && hours <= 24) {
-        state = `晚上好!`;
+        state = `晚上好!`
       }
-      this.state = state;
+      this.state = state
     },
     // 修改密码
-    updatePasswordHandle() {
-      this.updatePassowrdVisible = true;
+    updatePasswordHandle () {
+      this.updatePassowrdVisible = true
       this.$nextTick(() => {
-        this.$refs.updatePassowrd.init();
-      });
+        this.$refs.updatePassowrd.init()
+      })
     },
     // 退出
-    logoutHandle() {
-      this.$confirm(`确定进行[退出]操作?`, "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
+    logoutHandle () {
+      this.$confirm(`确定进行[退出]操作?`, '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       }).then(() => {
         this.$http({
-          url: "/sys/logout",
-          method: "get",
+          url: '/sys/logout',
+          method: 'get'
         }).then(({ data }) => {
           if (data && data.success) {
-            clearLoginInfo();
-            if (process.env.VUE_APP_SSO_LOGIN === "true") {
+            clearLoginInfo()
+            if (process.env.VUE_APP_SSO_LOGIN === 'true') {
               let service =
-                window.location.protocol + "//" + window.location.host + "/";
-              window.location.href = `${process.env.VUE_APP_CAS_SERVER}/logout?service=${service}`;
+                window.location.protocol + '//' + window.location.host + '/'
+              window.location.href = `${process.env.VUE_APP_CAS_SERVER}/logout?service=${service}`
             } else {
-              this.$router.replace({ name: "login" });
+              this.$router.replace({ name: 'login' })
             }
           }
-        });
-      });
+        })
+      })
     },
     // 重设页面大小
-    resize() {
-      this.tofix();
+    resize () {
+      this.tofix()
       let that = this
-      window.addEventListener("resize", function () {
-        that.tofix();
-      });
+      window.addEventListener('resize', function () {
+        that.tofix()
+      })
     },
     // 定义html字体 运行在所有js之前减少闪屏
-    tofix() {
+    tofix () {
       var width =
         document.documentElement.clientWidth > 1366
           ? document.documentElement.clientWidth
-          : 1366;
-      var rate = (width / 1920) * 100;
-      document.querySelector("html").style.fontSize = rate + "px";
+          : 1366
+      var rate = (width / 1920) * 100
+      document.querySelector('html').style.fontSize = rate + 'px'
     },
     // 判断是否有权限以及页面跳转
-    hasPerAndRedirect(val) {
+    hasPerAndRedirect (val) {
       let data = this.allMenuList.filter(function (item) {
-        return item.name === val;
-      });
+        return item.name === val
+      })
       if (data.length !== 0) {
-        if (data[0].permission === "" || hasPermission(data[0].permission)) {
+        if (data[0].permission === '' || hasPermission(data[0].permission)) {
           // 模块名存储到本地来使用
-          localStorage.removeItem("modulesName");
-          localStorage.removeItem("logoName");
-          localStorage.setItem("modulesName", data[0].name);
+          localStorage.removeItem('modulesName')
+          localStorage.removeItem('logoName')
+          localStorage.setItem('modulesName', data[0].name)
           localStorage.setItem(
-            "logoName",
-            "/static/img/" + data[0].name + "系统.png"
-          );
-          this.$router.push(data[0].href);
+            'logoName',
+            '/static/img/' + data[0].name + '系统.png'
+          )
+          this.$router.push(data[0].href)
           // 移除font-size 样式
-          document.querySelector("html").removeAttribute("style");
+          document.querySelector('html').removeAttribute('style')
           // 重新赋值session
-          sessionStorage.removeItem("someMenuList");
+          sessionStorage.removeItem('someMenuList')
           sessionStorage.setItem(
-            "someMenuList",
+            'someMenuList',
             JSON.stringify(data[0].children)
-          );
+          )
         } else {
           this.$notify.error({
-            title: "提示",
-            message: "权限不足，请联系管理员",
-          });
+            title: '提示',
+            message: '权限不足，请联系管理员'
+          })
         }
       } else {
         this.$notify.error({
-          title: "提示",
-          message: "权限不足，请联系管理员",
-        });
+          title: '提示',
+          message: '权限不足，请联系管理员'
+        })
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped>

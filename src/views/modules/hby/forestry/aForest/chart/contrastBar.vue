@@ -25,8 +25,6 @@ export default {
       type: Array,
       default: () => ['#ffe000', '#ffa800', '#ff5b00', '#ff3000']
     },
-    name1: {type: String, default: 'name1'},
-    name2: {type: String, default: 'name2'},
     tip: {
       type: Object,
       default: () => {
@@ -164,6 +162,7 @@ export default {
         },
         series: [
           {
+            name: data[0].name1,
             type: 'bar',
             data: data.map((v) => v.value1),
             barWidth: '16px',
@@ -175,6 +174,7 @@ export default {
             }
           },
           {
+            name: data[0].name2,
             type: 'bar',
             data: data.map((v) => v.value2),
             barWidth: '16px',

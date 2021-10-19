@@ -80,7 +80,7 @@ export default {
 
         xAxis: [{
           type: 'category',
-          data: this.data.map((v) => v.title),
+          data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'],
           axisLine: {
             lineStyle: {
               color: '#DCE2E8'
@@ -132,7 +132,33 @@ export default {
           },
           boundaryGap: false
         }],
-
+        dataZoom: [
+          {
+            show: true,
+            height: 12,
+            xAxisIndex: [0],
+            bottom: '10%',
+            start: 10,
+            end: 90,
+            handleIcon:
+              'path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z',
+            handleSize: '110%',
+            handleStyle: {
+              color: '#d3dee5'
+            },
+            textStyle: {
+              color: '#fff'
+            },
+            borderColor: '#90979c'
+          },
+          {
+            type: 'inside',
+            show: true,
+            height: 15,
+            start: 1,
+            end: 35
+          }
+        ],
         yAxis: [{
           type: 'value',
           axisTick: {
@@ -158,7 +184,7 @@ export default {
           type: 'line',
 
           showSymbol: false,
-          data: this.data.map((v) => v.value1),
+          data: [15, 61, 12, 33, 25, 41, 34, 62, 73, 32, 22],
           smooth: true,
           symbolSize: 6,
           lineStyle: {
@@ -182,7 +208,7 @@ export default {
           type: 'line',
 
           showSymbol: false,
-          data: this.data.map((v) => v.value2),
+          data: [12, 44, 22, 22, 11, 23, 42, 12, 33, 22, 11],
           smooth: true,
           symbolSize: 6,
           lineStyle: {
@@ -206,7 +232,7 @@ export default {
           type: 'line',
 
           showSymbol: false,
-          data: this.data.map((v) => v.value3),
+          data: [5, 11, 8, 13, 12, 11, 14, 12, 13, 12, 10],
           smooth: true,
           symbolSize: 6,
           lineStyle: {
@@ -230,7 +256,7 @@ export default {
           type: 'line',
 
           showSymbol: false,
-          data: this.data.map((v) => v.value4),
+          data: [14, 31, 22, 11, 22, 33, 44, 13, 32, 12, 11],
           smooth: true,
           symbolSize: 6,
           lineStyle: {

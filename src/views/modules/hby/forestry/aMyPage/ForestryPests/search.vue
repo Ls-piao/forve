@@ -3,13 +3,9 @@
   <div class="container">
     <div class="left">
       <div class="map">
-        <img
-          src="../images/test.png"
-          style="width: 100%; height: 100%; object-fit: cover"
-          alt=""
-        />
+        <div id="map" style="width: 100%; height: 95%;"></div>
       </div>
-      <div class="tableBox" :style="{ height: show ? '40%' : 0 }">
+      <div class="tableBox" :style="{ height: show ? '40%' : 0,zIndex:999 }">
         <div class="listbar" v-if="show">
           <el-button
             class="checkbtn"
@@ -145,6 +141,11 @@
 import animateInteger from '../components/animate-integer/index.vue'
 import { cloneDeep } from 'lodash'
 
+import L from 'leaflet'
+import '@supermap/iclient-leaflet/dist/iclient-leaflet.css'
+import 'leaflet/dist/leaflet.css'
+import '@supermap/iclient-leaflet'
+
 import preview from '../components/preview'
 import Preview from '../components/preview.vue'
 export default {
@@ -204,10 +205,11 @@ export default {
         szmj: ''
       },
       showType: 'all', // 表格显示数据类型
-      selectedData: [] // 选中表格数据
+      selectedData: [], // 选中表格数据
       /**
        * 表格结束
        */
+      url: 'http://39.106.80.45:8091/iserver/services/map-hby/rest/maps'
     }
   },
   computed: {
@@ -217,7 +219,9 @@ export default {
   },
   watch: {},
   created () {},
-  mounted () {},
+  mounted () {
+    this.createMap()
+  },
   methods: {
     initData (params) {
       return this.$http({
@@ -291,11 +295,40 @@ export default {
     },
     preview (v, prop) {
       this.$refs.preview.init(v, prop)
+    },
+    createMap () {
+      let self = this
+      // let baseLayer = L.supermap.tiandituTileLayer({layerType: 'img'})
+      let baseLayer = L.tileLayer('https://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=4ced2e6d84f619258ea81002c05182ce')
+      let parklayer = L.supermap.tiledMapLayer(self.url + '/park', {cacheEnabled: true, returnAttributes: true, visible: false, attribution: "Tile Data <span>© <a href='http://support.supermap.com.cn/product/iServer.aspx' target='_blank'>SuperMap iServer</a></span> with <span>© <a href='https://iclient.supermap.io' target='_blank'>SuperMap iClient</a></span>"})
+      let forestrylayer = L.supermap.tiledMapLayer(self.url + '/forestry', {cacheEnabled: true, returnAttributes: true, visible: false, attribution: "Tile Data <span>© <a href='http://support.supermap.com.cn/product/iServer.aspx' target='_blank'>SuperMap iServer</a></span> with <span>© <a href='https://iclient.supermap.io' target='_blank'>SuperMap iClient</a></span>"})
+
+      // 图标设定
+      // let DefaultIcon = L.icon({
+      //   iconUrl: icon,
+      //   shadowUrl: iconShadow
+      // })
+      // L.Marker.prototype.options.icon = DefaultIcon
+
+      let map = L.map('map', {
+        crs: L.CRS.EPSG3857,
+        center: [43.450, 130.319],
+        maxZoom: 18,
+        zoom: 8,
+        layers: [baseLayer, forestrylayer, parklayer]
+      })
+      let baseMap = {'基础地图': baseLayer}
+      let overMap = {'虎豹园基础图': parklayer, '国有林场点': forestrylayer}
+      L.control.layers(baseMap, overMap).addTo(map)
     }
   }
 }
 </script>
-
+<style lang="less">
+  .leaflet-control-attribution {
+    display: none;
+  }
+</style>
 <style scoped lang="less">
 .tableBox {
   margin-top: 10px;

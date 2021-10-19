@@ -227,6 +227,9 @@
           show-overflow-tooltip
           :sortable="option.isSort ? 'custom' : false"
           :label="option.name"
+          header-align="center"
+          align="center"
+          :min-width="getWidth(option.model)"
         >
           <template slot-scope="scope">
             <div
@@ -554,6 +557,18 @@ export default {
     }
   },
   methods: {
+    getWidth (v) {
+      switch (v) {
+        case 'QS':
+          return 150
+        case 'TXDZ':
+          return 400
+        case 'SFZH':
+          return 300
+        default:
+          return 100
+      }
+    },
     generateModel (genList) {
       for (let i = 0; i < genList.length; i++) {
         if (genList[i].type === 'grid') {
@@ -751,22 +766,21 @@ export default {
           formId: this.$route.query.id
         },
         responseType: 'blob'
+      }).then(response => {
+        if (!response) {
+          return
+        }
+        let link = document.createElement('a')
+        link.href = window.URL.createObjectURL(new Blob([response.data]))
+        link.target = '_blank'
+        let filename = response.headers['content-disposition']
+        link.download = decodeURI(filename)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        // eslint-disable-next-line handle-callback-err
       })
-        .then(response => {
-          if (!response) {
-            return
-          }
-          let link = document.createElement('a')
-          link.href = window.URL.createObjectURL(new Blob([response.data]))
-          link.target = '_blank'
-          let filename = response.headers['content-disposition']
-          link.download = decodeURI(filename)
-          document.body.appendChild(link)
-          link.click()
-          document.body.removeChild(link)
-          // eslint-disable-next-line handle-callback-err
-        })
-        // .catch(error => {})
+      // .catch(error => {})
     },
     exportExcel () {
       this.$http({
@@ -778,22 +792,21 @@ export default {
           orderBy: this.orderBy
         },
         responseType: 'blob'
+      }).then(response => {
+        if (!response) {
+          return
+        }
+        let link = document.createElement('a')
+        link.href = window.URL.createObjectURL(new Blob([response.data]))
+        link.target = '_blank'
+        let filename = response.headers['content-disposition']
+        link.download = decodeURI(filename)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        // eslint-disable-next-line handle-callback-err
       })
-        .then(response => {
-          if (!response) {
-            return
-          }
-          let link = document.createElement('a')
-          link.href = window.URL.createObjectURL(new Blob([response.data]))
-          link.target = '_blank'
-          let filename = response.headers['content-disposition']
-          link.download = decodeURI(filename)
-          document.body.appendChild(link)
-          link.click()
-          document.body.removeChild(link)
-          // eslint-disable-next-line handle-callback-err
-        })
-        // .catch(error => {})
+      // .catch(error => {})
     },
     resetSearch () {
       this.$refs.searchForm.resetFields()

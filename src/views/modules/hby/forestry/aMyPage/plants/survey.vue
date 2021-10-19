@@ -3,11 +3,7 @@
   <div class="container">
     <div class="top">
       <div class="top-left">
-        <img
-          src="./static/charts1.png"
-          style="width: 100%; height: 100%"
-          alt=""
-        />
+        <div id="map" style="width: 100%; height: 100%;"></div>
       </div>
       <div class="top-center">
         <div class="top-center-top">
@@ -20,11 +16,7 @@
             <div class="top-center-top-left-item">第五园区：XXXXXXXXX</div>
           </div>
           <div class="top-center-top-right">
-            <img
-              src="./static/charts1.png"
-              style="width: 100%; height: 100%"
-              alt=""
-            />
+            <div id="map1" style="width: 100%; height: 100%;"></div>
           </div>
         </div>
         <div class="top-center-bottom">
@@ -55,7 +47,7 @@
             <div class="text">国家Ⅰ级保护野生植物</div>
           </div>
           <div class="content">
-            <DvScrollBoard :config="ProtectConfig1" ref="scrollBoard" />
+            <DvScrollBoard :config="ProtectConfig1" ref="scrollBoard" @click="getUrl" />
           </div>
         </div>
         <div class="top-right-bottom">
@@ -64,7 +56,7 @@
             <div class="text">国家Ⅱ级保护野生植物</div>
           </div>
           <div class="content">
-            <DvScrollBoard :config="ProtectConfig2" ref="scrollBoard" />
+            <DvScrollBoard :config="ProtectConfig2" ref="scrollBoard" @click="getUrl"/>
           </div>
         </div>
       </div>
@@ -124,6 +116,11 @@
 import Vue from 'vue'
 import { loading, scrollBoard } from '@jiaminghi/data-view'
 
+import L from 'leaflet'
+import '@supermap/iclient-leaflet/dist/iclient-leaflet.css'
+import 'leaflet/dist/leaflet.css'
+import '@supermap/iclient-leaflet'
+
 import Pie from '../components/pie'
 import Bar from '../components/bar'
 import Bar2 from '../components/bar2'
@@ -153,8 +150,8 @@ export default {
       },
       ProtectConfig1: {
         data: [
-          ["<i class='el-icon-grape' />", '东北红豆杉'],
-          ["<i class='el-icon-grape' />", '长白松']
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">东北红豆杉</span>', '<i style="display:none">https://baike.baidu.com/item/东北红豆杉</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">长白松</span>', '<i style="display:none">https://baike.baidu.com/item/长白松</i>']
         ],
         columnWidth: ['40', '140'],
         oddRowBGC: '#fff',
@@ -162,15 +159,15 @@ export default {
       },
       ProtectConfig2: {
         data: [
-          ["<i class='el-icon-grape' />", '红松'],
-          ["<i class='el-icon-grape' />", '钻天柳'],
-          ["<i class='el-icon-grape' />", '水曲柳'],
-          ["<i class='el-icon-grape' />", '水曲柳'],
-          ["<i class='el-icon-grape' />", '水曲柳'],
-          ["<i class='el-icon-grape' />", '水曲柳'],
-          ["<i class='el-icon-grape' />", '水曲柳'],
-          ["<i class='el-icon-grape' />", '水曲柳'],
-          ["<i class='el-icon-grape' />", '水曲柳']
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">红松</span>', '<i style="display:none">https://baike.baidu.com/item/红松</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">钻天柳</span>', '<i style="display:none">https://baike.baidu.com/item/钻天柳</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">水曲柳</span>', '<i style="display:none">https://baike.baidu.com/item/水曲柳</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">水曲柳</span>', '<i style="display:none">https://baike.baidu.com/item/水曲柳</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">水曲柳</span>', '<i style="display:none">https://baike.baidu.com/item/水曲柳</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">水曲柳</span>', '<i style="display:none">https://baike.baidu.com/item/水曲柳</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">水曲柳</span>', '<i style="display:none">https://baike.baidu.com/item/水曲柳</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">水曲柳</span>', '<i style="display:none">https://baike.baidu.com/item/水曲柳</i>'],
+          ["<i class='el-icon-grape' />", '<span style="cursor: pointer;">水曲柳</span>', '<i style="display:none">https://baike.baidu.com/item/水曲柳</i>']
         ],
         oddRowBGC: '#fff',
         evenRowBGC: '#f6f8fa',
@@ -199,13 +196,16 @@ export default {
         { title: '高等植物', value1: '150', value2: '206', value3: '333' }
       ],
       PlantsType: ['门', '科', '属', '种'],
-      show: false
+      show: false,
+      url: 'http://39.106.80.45:8091/iserver/services/map-hby/rest/maps'
     }
   },
   computed: {},
   watch: {},
   created () {},
-  mounted () {},
+  mounted () {
+    this.createMap()
+  },
   activated () {
     this.$nextTick(() => {
       this.initData()
@@ -233,6 +233,59 @@ export default {
         }
         this.show = true
       })
+    },
+    getUrl (v) {
+      let reg = /[\u4e00-\u9fa5]/g
+      let d = v.ceil.match(reg).join('')
+      window.open(`https://baike.baidu.com/item/${d}`, '_blank')
+    },
+    createMap () {
+      let self = this
+      // let baseLayer = L.supermap.tiandituTileLayer({layerType: 'img'})
+      let baseLayer = L.tileLayer('https://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=4ced2e6d84f619258ea81002c05182ce')
+      let parklayer = L.supermap.tiledMapLayer(self.url + '/park', {cacheEnabled: true, returnAttributes: true, visible: false, attribution: "Tile Data <span>© <a href='http://support.supermap.com.cn/product/iServer.aspx' target='_blank'>SuperMap iServer</a></span> with <span>© <a href='https://iclient.supermap.io' target='_blank'>SuperMap iClient</a></span>"})
+      let forestrylayer = L.supermap.tiledMapLayer(self.url + '/forestry', {cacheEnabled: true, returnAttributes: true, visible: false, attribution: "Tile Data <span>© <a href='http://support.supermap.com.cn/product/iServer.aspx' target='_blank'>SuperMap iServer</a></span> with <span>© <a href='https://iclient.supermap.io' target='_blank'>SuperMap iClient</a></span>"})
+
+      // 图标设定
+      // let DefaultIcon = L.icon({
+      //   iconUrl: icon,
+      //   shadowUrl: iconShadow
+      // })
+      // L.Marker.prototype.options.icon = DefaultIcon
+
+      let map = L.map('map', {
+        crs: L.CRS.EPSG3857,
+        center: [43.450, 130.319],
+        maxZoom: 18,
+        zoom: 8,
+        layers: [baseLayer, forestrylayer, parklayer]
+      })
+      let baseMap = {'基础地图': baseLayer}
+      let overMap = {'虎豹园基础图': parklayer, '国有林场点': forestrylayer}
+      L.control.layers(baseMap, overMap).addTo(map)
+
+      // map1
+      let baseLayer1 = L.tileLayer('https://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=4ced2e6d84f619258ea81002c05182ce')
+      let parklayer1 = L.supermap.tiledMapLayer(self.url + '/park', {cacheEnabled: true, returnAttributes: true, visible: false, attribution: 'hby'})
+      let forestrylayer1 = L.supermap.tiledMapLayer(self.url + '/forestry', {cacheEnabled: true, returnAttributes: true, visible: false, attribution: 'hby'})
+
+      // 图标设定
+      // let DefaultIcon = L.icon({
+      //   iconUrl: icon,
+      //   shadowUrl: iconShadow
+      // })
+      // L.Marker.prototype.options.icon = DefaultIcon
+
+      let map1 = L.map('map1', {
+        crs: L.CRS.EPSG3857,
+        center: [43.450, 130.319],
+        maxZoom: 18,
+        zoom: 6,
+        layers: [baseLayer1, parklayer1]
+      })
+      let baseMap1 = {'基础地图': baseLayer1}
+      let overMap1 = {'虎豹园基础图': parklayer1, '国有林场点': forestrylayer1}
+      L.control.layers(baseMap1, overMap1).addTo(map1)
     }
   }
 }
@@ -283,6 +336,7 @@ export default {
         }
         .top-center-top-right {
           flex: 1;
+          
         }
       }
       .top-center-bottom {

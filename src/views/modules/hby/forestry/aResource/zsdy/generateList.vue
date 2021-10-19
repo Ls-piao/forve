@@ -235,6 +235,9 @@
           show-overflow-tooltip
           :sortable="option.isSort ? 'custom' : false"
           :label="option.name"
+           :min-width="getWidth(option.model)"
+           header-align="center"
+          align="center"
         >
           <template slot-scope="scope">
             <div
@@ -444,18 +447,6 @@
               查看
             </el-button>
             <el-button
-              v-if="
-                $route.query.previewMode ||
-                  hasPermission(`form:${tableName}:view`)
-              "
-              type="text"
-              icon="el-icon-printer"
-              size="mini"
-              @click="dayin(scope.row.id)"
-            >
-              打印
-            </el-button>
-            <el-button
               v-for="(item, index) in options.config.actions.filter(action => {
                 return (
                   action.position.indexOf('2') > -1 &&
@@ -580,6 +571,18 @@ export default {
     }
   },
   methods: {
+    getWidth (v) {
+      switch (v) {
+        case 'QS':
+          return 150
+        case 'TXDZ':
+          return 400
+        case 'SFZH':
+          return 300
+        default:
+          return 100
+      }
+    },
     generateModel (genList) {
       for (let i = 0; i < genList.length; i++) {
         if (genList[i].type === 'grid') {

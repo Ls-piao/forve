@@ -164,7 +164,11 @@
         :prop="option.model"
         show-overflow-tooltip
         :sortable="option.isSort?'custom':false"
-        :label="option.name">
+         
+        :label="option.name"
+           header-align="center"
+          align="center"
+:min-width="getWidth(option.model)">
         <template  slot-scope="scope">
          <div v-if="option.type === 'html'"  v-html="scope.row[`${option.model}`]"></div>
          <div v-else-if="option.type === 'color'"><el-color-picker disabled v-model="scope.row[`${option.model}`]"></el-color-picker></div>
@@ -342,6 +346,18 @@
        }
      },
      methods: {
+       getWidth (v) {
+         switch (v) {
+           case 'QS':
+             return 150
+           case 'TXDZ':
+             return 400
+           case 'SFZH':
+             return 300
+           default:
+             return 100
+         }
+       },
        generateModel (genList) {
          for (let i = 0; i < genList.length; i++) {
            if (genList[i].type === 'grid') {
